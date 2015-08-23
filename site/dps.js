@@ -1,3 +1,7 @@
+$('.carousel').carousel({
+  interval: false
+});
+
 function showSubNav (id) {
   subnavs = document.getElementById('subnav').children;
   

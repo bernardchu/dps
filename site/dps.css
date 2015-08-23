@@ -45,7 +45,7 @@ h1, h2
 
 h3
 {
-  font-size: 16px;
+  /*font-size: 16px;*/
 }
 
 .nav
@@ -196,7 +196,7 @@ ul
 
 li
 {
-  padding: 12px 0px;
+  /*padding: 12px 0px;*/
   border-top: 1px dotted #00009C;
 }
 
@@ -507,4 +507,22 @@ input[type="submit"]
 
 .italic {
   font-style: italic;
+}
+
+/*Carousel styles*/
+div.carousel-inner > div.item > img {
+  width: 100%;
+}
+
+div.carousel-inner > div.item > div.carousel-caption {
+  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  right: 0;
+  left: 0;
+  padding: 20px 60px 60px;
+  bottom: 0;
+}
+
+div.carousel-inner > div.item > div.carousel-caption p {
+  text-align: left;  
 }
