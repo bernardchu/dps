@@ -13,22 +13,8 @@ body
 
 .header
 {
-  height: 71px;
   margin: 16px 0px 16px 0px;
-}
-
-.header_logo
-{
-  float: left;
-  background: url("images/logo_header.jpg") no-repeat;
-  height: 71px;
-  width: 50px;
-  margin-right: 24px;
-}
-
-a
-{
-  color: #FF9912;
+  display: inline-block;
 }
 
 h1
@@ -46,50 +32,6 @@ h1, h2
 h3
 {
   /*font-size: 16px;*/
-}
-
-.nav
-{
-  width: 100%;
-  #margin-bottom: 24px;
-}
-
-.nav  table
-{
-  width: 100%;
-}
-
-.nav td
-{
-  background-color: #00009C;
-  text-align: center;
-  width: 16%;
-  font-size: 18px;
-  padding: 8px;
-  color: white;
-}
-
-.nav td a
-{
-  font-weight: medium;
-  color: white;
-  text-decoration: none;
-}
-
-.nav .selected
-{
-  font-weight: bold;
-  background-color: #63B8FF;
-}
-
-.hidden
-{
-  display: none;
-}
-
-.nav > div
-{
-  height: 20px;
 }
 
 .subnav_link
@@ -508,6 +450,12 @@ input[type="submit"]
 .italic {
   font-style: italic;
 }
+
+/*Navbar*/
+.dps-navbar {
+  margin-bottom: 20px;
+}
+
 
 /*Carousel styles*/
 div.carousel-inner > div.item > img {
