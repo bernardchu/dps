@@ -1,0 +1,20 @@
+{
+  "name": "DPS Rescue Website V2",
+  "version": "2.0.0",
+  "homepage": "https://github.com/roastonbone/dps",
+  "authors": [
+    "Bernard Chu <bernard.chu@yahoo.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
