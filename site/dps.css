@@ -17,11 +17,18 @@ body
   display: inline-block;
 }
 
+.header > a > img {
+  width: 12%;
+}
+
+.header > div {
+  width: 88%;
+}
+
 h1
 {
   font-family: 'Volkhov', serif;
   font-size: 36px;
-  line-height: 90px;
 }
 
 h1, h2
@@ -140,12 +147,6 @@ li
 {
   /*padding: 12px 0px;*/
   border-top: 1px dotted #00009C;
-}
-
-li:first-child
-{
-  padding-top: 0px;
-  border-top: none;
 }
 
 .subhead
