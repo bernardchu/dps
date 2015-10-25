@@ -286,4 +286,7 @@ function removeError(obj, siblings)
   
   if (siblings) {
     for (var i = 0; i < siblings.length; i++) {
-  
+      removeError(siblings[i]);
+    }
+  }
+}
