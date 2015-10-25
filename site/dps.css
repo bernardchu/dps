@@ -523,3 +523,7 @@ ul.slick-dots {
 ul.slick-dots li button:before {
   font-size: 12px;
 }
+
+.slick-slide {
+    outline: none
+}
