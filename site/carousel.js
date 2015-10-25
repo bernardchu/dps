@@ -1,5 +1,5 @@
 $( document ).ready( function() {
-  $.get( 'http://dpsrescue.com/api/featured.php' )
+  $.get( './api/featured.php' )
     .then( function( response ) {
       var nodes = response.map( function ( feature ) {
         return createFeatureNode( feature );
