@@ -39,5 +39,9 @@ function createFeatureNode ( feature ) {
     link.find( 'a' ).attr( 'href', feature.href );
   }
 
+  if ( feature.paypal ) {
+    $( feature.paypal ).appendTo( node );
+  }
+
   return node;
 }
