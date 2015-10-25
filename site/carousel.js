@@ -1,5 +1,5 @@
 $( document ).ready( function() {
-  $.get( 'http://dpsrescue.com/api/featured.php' )
+  $.get( './api/featured.php' )
     .then( function( response ) {
       var nodes = response.map( function ( feature ) {
         return createFeatureNode( feature );
@@ -11,8 +11,7 @@ $( document ).ready( function() {
         dots: true,
         infinite: true,
         speed: 300,
-        slidesToShow: 1,
-        // adaptiveHeight: true
+        slidesToShow: 1
       } );
     } );
 } );
@@ -34,9 +33,14 @@ function createFeatureNode ( feature ) {
     } )
   }
 
-  if ( feature.hrefText ) {
-    var link = $( '<p>' + feature.hrefText + '</p>' );
+  if ( feature.href_text ) {
+    var link = $( '<a>' + feature.href_text + '</p>' );
     link.find( 'a' ).attr( 'href', feature.href );
+    link.appendTo( node );
+  }
+
+  if ( feature.paypal ) {
+    $( feature.paypal ).appendTo( node );
   }
 
   return node;
