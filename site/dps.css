@@ -232,8 +232,8 @@ td hr
 {
   padding: 20px;
   margin-bottom: 20px;
-  /*max-height: 475px;*/
-  max-height: 680px;
+  max-height: 475px;
+  /*max-height: 680px;*/
   overflow: hidden;
   border: 2px solid #FFFFFF;
 }
@@ -506,4 +506,20 @@ input[type="submit"]
 
 .italic {
   font-style: italic;
+}
+
+button.slick-prev:before, button.slick-next:before {
+  color: #00009C;
+}
+
+ul.slick-dots li {
+  border-top: none;
+}
+
+ul.slick-dots {
+  bottom: -20px;
+}
+
+ul.slick-dots li button:before {
+  font-size: 12px;
 }
