@@ -34,8 +34,8 @@ function createFeatureNode ( feature ) {
   }
 
   if ( feature.href_text ) {
-    var link = $( '<a>' + feature.href_text + '</p>' );
-    link.find( 'a' ).attr( 'href', feature.href );
+    var link = $( '<a>' + feature.href_text + '</a>' );
+    link.attr( 'href', feature.href );
     link.appendTo( node );
   }
 
