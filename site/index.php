@@ -26,7 +26,7 @@ function renderNews() {
   $markup = <<<MARKUP
     <div class="news">
       <div class="header">
-        <img src="./images/recent_news_header.png" width="370" height="74">
+        <img src="./images/recent_news_header.png" width="386" height="77">
       </div>
       <div class="body">
       </div>
@@ -34,11 +34,21 @@ function renderNews() {
 
 MARKUP;
 
-
   echo $markup;
 }
 
 function renderEvents() {
+  $markup = <<<MARKUP
+    <div class="events">
+      <div class="header">
+        <img src="./images/upcoming_events_header.png" width="440" height="76">
+      </div>
+      <div class="dates">
+      </div>
+    </div>
+MARKUP;
+
+  echo $markup;
 }
 
 ?>

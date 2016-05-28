@@ -67,4 +67,24 @@ body
 
 .events {
     height: 450px;
+    display: flex;
+    justify-content: center;
+}
+
+.events .header {
+    margin-top: 40px;
+}
+
+.footer {
+    height: 100px;
+    text-align: center;
+    border-top: 3px solid black;
+    font-size: 14px;
+}
+
+.footer .social_icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
 }
