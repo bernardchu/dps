@@ -25,6 +25,7 @@ MARKUP;
 function renderNews() {
   $markup = <<<MARKUP
     <div class="news">
+      <img class="faq-button" src="./images/faq_button.png" width="168" height="158">
       <div class="header">
         <img src="./images/recent_news_header.png" width="386" height="77">
       </div>
