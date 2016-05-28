@@ -51,6 +51,13 @@ body
 
 .news {
     height: 536px;
+    position: relative;
+}
+
+.news .faq-button {
+    position: absolute;
+    top: -4em;
+    right: 0;
 }
 
 .news .header {
