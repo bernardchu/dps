@@ -17,8 +17,10 @@ $( document ).ready( function() {
 } );
 
 function createFeatureNode ( feature ) {
-  var node = $( '<div></div>' );
-  $( '<h2>' + feature.title + '</h2>' ).appendTo( node );
+  var node = $( '<div class="featured-current"></div>' );
+  
+  var featuredBodyNode = $( '<div class="featured-body"></div>');
+  $( '<h2>' + feature.title + '</h2>' ).appendTo( featuredBodyNode );
   
   if ( feature.imgurl ) {
     var image = $( '<div class="featured_img"><a><img></a></div>' );
@@ -29,19 +31,21 @@ function createFeatureNode ( feature ) {
 
   if ( feature.description ) {
     feature.description.forEach( function ( paragraph ) {
-      $( '<p>' + paragraph + '</p>' ).appendTo( node );  
+      $( '<p>' + paragraph + '</p>' ).appendTo( featuredBodyNode );  
     } )
   }
 
   if ( feature.href_text ) {
-    var link = $( '<a>' + feature.href_text + '</p>' );
-    link.find( 'a' ).attr( 'href', feature.href );
-    link.appendTo( node );
+    var link = $( '<a href="">' + feature.href_text + '</a>' );
+    link.attr( 'href', feature.href );
+    link.appendTo( featuredBodyNode );
   }
 
   if ( feature.paypal ) {
-    $( feature.paypal ).appendTo( node );
+    $( feature.paypal ).appendTo( featuredBodyNode );
   }
+
+  featuredBodyNode.appendTo( node );
 
   return node;
 }

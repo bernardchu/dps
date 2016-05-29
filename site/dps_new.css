@@ -68,8 +68,8 @@ body
 }
 
 .news .body {
-    height: 386px;
     background-color: rgb(246, 244, 224);
+    padding: 1em 3em;
 }
 
 .events {
@@ -95,3 +95,47 @@ body
     justify-content: center;
     padding-top: 8px;
 }
+
+/* Featured carousel styling */
+
+.featured_img {
+  padding: 20px;
+  margin-bottom: 20px;
+  max-height: 475px;
+  overflow: hidden;
+}
+
+.featured .featured-current {
+  display: flex;
+}
+
+.featured-body {
+  flex: 1;
+  font-size: larger;
+  line-height: 32px;
+}
+
+.featured-body h2 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.featured-body a {
+  color: rgb(32, 51, 9);
+}
+
+/*Get rid of annoying border that appears when navigating carousel*/
+.slick-slide:focus { 
+  outline: none; 
+}
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: rgb(32, 51, 9);
+}
+
+
+/*End Featured carousel styling*/

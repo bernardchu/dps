@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css" />
+
 <?php
 
 define("BASE_PATH", './');
@@ -30,6 +33,7 @@ function renderNews() {
         <img src="./images/recent_news_header.png" width="386" height="77">
       </div>
       <div class="body">
+        <div class="featured"></div>
       </div>
    </div>
 
@@ -53,3 +57,6 @@ MARKUP;
 }
 
 ?>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+<script type="text/javascript" src="./carousel.js"></script>
