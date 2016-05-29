@@ -50,7 +50,6 @@ body
 }
 
 .news {
-    height: 536px;
     position: relative;
 }
 
@@ -107,6 +106,7 @@ body
 
 .featured .featured-current {
   display: flex;
+  height: inherit;
 }
 
 .featured-body {
