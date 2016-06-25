@@ -1,10 +1,11 @@
 $( document ).ready( function() {
+  // Featured carousel
   $.get( './api/featured.php' )
     .then( function( response ) {
-      var nodes = response.map( function ( feature ) {
+      var featuredNodes = response.map( function ( feature ) {
         return createFeatureNode( feature );
       } );
-      nodes.forEach( function ( node ) {
+      featuredNodes.forEach( function ( node ) {
         $( '.featured' ).append( node );
       } );
       $( '.featured' ).slick( {
@@ -12,6 +13,27 @@ $( document ).ready( function() {
         infinite: true,
         speed: 300,
         slidesToShow: 1
+      } );
+    } );
+
+  // Adoptable dogs carousel
+  $.get( './api/dog_photos.php' )
+    .then( function( response ) {
+      var adoptableNodes = response.map( function ( feature ) {
+        return createAdoptableNode( feature );
+      } );
+      adoptableNodes.forEach( function ( node ) {
+        $( '.adoptable' ).append( node );
+      } );
+      $( '.adoptable' ).slick( {
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        lazyLoad: 'ondemand',
+        // centerMode: true,
+        // centerPadding: '60px',
+        adaptiveHeight: true
       } );
     } );
 } );
@@ -47,5 +69,13 @@ function createFeatureNode ( feature ) {
 
   featuredBodyNode.appendTo( node );
 
+  return node;
+}
+
+function createAdoptableNode (adoptable) {
+  var node = $( '<div class="adoptable-current"></div>' );
+  var image = '<a href="' + adoptable.url + '"><img data-lazy="' + adoptable.imgurl + '" title="' + adoptable.name + '" alt="' + adoptable.name + '" /></a>';
+  var imageNode = $( image );
+  node.append( imageNode );
   return node;
 }

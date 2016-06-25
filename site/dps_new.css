@@ -95,7 +95,9 @@ body
     padding-top: 8px;
 }
 
-/* Featured carousel styling */
+/**** Carousel styling ****/
+
+/* Featured carousel */
 
 .featured_img {
   padding: 20px;
@@ -124,7 +126,31 @@ body
   color: rgb(32, 51, 9);
 }
 
-/*Get rid of annoying border that appears when navigating carousel*/
+/* End Featured carousel styling */
+
+/* Adoptable carousel styling */
+
+.adoptable .slick-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adoptable .slick-slide > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -6em;
+}
+
+.adoptable .slick-slide > a > img {
+  max-height: 350px;
+  max-width: 90%;
+}
+
+/* End adoptable carousel styling */
+
+/* Get rid of annoying border that appears when navigating carousel */
 .slick-slide:focus { 
   outline: none; 
 }
@@ -138,4 +164,4 @@ body
 }
 
 
-/*End Featured carousel styling*/
+/**** End Carousel Styling ****/

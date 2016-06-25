@@ -19,6 +19,7 @@ function renderHero() {
   $markup = <<<MARKUP
     <div class='hero'>
       <div class='header'><b>rescue</b> the mistreated | <b>save</b> the injured | <b>love</b> the abandoned</div>
+      <div class="adoptable"></div>
     </div>
 MARKUP;
 
