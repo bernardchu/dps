@@ -74,8 +74,20 @@ function createFeatureNode ( feature ) {
 
 function createAdoptableNode (adoptable) {
   var node = $( '<div class="adoptable-current"></div>' );
-  var image = '<a href="' + adoptable.url + '"><img data-lazy="' + adoptable.imgurl + '" title="' + adoptable.name + '" alt="' + adoptable.name + '" /></a>';
+  var image = '<a href="' + adoptable.url + '">'
+               +'<img data-lazy="' + adoptable.imgurl + '" title="' + adoptable.name + '" alt="' + adoptable.name + '" />'
+             +'</a>';
   var imageNode = $( image );
+  var overlayNode = $( '<div class="adoptable-info-overlay"></div>' );
+  var infoNode = $(
+                   '<div class="adoptable-info">'
+                     +'<h3>' + adoptable.name + '</h3>'
+                     +'<h4>' + adoptable.gender + ' ' + adoptable.breed + '</h4>'
+                     +'<h4>' + adoptable.age + '</h4>'
+                   +'</div>'
+                    );
   node.append( imageNode );
+  imageNode.append( overlayNode );
+  overlayNode.append( infoNode );
   return node;
 }

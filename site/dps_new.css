@@ -141,11 +141,34 @@ body
   align-items: center;
   justify-content: center;
   margin-top: -6em;
+  position: relative;
 }
 
 .adoptable .slick-slide > a > img {
   max-height: 350px;
   max-width: 90%;
+}
+
+.adoptable .slick-slide > a > div.adoptable-info-overlay {
+  position: absolute;
+  height: 0;
+  width: 90%;
+  left: 5%;
+  bottom: 0;
+  background: white;
+  opacity: 0.6;
+  overflow: hidden;
+  text-align: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.adoptable .slick-slide > a:hover > div.adoptable-info-overlay {
+  height: 100%;
+}
+
+.adoptable .slick-slide > a:hover > div.adoptable-info-overlay .adoptable-info {
+  padding: 1em;
 }
 
 /* End adoptable carousel styling */
