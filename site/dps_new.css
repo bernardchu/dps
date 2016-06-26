@@ -74,7 +74,9 @@ body
 .events {
     height: 450px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .events .header {
@@ -93,6 +95,32 @@ body
     align-items: center;
     justify-content: center;
     padding-top: 8px;
+}
+
+/**** Upcoming Events styling ****/
+div.dates {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background: rgb(225, 227, 222);
+  padding: 1em;
+}
+
+.dates span.event {
+  text-align: center;
+}
+
+.dates div.event-date {
+  font-size: 64px;
+  margin-bottom: 5px;
+}
+
+.dates div.event-day {
+  font-size: 38px;
+}
+
+.dates div.event-time {
+  font-size: 24px;
 }
 
 /**** Carousel styling ****/
