@@ -1,3 +1,12 @@
+/**
+ * Carousel functionality
+ * The basic idea for each carousel call an API that returns
+ * an array of elements to be transformed into carousel slides,
+ * create a series of DOM nodes from those elements and append
+ * them to a container element, then slick the container to 
+ * kickstart the carousel.
+ */
+
 $( document ).ready( function() {
   // Featured carousel
   $.get( './api/featured.php' )
@@ -31,13 +40,12 @@ $( document ).ready( function() {
         speed: 300,
         slidesToShow: 3,
         lazyLoad: 'ondemand',
-        // centerMode: true,
-        // centerPadding: '60px',
         adaptiveHeight: true
       } );
     } );
 } );
 
+// Create nodes for the featured dogs carousel from each feature
 function createFeatureNode ( feature ) {
   var node = $( '<div class="featured-current"></div>' );
   
@@ -72,6 +80,7 @@ function createFeatureNode ( feature ) {
   return node;
 }
 
+// Create nodes for the adoptable carousel from each adoptable animal.
 function createAdoptableNode (adoptable) {
   var node = $( '<div class="adoptable-current"></div>' );
   var image = '<a href="' + adoptable.url + '">'
