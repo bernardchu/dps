@@ -7,9 +7,14 @@
  * kickstart the carousel.
  */
 
+var apis = {
+  featured: 'http://dpsrescue.org/api/featured.php',
+  adoptable: 'http://dpsrescue.org/api/dog_photos.php'
+}
+
 $( document ).ready( function() {
   // Featured carousel
-  $.get( './api/featured.php' )
+  $.get( apis.featured )
     .then( function( response ) {
       var featuredNodes = response.map( function ( feature ) {
         return createFeatureNode( feature );
@@ -26,7 +31,7 @@ $( document ).ready( function() {
     } );
 
   // Adoptable dogs carousel
-  $.get( './api/dog_photos.php' )
+  $.get( apis.adoptable )
     .then( function( response ) {
       var adoptableNodes = response.map( function ( feature ) {
         return createAdoptableNode( feature );
