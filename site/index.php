@@ -51,6 +51,10 @@ function renderEvents() {
       </div>
       <div class="dates">
       </div>
+      <div class="adoption-location-container">
+        <div class="adoption-location">@PALO ALTO PET FOOD EXPRESS</div>
+        <div class="adoption-details">Please check each dog's bio for the location of his or her adoption event. Applicants who have already gone through our application and approval process will be given first priority. <a href="">Apply here</a></div>
+      </div>
     </div>
 MARKUP;
 

@@ -72,7 +72,7 @@ body
 }
 
 .events {
-    height: 450px;
+    height: 460px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -111,16 +111,31 @@ div.dates {
 }
 
 .dates div.event-date {
-  font-size: 64px;
+  font-size: 48px;
   margin-bottom: 5px;
 }
 
 .dates div.event-day {
-  font-size: 38px;
+  font-size: 26px;
 }
 
 .dates div.event-time {
-  font-size: 24px;
+  font-size: 18px;
+}
+
+div.adoption-location-container {
+  text-align: center;
+  padding: 1em 2em;
+}
+
+div.adoption-location {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+div.adoption-details {
+  font-size: 26px;
+  line-height: 36px;
 }
 
 /**** Carousel styling ****/
