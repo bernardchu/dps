@@ -8,27 +8,27 @@
  */
 
 var apis = {
-  featured: 'http://dpsrescue.org/api/featured.php',
+  // featured: 'http://dpsrescue.org/api/featured.php',
   adoptable: 'http://dpsrescue.org/api/dog_photos.php'
 }
 
 $( document ).ready( function() {
   // Featured carousel
-  $.get( apis.featured )
-    .then( function( response ) {
-      var featuredNodes = response.map( function ( feature ) {
-        return createFeatureNode( feature );
-      } );
-      featuredNodes.forEach( function ( node ) {
-        $( '.featured' ).append( node );
-      } );
-      $( '.featured' ).slick( {
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1
-      } );
-    } );
+  // $.get( apis.featured )
+  //   .then( function( response ) {
+  //     var featuredNodes = response.map( function ( feature ) {
+  //       return createFeatureNode( feature );
+  //     } );
+  //     featuredNodes.forEach( function ( node ) {
+  //       $( '.featured' ).append( node );
+  //     } );
+  //     $( '.featured' ).slick( {
+  //       dots: true,
+  //       infinite: true,
+  //       speed: 300,
+  //       slidesToShow: 1
+  //     } );
+  //   } );
 
   // Adoptable dogs carousel
   $.get( apis.adoptable )

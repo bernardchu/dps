@@ -58,21 +58,21 @@ body
     text-align: center;
 }
 
+.main {
+  display: flex;
+}
+
 .news {
     position: relative;
+    width: 55%;
 }
 
-.news .faq-button {
-    position: absolute;
-    top: -4em;
-    right: 0;
-}
 
 .news .header {
-    height: 150px;
+    /*height: 150px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;*/
 }
 
 .news .body {
@@ -81,11 +81,18 @@ body
 }
 
 .events {
+    width: 45%;
     height: 460px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+.events .faq-button {
+    position: absolute;
+    top: -4em;
+    right: 0;
 }
 
 .events .header {
@@ -130,16 +137,6 @@ div.dates {
 
 .dates div.event-time {
   font-size: 18px;
-}
-
-div.adoption-location-container {
-  text-align: center;
-  padding: 1em 2em;
-}
-
-div.adoption-location {
-  font-size: 36px;
-  margin-bottom: 8px;
 }
 
 div.adoption-details {
