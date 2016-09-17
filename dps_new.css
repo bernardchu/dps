@@ -13,16 +13,25 @@ body
 .masthead
 {
     display: flex;
-    justify-content: space-between;
-    padding: 40px;
 }
 
 .masthead .logo {
-    font-weight: bold;
-    font-size: 20px;
+    width: 30%;
 }
 
-.masthead .primary_link{
+.masthead .logo img {
+    width: 100%;
+}
+
+.masthead .nav {
+  width: 70%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}
+
+.masthead .primary-link{
     text-decoration: none;
     color: black;
     font-weight: lighter;
@@ -32,8 +41,8 @@ body
     font-size: 14px;
 }
 
-.masthead .primary_link.selected,
-.masthead .primary_link:hover {
+.masthead .primary-link.selected,
+.masthead .primary-link:hover {
     border: 1px solid;
 }
 
@@ -90,7 +99,7 @@ body
     font-size: 14px;
 }
 
-.footer .social_icons {
+.footer .social-icons {
     display: flex;
     align-items: center;
     justify-content: center;
