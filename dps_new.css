@@ -3,6 +3,7 @@ body
   width: 1080px;
   font-family: 'Lato',arial,sans-serif;
   margin: 0px auto;
+  line-height: 1.5rem;
 } 
 
 .clickable
@@ -86,13 +87,13 @@ body
   width: 100%;
 }
 
+.main-panel .body {
+    padding: 1em 0;
+}
+
 .news {
   width: 55%;
   border-right: 2px solid rgb(32,51,9);
-}
-
-.news .body {
-    padding: 1em 0;
 }
 
 .events {
@@ -124,7 +125,6 @@ div.dates {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  background: rgb(225, 227, 222);
   padding: 1em;
 }
 
@@ -143,11 +143,6 @@ div.dates {
 
 .dates div.event-time {
   font-size: 18px;
-}
-
-div.adoption-details {
-  font-size: 26px;
-  line-height: 36px;
 }
 
 .featured {
