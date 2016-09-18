@@ -112,6 +112,7 @@ body
     text-align: center;
     border-top: 3px solid black;
     font-size: 14px;
+    color: #C0C0C0
 }
 
 .footer .social-icons {
@@ -192,10 +193,6 @@ body
 .featured-body h2 {
   font-size: x-large;
   margin: 0;
-}
-
-.featured-body a {
-  color: rgb(32, 51, 9);
 }
 
 /**** Carousel styling ****/
