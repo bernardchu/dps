@@ -103,6 +103,8 @@ body
 
 .hero .faq-button {
   position: absolute;
+  bottom: -10rem;
+  right: 8rem;
 }
 
 .footer {
