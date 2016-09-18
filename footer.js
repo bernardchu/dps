@@ -11,7 +11,7 @@ $( document ).ready( function() {
           '<img src="./images/instagram_icon.png" width="56" height="63">' +
         '</a>' +
       '</div>' +
-      'Copyright 2016 Doggie Protective Services' +
+        'Copyright 2016 Doggie Protective Services | PO Box 1508 • Romoland, CA 92585' +
     '</div>';
   $( 'body' ).append( footer );
 } );
