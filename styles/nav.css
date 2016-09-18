@@ -23,6 +23,7 @@
 }
 
 .masthead .nav li ul.subnav {
+  display: none;
   position: absolute;
   background-color: rgb( 232, 232, 232 );
   z-index: 1;
@@ -31,12 +32,12 @@
   top: 4.5rem;
   box-shadow: 2px 2px 4px 0px black;
   opacity: 0;
-  transition: opacity .25s ease-in-out;
+  /*transition: opacity .25s ease-in-out;
    -moz-transition: opacity .25s ease-in-out;
-   -webkit-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;*/
 }
 
-.masthead .nav li:hover ul.subnav {
+.masthead .nav > li:hover ul.subnav {
   display: block;
   opacity: 0.95;
 }

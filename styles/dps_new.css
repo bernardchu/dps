@@ -1,7 +1,6 @@
 body {
-  width: 1080px;
   font-family: 'Lato',arial,sans-serif;
-  margin: 0px auto;
+  margin: 0px 5rem;
   line-height: 1.5rem;
 }
 
@@ -11,4 +10,8 @@ body {
 
 .main {
   display: flex;
+}
+
+.bold {
+  font-weight: bold;
 }
