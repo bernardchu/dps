@@ -84,8 +84,9 @@ $( 'document' ).ready( function () {
 
 function Nav (states) {
   this.states = states;
-  this.mastheadNode = $( '<a class="masthead" href="' + window.location.origin + '"></a>' );
+  this.mastheadNode = $( '<div class="masthead"></div>' );
   this.logoNode = $( '<a href="" class="logo"><img src="' + window.location.origin + '/images/logo.png" alt="DPS Logo" /></a>' );
+  this.logoNode.attr( 'href', window.location.origin );
   this.mastheadNode.append( this.logoNode );
   this.navNode = $( '<span class="nav"></span>' );
   this.mastheadNode.append( this.navNode );
