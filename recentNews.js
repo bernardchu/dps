@@ -3,7 +3,7 @@
  * the Featured API.
  */
 
-var featuredUri = 'http://dpsrescue.org/api/featured.php';
+var featuredUri = 'http://api.dpsrescue.com/api/featured.php';
 
 $( document ).ready( function() {
   $.get( featuredUri )
@@ -12,7 +12,7 @@ $( document ).ready( function() {
         return createFeatureNode( feature );
       } );
       featuredNodes.forEach( function ( node ) {
-        $( '.featured' ).append( node );
+        $( '.features' ).append( node );
       } );
     } );
 
