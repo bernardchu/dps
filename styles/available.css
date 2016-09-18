@@ -51,3 +51,63 @@
   text-transform: uppercase;
   font-size: initial;
 }
+
+
+.filter {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter button{
+  background-color: rgb(32,51,9);
+  text-transform: uppercase;
+  color: white;
+  padding: 0.6rem;
+}
+
+.filter .active {
+  font-weight: bold;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.list .available {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  width: 15%;
+  margin: 1rem;
+  background: #eee;
+  text-decoration: none;
+  color: initial;
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+
+.list .available:hover {
+  box-shadow: 1px 1px 2px 1px #888
+}
+
+.list .available .img-container {
+  max-height: 10rem;
+  overflow: hidden;
+}
+
+.list .available .img-container img {
+  width: 100%;
+}
+
+.list .available .name {
+  font-weight: bold;
+}
+
+.list .available .age, .list .available .breed {
+  line-height: initial;
+  font-size: small;
+}
