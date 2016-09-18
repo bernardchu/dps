@@ -54,6 +54,10 @@
   text-decoration: underline;
 }
 
+.masthead .nav li ul.subnav li a.active {
+  color: rgb( 92, 122, 197 );
+}
+
 .masthead .primary-link{
   text-decoration: none;
   display: inline-block;
