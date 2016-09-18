@@ -121,28 +121,53 @@ body
 }
 
 /**** Upcoming Events styling ****/
-div.dates {
+.dates {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   width: 100%;
   padding: 1em;
 }
 
-.dates span.event {
-  text-align: center;
+.dates .event {
+  display: flex;
+  margin-bottom: 1rem;
 }
 
-.dates div.event-date {
-  font-size: 48px;
-  margin-bottom: 5px;
+.dates .event .event-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
 }
 
-.dates div.event-day {
-  font-size: 26px;
+.dates .event .event-date .event-day-of-month {
+  font-size: 3rem;
+  line-height: 3rem;
 }
 
-.dates div.event-time {
-  font-size: 18px;
+.dates .event .event-date .event-month {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+.dates .event .event-details {
+  width: 70%;
+}
+
+.dates .event .event-details .event-day-of-week {
+  text-transform: uppercase;
+}
+
+.dates .event .event-details a {
+  text-decoration: none;
+  color: initial;
+  font-weight: bold;
+}
+
+.dates .event .event-details a:hover {
+  text-decoration: underline;
 }
 
 .featured {

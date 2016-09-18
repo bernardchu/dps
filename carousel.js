@@ -7,7 +7,7 @@
  * kickstart the carousel.
  */
 
-var adoptableUri = 'http://dpsrescue.org/api/dog_photos.php';
+var adoptableUri = 'http://api.dpsrescue.com/api/dog_photos.php';
 
 
 $( document ).ready( function() {
