@@ -1,0 +1,14 @@
+body {
+  width: 1080px;
+  font-family: 'Lato',arial,sans-serif;
+  margin: 0px auto;
+  line-height: 1.5rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+}

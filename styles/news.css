@@ -1,0 +1,27 @@
+.news {
+  width: 55%;
+  border-right: 2px solid rgb(32,51,9);
+}
+
+.featured {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.featured_img {
+  width: 40%;
+}
+
+.featured_img img {
+  width: 100%;
+}
+
+.featured-body {
+  width: 60%;
+  padding-left: 1rem;
+}
+
+.featured-body h2 {
+  font-size: x-large;
+  margin: 0;
+}

@@ -1,0 +1,71 @@
+.masthead {
+    display: flex;
+}
+
+.masthead .logo {
+    width: 30%;
+}
+
+.masthead .logo img {
+    width: 100%;
+}
+
+.masthead .nav {
+  width: 70%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}
+
+.masthead .nav ul, .masthead .nav li {
+  list-style-type: none;
+}
+
+.masthead .nav li ul.subnav {
+  position: absolute;
+  background-color: rgb( 232, 232, 232 );
+  z-index: 1;
+  padding: 0 0.5rem;
+  border-radius: 7px;
+  top: 4.5rem;
+  box-shadow: 2px 2px 4px 0px black;
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+.masthead .nav li:hover ul.subnav {
+  display: block;
+  opacity: 0.95;
+}
+
+.masthead .nav li ul.subnav li {
+  margin: 0.5rem 0;
+}
+
+.masthead .nav li ul.subnav li a {
+  text-decoration: none;
+  color: rgb( 62, 62, 62 );
+}
+
+.masthead .nav li ul.subnav li a:hover {
+  text-decoration: underline;
+}
+
+.masthead .primary-link{
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+  font-weight: lighter;
+  padding: 4px 8px;
+  border: 1px solid white;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.masthead .primary-link.active,
+.masthead .primary-link:hover {
+    border: 1px solid;
+}

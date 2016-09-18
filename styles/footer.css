@@ -1,0 +1,14 @@
+.footer {
+    height: 100px;
+    text-align: center;
+    border-top: 3px solid black;
+    font-size: 14px;
+    color: #C0C0C0
+}
+
+.footer .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+}
