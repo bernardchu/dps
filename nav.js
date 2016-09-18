@@ -78,27 +78,27 @@ var states = [
 ];
 
 $( 'document' ).ready( function () {
-  var nav = new NavBuilder( states );  
+  var nav = new Nav( states );
   $( 'body' ).prepend( nav.buildNav() );
 } )
 
-function NavBuilder (states) {
+function Nav (states) {
   this.states = states;
-  this.mastheadNode = $( '<div class="masthead"></div>' );
+  this.mastheadNode = $( '<a class="masthead" href="' + window.location.host + '"></a>' );
   this.logoNode = $( '<a href="" class="logo"><img src="./images/logo.png" alt="DPS Logo" /></a>' );
   this.mastheadNode.append( this.logoNode );
   this.navNode = $( '<span class="nav"></span>' );
   this.mastheadNode.append( this.navNode );
 }
 
-NavBuilder.prototype.getRoute = function ( state ) {
+Nav.prototype.getRoute = function ( state ) {
   if (!state.children.length) {
     return state.route;
   }
   return state.route + state.children[0].route;
 }
 
-NavBuilder.prototype.buildNav = function () {
+Nav.prototype.buildNav = function () {
   var _this = this;
   this.states.forEach( function buildTopNav ( state ) {
     var stateNode = $( '<li><a class="primary-link" href="' + _this.getRoute( state ) + '">' + state.name + '</a></li>' );
