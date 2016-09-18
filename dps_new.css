@@ -32,6 +32,40 @@ body
   padding-bottom: 1rem;
 }
 
+.masthead .nav ul, .masthead .nav li {
+  list-style-type: none;
+}
+
+.masthead .nav li ul.subnav {
+  display: none;
+  position: absolute;
+  background-color: rgb( 232, 232, 232 );
+  z-index: 1;
+  padding: 0 0.5rem;
+  border-radius: 7px;
+  top: 4.5rem;
+  box-shadow: 2px 2px 4px 0px black;
+  opacity: 0.95;
+}
+
+.masthead .nav li:hover ul.subnav {
+  display: block;
+}
+
+.masthead .nav li ul.subnav li {
+  margin: 0.5rem 0;
+}
+
+.masthead .nav li ul.subnav li a {
+  text-decoration: none;
+  color: rgb( 62, 62, 62 );
+}
+
+.masthead .nav li ul.subnav li a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .masthead .primary-link{
     text-decoration: none;
     color: black;
