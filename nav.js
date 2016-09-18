@@ -126,6 +126,7 @@ Nav.prototype.buildTopStateNode = function ( state ) {
 }
 
 Nav.prototype.isStateActive = function ( parent, child ) {
+  if (!this.getStatePaths().length) return false;
   var parentActive = !!(new RegExp( this.getParentPath() )).test( parent.route );
   if (!child) { return parentActive }
   return parentActive && new RegExp( this.getChildPath() ).test( child.route );;
