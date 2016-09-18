@@ -1,10 +1,10 @@
-body 
-{ 
+body
+{
   width: 1080px;
   font-family: 'Lato',arial,sans-serif;
   margin: 0px auto;
   line-height: 1.5rem;
-} 
+}
 
 .clickable
 {
@@ -101,10 +101,8 @@ body
   width: 45%;
 }
 
-.events .faq-button {
+.hero .faq-button {
   position: absolute;
-  top: -8rem;
-  right: 0;
 }
 
 .footer {
@@ -246,8 +244,8 @@ body
 /* End adoptable carousel styling */
 
 /* Get rid of annoying border that appears when navigating carousel */
-.slick-slide:focus { 
-  outline: none; 
+.slick-slide:focus {
+  outline: none;
 }
 
 .slick-prev:hover:before, .slick-next:hover:before {
