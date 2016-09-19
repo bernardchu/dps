@@ -2,6 +2,7 @@
     height: 420px;
     background-color: rgb(32,51,9);
     color: white;
+    position: relative;
 }
 
 .hero .header{
@@ -12,8 +13,8 @@
 
 .hero .faq-button {
   position: absolute;
-  bottom: -10rem;
-  right: 8rem;
+  bottom: -3rem;
+  right: 1rem;
 }
 
 /**** Carousel styling ****/
