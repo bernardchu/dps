@@ -61,7 +61,7 @@
   align-items: center;
 }
 
-.dogs-cats button{
+button{
   background-color: rgb(32,51,9);
   text-transform: uppercase;
   color: white;

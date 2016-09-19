@@ -5,7 +5,7 @@ var available = new Available();
 function Available () {
   this.facets = {};
   this.dogs = [];
-  this.query = {};
+  this.animal = 'Dog';
 }
 
 Available.prototype.getFacets = function () {
@@ -29,6 +29,7 @@ Available.prototype.createAnimalNode = function ( dog ) {
 }
 
 Available.prototype.populateDogs = function ( targetNode ) {
+  targetNode.html( '' );
   this.dogs.forEach( function ( dog ) {
     targetNode.append( available.createAnimalNode( dog ) );
   } )
@@ -72,14 +73,44 @@ Available.prototype.addRadio = function ( targetNode, value, label ) {
   targetNode.append( '<label><input type="radio" value="' + value + '" name="' + label + '"/> ' + value + '</label>' );
 }
 
+Available.prototype.filter = function () {
+  var query = $( 'form' ).serialize();
+  if (query) {
+    query += '&type=' + this.animal;
+  }
+  // $.get( availableUri, query )
+  //   .then( function ( response ) {
+  //     available.dogs = response.dogs.animals;
+  //     // available.facets = response.dogs.facets;
+  //     available.populateDogs( $( 'div.list' ) );
+  //     // available.populateFilters( $( '.filter .filters' ) );
+  //   } );
+  this.query( query );
+  return false;
+}
+
+Available.prototype.query = function ( query ) {
+  $.get( availableUri, query )
+    .then( function ( response ) {
+      available.dogs = response.dogs.animals;
+      available.populateDogs( $( 'div.list' ) );
+      if (!query) {
+        available.facets = response.dogs.facets;
+        available.populateFilters( $( '.filter .filters' ) );
+      }
+    } );
+}
+
 $( document ).ready( function() {
   $( '.dogs-cats button' ).click( available.toggleFilterPane );
   $( '.close-filter' ).click( available.toggleFilterPane );
-  $.get( availableUri )
-    .then( function ( response ) {
-      available.dogs = response.dogs.animals;
-      available.facets = response.dogs.facets;
-      available.populateDogs( $( 'div.list' ) );
-      available.populateFilters( $( '.filter .filters' ) );
-    } );
+  $( 'form' ).submit( available.filter.bind( available ) );
+  // $.get( availableUri )
+  //   .then( function ( response ) {
+  //     available.dogs = response.dogs.animals;
+  //     available.facets = response.dogs.facets;
+  //     available.populateDogs( $( 'div.list' ) );
+  //     available.populateFilters( $( '.filter .filters' ) );
+  //   } );
+  available.query();
 } );
