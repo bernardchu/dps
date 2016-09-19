@@ -20,7 +20,7 @@ Available.prototype.getFacetValues = function ( facet ) {
 Available.prototype.createAnimalNode = function ( dog ) {
   return '<a href="../pet-detail?id=' + dog.id + '" class="available">'
           +'<div class="img-container">'
-            +'<img src="' + dog.pictures[0].thumb + '">'
+            +'<img src="' + dog.pictures[0].img + '">'
           +'</div>'
           +'<div class="name">' + dog.name + '</div>'
           +'<div class="breed">' + dog.breed + '</div>'
