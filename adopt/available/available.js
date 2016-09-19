@@ -78,13 +78,6 @@ Available.prototype.filter = function () {
   if (query) {
     query += '&type=' + this.animal;
   }
-  // $.get( availableUri, query )
-  //   .then( function ( response ) {
-  //     available.dogs = response.dogs.animals;
-  //     // available.facets = response.dogs.facets;
-  //     available.populateDogs( $( 'div.list' ) );
-  //     // available.populateFilters( $( '.filter .filters' ) );
-  //   } );
   this.query( query );
   return false;
 }
@@ -105,12 +98,5 @@ $( document ).ready( function() {
   $( '.dogs-cats button' ).click( available.toggleFilterPane );
   $( '.close-filter' ).click( available.toggleFilterPane );
   $( 'form' ).submit( available.filter.bind( available ) );
-  // $.get( availableUri )
-  //   .then( function ( response ) {
-  //     available.dogs = response.dogs.animals;
-  //     available.facets = response.dogs.facets;
-  //     available.populateDogs( $( 'div.list' ) );
-  //     available.populateFilters( $( '.filter .filters' ) );
-  //   } );
   available.query();
 } );
