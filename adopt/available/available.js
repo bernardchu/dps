@@ -52,7 +52,7 @@ Available.prototype.populateFilters = function ( targetNode ) {
 
 Available.prototype.createFilterNode = function ( label, facet ) {
   var _this = this;
-  var node = $( '<div class="facet">' + this.facetToLabel( label ) + '</div>' );
+  var node = $( '<div class="facet"><h4 class="facet-heading">' + this.facetToLabel( label ) + '</h6></div>' );
   Object.keys( facet ).forEach( function ( value ) {
     _this.addRadio( node, value, label );
   } )
@@ -69,7 +69,7 @@ Available.prototype.labelToFacet = function ( label ) {
 }
 
 Available.prototype.addRadio = function ( targetNode, value, label ) {
-  targetNode.append( '<label for="' + label + '">' + value + '</label><input type="radio" value="' + value + '" name="' + label + '"/>' );
+  targetNode.append( '<label><input type="radio" value="' + value + '" name="' + label + '"/> ' + value + '</label>' );
 }
 
 $( document ).ready( function() {

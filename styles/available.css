@@ -151,6 +151,19 @@
   color: white;
 }
 
+.filter .filters {
+  padding: 0 1rem 1rem;
+}
+
 .filter .facet {
   text-transform: capitalize;
+}
+
+.filter .facet .facet-heading {
+  margin-bottom: 0.5rem;
+}
+
+.filter .facet label {
+  display: block;
+  margin-left: 1rem;
 }
