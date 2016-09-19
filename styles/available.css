@@ -53,7 +53,7 @@
 }
 
 
-.filter {
+.dogs-cats {
   margin-top: 1rem;
   font-size: 1.5rem;
   display: flex;
@@ -61,14 +61,14 @@
   align-items: center;
 }
 
-.filter button{
+.dogs-cats button{
   background-color: rgb(32,51,9);
   text-transform: uppercase;
   color: white;
   padding: 0.6rem;
 }
 
-.filter .active {
+.dogs-cats .active {
   font-weight: bold;
 }
 
@@ -87,11 +87,11 @@
   text-decoration: none;
   color: initial;
   padding: 1rem;
-  border: 1px solid #eee;
+  border: 2px solid #eee;
 }
 
 .list .available:hover {
-  box-shadow: 1px 1px 2px 1px #888
+  border: 2px solid green;
 }
 
 .list .available .img-container {
@@ -110,4 +110,43 @@
 .list .available .age, .list .available .breed {
   line-height: initial;
   font-size: small;
+}
+
+.filter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background: white;
+  border-right: 1px solid #ccc;
+  box-shadow: 1px 0px 3px #ccc;
+  overflow-x: hidden;
+  transition: width .25s ease-in-out;
+  -moz-transition: width .25s ease-in-out;
+  -webkit-transition: width .25s ease-in-out;
+}
+
+.filter.hidden {
+  width: 0;
+  transition: width .25s ease-in-out;
+  -moz-transition: width .25s ease-in-out;
+  -webkit-transition: width .25s ease-in-out;
+}
+
+.filter .header {
+  text-align: center;
+  background-color: rgb(32,51,9);;
+  padding: 1rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.filter .close-filter {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: white;
 }

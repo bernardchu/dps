@@ -33,7 +33,19 @@ Available.prototype.populateDogs = function ( node ) {
   } )
 }
 
+Available.prototype.toggleFilterPane = function () {
+  var filterNode = $( '.filter' );
+  if ( filterNode.hasClass( 'hidden' ) ) {
+    filterNode.removeClass( 'hidden' );
+  } else {
+    filterNode.addClass( 'hidden' );
+  }
+  
+}
+
 $( document ).ready( function() {
+  $( '.dogs-cats button' ).click( available.toggleFilterPane );
+  $( '.close-filter' ).click( available.toggleFilterPane );
   $.get( availableUri )
     .then( function ( response ) {
       available.dogs = response.dogs.animals;
