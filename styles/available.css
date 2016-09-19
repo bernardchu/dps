@@ -61,7 +61,7 @@
   align-items: center;
 }
 
-.dogs-cats button{
+button{
   background-color: rgb(32,51,9);
   text-transform: uppercase;
   color: white;
@@ -151,6 +151,19 @@
   color: white;
 }
 
+.filter .filters {
+  padding: 0 1rem 1rem;
+}
+
 .filter .facet {
   text-transform: capitalize;
+}
+
+.filter .facet .facet-heading {
+  margin-bottom: 0.5rem;
+}
+
+.filter .facet label {
+  display: block;
+  margin-left: 1rem;
 }
