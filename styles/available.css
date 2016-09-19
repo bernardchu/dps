@@ -150,3 +150,7 @@
   text-decoration: none;
   color: white;
 }
+
+.filter .facet {
+  text-transform: capitalize;
+}
