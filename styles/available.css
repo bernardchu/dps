@@ -60,10 +60,6 @@
   align-items: center;
 }
 
-.dogs-cats .spacer {
-  margin: 0 0.5rem;
-}
-
 button {
   background-color: rgb(32,51,9);
   text-transform: uppercase;
