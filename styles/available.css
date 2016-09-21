@@ -57,11 +57,14 @@
   margin-top: 1rem;
   font-size: 1.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-button{
+.dogs-cats .spacer {
+  margin: 0 0.5rem;
+}
+
+button {
   background-color: rgb(32,51,9);
   text-transform: uppercase;
   color: white;
@@ -84,8 +87,6 @@ button{
   width: 15%;
   margin: 1rem;
   background: #eee;
-  text-decoration: none;
-  color: initial;
   padding: 1rem;
   border: 2px solid #eee;
 }
@@ -147,7 +148,6 @@ button{
   top: 5px;
   right: 5px;
   font-size: 2rem;
-  text-decoration: none;
   color: white;
 }
 

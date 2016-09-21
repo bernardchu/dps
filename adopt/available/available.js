@@ -5,7 +5,8 @@ var available = new Available();
 function Available () {
   this.facets = {};
   this.dogs = [];
-  this.animal = 'Dog';
+  this.cats = [];
+  this.animal = 'dogs';
 }
 
 Available.prototype.getFacets = function () {
@@ -18,7 +19,7 @@ Available.prototype.getFacetValues = function ( facet ) {
 }
 
 Available.prototype.createAnimalNode = function ( dog ) {
-  return '<a href="../pet-detail?id=' + dog.id + '" class="available">'
+  return '<a href="../pet-detail?id=' + dog.id + '" class="available nonstandard-link">'
           +'<div class="img-container">'
             +'<img src="' + dog.pictures[0].img + '">'
           +'</div>'
@@ -28,10 +29,10 @@ Available.prototype.createAnimalNode = function ( dog ) {
         +'</a>'
 }
 
-Available.prototype.populateDogs = function ( targetNode ) {
+Available.prototype.populateAnimal = function ( animal, targetNode ) {
   targetNode.html( '' );
-  this.dogs.forEach( function ( dog ) {
-    targetNode.append( available.createAnimalNode( dog ) );
+  this[ animal ].forEach( function ( animal ) {
+    targetNode.append( available.createAnimalNode( animal ) );
   } )
 }
 
@@ -73,6 +74,7 @@ Available.prototype.addRadio = function ( targetNode, value, label ) {
   targetNode.append( '<label><input type="radio" value="' + value + '" name="' + label + '"/> ' + value + '</label>' );
 }
 
+// currently doesn't work right; will need some refactoring to handle cats and dogs
 Available.prototype.filter = function () {
   var query = $( 'form' ).serialize();
   if (query) {
@@ -83,20 +85,34 @@ Available.prototype.filter = function () {
 }
 
 Available.prototype.query = function ( query ) {
-  $.get( availableUri, query )
+  
+}
+
+Available.prototype.initialize = function () {
+  return $.get( availableUri )
     .then( function ( response ) {
       available.dogs = response.dogs.animals;
-      available.populateDogs( $( 'div.list' ) );
-      if (!query) {
-        available.facets = response.dogs.facets;
-        available.populateFilters( $( '.filter .filters' ) );
-      }
+      available.cats = response.cats.animals;
+      available.populateAnimal( 'dogs', $( 'div.list' ) );
+
+      available.facets = response.dogs.facets;
+      available.populateFilters( $( '.filter .filters' ) );
     } );
+}
+
+Available.prototype.switchTo = function ( animal ) {
+  if (this.animal === animal) { return }
+  this.populateAnimal( animal, $( 'div.list' ) );
+  this.animal = animal;
+  $( '.available-dogs' ).toggleClass( 'active' );
+  $( '.available-cats' ).toggleClass( 'active' );
 }
 
 $( document ).ready( function() {
   $( '.dogs-cats button' ).click( available.toggleFilterPane );
   $( '.close-filter' ).click( available.toggleFilterPane );
+  $( '.available-dogs' ).click( available.switchTo.bind( available, 'dogs' ) );
+  $( '.available-cats' ).click( available.switchTo.bind( available, 'cats' ) );
   $( 'form' ).submit( available.filter.bind( available ) );
-  available.query();
+  available.initialize();
 } );
