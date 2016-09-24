@@ -1,0 +1,32 @@
+.banner {
+  background-color: rgb(32,51,9);
+  text-align: center;
+  color: white;
+  padding: 0.5rem;
+}
+
+.banner h1 {
+  font-weight: normal;
+}
+
+.subheading {
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.subheading:before, .subheading:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  border-bottom: 2px solid black;
+}
+
+.subheading:before {
+  margin: 0.1em .5em 0 0;
+  width: 7%;
+}
+
+.subheading:after {
+  margin: 0.1em -55% 0 .5em;
+  width: 100%;
+}
