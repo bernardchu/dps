@@ -54,3 +54,54 @@
 .info-circle:hover {
   border-color: rgb(109, 147, 193);
 }
+
+.events {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: space-around;
+}
+
+.events .faq {
+  width: 70%;
+  background: rgb(246, 244, 224);
+  height: 100%;
+}
+
+.events .sidebar {
+  font-size: large;
+  padding: 1rem;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(32,51,9, 0.3);
+}
+
+.events .sidebar .header {
+  text-transform: uppercase;
+  font-size: xx-large;
+}
+
+.events .sidebar .subheader {
+  font-size: x-large;
+}
+
+.events .sidebar hr {
+  width: 80%;
+  border: 1px solid black;
+}
+
+.events .sidebar a.nonstandard-link {
+  text-transform: uppercase;
+  border: 1.5px solid gray;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  width: 70%;
+  box-shadow: 1px 1px 1px gray;
+}
+
+.events .sidebar a.nonstandard-link:hover {
+  border-color: rgb(109, 147, 193);
+}
