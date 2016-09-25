@@ -78,14 +78,19 @@
 
 .events .sidebar {
   font-size: large;
-  padding: 1rem;
   width: 25%;
+  padding: 1rem;
+  background-color: rgba(32,51,9, 0.3);
+}
+
+.events .sidebar .container {
+  width: 100%;
+  height: 500px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: rgba(32,51,9, 0.3);
+  justify-content: space-between;;
 }
 
 .events .sidebar .header {
