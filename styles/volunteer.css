@@ -62,9 +62,18 @@
 }
 
 .events .faq {
-  width: 70%;
+  width: 65%;
   background: rgb(246, 244, 224);
-  height: 100%;
+  /*height: 100%;*/
+  padding: 1rem;
+}
+
+.events .faq h3 {
+
+}
+
+.events .faq h3:hover {
+  cursor: pointer;
 }
 
 .events .sidebar {
@@ -82,6 +91,7 @@
 .events .sidebar .header {
   text-transform: uppercase;
   font-size: xx-large;
+  line-height: initial;
 }
 
 .events .sidebar .subheader {
