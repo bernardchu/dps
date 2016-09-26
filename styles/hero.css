@@ -72,7 +72,7 @@
   color: white;
 }
 
-.slick-prev:before, .slick-next:before {
+button.slick-prev:before, button.slick-next:before {
   color: rgb(32, 51, 9);
 }
 
