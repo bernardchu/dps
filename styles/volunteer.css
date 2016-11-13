@@ -75,6 +75,15 @@
 .events .faq h3:hover {
   cursor: pointer;
 }
+/* Smooth out the sliding animation */
+.events .faq .answer > :first-child {
+  margin-top: 0;
+}
+
+/* Smooth out the sliding animation */
+.events .faq .answer > :last-child {
+  margin-bottom: 0;
+}
 
 .events .sidebar {
   font-size: large;
@@ -119,4 +128,14 @@
 
 .events .sidebar a.nonstandard-link:hover {
   border-color: rgb(109, 147, 193);
+}
+
+.question::before {
+  content: '+';
+  width: 1rem;
+  display: inline-block;
+}
+
+.question.open::before {
+  content: '-';
 }
