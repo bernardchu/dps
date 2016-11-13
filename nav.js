@@ -109,7 +109,7 @@ Nav.prototype.buildNav = function () {
 
 Nav.prototype.buildTopStateNode = function ( state ) {
   var _this = this;
-  
+
   var node = $( '<li><a class="primary-link clickable" href="' + _this.getRoute( state ) + '">' + state.name + '</a></li>' );
     if (_this.isStateActive( state )) {
       node.find( 'a' ).addClass( 'active' );
@@ -117,7 +117,7 @@ Nav.prototype.buildTopStateNode = function ( state ) {
     if (state.children.length) {
       var subNavNode = $( '<ul class="subnav"></ul>')
       state.children.forEach( function ( child ) {
-        var childNode = _this.buildChildStateNode( state, child );        
+        var childNode = _this.buildChildStateNode( state, child );
         subNavNode.append( childNode );
       } )
       node.append( subNavNode );
