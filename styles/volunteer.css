@@ -37,7 +37,18 @@
   align-items: center;
 }
 
+.info-details {
+  flex: 40%;
+}
+
 .info-circle {
+  flex: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +62,7 @@
   background: rgb(246, 244, 224);
 }
 
-.info-circle:hover {
+.circle:hover {
   border-color: rgb(109, 147, 193);
 }
 
