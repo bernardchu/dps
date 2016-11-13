@@ -66,6 +66,10 @@
   border-color: rgb(109, 147, 193);
 }
 
+.circle img {
+  height: 2rem;
+}
+
 .events {
   display: flex;
   margin-bottom: 2rem;
@@ -139,6 +143,10 @@
 
 .events .sidebar a.nonstandard-link:hover {
   border-color: rgb(109, 147, 193);
+}
+
+.events .sidebar img {
+  height: 3rem;
 }
 
 .question::before {
