@@ -1,3 +1,5 @@
+$card-box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
+
 .features {
   padding: $padding-large;
 
@@ -9,7 +11,8 @@
 }
 
 .featured {
-  margin-top: $padding-medium;
+  margin-bottom: $padding-medium;
+  padding: $padding-medium;
 
   img {
     max-width: 100%;
@@ -18,8 +21,7 @@
 }
 
 .card {
-  padding: $padding-medium;
-  -webkit-box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
-  -moz-box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
-  box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
+  -webkit-box-shadow: $card-box-shadow;
+  -moz-box-shadow: $card-box-shadow;
+  box-shadow: $card-box-shadow;
 }
