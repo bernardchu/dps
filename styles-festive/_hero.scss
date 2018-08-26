@@ -1,0 +1,11 @@
+@import 'variables';
+
+.hero {
+  .title {
+    background-color: $dps-primary-color;
+
+    h1 {
+      color: white;
+    }
+  }
+}
