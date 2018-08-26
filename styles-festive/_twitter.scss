@@ -1,0 +1,12 @@
+
+@import 'variables';
+
+.twitter-container {
+  background-color: $dps-secondary-color;
+  padding: 10px;  
+}
+
+.twitter-embed {
+  max-height: 600px;
+  overflow: scroll;
+}
