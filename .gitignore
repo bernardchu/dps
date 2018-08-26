@@ -1,6 +1,6 @@
 .DS_Store
 
-./idea/*
+.idea/*
 ./styles-festive/*.css.map
 ./styles-festive/*.css
 
