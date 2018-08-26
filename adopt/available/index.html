@@ -3,14 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>DPS Rescue</title>
+    <title>Available Animals - DPS Rescue</title>
     <meta name="description" content="Dog Rescue in California and Nevada" />
     <meta name="keywords" content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Volkhov" type="text/css" />
-    <link rel="stylesheet" href="../../styles/dps_new.css" type="text/css" />
-    <link rel="stylesheet" href="../../styles/available.css" type="text/css" />
-    <link rel="stylesheet" href="../../styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="../../styles/footer.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov" rel="stylesheet">
+    <link rel="stylesheet" href="./styles-festive/index.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css"/>
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-27448154-1']);
@@ -25,52 +24,13 @@
       })();
     </script>
   </head>
-  <body>
-    <div class="hero">
-      <span class="socal">Live in SoCal or Las Vegas? <a href="">Click here</a></span>
-      <h1 class="header">Ready to <span class="bold">adopt</span>?</h1>
-      <span class="subtext">Become a fur-ever home!</span>
-      <div class="steps">
-        <span class="step">
-          <img src="../../images/bone.png" alt="Bone" />
-          <div class="text">Find an animal you'd like to adopt</div>
-          <div class="link">Below &gt;</div>
-        </span>
-        <span class="step">
-          <img src="../../images/application.png" alt="Application" />
-          <div class="text">Fill out our adoption application</div>
-          <div class="link"><a href="/dogapp" target="_blank">Here &gt;</a></div>
-        </span>
-        <span class="step">
-          <img src="../../images/phone.png" alt="Phone" />
-          <div class="text">We'll contact you with a phone interview if you're a good match</div>
-        </span>
-        <span class="step">
-          <img src="../../images/calendar.png" alt="Calendar" />
-          <div class="text">Come meet our animals at an event</div>
-          <div class="link"><a href="/">Here &gt;</a></div>
-        </span>
-      </div>
+  <body class="container">
+    <div class="row">
+      <div class="adoptable col-md-12"></div>
     </div>
-    <div class="dogs-cats">
-      <span>
-        <a href="javascript:void(0)" class="nonstandard-link available-dogs active">Available Dogs</a>
-        <span> | </span>
-        <a href="javascript:void(0)" class="nonstandard-link available-cats">Available Cats</a>
-      </span>
-      <button type="button" style="display:none">Narrow your search</button>
-    </div>
-    <div class="list"></div>
-    <form class="filter hidden">
-      <a href="javascript:void(0)" class="nonstandard-link close-filter">&times;</a>
-      <div class="header">Narrow your search</div>
-      <div class="filters"></div>
-      <button type="submit">Filter</button>
-    </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
-    <script type="text/javascript" src="../../nav.js"></script>
-    <script type="text/javascript" src="./available.js"></script>
-    <script type="text/javascript" src="../../footer.js"></script>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+    <script type="text/javascript" src="./nav-festive.js"></script>
   </body>
 </html>
