@@ -89,37 +89,37 @@ $( 'document' ).ready( function () {
 
 function Nav (states) {
   this.states = states;
-  this.mastheadNode = $( '<div class="masthead"></div>' );
-  this.heroNode = $( '<div class="row hero"></div>' );
-  this.logoNode = $( '<a href="" class="logo col-md-2"><img src="http://dps-festive.imgix.net/images/dps-logo.png?fm=jpg&w=200&pad=10" alt="DPS Logo" /></a>' );
-  this.logoNode.attr( 'href', window.location.origin );
-  this.titleNode = $( '<div class="col-md-8 title"><h1>Doggie Protective Services</h1></div>' );
-  this.socialNode = $( '<div class="col-md-2 social"></div>' );
-  this.twitterNode = $( '<a href="https://twitter.com/dpsrescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-twitter.png?w=35" alt="@DPSRescue" /></a>');
-  this.facebookNode = $( '<a href="https://www.facebook.com/DPSRescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-facebook.png?w=35&bg=cd486b" alt="DPSRescue" /></a>');
-  this.instagramNode = $( '<a href="https://www.instagram.com/dpsrescue/" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-instagram.png?w=35&bg=cd486b&pad=7" alt="DPSRescue" /></a>');
-  this.paypalNode = $( '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">' +
-'<input type="hidden" name="cmd" value="_donations">' +
-'<input type="hidden" name="business" value="doggieprotectiveservices@earthlink.net">' +
-'<input type="hidden" name="lc" value="US">' +
-'<input type="hidden" name="item_name" value="Doggie Protective Services">' +
-'<input type="hidden" name="no_note" value="0">' +
-'<input type="hidden" name="currency_code" value="USD">' +
-'<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">' +
-'<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">' +
-'<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">' +
-'</form>'
-);
-  this.socialNode.append( this.twitterNode );
-  this.socialNode.append( this.facebookNode );
-  this.socialNode.append( this.instagramNode );
-  this.socialNode.append( this.paypalNode );
-  this.heroNode.append( this.logoNode );
-  this.heroNode.append( this.titleNode );
-  this.heroNode.append( this.socialNode);
-  this.navNode = $( '<nav></nav>' );
-  this.mastheadNode.append( this.heroNode );
-  this.mastheadNode.append( this.navNode );
+  this.mastheadNode = $('<div class="masthead"></div>');
+  this.heroNode = $('<div class="row hero"></div>');
+  this.logoNode = $('<a href="" class="logo col-md-2"><img src="http://dps-festive.imgix.net/images/dps-logo.png?fm=jpg&w=200&pad=10" alt="DPS Logo" /></a>');
+  this.logoNode.attr('href', window.location.origin);
+  this.titleNode = $('<div class="col-md-10 title"><h1>Doggie Protective Services</h1></div>');
+  this.socialNode = $('<div class="social"></div>');
+  this.twitterNode = $('<a href="https://twitter.com/dpsrescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-twitter.png?w=35" alt="@DPSRescue" /></a>');
+  this.facebookNode = $('<a href="https://www.facebook.com/DPSRescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-facebook.png?w=35&bg=cd486b" alt="DPSRescue" /></a>');
+  this.instagramNode = $('<a href="https://www.instagram.com/dpsrescue/" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-instagram.png?w=35&bg=cd486b&pad=7" alt="DPSRescue" /></a>');
+  this.paypalNode = $('<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">' +
+    '<input type="hidden" name="cmd" value="_donations">' +
+    '<input type="hidden" name="business" value="doggieprotectiveservices@earthlink.net">' +
+    '<input type="hidden" name="lc" value="US">' +
+    '<input type="hidden" name="item_name" value="Doggie Protective Services">' +
+    '<input type="hidden" name="no_note" value="0">' +
+    '<input type="hidden" name="currency_code" value="USD">' +
+    '<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">' +
+    '<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">' +
+    '<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">' +
+    '</form>'
+  );
+  this.socialNode.append(this.twitterNode);
+  this.socialNode.append(this.facebookNode);
+  this.socialNode.append(this.instagramNode);
+  this.socialNode.append(this.paypalNode);
+  this.heroNode.append(this.logoNode);
+  this.heroNode.append(this.titleNode);
+  this.titleNode.append(this.socialNode);
+  this.navNode = $('<nav></nav>');
+  this.mastheadNode.append(this.heroNode);
+  this.mastheadNode.append(this.navNode);
 }
 
 Nav.prototype.getRoute = function ( state ) {

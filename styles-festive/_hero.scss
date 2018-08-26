@@ -8,13 +8,27 @@
   }
   .title {
     padding-left: $padding-large;
-    padding-top: $padding-large;
+    padding-top: $padding-large / 2;
     font-family: Volkhov;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
     h1 {
       color: $dps-primary-color;
       text-transform: uppercase;
       font-size: 2.5em;
+    }
+
+    .social {
+      a {
+        margin: $padding-small;
+      }
+
+      form {
+        text-align: center;
+        margin-top: $padding-small;
+      }
     }
   }
 }
