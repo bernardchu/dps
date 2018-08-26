@@ -1,11 +1,17 @@
 @import 'variables';
 
 .hero {
+  .logo {
+    img {
+      max-width: 100%;
+    }
+  }
   .title {
-    background-color: $dps-primary-color;
+    padding-left: $padding-large;
+    font-family: Volkhov;
 
     h1 {
-      color: white;
+      color: $dps-primary-color;
     }
   }
 }

@@ -1,9 +1,12 @@
 /* COLORS */
 /* SPACING */
+.hero .logo img {
+  max-width: 100%; }
 .hero .title {
-  background-color: #203309; }
+  padding-left: 20px;
+  font-family: Volkhov; }
   .hero .title h1 {
-    color: white; }
+    color: #203309; }
 
 /* COLORS */
 /* SPACING */
@@ -35,11 +38,58 @@ nav {
     display: block;
     opacity: 0.95; }
 
-.hero .logo img {
-  max-width: 100%; }
-.hero .title {
-  padding-left: 20px;
-  font-family: Volkhov; }
+/**** Carousel styling ****/
+/* Adoptable carousel styling */
+.adoptable .slick-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .adoptable .slick-slide a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; }
+    .adoptable .slick-slide a > img {
+      max-height: 350px;
+      max-width: 90%; }
+    .adoptable .slick-slide a > div.adoptable-info-overlay {
+      position: absolute;
+      height: 0;
+      width: 90%;
+      left: 5%;
+      bottom: 0;
+      background: white;
+      opacity: 0.6;
+      overflow: hidden;
+      text-align: center;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease; }
+  .adoptable .slick-slide a:hover > div.adoptable-info-overlay {
+    height: 50%; }
+    .adoptable .slick-slide a:hover > div.adoptable-info-overlay .adoptable-info {
+      padding: 1em; }
+
+/* End adoptable carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
+/**** End Carousel Styling ****/
+/* COLORS */
+/* SPACING */
+.twitter-container {
+  background-color: maroon;
+  padding: 10px; }
+
+.twitter-embed {
+  max-height: 600px;
+  overflow: scroll; }
 
 * {
   box-sizing: border-box; }
