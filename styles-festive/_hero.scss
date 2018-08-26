@@ -8,10 +8,13 @@
   }
   .title {
     padding-left: $padding-large;
+    padding-top: $padding-large;
     font-family: Volkhov;
 
     h1 {
       color: $dps-primary-color;
+      text-transform: uppercase;
+      font-size: 2.5em;
     }
   }
 }
