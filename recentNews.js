@@ -33,13 +33,23 @@ function createFeatureNode ( feature ) {
   if ( feature.imgurl ) {
     var image = $( '<span class="featured_img"><a><img></a></div>' );
     image.find( 'img' ).attr( 'src', feature.imgurl );
-    feature.href && image.find( 'a' ).attr( 'href', feature.href );
+    if (feature.href) {
+      image.find( 'a' ).attr( 'href', feature.href );
+
+      if (feature.new_tab) {
+        image.find( 'a' ).attr( 'target', '_blank');
+      }
+    }
     node.append(image);
   }
 
   if ( feature.href_text ) {
     var link = $( '<div><a href="">' + feature.href_text + '</a></div>' );
-    link.attr( 'href', feature.href );
+    link.find( 'a' ).attr( 'href', feature.href );
+
+    if (feature.new_tab) {
+      link.find( 'a' ).attr( 'target', '_blank');
+    }
     node.append(link);
   }
 
