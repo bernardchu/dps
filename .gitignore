@@ -1,8 +1,8 @@
 .DS_Store
 
 .idea/*
-./styles-festive/*.css.map
-./styles-festive/*.css
+styles-festive/*.css.map
+styles-festive/*.css
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
