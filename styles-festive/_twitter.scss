@@ -2,8 +2,9 @@
 @import 'variables';
 
 .twitter-container {
+  margin-top: $padding-large;
   background-color: $dps-secondary-color;
-  padding: 10px;  
+  padding: 10px;
 }
 
 .twitter-embed {

@@ -19,7 +19,7 @@ $( document ).ready( function() {
 
 function createLocationNode(location) {
   var locationNode = $( '<div class="event-location">' +
-      '<h2>' + location.name + '</h2>' +
+      '<h3>' + location.name + '</h3>' +
       '<a href="location.map_url">Location and directions</a>' +
     '</div>' );
   location.events && location.events.forEach( function (event) {

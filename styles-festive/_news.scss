@@ -1,0 +1,25 @@
+.features {
+  padding: $padding-large;
+
+  hr {
+    height: 4px;
+    color: $dps-secondary-color;
+    background-color: $dps-secondary-color;
+  }
+}
+
+.featured {
+  margin-top: $padding-medium;
+
+  img {
+    max-width: 100%;
+    margin: $padding-small 0;
+  }
+}
+
+.card {
+  padding: $padding-medium;
+  -webkit-box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
+  -moz-box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
+  box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
+}

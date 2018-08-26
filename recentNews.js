@@ -20,9 +20,9 @@ $( document ).ready( function() {
 } );
 
 function createFeatureNode ( feature ) {
-  var node = $( '<div class="col-md-12 featured"></div>' );
+  var node = $( '<div class="col-md-12 featured card"></div>' );
 
-  node.append($( '<h2>' + feature.title + '</h2>' ));
+  node.append($( '<h2>' + feature.title + '</h2><hr>' ));
 
   if ( feature.description ) {
     feature.description.forEach( function ( paragraph ) {
