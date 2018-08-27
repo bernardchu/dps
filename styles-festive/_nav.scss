@@ -13,6 +13,11 @@ nav {
     margin: 0 $padding-small;
     border-top: $border-thickness solid $text-color;
     border-bottom: $border-thickness solid $text-color;
+
+    &.active {
+      border-width: $border-thickness * 2;
+      font-weight: bold;
+    }
   }
 
   a {
