@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>DPS Rescue</title>
+  <meta name="description" content="Dog Rescue in California and Nevada"/>
+  <meta name="keywords"
+        content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov"
+        rel="stylesheet">
+  <link rel="stylesheet" href="pet-detail/styles/index.css" type="text/css"/>
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css"/>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-27448154-1']);
+    _gaq.push(['_setDomainName', 'dpsrescue.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body class="container">
+<div class="row main">
+</div>
+
+<script id="entry" type="text/x-handlebars-template">
+  <div class="col-md-8">
+    <h2>{{name}}</h2>
+    <p class="breed">{{breed}}</p>
+    <p class="stats">{{age}} - {{coat_length}} coat - {{gender}}</p>
+    {{#if declawed}}<p class="properties">Declawed</p>{{/if}}
+    {{#if dogs}}<p class="properties">Good with dogs</p>{{/if}}
+    {{#if cats}}<p class="properties">Good with cats</p>{{/if}}
+    {{#if kids}}<p class="properties">Good with kids</p>{{/if}}
+    {{#if housetrained}}<p class="properties">Housetrained</p>{{/if}}
+    {{#each bio}}
+    <p class="bio">{{{this}}}</p>
+    {{/each}}
+  </div>
+  <div class="col-md-4">
+    <h2>Meet this dog!</h2>
+    {{#if upcoming}}
+    <p class="upcoming">{{upcoming}}</p>
+    {{else}}
+    <p class="upcoming">
+      {{name}} will not be at any scheduled events until we find a home that's interested. Please fill out an application if you think that's you!
+    </p>
+    {{/if}}
+    {{#each boilerplate}}
+    <p class="boilerplate">{{this}}</p>
+    {{/each}}
+  </div>
+</script>
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script type="text/javascript" src="../../helpers.js"></script>
+<script type="text/javascript" src="../../nav.js"></script>
+<script type="text/javascript" src="pet-detail/pet-detail.js"></script>
+<script type="text/javascript" src="../../footer.js"></script>
+
+</body>
+</html>
