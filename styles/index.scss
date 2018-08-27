@@ -19,3 +19,11 @@ body {
 a {
   color: $dps-secondary-color;
 }
+
+img{
+  border: 3px solid white;
+}
+
+img:hover {
+  border: 3px solid $dps-secondary-color;
+}
