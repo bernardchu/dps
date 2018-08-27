@@ -1,8 +1,8 @@
 .DS_Store
 
 .idea/*
-styles/*.css.map
-styles/*.css
+**/styles/*.css.map
+**/styles/*.css
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

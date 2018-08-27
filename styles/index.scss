@@ -1,29 +1,5 @@
-@import 'hero';
-@import 'nav';
 @import 'carousel';
 @import 'twitter';
 @import 'events';
 @import 'news';
-@import 'footer';
-
-// Bootstrap grid requires this
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Roboto, sans-serif;
-  color: $text-color;
-}
-
-a {
-  color: $dps-secondary-color;
-}
-
-img{
-  border: 3px solid white;
-}
-
-img:hover {
-  border: 3px solid $dps-secondary-color;
-}
+@import 'common';

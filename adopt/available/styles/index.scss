@@ -1,0 +1,21 @@
+@import '../../../styles/variables';
+@import '../../../styles/common';
+
+.available {
+  padding: $padding-medium;
+  height: 280px;
+
+  img {
+    max-width: 100%;
+  }
+
+  .name {
+    margin-top: $padding-small;
+    font-weight: bold;
+  }
+
+  .age, .breed {
+    color: $text-faint;
+    font-size: 0.8em;
+  }
+}

@@ -1,0 +1,26 @@
+@import 'footer';
+@import 'hero';
+@import 'nav';
+@import 'variables';
+
+// Bootstrap grid requires this
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  color: $text-color;
+}
+
+a {
+  color: $dps-secondary-color;
+}
+
+img {
+  border: 3px solid white;
+}
+
+img:hover {
+  border: 3px solid $dps-secondary-color;
+}
