@@ -14,7 +14,8 @@ var adoptableUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?vi
 $( document ).ready( function() {
   $.get( adoptableUri )
     .then( function( response ) {
-      var adoptableNodes = response.dogs.map( function ( feature ) {
+      var dogs = _.shuffle(response.dogs);
+      var adoptableNodes = dogs.map( function ( feature ) {
         return createAdoptableNode( feature );
       } );
       adoptableNodes.forEach( function ( node ) {
