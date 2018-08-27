@@ -2,7 +2,6 @@
 
 .idea/*
 **/styles/*.css.map
-**/styles/*.css
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
