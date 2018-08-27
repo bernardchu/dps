@@ -7,8 +7,8 @@
  * kickstart the carousel.
  */
 
-var adoptableUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?view=compact';
-// var adoptableUri = 'http://api.dpsrescue.com/api/dog_photos.php';
+//var adoptableUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?view=compact';
+var adoptableUri = 'http://api.dpsrescue.com/api/available.php?view=compact';
 
 
 $( document ).ready( function() {

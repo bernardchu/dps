@@ -1,5 +1,5 @@
-var availableUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?view=compact';
-// var availableUri = 'http://api.dpsrescue.com/api/available.php';
+//var availableUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?view=compact';
+ var availableUri = 'http://api.dpsrescue.com/api/available.php?view=compact';
 
 var available = new Available();
 

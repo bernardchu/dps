@@ -1,6 +1,6 @@
 $( document ).ready( function() {
-  var eventsApi = 'http://roastonbone.com/dps-test/dps-api/api/dates.php';
-  // var eventsApi = 'http://api.dpsrescue.com/api/dates.php';
+	//var eventsApi = 'http://roastonbone.com/dps-test/dps-api/api/dates.php';
+  var eventsApi = 'http://api.dpsrescue.com/api/dates.php';
   var noEventsFoundNode = '<h4 class="event">No upcoming events - stay tuned for updates!</h4>';
 
   $.get( eventsApi )
