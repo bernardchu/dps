@@ -10,7 +10,7 @@
         content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov"
         rel="stylesheet">
-  <link rel="stylesheet" href="pet-detail/styles/index.css" type="text/css"/>
+  <link rel="stylesheet" href="./styles/index.css" type="text/css"/>
   <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css"/>
   <script type="text/javascript">
@@ -35,30 +35,33 @@
 </div>
 
 <script id="entry" type="text/x-handlebars-template">
-  <div class="col-md-8">
-    <h2>{{name}}</h2>
-    <p class="breed">{{breed}}</p>
-    <p class="stats">{{age}} - {{coat_length}} coat - {{gender}}</p>
-    {{#if declawed}}<p class="properties">Declawed</p>{{/if}}
-    {{#if dogs}}<p class="properties">Good with dogs</p>{{/if}}
-    {{#if cats}}<p class="properties">Good with cats</p>{{/if}}
-    {{#if kids}}<p class="properties">Good with kids</p>{{/if}}
-    {{#if housetrained}}<p class="properties">Housetrained</p>{{/if}}
-    {{#each bio}}
-    <p class="bio">{{{this}}}</p>
-    {{/each}}
+  <div class="col-md-8 row pet-bio-container">
+    <div class="col-md-12 pet-bio card">
+      <h2>{{name}}</h2>
+      <p class="breed">{{{breed}}}</p>
+      <p class="stats">{{age}} - {{coat_length}} coat - {{gender}}</p>
+      {{#if declawed}}<p class="properties">Declawed</p>{{/if}}
+      {{#if dogs}}<p class="properties">Good with dogs</p>{{/if}}
+      {{#if cats}}<p class="properties">Good with cats</p>{{/if}}
+      {{#if kids}}<p class="properties">Good with kids</p>{{/if}}
+      {{#if housetrained}}<p class="properties">Housetrained</p>{{/if}}
+      {{#each bio}}
+      <p class="bio">{{{this}}}</p>
+      {{/each}}
+    </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4 card meet-this-dog">
     <h2>Meet this dog!</h2>
     {{#if upcoming}}
     <p class="upcoming">{{upcoming}}</p>
     {{else}}
     <p class="upcoming">
-      {{name}} will not be at any scheduled events until we find a home that's interested. Please fill out an application if you think that's you!
+      {{name}} will not be at any scheduled events until we find a home that's
+      interested. Please fill out an application if you think that's you!
     </p>
     {{/if}}
     {{#each boilerplate}}
-    <p class="boilerplate">{{this}}</p>
+    <p class="boilerplate">{{{this}}}</p>
     {{/each}}
   </div>
 </script>
@@ -71,7 +74,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 <script type="text/javascript" src="../../helpers.js"></script>
 <script type="text/javascript" src="../../nav.js"></script>
-<script type="text/javascript" src="pet-detail/pet-detail.js"></script>
+<script type="text/javascript" src="./pet-detail.js"></script>
 <script type="text/javascript" src="../../footer.js"></script>
 
 </body>

@@ -8,23 +8,23 @@ var states = [
     children: [
       {
         name: 'Available Animals',
-        route: '/available'
+        route: '/available/'
       },
       {
         name: 'Application',
-        route: '/application'
+        route: '/application/'
       },
       {
         name: 'Cat Application',
-        route: '/cat-application'
+        route: '/cat-application/'
       },
       {
         name: 'Sticky Dogs',
-        route: '/sticky'
+        route: '/sticky/'
       },
       {
         name: 'Rehome',
-        route: '/rehome'
+        route: '/rehome/'
       },
     ]
   },
@@ -33,7 +33,7 @@ var states = [
     children: [
       {
         name: 'Meet Our Volunteers',
-        route: '/meet-our-volunteers'
+        route: '/meet-our-volunteers/'
       },
     ]
   },
@@ -42,7 +42,7 @@ var states = [
     children: [
       {
         name: 'Meet Our Fosters',
-        route: '/meet-our-fosters'
+        route: '/meet-our-fosters/'
       },
     ]
   },
@@ -51,11 +51,11 @@ var states = [
     children: [
       {
         name: 'Intensive Care',
-        route: '/icu'
+        route: '/icu/'
       },
       {
         name: 'My Mutt Program',
-        route: '/my-mutt'
+        route: '/my-mutt/'
       },
     ]
   },
@@ -72,11 +72,11 @@ var states = [
     children: [
       {
         name: 'Contact',
-        route: '/contact'
+        route: '/contact/'
       },
       {
         name: 'FAQ',
-        route: '/faq'
+        route: '/faq/'
       }
     ]
   }

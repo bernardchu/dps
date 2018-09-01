@@ -1,1 +1,15 @@
 @import '../../../styles/common';
+@import '../../../styles/news';
+
+.meet-this-dog {
+  @include feature();
+  margin-top: $padding-large;
+}
+
+.pet-bio-container {
+  padding: $padding-large $padding-large 0 0;
+
+  .pet-bio {
+    @include feature();
+  }
+}
