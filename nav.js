@@ -73,7 +73,7 @@ var states = [
   },
   {
     name: 'Train',
-    route: '/train'
+    route: '/train/'
   },
   { name: 'About',
     route: '/about',
