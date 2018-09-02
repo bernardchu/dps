@@ -80,7 +80,7 @@ var states = [
     children: [
       {
         name: 'About Us',
-        route: '/'
+        route: '/about-us/'
       },
       {
         name: 'Contact',
