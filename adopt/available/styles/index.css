@@ -89,6 +89,17 @@ img {
     color: maroon;
     background-color: maroon; }
 
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
 .available {
   padding: 18px;
   height: 280px; }

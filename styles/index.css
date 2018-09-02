@@ -32,16 +32,6 @@
     border: none; }
 
 /* End adoptable carousel styling */
-/* Get rid of annoying border that appears when navigating carousel */
-.slick-slide:focus {
-  outline: none; }
-
-.slick-prev:hover:before, .slick-next:hover:before {
-  color: white; }
-
-button.slick-prev:before, button.slick-next:before {
-  color: #203309; }
-
 /**** End Carousel Styling ****/
 /* COLORS */
 /* SPACING */
@@ -153,6 +143,17 @@ img {
     color: maroon;
     background-color: maroon; }
 
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
 .features {
   padding: 32px 32px 32px 0; }
 
@@ -253,5 +254,16 @@ img {
     height: 4px;
     color: maroon;
     background-color: maroon; }
+
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
 
 /*# sourceMappingURL=index.css.map */

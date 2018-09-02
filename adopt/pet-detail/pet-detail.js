@@ -8,10 +8,18 @@ $( document ).ready( function() {
       response.cats = !!parseInt(response.cats);
       response.kids = !!parseInt(response.kids);
       response.declawed = !!parseInt(response.declawed);
+      // Correct the given youtube link so that embed works properly.
+      response.video = response.video.replace("/v/", "/embed/");
       var source   = document.getElementById("entry").innerHTML;
       var template = Handlebars.compile(source);
       var html = template(response);
       $( '.main' ).append(html);
+      $( '.carousel' ).slick( {
+        dots: true,
+        infinite: true,
+        speed: 300,
+        lazyLoad: 'ondemand',
+      } );
     } );
 } );
 

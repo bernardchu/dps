@@ -48,3 +48,18 @@ img {
     background-color: $dps-secondary-color;
   }
 }
+
+/** Common carousel styling */
+
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none;
+}
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white;
+}
+
+button.slick-prev:before, button.slick-next:before {
+  color: rgb(32, 51, 9);
+}

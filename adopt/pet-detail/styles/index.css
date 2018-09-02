@@ -89,6 +89,17 @@ img {
     color: maroon;
     background-color: maroon; }
 
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
 /* COLORS */
 /* SPACING */
 .footer p {
@@ -180,6 +191,17 @@ img {
     color: maroon;
     background-color: maroon; }
 
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
 .features {
   padding: 32px 32px 32px 0; }
 
@@ -206,5 +228,11 @@ img {
     .pet-bio-container .pet-bio img {
       max-width: 100%;
       margin: 6px 0; }
+
+.carousel-container {
+  display: flex;
+  justify-content: center; }
+  .carousel-container .carousel {
+    width: 90%; }
 
 /*# sourceMappingURL=index.css.map */
