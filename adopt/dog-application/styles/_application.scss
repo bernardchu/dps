@@ -1,0 +1,22 @@
+h2 {
+  text-align: center;
+}
+
+.application-buttons {
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    background-color: $dps-primary-color;
+    padding: $padding-medium $padding-large;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.application-steps {
+  li {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
