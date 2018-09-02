@@ -1,0 +1,24 @@
+@import '../../../styles/common';
+
+.sticky-dog {
+  .left {
+    padding-right: $padding-large;
+
+    img {
+      max-width: 100%;
+      margin-bottom: $padding-medium;
+    }
+  }
+
+  .right {
+    .bio {
+      //max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: $padding-medium;
+    }
+  }
+}
+
+.paypal {
+
+}

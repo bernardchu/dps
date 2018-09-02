@@ -37,16 +37,16 @@ img {
   }
 }
 
+hr {
+  height: 4px;
+  color: $dps-secondary-color;
+  background-color: $dps-secondary-color;
+}
+
 .card {
   -webkit-box-shadow: $card-box-shadow;
   -moz-box-shadow: $card-box-shadow;
   box-shadow: $card-box-shadow;
-
-  hr {
-    height: 4px;
-    color: $dps-secondary-color;
-    background-color: $dps-secondary-color;
-  }
 }
 
 /** Common carousel styling */

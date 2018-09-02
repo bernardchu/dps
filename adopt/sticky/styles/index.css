@@ -101,16 +101,13 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
-.available {
-  padding: 18px;
-  height: 280px; }
-  .available img {
-    max-width: 100%; }
-  .available .name {
-    margin-top: 6px;
-    font-weight: bold; }
-  .available .age, .available .breed {
-    color: #888888;
-    font-size: 0.8em; }
+.sticky-dog .left {
+  padding-right: 32px; }
+  .sticky-dog .left img {
+    max-width: 100%;
+    margin-bottom: 18px; }
+.sticky-dog .right .bio {
+  overflow-y: auto;
+  margin-bottom: 18px; }
 
 /*# sourceMappingURL=index.css.map */
