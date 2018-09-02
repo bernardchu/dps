@@ -20,5 +20,13 @@
 
   .carousel {
     width: 90%;
+
+    img {
+      border: none;
+
+      &:hover {
+        border: none;
+      }
+    }
   }
 }

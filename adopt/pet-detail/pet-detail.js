@@ -1,4 +1,4 @@
-var petDetailUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?view=full&id=';
+var petDetailUri = 'http://api.dpsrescue.com/api/available.php?view=full&id=';
 
 $( document ).ready( function() {
   $.get( petDetailUri + getQueryParameterByName('id', window.location.href) )
@@ -37,22 +37,8 @@ $( document ).ready( function() {
     "gender": "Male",
     "video": "",
     "pictures": [
-    {
-      "img": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599706_500x333.jpg",
-      "thumb": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599706_100x66.jpg"
-    },
-    {
-      "img": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599707_500x349.jpg",
-      "thumb": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599707_100x69.jpg"
-    },
-    {
-      "img": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599708_500x333.jpg",
-      "thumb": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599708_100x66.jpg"
-    },
-    {
-      "img": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599709_500x383.jpg",
-      "thumb": "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599709_100x76.jpg"
-    }
+      "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599706_500x333.jpg",
+      "https://s3.amazonaws.com/filestore.rescuegroups.org/2594/pictures/animals/12945/12945055/56599707_500x349.jpg",
   ],
     "coat_length": "Long",
     "upcoming": "",

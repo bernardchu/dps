@@ -234,5 +234,9 @@ button.slick-prev:before, button.slick-next:before {
   justify-content: center; }
   .carousel-container .carousel {
     width: 90%; }
+    .carousel-container .carousel img {
+      border: none; }
+      .carousel-container .carousel img:hover {
+        border: none; }
 
 /*# sourceMappingURL=index.css.map */
