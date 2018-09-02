@@ -116,17 +116,4 @@ button.slick-prev:before, button.slick-next:before {
       color: white;
       text-decoration: none; }
 
-.volunteer-header-images {
-  background-color: #203309;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 18px 0; }
-  .volunteer-header-images img {
-    width: 32%;
-    height: 100%;
-    border: none; }
-    .volunteer-header-images img:hover {
-      border: none; }
-
 /*# sourceMappingURL=index.css.map */

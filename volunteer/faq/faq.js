@@ -5,7 +5,7 @@ var faq = {
       imgUrl: "http://dps-festive.imgix.net/images/volunteer/volunteer-tanner.jpg?h=340&fit=crop&w=340",
       prose: [
         '<p>Thanks for asking! Our organization is powered by volunteers like you! We ask that folks have a heart for dogs and a willingness to work with a group of people. Our volunteer opportunities include assisting at adoptions events, transporting dogs, fundraising, and fostering homeless dogs so we can save more. We say if you love dogs and have a talent then let\'s find a place for you to use it.</p>',
-        '<p class="volunteer-application-link"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdzuj9xzneUvENq6TgFLZxAxVBM1BzZrdU2Jrut6iXRMcTwFg/viewform">Please Fill Out This Application to Get Started!</a></p>'
+        '<p class="application-link"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdzuj9xzneUvENq6TgFLZxAxVBM1BzZrdU2Jrut6iXRMcTwFg/viewform">Please Fill Out This Application to Get Started!</a></p>'
       ]
     },
     {
