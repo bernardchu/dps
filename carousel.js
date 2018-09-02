@@ -35,7 +35,7 @@ $( document ).ready( function() {
 // Create nodes for the adoptable carousel from each adoptable animal.
 function createAdoptableNode (adoptable) {
   var node = $( '<div class="adoptable-current"></div>' );
-  var image = '<a href="adopt/pet-detail?id=' + adoptable.id + '">'
+  var image = '<a href="adopt/pet-detail/?id=' + adoptable.id + '">'
                +'<img data-lazy="' + adoptable.imgurl + '" title="' + adoptable.name + '" alt="' + adoptable.name + '" />'
              +'</a>';
   var imageNode = $( image );
