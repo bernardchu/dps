@@ -35,10 +35,10 @@ var states = [
         name: 'FAQ',
         route: '/faq/'
       },
-      {
-        name: 'Meet Our Volunteers',
-        route: '/meet-our-volunteers/'
-      },
+      // {
+      //   name: 'Meet Our Volunteers',
+      //   route: '/meet-our-volunteers/'
+      // },
     ]
   },
   { name: 'Foster',
@@ -48,15 +48,19 @@ var states = [
         name: 'FAQ',
         route: '/faq/'
       },
-      {
-        name: 'Meet Our Fosters',
-        route: '/meet-our-fosters/'
-      }
+      // {
+      //   name: 'Meet Our Fosters',
+      //   route: '/meet-our-fosters/'
+      // }
     ]
   },
   { name: 'Donate',
     route: '/donate',
     children: [
+      {
+        name: 'Donate',
+        route: '/donate/'
+      },
       {
         name: 'Intensive Care',
         route: '/icu/'
