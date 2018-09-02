@@ -12,7 +12,7 @@ var states = [
       },
       {
         name: 'Application',
-        route: '/application/'
+        route: '/dog-application/'
       },
       {
         name: 'Cat Application',
