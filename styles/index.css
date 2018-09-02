@@ -266,4 +266,7 @@ img {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
+.available-dogs-link {
+  text-align: center; }
+
 /*# sourceMappingURL=index.css.map */
