@@ -101,6 +101,21 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
+.faq .faq-section {
+  margin-bottom: 32px; }
+  .faq .faq-section .image {
+    padding-right: 32px; }
+    .faq .faq-section .image img {
+      width: 100%; }
+  .faq .faq-section .volunteer-application-link {
+    text-align: center;
+    margin-top: 32px; }
+    .faq .faq-section .volunteer-application-link a {
+      background-color: #203309;
+      padding: 18px 32px;
+      color: white;
+      text-decoration: none; }
+
 .volunteer-header-images {
   background-color: #203309;
   display: flex;
@@ -113,18 +128,5 @@ button.slick-prev:before, button.slick-next:before {
     border: none; }
     .volunteer-header-images img:hover {
       border: none; }
-
-.faq .image {
-  padding-right: 32px; }
-  .faq .image img {
-    width: 100%; }
-.faq .volunteer-application-link {
-  text-align: center;
-  margin-top: 32px; }
-  .faq .volunteer-application-link a {
-    background-color: #203309;
-    padding: 18px 32px;
-    color: white;
-    text-decoration: none; }
 
 /*# sourceMappingURL=index.css.map */

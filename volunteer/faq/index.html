@@ -25,26 +25,6 @@
   <div class="faq"></div>
 </div>
 
-<script id="entry" type="text/x-handlebars-template">
-  {{#each sections}}
-  <div class="faq-section row">
-    <h2>{{heading}}</h2>
-    <div class="col-xs-12 row">
-      <div class="col-md-4 hidden-sm hidden-xs image">
-        <img src="{{imgUrl}}" alt="">
-      </div>
-      <div class="col-md-8 col-sm-12">
-        {{#each prose}}
-        {{{this}}}
-        {{/each}}
-      </div>
-    </div>
-  </div>
-  <hr>
-  {{/each}}
-</script>
-
-
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
 <script type="text/javascript"
@@ -54,6 +34,7 @@
 <script type="text/javascript" src="../../helpers.js"></script>
 <script type="text/javascript" src="../../nav.js"></script>
 <script type="text/javascript" src="faq.js"></script>
+<script type="text/javascript" src="../../faq.js"></script>
 <script type="text/javascript" src="../../footer.js"></script>
 
 </body>

@@ -1,4 +1,5 @@
 @import '../../../styles/common';
+@import '../../../styles/faq';
 
 .volunteer-header-images {
   background-color: $dps-primary-color;
@@ -14,25 +15,6 @@
 
     &:hover {
       border: none;
-    }
-  }
-}
-
-.faq {
-  .image {
-    padding-right: $padding-large;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  .volunteer-application-link {
-    text-align: center;
-    margin-top: $padding-large;
-
-    a {
-      @include button();
     }
   }
 }

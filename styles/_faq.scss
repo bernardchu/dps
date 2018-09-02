@@ -1,0 +1,23 @@
+.faq {
+  .faq-section {
+    margin-bottom: $padding-large;
+
+    .image {
+      padding-right: $padding-large;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .volunteer-application-link {
+      text-align: center;
+      margin-top: $padding-large;
+
+      a {
+        @include button();
+      }
+    }
+  }
+
+}
