@@ -7,10 +7,7 @@ h2 {
   justify-content: space-around;
 
   a {
-    background-color: $dps-primary-color;
-    padding: $padding-medium $padding-large;
-    color: white;
-    text-decoration: none;
+    @include button();
   }
 }
 

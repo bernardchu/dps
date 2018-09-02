@@ -32,6 +32,10 @@ var states = [
     route: '/volunteer',
     children: [
       {
+        name: 'FAQ',
+        route: '/faq/'
+      },
+      {
         name: 'Meet Our Volunteers',
         route: '/meet-our-volunteers/'
       },

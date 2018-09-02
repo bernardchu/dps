@@ -38,7 +38,7 @@
 .twitter-container {
   margin-top: 32px;
   margin-bottom: 32px;
-  background-color: maroon;
+  background-color: #800000;
   padding: 10px; }
 
 .twitter-embed {
@@ -58,8 +58,8 @@
   color: #888888; }
 .footer hr {
   height: 8px;
-  color: maroon;
-  background-color: maroon; }
+  color: #800000;
+  background-color: #800000; }
 
 /* COLORS */
 /* SPACING */
@@ -127,17 +127,17 @@ body {
   color: #605E5E; }
 
 a {
-  color: maroon; }
+  color: #800000; }
 
 img {
   border: 3px solid white; }
   img:hover {
-    border: 3px solid maroon; }
+    border: 3px solid #800000; }
 
 hr {
   height: 4px;
-  color: maroon;
-  background-color: maroon; }
+  color: #800000;
+  background-color: #800000; }
 
 .card {
   -webkit-box-shadow: 3px 3px 10px 2px #cfcfcf;
@@ -171,8 +171,8 @@ button.slick-prev:before, button.slick-next:before {
   color: #888888; }
 .footer hr {
   height: 8px;
-  color: maroon;
-  background-color: maroon; }
+  color: #800000;
+  background-color: #800000; }
 
 /* COLORS */
 /* SPACING */
@@ -240,17 +240,17 @@ body {
   color: #605E5E; }
 
 a {
-  color: maroon; }
+  color: #800000; }
 
 img {
   border: 3px solid white; }
   img:hover {
-    border: 3px solid maroon; }
+    border: 3px solid #800000; }
 
 hr {
   height: 4px;
-  color: maroon;
-  background-color: maroon; }
+  color: #800000;
+  background-color: #800000; }
 
 .card {
   -webkit-box-shadow: 3px 3px 10px 2px #cfcfcf;
