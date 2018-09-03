@@ -10,10 +10,7 @@ $( document ).ready( function() {
       response.declawed = !!parseInt(response.declawed);
       // Correct the given youtube link so that embed works properly.
       response.video = response.video.replace("/v/", "/embed/");
-      var source   = document.getElementById("entry").innerHTML;
-      var template = Handlebars.compile(source);
-      var html = template(response);
-      $( '.main' ).append(html);
+      HandlebarsHelpers.compile(response, "entry", ".main");
       $( '.carousel' ).slick( {
         dots: true,
         infinite: true,

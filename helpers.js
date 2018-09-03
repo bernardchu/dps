@@ -7,3 +7,12 @@ function getQueryParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+var HandlebarsHelpers = {
+  compile: function(context, idOfTemplateElement, targetElement) {
+    var source   = document.getElementById(idOfTemplateElement).innerHTML;
+    var template = Handlebars.compile(source);
+    var html = template(context);
+    $( targetElement ).append(html);
+  }
+};
