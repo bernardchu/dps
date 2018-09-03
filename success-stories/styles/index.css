@@ -1,0 +1,104 @@
+/* COLORS */
+/* SPACING */
+.footer p {
+  color: #888888; }
+.footer hr {
+  height: 8px;
+  color: #800000;
+  background-color: #800000; }
+
+/* COLORS */
+/* SPACING */
+.hero .logo img {
+  max-width: 100%;
+  border: none; }
+.hero .title {
+  padding-left: 32px;
+  padding-top: 16px;
+  font-family: Volkhov;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .hero .title h1 {
+    color: #203309;
+    text-transform: uppercase;
+    font-size: 2.5em; }
+  .hero .title .social a {
+    margin: 6px; }
+  .hero .title .social form {
+    text-align: center;
+    margin-top: 6px; }
+
+/* COLORS */
+/* SPACING */
+nav {
+  display: flex;
+  padding: 18px 0; }
+  nav a.nav-link, nav a.nav-link:visited {
+    flex-grow: 1;
+    text-align: center;
+    padding: 6px 0;
+    margin: 0 6px;
+    border-top: 1.5px solid #605E5E;
+    border-bottom: 1.5px solid #605E5E; }
+    nav a.nav-link.active, nav a.nav-link:visited.active {
+      border-width: 3px;
+      font-weight: bold; }
+  nav a {
+    color: #605E5E;
+    text-transform: uppercase;
+    text-decoration: none; }
+  nav ul.subnav {
+    font-weight: initial;
+    list-style-type: none;
+    display: none;
+    position: absolute;
+    background-color: #e8e8e8;
+    z-index: 1;
+    padding: 0 6px;
+    top: 11rem; }
+    nav ul.subnav li {
+      padding: 6px; }
+  nav a:hover ul.subnav {
+    display: block;
+    opacity: 0.95; }
+
+/* COLORS */
+/* SPACING */
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: Roboto, sans-serif;
+  color: #605E5E; }
+
+a {
+  color: #800000; }
+
+img {
+  border: 3px solid white; }
+  img:hover {
+    border: 3px solid #800000; }
+
+hr {
+  height: 4px;
+  color: #800000;
+  background-color: #800000; }
+
+.card {
+  -webkit-box-shadow: 3px 3px 10px 2px #cfcfcf;
+  -moz-box-shadow: 3px 3px 10px 2px #cfcfcf;
+  box-shadow: 3px 3px 10px 2px #cfcfcf; }
+
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
+/*# sourceMappingURL=index.css.map */
