@@ -1,0 +1,29 @@
+@import '../../../styles/common';
+
+.my-mutt {
+  img {
+    width: 100%;
+  }
+
+  .top {
+    margin-bottom: $padding-large;
+
+    .title {
+      @include flex-centered();
+      flex-direction: column;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .bottom {
+    .big {
+      padding-right: $padding-medium;
+    }
+    .small {
+      img {
+        margin-bottom: $padding-medium;
+      }
+    }
+  }
+}
