@@ -204,4 +204,8 @@ button.slick-prev:before, button.slick-next:before {
   color: white;
   margin-top: 0; }
 
+.paypal-container {
+  margin-top: 18px;
+  text-align: center; }
+
 /*# sourceMappingURL=index.css.map */
