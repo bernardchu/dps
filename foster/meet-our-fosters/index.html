@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>DPS Rescue</title>
+  <meta name="description" content="Dog Rescue in California and Nevada"/>
+  <meta name="keywords"
+        content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov"
+        rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.css" type="text/css"/>
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css"/>
+  <script type="text/javascript" src="../../ga.js"></script>
+</head>
+<body class="container">
+<div class="row intro">
+  <div class="col-sm-8 col-xs-12">
+    <h2>Meet Our Fosters</h2>
+    <p>Whether new or old, we are so thankful for our foster families who open
+      their hearts and homes to our dogs. Here are just a few of the incredible
+      people who help our rescue save lives!</p>
+  </div>
+  <div class="col-sm-4 hidden-xs">
+    <img class="no-border"
+         src="http://dps-festive.imgix.net/images/foster/fosters/fosters-header.jpg">
+  </div>
+</div>
+<div class="row spotlight card feature">
+</div>
+<div class="row fosters"></div>
+
+<script id="spotlight" type="text/x-handlebars-template">
+  <div class="col-sm-3 hidden-xs photo">
+    <img src="{{photo}}" alt="{{name}}" title="{{name}}" class="no-border">
+  </div>
+  <div class="col-sm-9 col-xs-12 bio">
+    <h3>Foster Spotlight: {{name}}</h3>
+    <p>{{{bio}}}</p>
+  </div>
+</script>
+
+<script id="fosters" type="text/x-handlebars-template">
+  {{#each this}}
+  <div class="col-md-4 col-sm-6 foster">
+    <div class="col-xs-4 photo">
+      <img src="{{photo}}" alt="{{name}}" title="{{name}}" class="no-border">
+    </div>
+    <div class="col-xs-8 bio">
+      <h3>{{name}}</h3>
+    </div>
+  </div>
+  {{/each}}
+</script>
+
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script type="text/javascript" src="../../helpers.js"></script>
+<script type="text/javascript" src="../../nav.js"></script>
+<script type="text/javascript" src="fosters.js"></script>
+<script type="text/javascript" src="../../footer.js"></script>
+
+</body>
+</html>

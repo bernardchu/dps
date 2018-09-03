@@ -38,6 +38,10 @@ body {
   color: $text-color;
 }
 
+p {
+  line-height: 1.5em;
+}
+
 a {
   color: $dps-secondary-color;
 }
@@ -47,6 +51,14 @@ img {
 
   &:hover {
     border: 3px solid $dps-secondary-color;
+  }
+
+  &.no-border {
+    border: none;
+
+    &:hover {
+      border: none;
+    }
   }
 }
 

@@ -90,6 +90,9 @@ body {
   font-family: Roboto, sans-serif;
   color: #605E5E; }
 
+p {
+  line-height: 1.5em; }
+
 a {
   color: #800000; }
 
@@ -97,6 +100,10 @@ img {
   border: 3px solid white; }
   img:hover {
     border: 3px solid #800000; }
+  img.no-border {
+    border: none; }
+    img.no-border:hover {
+      border: none; }
 
 hr {
   height: 4px;
@@ -214,6 +221,9 @@ body {
   font-family: Roboto, sans-serif;
   color: #605E5E; }
 
+p {
+  line-height: 1.5em; }
+
 a {
   color: #800000; }
 
@@ -221,6 +231,10 @@ img {
   border: 3px solid white; }
   img:hover {
     border: 3px solid #800000; }
+  img.no-border {
+    border: none; }
+    img.no-border:hover {
+      border: none; }
 
 hr {
   height: 4px;

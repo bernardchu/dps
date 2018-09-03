@@ -129,7 +129,28 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
-.group-photo {
-  text-align: center; }
+.intro {
+  margin-bottom: 32px; }
+
+body img {
+  width: 100%; }
+
+.spotlight {
+  margin-bottom: 18px;
+  padding: 18px;
+  margin-bottom: 32px; }
+  .spotlight img {
+    max-width: 100%;
+    margin: 6px 0; }
+  .spotlight .bio {
+    padding-left: 18px; }
+
+.fosters {
+  background-color: #800000;
+  color: white; }
+  .fosters .foster {
+    padding: 18px; }
+    .fosters .foster .bio {
+      padding-left: 18px; }
 
 /*# sourceMappingURL=index.css.map */
