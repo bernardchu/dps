@@ -90,6 +90,9 @@ hr {
   -moz-box-shadow: 3px 3px 10px 2px #cfcfcf;
   box-shadow: 3px 3px 10px 2px #cfcfcf; }
 
+.hand:hover {
+  cursor: pointer; }
+
 /** Common carousel styling */
 /* Get rid of annoying border that appears when navigating carousel */
 .slick-slide:focus {

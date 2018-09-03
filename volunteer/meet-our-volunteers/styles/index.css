@@ -90,6 +90,9 @@ hr {
   -moz-box-shadow: 3px 3px 10px 2px #cfcfcf;
   box-shadow: 3px 3px 10px 2px #cfcfcf; }
 
+.hand:hover {
+  cursor: pointer; }
+
 /** Common carousel styling */
 /* Get rid of annoying border that appears when navigating carousel */
 .slick-slide:focus {
@@ -101,33 +104,129 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
-.primary-volunteer {
+/**************************\
+  Basic Modal Styles (https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699)
+\**************************/
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.modal__container {
+  background-color: #fff;
+  padding: 30px;
+  max-width: 500px;
+  max-height: 80vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box; }
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #203309;
+  box-sizing: border-box; }
+
+.modal__close {
+  background: transparent;
+  border: 0; }
+
+.modal__header .modal__close:before {
+  content: "\2715"; }
+
+.modal__content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8); }
+
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes mmfadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@keyframes mmslideIn {
+  from {
+    transform: translateY(15%); }
+  to {
+    transform: translateY(0); } }
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0); }
+  to {
+    transform: translateY(-10%); } }
+.micromodal-slide {
+  display: none; }
+
+.micromodal-slide.is-open {
+  display: block; }
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform; }
+
+.primary .primary-volunteer {
   background-color: #EEEEEE;
   padding: 18px;
   margin-bottom: 18px; }
-  .primary-volunteer .primary-volunteer-image, .primary-volunteer .secondary-volunteer-image {
+  .primary .primary-volunteer .primary-volunteer-image, .primary .primary-volunteer .secondary-volunteer-image {
     display: flex;
     justify-content: center; }
-    .primary-volunteer .primary-volunteer-image .image-circle-cropper, .primary-volunteer .secondary-volunteer-image .image-circle-cropper {
+    .primary .primary-volunteer .primary-volunteer-image .image-circle-cropper, .primary .primary-volunteer .secondary-volunteer-image .image-circle-cropper {
       width: 150px;
       height: 150px; }
-  .primary-volunteer .primary-volunteer-details {
+  .primary .primary-volunteer .primary-volunteer-details {
     padding: 6px; }
-    .primary-volunteer .primary-volunteer-details .title {
+    .primary .primary-volunteer .primary-volunteer-details .title {
       color: #800000; }
 
-.secondary-volunteer {
-  background-color: #800000;
-  color: white;
-  padding: 18px; }
-  .secondary-volunteer .secondary-volunteer-image, .secondary-volunteer .secondary-volunteer-image {
-    display: flex;
-    justify-content: center; }
-    .secondary-volunteer .secondary-volunteer-image .image-circle-cropper, .secondary-volunteer .secondary-volunteer-image .image-circle-cropper {
-      width: 120px;
-      height: 120px; }
-  .secondary-volunteer .secondary-volunteer-details {
-    padding: 6px; }
+.secondary {
+  background-color: #800000; }
+  .secondary .secondary-volunteer {
+    color: white;
+    padding: 18px; }
+    .secondary .secondary-volunteer .secondary-volunteer-image, .secondary .secondary-volunteer .secondary-volunteer-image {
+      display: flex;
+      justify-content: center; }
+      .secondary .secondary-volunteer .secondary-volunteer-image .image-circle-cropper, .secondary .secondary-volunteer .secondary-volunteer-image .image-circle-cropper {
+        width: 120px;
+        height: 120px; }
+    .secondary .secondary-volunteer .secondary-volunteer-details {
+      padding: 6px; }
 
 .image-circle-cropper {
   position: relative;

@@ -4,9 +4,9 @@ $(document).ready(function () {
   $.get(volunteersUri)
     .then(function (response) {
       HandlebarsHelpers.compile(response, "primary", ".primary");
-      // HandlebarsHelpers.compile(response, "primary-modals", ".primary-modals");
+      HandlebarsHelpers.compile(response, "primary-modals", ".primary-modals");
       HandlebarsHelpers.compile(response, "secondary", ".secondary");
-      // HandlebarsHelpers.compile(response, "secondary-modals", ".secondary-modals");
+      MicroModal.init();
     });
 });
 

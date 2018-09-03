@@ -23,8 +23,8 @@
 
 <script id="primary" type="text/x-handlebars-template">
 {{#each primary}}
-<div class="primary-volunteer col-md-6 col-sm-12 row">
-  <div class="col-md-4 primary-volunteer-image">
+<div class="primary-volunteer col-sm-6 col-xs-12 row hand" data-micromodal-trigger="{{name}}">
+  <div class="col-xs-4 primary-volunteer-image">
     <div class="image-circle-cropper">
       <img src="{{photo}}" alt="{{name}}">
     </div>
@@ -39,8 +39,8 @@
 
 <script id="secondary" type="text/x-handlebars-template">
 {{#each secondary}}
-<div class="secondary-volunteer col-md-4 col-sm-6 row">
-  <div class="col-md-4 secondary-volunteer-image">
+<div class="secondary-volunteer col-sm-4 col-xs-6 row" data-micromodal-trigger="{{name}}">
+  <div class="col-xs-4 secondary-volunteer-image">
     <div class="image-circle-cropper">
       <img src="{{photo}}" alt="{{name}}">
     </div>
@@ -51,6 +51,28 @@
   </div>
 </div>
 {{/each}}
+</script>
+
+<script id="primary-modals" type="text/x-handlebars-template">
+  {{#each primary}}
+  <div class="modal micromodal-slide" id="{{name}}" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div class="modal__container" role="dialog" aria-modal="true"
+           aria-labelledby="modal-1-title">
+        <header class="modal__header">
+          <h2 class="modal__title" id="modal-1-title">
+            {{name}}
+          </h2>
+          <button class="modal__close" aria-label="Close modal"
+                  data-micromodal-close></button>
+        </header>
+        <main class="modal__content" id="modal-1-content">
+          {{{bio}}}
+        </main>
+      </div>
+    </div>
+  </div>
+  {{/each}}
 </script>
 
 <script type="text/javascript"

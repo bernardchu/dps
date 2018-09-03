@@ -56,6 +56,10 @@ hr {
   box-shadow: $card-box-shadow;
 }
 
+.hand:hover {
+cursor: pointer;
+}
+
 /** Common carousel styling */
 
 /* Get rid of annoying border that appears when navigating carousel */
