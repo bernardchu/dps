@@ -1,0 +1,17 @@
+@import '../../../styles/common';
+@import '../../../styles/modal';
+
+.icu {
+  .dog {
+    img {
+      width: 100%;
+    }
+
+    .name {
+      text-align: center;
+      background-color: $dps-secondary-color;
+      color: white;
+      margin-top: 0;
+    }
+  }
+}

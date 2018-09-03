@@ -1,0 +1,207 @@
+/* COLORS */
+/* SPACING */
+.footer p {
+  color: #888888; }
+.footer hr {
+  height: 8px;
+  color: #800000;
+  background-color: #800000; }
+
+/* COLORS */
+/* SPACING */
+.hero .logo img {
+  max-width: 100%;
+  border: none; }
+.hero .title {
+  padding-left: 32px;
+  padding-top: 16px;
+  font-family: Volkhov;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .hero .title h1 {
+    color: #203309;
+    text-transform: uppercase;
+    font-size: 2.5em; }
+  .hero .title .social a {
+    margin: 6px; }
+  .hero .title .social form {
+    text-align: center;
+    margin-top: 6px; }
+
+/* COLORS */
+/* SPACING */
+nav {
+  display: flex;
+  padding: 18px 0; }
+  nav a.nav-link, nav a.nav-link:visited {
+    flex-grow: 1;
+    text-align: center;
+    padding: 6px 0;
+    margin: 0 6px;
+    border-top: 1.5px solid #605E5E;
+    border-bottom: 1.5px solid #605E5E; }
+    nav a.nav-link.active, nav a.nav-link:visited.active {
+      border-width: 3px;
+      font-weight: bold; }
+  nav a {
+    color: #605E5E;
+    text-transform: uppercase;
+    text-decoration: none; }
+  nav ul.subnav {
+    font-weight: initial;
+    list-style-type: none;
+    display: none;
+    position: absolute;
+    background-color: #e8e8e8;
+    z-index: 1;
+    padding: 0 6px;
+    top: 11rem; }
+    nav ul.subnav li {
+      padding: 6px; }
+  nav a:hover ul.subnav {
+    display: block;
+    opacity: 0.95; }
+
+/* COLORS */
+/* SPACING */
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: Roboto, sans-serif;
+  color: #605E5E; }
+
+a {
+  color: #800000; }
+
+img {
+  border: 3px solid white; }
+  img:hover {
+    border: 3px solid #800000; }
+
+hr {
+  height: 4px;
+  color: #800000;
+  background-color: #800000; }
+
+.card {
+  -webkit-box-shadow: 3px 3px 10px 2px #cfcfcf;
+  -moz-box-shadow: 3px 3px 10px 2px #cfcfcf;
+  box-shadow: 3px 3px 10px 2px #cfcfcf; }
+
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
+/**************************\
+  Basic Modal Styles (https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699)
+\**************************/
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.modal__container {
+  background-color: #fff;
+  padding: 30px;
+  max-width: 500px;
+  max-height: 100vh;
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box; }
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #203309;
+  box-sizing: border-box; }
+
+.modal__close {
+  background: transparent;
+  border: 0; }
+
+.modal__header .modal__close:before {
+  content: "\2715"; }
+
+.modal__content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8); }
+
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes mmfadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@keyframes mmslideIn {
+  from {
+    transform: translateY(15%); }
+  to {
+    transform: translateY(0); } }
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0); }
+  to {
+    transform: translateY(-10%); } }
+.micromodal-slide {
+  display: none; }
+
+.micromodal-slide.is-open {
+  display: block; }
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+  animation: mmfadeIn 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+  animation: mmslideIn 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+  animation: mmfadeOut 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+  animation: mmslideOut 0.3s cubic-bezier(0, 0, 0.2, 1); }
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+  will-change: transform; }
+
+.icu .dog img {
+  width: 100%; }
+.icu .dog .name {
+  text-align: center;
+  background-color: #800000;
+  color: white;
+  margin-top: 0; }
+
+/*# sourceMappingURL=index.css.map */
