@@ -30,7 +30,7 @@ Available.prototype.populateAnimal = function ( animal, targetNode ) {
 };
 
 Available.prototype.createAnimalNode = function ( animal ) {
-  return '<span class="available col-md-2 col-sm-4 col-xs-12">'
+  return '<span class="available col-md-2 col-xs-4">'
           +'<a href="../pet-detail/?id=' + animal.id + '" class="img-container">'
             +'<img src="' + animal.imgurl + '">'
           +'</a>'
