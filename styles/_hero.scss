@@ -1,34 +1,62 @@
 @import 'variables';
 
+@mixin flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .hero {
+  @include flex-centered();
+
   .logo {
     img {
       max-width: 100%;
       border: none;
     }
   }
+  
   .title {
-    padding-left: $padding-large;
-    padding-top: $padding-large / 2;
+    @include flex-centered();
     font-family: Volkhov;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 
     h1 {
       color: $dps-primary-color;
       text-transform: uppercase;
+      text-align: center;
       font-size: 2.5em;
     }
 
-    .social {
-      a {
-        margin: $padding-small;
-      }
+  }
 
-      form {
-        text-align: center;
-        margin-top: $padding-small;
+  .social {
+    @include flex-centered();
+    flex-direction: column;
+
+    .small {
+      @include flex-centered();
+    }
+
+    a {
+      margin: $padding-small;
+    }
+
+    form {
+      text-align: center;
+      margin-top: $padding-small;
+    }
+  }
+}
+
+// Tighten up the title at sm and xs
+@media (max-width: 992px) {
+  .hero {
+    .title {
+      display: block;
+
+      h1 {
+        text-align: initial;
+        font-size: 2em;
       }
     }
   }

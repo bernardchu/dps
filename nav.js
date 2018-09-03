@@ -107,13 +107,14 @@ function Nav (states) {
   this.states = states;
   this.mastheadNode = $('<div class="masthead"></div>');
   this.heroNode = $('<div class="row hero"></div>');
-  this.logoNode = $('<a href="" class="logo col-md-2"><img src="http://dps-festive.imgix.net/images/dps-logo.png?fm=jpg&w=200&pad=10" alt="DPS Logo" /></a>');
+  this.logoNode = $('<a href="" class="logo col-md-2 hidden-sm hidden-xs"><img src="http://dps-festive.imgix.net/images/dps-logo.png?fm=jpg&w=200&pad=10" alt="DPS Logo" /></a>');
   this.logoNode.attr('href', window.location.origin);
-  this.titleNode = $('<div class="col-md-10 title"><h1>Doggie Protective Services</h1></div>');
-  this.socialNode = $('<div class="social"></div>');
-  this.twitterNode = $('<a href="https://twitter.com/dpsrescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-twitter.png?w=35" alt="@DPSRescue" /></a>');
-  this.facebookNode = $('<a href="https://www.facebook.com/DPSRescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-facebook.png?w=35&bg=cd486b" alt="DPSRescue" /></a>');
-  this.instagramNode = $('<a href="https://www.instagram.com/dpsrescue/" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-instagram.png?w=35&bg=cd486b&pad=7" alt="DPSRescue" /></a>');
+  this.titleNode = $('<div class="col-md-8 col-sm-9 title"><h1>Doggie Protective Services</h1></div>');
+  this.socialNode = $('<div class="social col-md-2 col-sm-3"><div class="small">' +
+    '<a href="https://twitter.com/dpsrescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-twitter.png?w=35" alt="@DPSRescue" /></a>' +
+    '<a href="https://www.facebook.com/DPSRescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-facebook.png?w=35&bg=cd486b" alt="DPSRescue" /></a>' +
+    '<a href="https://www.instagram.com/dpsrescue/" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-instagram.png?w=35&bg=cd486b&pad=7" alt="DPSRescue" /></a>' +
+    '</div></div>');
   this.paypalNode = $('<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">' +
     '<input type="hidden" name="cmd" value="_donations">' +
     '<input type="hidden" name="business" value="doggieprotectiveservices@earthlink.net">' +
@@ -126,13 +127,10 @@ function Nav (states) {
     '<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">' +
     '</form>'
   );
-  this.socialNode.append(this.twitterNode);
-  this.socialNode.append(this.facebookNode);
-  this.socialNode.append(this.instagramNode);
   this.socialNode.append(this.paypalNode);
   this.heroNode.append(this.logoNode);
   this.heroNode.append(this.titleNode);
-  this.titleNode.append(this.socialNode);
+  this.heroNode.append(this.socialNode);
   this.navNode = $('<nav></nav>');
   this.mastheadNode.append(this.heroNode);
   this.mastheadNode.append(this.navNode);
