@@ -3,12 +3,26 @@ var volunteersUri = 'http://api.dpsrescue.com/api/volunteers.php';
 $(document).ready(function () {
   $.get(volunteersUri)
     .then(function (response) {
+      // Strings from API have \n\n that don't get handled well by Handlebars.
+      response.primary = response.primary.map(function (primary) {
+        primary.bio = formatBio(primary.bio);
+        return primary;
+      });
       HandlebarsHelpers.compile(response, "primary", ".primary");
       HandlebarsHelpers.compile(response, "primary-modals", ".primary-modals");
       HandlebarsHelpers.compile(response, "secondary", ".secondary");
       MicroModal.init();
     });
 });
+
+function formatBio(bio) {
+  return bio
+    .split("\n\n")
+    .map(function (bioLine) {
+      return '</p>' + bioLine + '</p>';
+    })
+    .join("");
+}
 
 /* Example API response:
 {
