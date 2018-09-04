@@ -25,8 +25,8 @@
 </div>
 
 <script id="entry" type="text/x-handlebars-template">
-  <div class="col-md-8 row pet-bio-container">
-    <div class="col-md-12 pet-bio card">
+  <div class="col-sm-8 row pet-bio-container">
+    <div class="col-xs-12 pet-bio card">
       <h2>{{name}}</h2>
       <p class="breed">{{{breed}}}</p>
       <p class="stats">{{age}} - {{coat_length}} coat - {{gender}}</p>
@@ -37,7 +37,8 @@
           <img src="{{this}}" alt="{{../name}}" title="{{../name}}">
           {{/each}}
           {{#if video}}
-          <iframe width="560" height="400" src="{{video}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <iframe width="560" height="400" src="{{video}}" frameborder="0"
+                  allow="autoplay; encrypted-media" allowfullscreen></iframe>
           {{/if}}
         </div>
       </div>
@@ -52,19 +53,30 @@
       {{/each}}
     </div>
   </div>
-  <div class="col-md-4 card meet-this-dog">
-    <h2>Meet this dog!</h2>
-    {{#if upcoming}}
-    <p class="upcoming">{{upcoming}}</p>
-    {{else}}
-    <p class="upcoming">
-      {{name}} will not be at any scheduled events until we find a home that's
-      interested. Please fill out an application if you think that's you!
-    </p>
-    {{/if}}
-    {{#each boilerplate}}
-    <p class="boilerplate">{{{this}}}</p>
-    {{/each}}
+  <div class="col-sm-4">
+    <div class="card meet-this-dog">
+      <h2>Meet this dog!</h2>
+      {{#if upcoming}}
+      <p class="upcoming">{{upcoming}}</p>
+      {{else}}
+      <p class="upcoming">
+        {{name}} will not be at any scheduled events until we find a home that's
+        interested. Please fill out an application if you think that's you!
+      </p>
+      {{/if}}
+      {{#each boilerplate}}
+      <p class="boilerplate">{{{this}}}</p>
+      {{/each}}
+    </div>
+    <div class="card apply">
+      <h2>Interested in adopting?</h2>
+      <p>Please read the <a href="../faq/">adoption FAQ</a>, then fill out the
+        {{#if isDog}}
+        <a href="../dog-application">application</a>
+        {{else}}
+        <a href="../cat-application">application</a>
+        {{/if}}.</p>
+    </div>
   </div>
 </script>
 

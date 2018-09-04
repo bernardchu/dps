@@ -1,14 +1,12 @@
 @import '../../../styles/common';
 @import '../../../styles/news';
 
-.meet-this-dog {
+.meet-this-dog, .apply {
   @include feature();
   margin-top: $padding-large;
 }
 
 .pet-bio-container {
-  padding: $padding-large $padding-large 0 0;
-
   .pet-bio {
     @include feature();
   }
@@ -28,5 +26,11 @@
         border: none;
       }
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .pet-bio-container {
+    padding: $padding-large $padding-large 0 0;
   }
 }

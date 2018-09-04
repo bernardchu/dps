@@ -10,6 +10,8 @@ $( document ).ready( function() {
       response.declawed = !!parseInt(response.declawed);
       // Correct the given youtube link so that embed works properly.
       response.video = response.video.replace("/v/", "/embed/");
+      // Add a boolean for Handlebars
+      response.isDog = /dog/i.test(response.species);
       HandlebarsHelpers.compile(response, "entry", ".main");
       $( '.carousel' ).slick( {
         dots: true,

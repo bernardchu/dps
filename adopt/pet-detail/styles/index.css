@@ -270,22 +270,20 @@ button.slick-prev:before, button.slick-next:before {
     max-width: 100%;
     margin: 6px 0; }
 
-.meet-this-dog {
+.meet-this-dog, .apply {
   margin-bottom: 18px;
   padding: 18px;
   margin-top: 32px; }
-  .meet-this-dog img {
+  .meet-this-dog img, .apply img {
     max-width: 100%;
     margin: 6px 0; }
 
-.pet-bio-container {
-  padding: 32px 32px 0 0; }
-  .pet-bio-container .pet-bio {
-    margin-bottom: 18px;
-    padding: 18px; }
-    .pet-bio-container .pet-bio img {
-      max-width: 100%;
-      margin: 6px 0; }
+.pet-bio-container .pet-bio {
+  margin-bottom: 18px;
+  padding: 18px; }
+  .pet-bio-container .pet-bio img {
+    max-width: 100%;
+    margin: 6px 0; }
 
 .carousel-container {
   display: flex;
@@ -296,5 +294,9 @@ button.slick-prev:before, button.slick-next:before {
       border: none; }
       .carousel-container .carousel img:hover {
         border: none; }
+
+@media (min-width: 768px) {
+  .pet-bio-container {
+    padding: 32px 32px 0 0; } }
 
 /*# sourceMappingURL=index.css.map */
