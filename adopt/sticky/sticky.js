@@ -3,7 +3,11 @@ var stickyUri = 'http://api.dpsrescue.com/api/sticky_dogs.php';
 $( document ).ready( function() {
   $.get( stickyUri  )
     .then( function( response ) {
-      HandlebarsHelpers.compile(response, "entry", ".carousel-container");
+      if (!response.length) {
+        HandlebarsHelpers.compile(response, "no-sticky", ".carousel-container");
+        return;
+      }
+      HandlebarsHelpers.compile(response, "sticky", ".carousel-container");
       $( '.carousel' ).slick( {
         dots: true,
         infinite: true,
