@@ -133,10 +133,15 @@ button.slick-prev:before, button.slick-next:before {
 
 .carousel {
   margin-bottom: 18px;
-  padding: 18px; }
+  padding: 18px;
+  padding: 32px; }
   .carousel img {
     max-width: 100%;
     margin: 6px 0; }
+  .carousel .slick-prev {
+    left: -50px; }
+  .carousel .slick-next {
+    right: -50px; }
 
 .sticky-dog .left {
   padding-right: 32px; }

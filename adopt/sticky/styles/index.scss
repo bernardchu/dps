@@ -1,7 +1,18 @@
 @import '../../../styles/common';
 
+$carousel-arrow-distance: -50px;
+
 .carousel {
   @include feature();
+  padding: $padding-large;
+
+  .slick-prev {
+    left: $carousel-arrow-distance;
+  }
+
+  .slick-next {
+    right: $carousel-arrow-distance;
+  }
 }
 
 .sticky-dog {
