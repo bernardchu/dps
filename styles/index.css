@@ -324,7 +324,14 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
-.available-dogs-link {
+.available-dogs-banner {
+  background-color: #800000;
+  margin-top: 18px;
+  padding: 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3em;
   text-align: center; }
 
 /*# sourceMappingURL=index.css.map */

@@ -4,6 +4,13 @@
 @import 'news';
 @import 'common';
 
-.available-dogs-link {
+.available-dogs-banner {
+  background-color: $dps-secondary-color;
+  margin-top: $padding-medium;
+  padding: $padding-medium;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3em;
   text-align: center;
 }
