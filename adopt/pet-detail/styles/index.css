@@ -302,6 +302,9 @@ button.slick-prev:before, button.slick-next:before {
       .carousel-container .carousel img:hover {
         border: none; }
 
+.properties {
+  font-weight: bold; }
+
 @media (min-width: 768px) {
   .pet-bio-container {
     padding: 32px 32px 0 0; } }

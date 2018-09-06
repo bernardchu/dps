@@ -29,6 +29,10 @@
   }
 }
 
+.properties {
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
   .pet-bio-container {
     padding: $padding-large $padding-large 0 0;
