@@ -133,6 +133,7 @@ h2 {
   text-align: center; }
 
 .application-buttons {
+  margin: 32px 0;
   display: flex;
   justify-content: space-around; }
   .application-buttons a {
