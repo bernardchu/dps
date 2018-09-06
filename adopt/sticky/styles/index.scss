@@ -1,5 +1,9 @@
 @import '../../../styles/common';
 
+.carousel {
+  @include feature();
+}
+
 .sticky-dog {
   .left {
     padding-right: $padding-large;
@@ -20,5 +24,7 @@
 }
 
 .paypal {
-
+  .paypal-button {
+    text-align: center;
+  }
 }

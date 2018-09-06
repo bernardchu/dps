@@ -129,6 +129,13 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
+.carousel {
+  margin-bottom: 18px;
+  padding: 18px; }
+  .carousel img {
+    max-width: 100%;
+    margin: 6px 0; }
+
 .sticky-dog .left {
   padding-right: 32px; }
   .sticky-dog .left img {
@@ -137,5 +144,8 @@ button.slick-prev:before, button.slick-next:before {
 .sticky-dog .right .bio {
   overflow-y: auto;
   margin-bottom: 18px; }
+
+.paypal .paypal-button {
+  text-align: center; }
 
 /*# sourceMappingURL=index.css.map */

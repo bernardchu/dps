@@ -35,14 +35,14 @@
 </script>
 
 <script id="sticky" type="text/x-handlebars-template">
-  <div class="carousel">
+  <div class="carousel card">
     {{#each this}}
       <div class="sticky-dog row">
         <div class="col-md-6 left row">
           <a href="../pet-detail/?id={{id}}" class="col-xs-12">
-            <img src="{{pictures.[0]}}" alt="{{name}}" title="{{name}}">
+            <img src="{{pictures.[0]}}" alt="{{name}}" title="{{name}}" class="no-border">
           </a>
-          <hr class="hidden-sm hidden-xs">
+          <hr class="hidden-sm hidden-xs" width="75%">
           <div class="paypal col-xs-12 row">
             <div class="">
               {{#if donors}}
@@ -51,12 +51,11 @@
               {{/if}}
               <p>Help {{name}} find a fur-ever home faster by sponsoring part of the adoption fee.</p>
             </div>
-            <div class="">
+            <div class="paypal-button">
               {{{paypal}}}
             </div>
           </div>
         </div>
-        <hr class="hidden-md hidden-lg">
         <div class="right col-md-6 row">
           <h3>{{name}}</h3>
           <div class="bio col-xs-12">
