@@ -193,6 +193,9 @@ button.slick-prev:before, button.slick-next:before {
     max-width: 100%;
     margin: 6px 0; }
 
+@media (max-width: 992px) {
+  .features {
+    padding-right: 0; } }
 /* COLORS */
 /* SPACING */
 .footer p {

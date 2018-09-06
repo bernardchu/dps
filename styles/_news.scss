@@ -4,9 +4,14 @@ $card-box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
 
 .features {
   padding: $padding-large $padding-large $padding-large 0;
-
 }
 
 .featured {
   @include feature();
+}
+
+@media (max-width: 992px) {
+  .features {
+    padding-right: 0;
+  }
 }
