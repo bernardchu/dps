@@ -13,7 +13,7 @@ $( document ).ready( function() {
     '      </div>\n' +
     '    </div>\n' +
     '  </div>\n' +
-    '  <hr>\n' +
+    '  {{#if @last}}{{else}}<hr>\n{{/if}}' +
     '  {{/each}}';
   var template = Handlebars.compile(source);
   var html = template(faq);
