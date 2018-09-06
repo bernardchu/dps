@@ -131,5 +131,7 @@ button.slick-prev:before, button.slick-next:before {
 
 .group-photo {
   text-align: center; }
+  .group-photo img {
+    width: 100%; }
 
 /*# sourceMappingURL=index.css.map */
