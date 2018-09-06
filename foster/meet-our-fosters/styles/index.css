@@ -131,6 +131,8 @@ button.slick-prev:before, button.slick-next:before {
 
 .intro {
   margin-bottom: 32px; }
+  .intro .prose {
+    padding-right: 32px; }
 
 body img {
   width: 100%; }

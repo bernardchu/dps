@@ -2,6 +2,10 @@
 
 .intro {
   margin-bottom: $padding-large;
+
+  .prose {
+    padding-right: $padding-large;
+  }
 }
 
 body img {
