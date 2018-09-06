@@ -3,15 +3,18 @@
 
 .icu {
   .dog {
+    padding: $padding-medium;
+
     img {
       width: 100%;
     }
 
     .name {
+      padding: $padding-small;
       text-align: center;
       background-color: $dps-secondary-color;
       color: white;
-      margin-top: 0;
+      margin-top: $padding-small;
     }
   }
 }

@@ -224,13 +224,16 @@ button.slick-prev:before, button.slick-next:before {
 .micromodal-slide .modal__overlay {
   will-change: transform; }
 
-.icu .dog img {
-  width: 100%; }
-.icu .dog .name {
-  text-align: center;
-  background-color: #800000;
-  color: white;
-  margin-top: 0; }
+.icu .dog {
+  padding: 18px; }
+  .icu .dog img {
+    width: 100%; }
+  .icu .dog .name {
+    padding: 6px;
+    text-align: center;
+    background-color: #800000;
+    color: white;
+    margin-top: 6px; }
 
 .paypal-container {
   margin-top: 18px;
