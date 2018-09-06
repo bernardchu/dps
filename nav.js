@@ -69,6 +69,10 @@ var states = [
         name: 'My Mutt Program',
         route: '/my-mutt/'
       },
+      {
+        name: 'Calendar',
+        route: '/calendar/'
+      },
     ]
   },
   { name: 'Success Stories',
