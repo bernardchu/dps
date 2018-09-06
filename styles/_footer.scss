@@ -1,6 +1,8 @@
 @import 'variables';
 
 .footer {
+  margin-top: $padding-large;
+
   p {
     color: $text-faint;
   }

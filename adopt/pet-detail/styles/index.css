@@ -1,11 +1,13 @@
 /* COLORS */
 /* SPACING */
-.footer p {
-  color: #888888; }
-.footer hr {
-  height: 8px;
-  color: #800000;
-  background-color: #800000; }
+.footer {
+  margin-top: 32px; }
+  .footer p {
+    color: #888888; }
+  .footer hr {
+    height: 8px;
+    color: #800000;
+    background-color: #800000; }
 
 /* COLORS */
 /* SPACING */
@@ -131,12 +133,14 @@ button.slick-prev:before, button.slick-next:before {
 
 /* COLORS */
 /* SPACING */
-.footer p {
-  color: #888888; }
-.footer hr {
-  height: 8px;
-  color: #800000;
-  background-color: #800000; }
+.footer {
+  margin-top: 32px; }
+  .footer p {
+    color: #888888; }
+  .footer hr {
+    height: 8px;
+    color: #800000;
+    background-color: #800000; }
 
 /* COLORS */
 /* SPACING */
