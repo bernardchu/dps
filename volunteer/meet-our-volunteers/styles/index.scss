@@ -16,8 +16,8 @@ $secondary-volunteer-image-size: 120px;
       justify-content: center;
 
       .image-circle-cropper {
-        width: $primary-volunteer-image-size;
-        height: $primary-volunteer-image-size;
+        width: 100%;
+        height: auto;
       }
     }
 
@@ -43,8 +43,8 @@ $secondary-volunteer-image-size: 120px;
       justify-content: center;
 
       .image-circle-cropper {
-        width: $secondary-volunteer-image-size;
-        height: $secondary-volunteer-image-size;
+        width: 100%;
+        height: auto;
       }
     }
 
