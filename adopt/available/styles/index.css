@@ -132,7 +132,8 @@ button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
 .available {
-  padding: 18px; }
+  padding: 18px;
+  height: 300px; }
   .available img {
     max-width: 100%; }
   .available .name {
