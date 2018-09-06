@@ -1,6 +1,11 @@
 @import '../../../styles/common';
 
 .donate {
+
+  .prose {
+    padding-right: $padding-large;
+  }
+  
   img {
     width: 100%;
   }

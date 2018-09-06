@@ -129,6 +129,8 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
+.donate .prose {
+  padding-right: 32px; }
 .donate img {
   width: 100%; }
 
