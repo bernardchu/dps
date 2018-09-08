@@ -3,11 +3,8 @@
  * the Featured API.
  */
 
-// var featuredUri = 'http://roastonbone.com/dps-test/dps-api/api/featured.php';
-var featuredUri = 'http://api.dpsrescue.com/api/featured.php';
-
 $(document).ready(function () {
-  $.get(featuredUri)
+  $.get(apis.featured)
     .then(function (response) {
       var featuredNodes = response.map(function (feature) {
         return createFeatureNode(feature);

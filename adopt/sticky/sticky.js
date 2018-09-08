@@ -1,7 +1,5 @@
-var stickyUri = 'http://api.dpsrescue.com/api/sticky_dogs.php';
-
 $( document ).ready( function() {
-  $.get( stickyUri  )
+  $.get( apis['sticky_dogs']  )
     .then( function( response ) {
       if (!response.length) {
         HandlebarsHelpers.compile(response, "no-sticky", ".carousel-container");

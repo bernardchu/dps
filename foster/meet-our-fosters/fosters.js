@@ -1,7 +1,5 @@
-var fostersUri = 'http://api.dpsrescue.com/api/fosters.php';
-
 $(document).ready(function () {
-  $.get(fostersUri)
+  $.get(apis.fosters)
     .then(function (response) {
       HandlebarsHelpers.compile(response.spotlight, "spotlight", ".spotlight");
       HandlebarsHelpers.compile(response.fosters, "fosters", ".fosters");
