@@ -266,4 +266,11 @@ button.slick-prev:before, button.slick-next:before {
     height: 100%;
     border: none; }
 
+@media (min-width: 992px) {
+  .primary-volunteer {
+    height: 190px; } }
+@media (min-width: 1200px) {
+  .primary-volunteer {
+    height: 225px; } }
+
 /*# sourceMappingURL=index.css.map */
