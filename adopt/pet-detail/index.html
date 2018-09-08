@@ -55,7 +55,11 @@
   </div>
   <div class="col-sm-4">
     <div class="card meet-this-dog">
+      {{#if isDog}} 
       <h2>Meet this dog!</h2>
+      {{else}}
+      <h2>Meet this cat!</h2>
+      {{/if}}
       {{#if upcoming}}
       <p class="upcoming">{{upcoming}}</p>
       {{else}}
