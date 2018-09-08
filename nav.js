@@ -35,10 +35,10 @@ var states = [
         name: 'FAQ',
         route: '/faq/'
       },
-      {
+      /*      {
         name: 'Meet Our Volunteers',
         route: '/meet-our-volunteers/'
-      },
+	},*/
     ]
   },
   { name: 'Foster',
@@ -48,10 +48,10 @@ var states = [
         name: 'FAQ',
         route: '/faq/'
       },
-      {
+      /*   {
         name: 'Meet Our Fosters',
         route: '/meet-our-fosters/'
-      }
+	}	*/ 
     ]
   },
   { name: 'Donate',
