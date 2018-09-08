@@ -3,10 +3,11 @@
 $border-thickness: 1.5px;
 
 nav {
-  display: flex;
+  @include flex-centered();
   padding: $padding-medium 0;
 
   a.nav-link, a.nav-link:visited {
+    height: 100%;
     flex-grow: 1;
     text-align: center;
     padding: $padding-small 0;
