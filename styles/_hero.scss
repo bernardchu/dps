@@ -15,7 +15,7 @@
       border: none;
     }
   }
-  
+
   .title {
     @include flex-centered();
     font-family: Volkhov;
@@ -49,7 +49,7 @@
 }
 
 // Tighten up the title at sm and xs
-@media (max-width: 992px) {
+@media (max-width: $breakpoint-md) {
   .hero {
     .title {
       display: block;

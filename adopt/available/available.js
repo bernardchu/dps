@@ -1,6 +1,3 @@
-//var availableUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?view=compact';
- var availableUri = 'http://api.dpsrescue.com/api/available.php?view=compact';
-
 var available = new Available();
 
 $( document ).ready( function() {
@@ -14,7 +11,7 @@ function Available () {
 
 Available.prototype.initialize = function () {
   var _this = this;
-  return $.get( availableUri )
+  return $.get( apis.available + '?view=compact' )
     .then( function ( response ) {
       _this.dogs = response.dogs;
       _this.cats = response.cats;

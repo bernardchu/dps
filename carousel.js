@@ -7,12 +7,8 @@
  * kickstart the carousel.
  */
 
-//var adoptableUri = 'http://roastonbone.com/dps-test/dps-api/api/available.php?view=compact';
-var adoptableUri = 'http://api.dpsrescue.com/api/available.php?view=compact';
-
-
 $( document ).ready( function() {
-  $.get( adoptableUri )
+  $.get( apis.available + '?view=compact' )
     .then( function( response ) {
       var dogs = _.shuffle(response.dogs);
       var adoptableNodes = dogs.map( function ( feature ) {

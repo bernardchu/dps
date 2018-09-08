@@ -1,5 +1,6 @@
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 .footer {
   margin-top: 32px; }
   .footer p {
@@ -11,6 +12,7 @@
 
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 .hero {
   display: flex;
   justify-content: center;
@@ -51,10 +53,14 @@
       font-size: 2em; } }
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 nav {
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 18px 0; }
   nav a.nav-link, nav a.nav-link:visited {
+    height: 100%;
     flex-grow: 1;
     text-align: center;
     padding: 6px 0;
@@ -85,6 +91,7 @@ nav {
 
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 * {
   box-sizing: border-box; }
 

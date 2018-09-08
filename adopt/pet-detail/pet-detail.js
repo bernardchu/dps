@@ -1,7 +1,5 @@
-var petDetailUri = 'http://api.dpsrescue.com/api/available.php?view=full&id=';
-
 $( document ).ready( function() {
-  $.get( petDetailUri + getQueryParameterByName('id', window.location.href) )
+  $.get( apis.available + '?id=' + getQueryParameterByName('id', window.location.href) )
     .then( function( response ) {
       // Hack to deal with "1" and "0" instead of 1 and 0
       response.dogs = !!parseInt(response.dogs);

@@ -1,7 +1,5 @@
-var volunteersUri = 'http://api.dpsrescue.com/api/volunteers.php';
-
 $(document).ready(function () {
-  $.get(volunteersUri)
+  $.get(apis.volunteers)
     .then(function (response) {
       // Strings from API have \n\n that don't get handled well by Handlebars.
       response.primary = response.primary.map(function (primary) {
