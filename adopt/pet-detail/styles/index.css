@@ -1,5 +1,6 @@
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 .footer {
   margin-top: 32px; }
   .footer p {
@@ -11,6 +12,7 @@
 
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 .hero {
   display: flex;
   justify-content: center;
@@ -51,6 +53,7 @@
       font-size: 2em; } }
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 nav {
   display: flex;
   padding: 18px 0; }
@@ -85,6 +88,7 @@ nav {
 
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 * {
   box-sizing: border-box; }
 
@@ -133,6 +137,7 @@ button.slick-prev:before, button.slick-next:before {
 
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 .footer {
   margin-top: 32px; }
   .footer p {
@@ -144,6 +149,7 @@ button.slick-prev:before, button.slick-next:before {
 
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 .hero {
   display: flex;
   justify-content: center;
@@ -184,6 +190,7 @@ button.slick-prev:before, button.slick-next:before {
       font-size: 2em; } }
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 nav {
   display: flex;
   padding: 18px 0; }
@@ -218,6 +225,7 @@ nav {
 
 /* COLORS */
 /* SPACING */
+/* BREAKPOINTS */
 * {
   box-sizing: border-box; }
 

@@ -68,13 +68,13 @@ $secondary-volunteer-image-size: 120px;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: $breakpoint-md) {
   .primary-volunteer {
     height: 190px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-lg) {
   .primary-volunteer {
     height: 225px;
   }
