@@ -253,6 +253,8 @@ button.slick-prev:before, button.slick-next:before {
   .secondary .secondary-volunteer {
     color: white;
     padding: 18px; }
+    .secondary .secondary-volunteer .secondary-volunteer-details h5.title {
+      margin-bottom: 0; }
     .secondary .secondary-volunteer .secondary-volunteer-image, .secondary .secondary-volunteer .secondary-volunteer-image {
       display: flex;
       justify-content: center; }

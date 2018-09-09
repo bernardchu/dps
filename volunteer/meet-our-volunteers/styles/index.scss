@@ -38,6 +38,12 @@ $secondary-volunteer-image-size: 120px;
     color: white;
     padding: $padding-medium;
 
+    .secondary-volunteer-details {
+      h5.title {
+        margin-bottom: 0;
+      }
+    }
+
     .secondary-volunteer-image, .secondary-volunteer-image {
       display: flex;
       justify-content: center;
