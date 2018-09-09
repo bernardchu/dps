@@ -4,7 +4,7 @@ var faq = {
       heading: "Where does DPS get these dogs?",
       imgUrl: "http://dps-festive.imgix.net/images/about/faq/sarah-chen.jpg?h=340&fit=crop&w=340",
       prose: [
-        '<p>The majority of our dogs come from high kill animal shelters in Southern CA. The shelters there are overflowing with highly adoptable dogs that are euthanized every day. We do on occasion take our dogs from owners who are unable to continue caring for their dogs.</p>',
+        '<p>The majority of our dogs come from high kill animal shelters in Southern California and overflowing shelters in need of our help in Northern California. The shelters there are filled with highly adoptable dogs that are euthanized every day. On occasion, we do get our dogs from owners who are unable to continue caring for their dogs.</p>',
         '<p>Our Korean and Chinese Rescue partnerships also allow us to save dogs around the world, which we are thankful for.</p>'
       ]
     },
