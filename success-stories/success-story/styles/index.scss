@@ -1,0 +1,25 @@
+@import '../../../styles/common';
+
+.success-story {
+  .name {
+    text-transform: capitalize;
+  }
+
+  .carousel {
+    img {
+      width: 100%;
+    }
+
+    .slick-next {
+      z-index: 1; // it's not clickable without this
+    }
+  }
+
+  .updates {
+    @media (min-width: 992px) {
+      padding-left: $padding-large;
+    }
+  }
+}
+
+
