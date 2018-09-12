@@ -21,10 +21,10 @@
 <script id="success-stories" type="text/x-handlebars-template">
   {{#each this}}
   <div class="col-xs-4 col-sm-4 col-md-2 success-stories-dog">
-    <a href="success-story/?id={{@key}}" class="img-container">
-      <img src="{{this.updates.[0].photos.[0]}}?crop=top&fit=crop&h=200&w=200">
+    <a href="success-story/?id={{id}}" class="img-container">
+      <img src="{{photo1}}?crop=top&fit=crop&h=200&w=200">
     </a>
-    <div class="name">{{@key}}</div>
+    <div class="name">{{id}}</div>
   </div>
   {{/each}}
 </script>
