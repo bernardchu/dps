@@ -4,7 +4,6 @@ $(document).ready(function () {
   $.get(apis.success + "?id=" + id)
     .then(function (response) {
       var context = response[id];
-      context.name = id;
       context.photos = _.flatMap(context.updates, function (update) {
         return update.photos;
       });
