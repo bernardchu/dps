@@ -1,1 +1,12 @@
 @import '../../styles/common';
+
+.success-stories {
+  img {
+    width: 100%;
+  }
+
+  .name {
+    text-align: center;
+    font-weight: bold;
+  }
+}

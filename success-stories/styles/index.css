@@ -138,4 +138,10 @@ hr {
 button.slick-prev:before, button.slick-next:before {
   color: #203309; }
 
+.success-stories img {
+  width: 100%; }
+.success-stories .name {
+  text-align: center;
+  font-weight: bold; }
+
 /*# sourceMappingURL=index.css.map */

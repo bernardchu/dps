@@ -6,7 +6,7 @@ var assembleUrl = function (api) {
   return baseUrl + api + suffix;
 };
 
-var _apis = ['featured', 'available', 'dates', 'volunteers', 'fosters', 'sticky_dogs', 'icu'];
+var _apis = ['featured', 'available', 'dates', 'volunteers', 'fosters', 'sticky_dogs', 'icu', 'success'];
 var apis = {};
 
 _apis.forEach(function (api) {

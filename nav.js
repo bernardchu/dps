@@ -51,7 +51,7 @@ var states = [
       /*   {
         name: 'Meet Our Fosters',
         route: '/meet-our-fosters/'
-	}	*/ 
+	}	*/
     ]
   },
   { name: 'Donate',
@@ -76,7 +76,7 @@ var states = [
     ]
   },
   { name: 'Success Stories',
-    route: '/success-stories',
+    route: '/success-stories/',
     children: []
   },
   {

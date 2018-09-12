@@ -17,12 +17,26 @@
   <script type="text/javascript" src="../ga.js"></script>
 </head>
 <body class="container">
-<h3>Coming soon!</h3>
+<div class="row success-stories"></div>
+<script id="success-stories" type="text/x-handlebars-template">
+  {{#each this}}
+  <div class="col-xs-4 col-sm-4 col-md-2 success-stories-dog">
+    <a href="success-story/?id={{@key}}" class="img-container">
+      <img src="{{this.updates.[0].photos.[0]}}?crop=top&fit=crop&h=200&w=200">
+    </a>
+    <div class="name">{{@key}}</div>
+  </div>
+  {{/each}}
+</script>
 
 
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 <script type="text/javascript" src="../helpers.js"></script>
+<script type="text/javascript" src="../api.js"></script>
+<script type="text/javascript" src="./success.js"></script>
 <script type="text/javascript" src="../nav.js"></script>
 <script type="text/javascript" src="../footer.js"></script>
 
