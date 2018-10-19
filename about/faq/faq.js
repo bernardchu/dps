@@ -19,7 +19,10 @@ var faq = {
       heading: "Why do the dogs come from Southern CA?",
       imgUrl: "http://dps-festive.imgix.net/images/about/faq/george.png?h=340&fit=crop&w=340",
       prose: [
-        "<p>They stay with our rescue until they too find their home. You can check out some of our dogs who have been with us longer than others under our Sticky Dog section.</p>"
+	      "<p>Most of the dogs are rescued from shelters in Southern CA and initially go into foster homes there. When they have been vetted and behaviorally assessed we transfer them out to other foster homes in our other adoption areas. We do adoptions in Northern CA 3 times a month, Las Vegas 1-2 times a month, Arizona 4 times a year and in Southern CA on a regular basis. This allows us to take many more dogs and continue the life-saving work we have been doing for 10 years. 
+</p>",
+	      "<p>We have found that each region has an affinity for different breeds of dogs. Whereas one breed may not find a home in Northern CA, they may be very sought out in Las Vegas and if we are willing to travel, the dog can find his/her home. Being mobile gives the opportunity for more lives to be saved.
+</p>"
       ]
     },
     {
