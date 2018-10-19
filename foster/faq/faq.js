@@ -12,7 +12,7 @@ var faq = {
       heading: "How long would I foster for?",
       imgUrl: "http://dps-festive.imgix.net/images/foster/foster-rachel.jpg?h=340&fit=crop&w=340&crop=top",
       prose: [
-        "<p>There are several types of fosters. The shortest is Saturday—Sunday, with pick-up in Palo Alto at 4:30 pm on Saturday and drop off Sunday morning at 11-11:30 am. One-week fostering starts with Sunday pick-up at 4:00 pm; drop off is the following Saturday at 10:30 am. Two-week fostering is the same times as one week, but lasts for 2 weeks. We also need emergency fosters mid-week. If you foster a dog for a night or a week and wish to continue fostering the same dog until adopted, great! We love to give our dogs stable foster homes so they can adjust and feel comfortable.</p>"
+        "<p>There are several types of fosters. The shortest is Saturday—Sunday, with pick-up in Palo Alto at 4:00 pm on Saturday and drop off Sunday morning at 11:00 am. One-week fostering starts with Sunday pick-up at 3:00 pm; drop off is the following Saturday at 10:30 am. Two-week fostering is the same times as one week, but lasts for 2 weeks. We also need emergency fosters mid-week. If you foster a dog for a night or a week and wish to continue fostering the same dog until adopted, great! We love to give our dogs stable foster homes so they can adjust and feel comfortable.</p>"
       ]
     },
     {
