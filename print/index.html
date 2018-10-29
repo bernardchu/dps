@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>DPS Rescue</title>
+  <meta name="description" content="Dog Rescue in California and Nevada"/>
+  <meta name="keywords"
+        content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada"/>
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov"
+        rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.css" type="text/css"/>
+  <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css"/>
+  <script type="text/javascript" src="../../ga.js"></script>
+</head>
+<body class="container">
+<h2>Print</h2>
+<div class="col-xs-12 main"></div>
+
+<script id="print" type="text/x-handlebars-template">
+  {{#each this}}
+  <p>{{name}} <a href="../adopt/pet-detail/?id={{id}}&amp;print=true">print</a></p>
+  {{/each}}
+</script>
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script type="text/javascript" src="../../api.js"></script>
+<script type="text/javascript" src="../../helpers.js"></script>
+<script type="text/javascript" src="../../nav.js"></script>
+<script type="text/javascript" src="print.js"></script>
+<script type="text/javascript" src="../../footer.js"></script>
+
+</body>
+</html>
