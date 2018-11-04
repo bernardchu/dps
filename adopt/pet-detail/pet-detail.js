@@ -1,15 +1,11 @@
 $( document ).ready( function() {
   $.get( apis.available + '?id=' + getQueryParameterByName('id', window.location.href) )
     .then( function( response ) {
-      // Hack to deal with "1" and "0" instead of 1 and 0
-      response.dogs = !!parseInt(response.dogs);
-      response.cats = !!parseInt(response.cats);
-      response.kids = !!parseInt(response.kids);
-      response.declawed = !!parseInt(response.declawed);
       // Correct the given youtube link so that embed works properly.
       response.video = response.video.replace("/v/", "/embed/");
       // Add a boolean for Handlebars
       response.isDog = /dog/i.test(response.species);
+      response.print = getQueryParameterByName('print');
       HandlebarsHelpers.compile(response, "entry", ".main");
       $( '.carousel' ).slick( {
         dots: true,

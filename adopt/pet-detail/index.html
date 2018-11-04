@@ -25,13 +25,15 @@
 </div>
 
 <script id="entry" type="text/x-handlebars-template">
-  <div class="col-sm-8 row pet-bio-container">
-    <div class="col-xs-12 pet-bio card">
+  <div class="{{#unless print}}col-sm-8{{/unless}} row pet-bio-container {{#if print}}col-sm-12{{/if}}">
+    <div class="col-xs-12 pet-bio {{#unless print}}card{{/unless}}">
+      {{#unless print}}
       <h2>{{name}}</h2>
       <p class="breed">{{{breed}}}</p>
       <p class="stats">{{age}} - {{coat_length}} coat - {{gender}}</p>
+      {{/unless}}
 
-      <div class="carousel-container">
+      <div class="carousel-container {{#if print}}col-sm-6{{/if}}">
         <div class="carousel">
           {{#each pictures}}
           <img src="{{this}}" alt="{{../name}}" title="{{../name}}">
@@ -42,17 +44,34 @@
           {{/if}}
         </div>
       </div>
+      {{#if print}}
+      <div class="print-stats col-sm-6">
+        <h2>{{name}}</h2>
+        <p class="breed">{{{breed}}}</p>
+        <p class="stats">{{age}} - {{coat_length}} coat - {{gender}}</p>
+        {{#if declawed}}<p class="properties">Declawed</p>{{/if}}
+        {{#if dogs}}<p class="properties">Good with dogs</p>{{/if}}
+        {{#if cats}}<p class="properties">Good with cats</p>{{/if}}
+        {{#if kids}}<p class="properties">Good with kids</p>{{/if}}
+        {{#if housetrained}}<p class="properties">Housetrained</p>{{/if}}
+      </div>
+      <div class="clearfix"></div>
+      <hr>
+      {{/if}}
 
+      {{#unless print}}
       {{#if declawed}}<p class="properties">Declawed</p>{{/if}}
       {{#if dogs}}<p class="properties">Good with dogs</p>{{/if}}
       {{#if cats}}<p class="properties">Good with cats</p>{{/if}}
       {{#if kids}}<p class="properties">Good with kids</p>{{/if}}
       {{#if housetrained}}<p class="properties">Housetrained</p>{{/if}}
+      {{/unless}}
       {{#each bio}}
       <p class="bio">{{{this}}}</p>
       {{/each}}
     </div>
   </div>
+  {{#unless print}}
   <div class="col-sm-4">
     <div class="card meet-this-dog">
       {{#if isDog}}
@@ -82,6 +101,7 @@
         {{/if}}.</p>
     </div>
   </div>
+  {{/unless}}
 </script>
 
 <script type="text/javascript"
@@ -97,6 +117,7 @@
 <script type="text/javascript" src="../../nav.js"></script>
 <script type="text/javascript" src="./pet-detail.js"></script>
 <script type="text/javascript" src="../../footer.js"></script>
+<script type="text/javascript" src="./print-detail.js"></script>
 
 </body>
 </html>
