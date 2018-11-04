@@ -1,0 +1,141 @@
+/* COLORS */
+/* SPACING */
+/* BREAKPOINTS */
+.footer {
+  margin-top: 32px; }
+  .footer p {
+    color: #888888; }
+  .footer hr {
+    height: 8px;
+    color: #800000;
+    background-color: #800000; }
+
+/* COLORS */
+/* SPACING */
+/* BREAKPOINTS */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .hero .logo img {
+    max-width: 100%;
+    border: none; }
+  .hero .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Volkhov; }
+    .hero .title h1 {
+      color: #203309;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 2.5em; }
+  .hero .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .hero .social .small {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .hero .social a {
+      margin: 6px; }
+    .hero .social form {
+      text-align: center;
+      margin-top: 6px; }
+
+@media (max-width: 992px) {
+  .hero .title {
+    display: block; }
+    .hero .title h1 {
+      text-align: initial;
+      font-size: 2em; } }
+/* COLORS */
+/* SPACING */
+/* BREAKPOINTS */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 0; }
+  nav a.nav-link, nav a.nav-link:visited {
+    height: 100%;
+    flex-grow: 1;
+    text-align: center;
+    padding: 6px 0;
+    margin: 0 6px;
+    border-top: 1.5px solid #605E5E;
+    border-bottom: 1.5px solid #605E5E; }
+    nav a.nav-link.active, nav a.nav-link:visited.active {
+      border-width: 3px;
+      font-weight: bold; }
+  nav a {
+    color: #605E5E;
+    text-transform: uppercase;
+    text-decoration: none; }
+  nav ul.subnav {
+    font-weight: initial;
+    list-style-type: none;
+    display: none;
+    position: absolute;
+    background-color: #e8e8e8;
+    z-index: 1;
+    padding: 0 6px;
+    top: 11rem; }
+    nav ul.subnav li {
+      padding: 6px; }
+  nav a:hover ul.subnav {
+    display: block;
+    opacity: 0.95; }
+
+/* COLORS */
+/* SPACING */
+/* BREAKPOINTS */
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: Roboto, sans-serif;
+  color: #605E5E; }
+
+p {
+  line-height: 1.5em; }
+
+a {
+  color: #800000; }
+
+img {
+  border: 3px solid white; }
+  img:hover {
+    border: 3px solid #800000; }
+  img.no-border {
+    border: none; }
+    img.no-border:hover {
+      border: none; }
+
+hr {
+  height: 4px;
+  color: #800000;
+  background-color: #800000; }
+
+.card {
+  -webkit-box-shadow: 3px 3px 10px 2px #cfcfcf;
+  -moz-box-shadow: 3px 3px 10px 2px #cfcfcf;
+  box-shadow: 3px 3px 10px 2px #cfcfcf; }
+
+.hand:hover {
+  cursor: pointer; }
+
+/** Common carousel styling */
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none; }
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white; }
+
+button.slick-prev:before, button.slick-next:before {
+  color: #203309; }
+
+/*# sourceMappingURL=index.css.map */
