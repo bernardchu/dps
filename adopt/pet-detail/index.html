@@ -31,7 +31,6 @@
       <h2>{{name}}</h2>
       <p class="breed">{{{breed}}}</p>
       <p class="stats">{{age}} - {{coat_length}} coat - {{gender}}</p>
-      {{/unless}}
 
       <div class="carousel-container {{#if print}}col-sm-6{{/if}}">
         <div class="carousel">
@@ -44,7 +43,9 @@
           {{/if}}
         </div>
       </div>
+      {{/unless}}
       {{#if print}}
+      <img src="{{pictures.[0]}}" class="col-sm-6">
       <div class="print-stats col-sm-6">
         <h2>{{name}}</h2>
         <p class="breed">{{{breed}}}</p>
