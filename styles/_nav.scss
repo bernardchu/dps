@@ -35,7 +35,7 @@ nav {
     background-color: rgb(232, 232, 232);
     z-index: 1;
     padding: 0 $padding-small;
-    top: 11rem;
+    top: 9rem;
 
     li {
       padding: $padding-small;
@@ -48,3 +48,14 @@ nav {
   }
 }
 
+@media (max-width: $breakpoint-lg) {
+  nav ul.subnav {
+    top: 12rem;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  nav ul.subnav {
+    top: 7.5rem;
+  }
+}

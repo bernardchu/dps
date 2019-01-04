@@ -113,7 +113,7 @@ function Nav (states) {
   this.states = states;
   this.mastheadNode = $('<div class="masthead"></div>');
   this.heroNode = $('<div class="row hero"></div>');
-  this.logoNode = $('<a href="" class="logo col-md-2 hidden-sm hidden-xs"><img src="http://dps-festive.imgix.net/images/dps-logo.png?fm=jpg&w=200&pad=10" alt="DPS Logo" /></a>');
+  this.logoNode = $('<a href="" class="logo col-md-2 hidden-sm hidden-xs"><img src="http://dps-festive.imgix.net/images/logo-v2.png?rect=210,400,390,230&auto=format" alt="DPS Logo" /></a>');
   this.logoNode.attr('href', window.location.origin);
   this.titleNode = $('<div class="col-md-8 col-sm-9 title"><h1>Doggie Protective Services</h1></div>');
   this.socialNode = $('<div class="social col-md-2 col-sm-3"><div class="small">' +

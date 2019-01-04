@@ -7,8 +7,8 @@
     color: #888888; }
   .footer hr {
     height: 8px;
-    color: #800000;
-    background-color: #800000; }
+    color: #A83F3B;
+    background-color: #A83F3B; }
 
 /* COLORS */
 /* SPACING */
@@ -26,7 +26,7 @@
     align-items: center;
     font-family: Volkhov; }
     .hero .title h1 {
-      color: #203309;
+      color: #2E8C69;
       text-transform: uppercase;
       text-align: center;
       font-size: 2.5em; }
@@ -82,13 +82,19 @@ nav {
     background-color: #e8e8e8;
     z-index: 1;
     padding: 0 6px;
-    top: 11rem; }
+    top: 9rem; }
     nav ul.subnav li {
       padding: 6px; }
   nav a:hover ul.subnav {
     display: block;
     opacity: 0.95; }
 
+@media (max-width: 1200px) {
+  nav ul.subnav {
+    top: 12rem; } }
+@media (max-width: 992px) {
+  nav ul.subnav {
+    top: 7.5rem; } }
 /* COLORS */
 /* SPACING */
 /* BREAKPOINTS */
@@ -103,12 +109,12 @@ p {
   line-height: 1.5em; }
 
 a {
-  color: #800000; }
+  color: #A83F3B; }
 
 img {
   border: 3px solid white; }
   img:hover {
-    border: 3px solid #800000; }
+    border: 3px solid #A83F3B; }
   img.no-border {
     border: none; }
     img.no-border:hover {
@@ -116,8 +122,8 @@ img {
 
 hr {
   height: 4px;
-  color: #800000;
-  background-color: #800000; }
+  color: #A83F3B;
+  background-color: #A83F3B; }
 
 .card {
   -webkit-box-shadow: 3px 3px 10px 2px #cfcfcf;
