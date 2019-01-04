@@ -113,8 +113,10 @@ function Nav (states) {
   this.states = states;
   this.mastheadNode = $('<div class="masthead"></div>');
   this.heroNode = $('<div class="row hero"></div>');
-  this.logoNode = $('<a href="" class="logo col-md-2 col-sm-10 col-xs-10"><img src="http://dps-festive.imgix.net/images/logo-v2.png?rect=210,400,390,230&auto=format" alt="DPS Logo" /></a>');
-  this.logoNode.attr('href', window.location.origin);
+  this.logoNodeLg = $('<a href="" class="logo col-md-2 hidden-sm hidden-xs"><img src="http://dps-festive.imgix.net/images/logo-v2.png?rect=210,400,390,230&auto=format" alt="DPS Logo" /></a>');
+  this.logoNodeLg.attr('href', window.location.origin);
+  this.logoNodeSm = $('<a href="" class="logo hidden-md hidden-lg col-sm-10 col-xs-10"><img src="http://dps-festive.imgix.net/images/logo-v2.png?rect=210,400,690,230&auto=format" alt="DPS Logo" /></a>');
+  this.logoNodeSm.attr('href', window.location.origin);
   this.titleNode = $('<div class="col-md-8 col-sm-9 title hidden-sm hidden-xs"><h1>Doggie Protective Services</h1></div>');
   this.socialNode = $('<div class="social col-md-2 col-sm-3"><div class="small">' +
     '<a href="https://twitter.com/dpsrescue" target="_blank"><img src="http://dps-festive.imgix.net/images/social-icons-twitter.png?w=35" alt="@DPSRescue" /></a>' +
@@ -134,7 +136,8 @@ function Nav (states) {
     '</form>'
   );
   this.socialNode.append(this.paypalNode);
-  this.heroNode.append(this.logoNode);
+  this.heroNode.append(this.logoNodeLg);
+  this.heroNode.append(this.logoNodeSm);
   this.heroNode.append(this.titleNode);
   this.heroNode.append(this.socialNode);
   this.navNode = $('<nav></nav>');
