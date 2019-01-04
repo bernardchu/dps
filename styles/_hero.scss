@@ -49,14 +49,25 @@
 }
 
 // Tighten up the title at sm and xs
-@media (max-width: $breakpoint-md) {
+@media (max-width: $breakpoint-lg) {
   .hero {
     .title {
-      display: block;
+      //display: block;
 
       h1 {
-        text-align: initial;
+        //text-align: initial;
         font-size: 2em;
+      }
+    }
+  }
+}
+
+// Tighten up the title at sm and xs
+@media (max-width: $breakpoint-md) {
+  .hero {
+    .logo {
+      img {
+        max-height: 100px;
       }
     }
   }
