@@ -1,4 +1,5 @@
 var id = getQueryParameterByName('id');
+const imgWidth = 380;
 
 $(document).ready(function () {
   $.get(apis.success + "?id=" + id)
@@ -6,6 +7,8 @@ $(document).ready(function () {
       var context = response[0];
       context.photos = _.flatMap(context.updates, function (update) {
         return update.photos;
+      }).map(function (photo) {
+        return photo + `?w=${imgWidth}`;
       });
       HandlebarsHelpers.compile(context, 'success-story', '.success-story');
       $( '.carousel' ).slick( {
