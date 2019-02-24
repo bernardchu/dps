@@ -1,3 +1,5 @@
+redirectToOrg();
+
 var states = [
   {
     name: 'Home',
@@ -207,3 +209,11 @@ Nav.prototype.buildChildStateNode = function ( parent, child ) {
   }
   return node;
 };
+
+function redirectToOrg() {
+  const host = location.hostname;
+  if (/\w+\.com/.test(location.hostname)) {
+    const newHost = location.hostname.replace('.com', '.org');
+    location.href = location.href.replace(host, newHost);
+  }
+}
