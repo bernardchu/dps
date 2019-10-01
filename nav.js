@@ -81,10 +81,10 @@ var states = [
     route: '/success-stories/',
     children: []
   },
-  {
-    name: 'Train',
-    route: '/train/'
-  },
+  // {
+  //   name: 'Train',
+  //   route: '/train/'
+  // },
   { name: 'About',
     route: '/about',
     children: [
