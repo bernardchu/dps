@@ -9,8 +9,10 @@ $(document).ready(function () {
       var featuredNodes = response.map(function (feature) {
         return createFeatureNode(feature);
       });
-      featuredNodes.forEach(function (node) {
-        $('.features').append(node);
+
+      // reverse because we are using prepend and we want to maintain the correct order from the API; prepend because we want features to be before events
+      featuredNodes.reverse().forEach(function (node) {
+        $('.features').prepend(node);
       });
     });
 
