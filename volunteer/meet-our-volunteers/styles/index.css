@@ -48,9 +48,11 @@
 @media (max-width: 1200px) {
   .hero .title h1 {
     font-size: 2em; } }
+
 @media (max-width: 992px) {
   .hero .logo img {
     max-height: 100px; } }
+
 /* COLORS */
 /* SPACING */
 /* BREAKPOINTS */
@@ -92,9 +94,11 @@ nav {
 @media (max-width: 1200px) {
   nav ul.subnav {
     top: 8rem; } }
+
 @media (max-width: 992px) {
   nav ul.subnav {
     top: 8.5rem; } }
+
 /* COLORS */
 /* SPACING */
 /* BREAKPOINTS */
@@ -202,21 +206,25 @@ button.slick-prev:before, button.slick-next:before {
     opacity: 0; }
   to {
     opacity: 1; } }
+
 @keyframes mmfadeOut {
   from {
     opacity: 1; }
   to {
     opacity: 0; } }
+
 @keyframes mmslideIn {
   from {
     transform: translateY(15%); }
   to {
     transform: translateY(0); } }
+
 @keyframes mmslideOut {
   from {
     transform: translateY(0); }
   to {
     transform: translateY(-10%); } }
+
 .micromodal-slide {
   display: none; }
 
@@ -255,20 +263,24 @@ button.slick-prev:before, button.slick-next:before {
       color: #A83F3B; }
 
 .secondary {
-  background-color: #A83F3B; }
-  .secondary .secondary-volunteer {
-    color: white;
-    padding: 18px; }
-    .secondary .secondary-volunteer .secondary-volunteer-details h5.title {
+  background-color: #A83F3B;
+  color: white; }
+
+.secondary-volunteer {
+  padding: 18px; }
+  .secondary-volunteer .secondary-volunteer-details {
+    padding: 6px; }
+    .secondary-volunteer .secondary-volunteer-details h5.title {
       margin-bottom: 0; }
-    .secondary .secondary-volunteer .secondary-volunteer-image, .secondary .secondary-volunteer .secondary-volunteer-image {
-      display: flex;
-      justify-content: center; }
-      .secondary .secondary-volunteer .secondary-volunteer-image .image-circle-cropper, .secondary .secondary-volunteer .secondary-volunteer-image .image-circle-cropper {
-        width: 100%;
-        height: auto; }
-    .secondary .secondary-volunteer .secondary-volunteer-details {
-      padding: 6px; }
+  .secondary-volunteer .secondary-volunteer-image {
+    display: flex;
+    justify-content: center; }
+    .secondary-volunteer .secondary-volunteer-image .image-circle-cropper {
+      width: 100%;
+      height: auto; }
+
+.volunteer-section {
+  margin-bottom: 32px; }
 
 .image-circle-cropper {
   position: relative;
@@ -284,8 +296,7 @@ button.slick-prev:before, button.slick-next:before {
 @media (min-width: 992px) {
   .primary-volunteer {
     height: 190px; } }
+
 @media (min-width: 1200px) {
   .primary-volunteer {
     height: 225px; } }
-
-/*# sourceMappingURL=index.css.map */

@@ -6,20 +6,25 @@ $(document).ready(function () {
         primary.bio = formatBio(primary.bio);
         return primary;
       });
+      response.directors = response.directors.map(function (director) {
+        director.bio = formatBio(director.bio);
+        return director;
+      });
       HandlebarsHelpers.compile(response, "primary", ".primary");
       HandlebarsHelpers.compile(response, "primary-modals", ".primary-modals");
       HandlebarsHelpers.compile(response, "secondary", ".secondary");
+      HandlebarsHelpers.compile(response, "directors", ".directors");
       MicroModal.init();
     });
 });
 
 function formatBio(bio) {
-  return bio
+  return bio ? bio
     .split("\n\n")
     .map(function (bioLine) {
       return '</p>' + bioLine + '</p>';
     })
-    .join("");
+    .join("") : "";
 }
 
 /* Example API response:
@@ -55,7 +60,30 @@ function formatBio(bio) {
     "type" : "secondary",
     "photo": "http:\/\/dps-festive.imgix.net\/images\/volunteer\/volunteers\/tracy.png",
     "bio"  : null
-  }]
+  }],
+  "directors": [
+    {
+      "name": "Allie S.",
+      "title": "Director and Chief Financial Officer",
+      "type": "directors",
+      "photo": "http://dps-festive.imgix.net/images/volunteer/volunteers/allie.jpg?fm=pjpg&w=150&h=150&fit=crop&crop=top",
+      "bio": null
+    },
+    {
+      "name": "Henry E.",
+      "title": "Director and Secretary",
+      "type": "directors",
+      "photo": "http://dps-festive.imgix.net/images/volunteer/volunteers/henry.jpg?fm=pjpg&w=150&h=150&fit=crop&crop=focalpoint&fp-z=1.5&fp-y=0.35&fp-x=0.45",
+      "bio": null
+    },
+    {
+      "name": "Theresa M.",
+      "title": "Director and Chief Executive Officer",
+      "type": "directors",
+      "photo": "http://dps-festive.imgix.net/images/volunteer/volunteers/dog-profile.svg?fm=pjpg&w=150&h=150",
+      "bio": null
+    }
+  ]
 }
 
 */

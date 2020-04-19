@@ -33,31 +33,33 @@ $secondary-volunteer-image-size: 120px;
 
 .secondary {
   background-color: $dps-secondary-color;
+  color: white;
+}
+.secondary-volunteer {
+  //color: white;
+  padding: $padding-medium;
 
-  .secondary-volunteer {
-    color: white;
-    padding: $padding-medium;
+  .secondary-volunteer-details {
+    padding: $padding-small;
 
-    .secondary-volunteer-details {
-      h5.title {
-        margin-bottom: 0;
-      }
-    }
-
-    .secondary-volunteer-image, .secondary-volunteer-image {
-      display: flex;
-      justify-content: center;
-
-      .image-circle-cropper {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    .secondary-volunteer-details {
-      padding: $padding-small;
+    h5.title {
+      margin-bottom: 0;
     }
   }
+
+  .secondary-volunteer-image {
+    display: flex;
+    justify-content: center;
+
+    .image-circle-cropper {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.volunteer-section {
+  margin-bottom: $padding-large;
 }
 
 .image-circle-cropper {

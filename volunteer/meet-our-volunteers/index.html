@@ -18,8 +18,8 @@
 </head>
 <body class="container">
 <h2>Meet Our Volunteers</h2>
-<div class="row primary"></div>
-<div class="row secondary"></div>
+<div class="row secondary volunteer-section"></div>
+<div class="row directors volunteer-section"></div>
 <div class="primary-modals"></div>
 <div class="secondary-modals"></div>
 
@@ -41,6 +41,23 @@
 
 <script id="secondary" type="text/x-handlebars-template">
 {{#each secondary}}
+<div class="secondary-volunteer col-md-4 col-sm-6 row">
+  <div class="col-xs-4 secondary-volunteer-image">
+    <div class="image-circle-cropper">
+      <img src="{{photo}}" alt="{{name}}">
+    </div>
+  </div>
+  <div class="col-xs-8 secondary-volunteer-details">
+    <h3 class="name">{{name}}</h3>
+    <h5 class="title">{{title}}</h5>
+  </div>
+</div>
+{{/each}}
+</script>
+
+<script id="directors" type="text/x-handlebars-template">
+<h2>Board of Directors and Executive Officers</h2>
+{{#each directors}}
 <div class="secondary-volunteer col-md-4 col-sm-6 row">
   <div class="col-xs-4 secondary-volunteer-image">
     <div class="image-circle-cropper">
