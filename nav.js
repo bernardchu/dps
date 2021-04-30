@@ -68,10 +68,6 @@ var states = [
         route: '/icu/'
       },
       {
-        name: 'My Mutt Program',
-        route: '/my-mutt/'
-      },
-      {
         name: 'Calendar',
         route: '/calendar/'
       },
