@@ -1,5 +1,32 @@
 {
+  "name": "dps",
+  "version": "1.0.0",
+  "description": "Doggie Protective Services site",
+  "main": "dps.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roastonbone/dps.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roastonbone/dps/issues"
+  },
+  "homepage": "https://github.com/roastonbone/dps#readme",
+  "devDependencies": {
+    "serve": "^11.3.2"
+  },
   "dependencies": {
-    "sass": "^1.43.4"
+    "bootstrap-grid-only": "1.0.0",
+    "lodash": "4.17.21",
+    "micromodal": "0.4.10",
+    "react": "17.0.2",
+    "react-router": "5.2.0",
+    "sass": "1.43.4",
+    "slick-carousel": "1.8.1"
   }
 }
