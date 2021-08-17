@@ -13,7 +13,7 @@ $(document).ready(function () {
             if (response.newsletters && !response.newsletters.length) { return }
             const latest = response.newsletters.shift();
             const newsLetterNode = createNewsletterNode(latest);
-            $('.features').prepend(newsLetterNode);
+            $('.features').append(newsLetterNode);
         });
 });
 
