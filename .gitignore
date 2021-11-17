@@ -3,6 +3,8 @@
 .idea/*
 **/styles/*.css.map
 
+node_modules/*
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
