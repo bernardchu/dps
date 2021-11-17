@@ -1,3 +1,5 @@
+// deprecated in favor of Bonfire merch link
+
 const pdfToImgParams = {
     page: 1,
     w: 700,
