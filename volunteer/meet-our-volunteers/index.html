@@ -1,29 +1,30 @@
 <?xml version="1.0"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>DPS Rescue</title>
-  <meta name="description" content="Dog Rescue in California and Nevada"/>
+  <meta name="description" content="Dog Rescue in California and Nevada" />
   <meta name="keywords"
-        content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada"/>
+    content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada" />
   <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov"
-        rel="stylesheet">
-  <link rel="stylesheet" href="styles/index.css" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov" rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.css" type="text/css" />
   <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css"/>
+    href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css" />
   <script type="text/javascript" src="../../ga.js"></script>
 </head>
-<body class="container">
-<h2>Meet Our Volunteers</h2>
-<div class="row secondary volunteer-section"></div>
-<div class="row directors volunteer-section"></div>
-<div class="primary-modals"></div>
-<div class="secondary-modals"></div>
 
-<script id="primary" type="text/x-handlebars-template">
+<body class="container">
+  <h2>Meet Our Volunteers</h2>
+  <div class="row secondary volunteer-section"></div>
+  <div class="row directors volunteer-section"></div>
+  <div class="primary-modals"></div>
+  <div class="secondary-modals"></div>
+
+  <script id="primary" type="text/x-handlebars-template">
 {{#each primary}}
 <div class="primary-volunteer col-md-6 col-sm-12 row hand" data-micromodal-trigger="{{name}}{{@index}}">
   <div class="col-xs-4 primary-volunteer-image">
@@ -39,7 +40,7 @@
 {{/each}}
 </script>
 
-<script id="secondary" type="text/x-handlebars-template">
+  <script id="secondary" type="text/x-handlebars-template">
 {{#each secondary}}
 <div class="secondary-volunteer col-md-4 col-sm-6 row">
   <div class="col-xs-4 secondary-volunteer-image">
@@ -55,7 +56,7 @@
 {{/each}}
 </script>
 
-<script id="directors" type="text/x-handlebars-template">
+  <script id="directors" type="text/x-handlebars-template">
 <h2>Board of Directors and Executive Officers</h2>
 {{#each directors}}
 <div class="secondary-volunteer col-md-4 col-sm-6 row">
@@ -72,7 +73,7 @@
 {{/each}}
 </script>
 
-<script id="primary-modals" type="text/x-handlebars-template">
+  <script id="primary-modals" type="text/x-handlebars-template">
   {{#each primary}}
   <div class="modal micromodal-slide" id="{{name}}{{@index}}" aria-hidden="true">
     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -94,19 +95,18 @@
   {{/each}}
 </script>
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-<script type="text/javascript"
-        src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-<script type="text/javascript" src="../../api.js"></script>
-<script type="text/javascript" src="../../helpers.js"></script>
-<script type="text/javascript" src="../../nav.js"></script>
-<script type="text/javascript" src="volunteers.js"></script>
-<script type="text/javascript" src="../../footer.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+  <script type="text/javascript" src="../../api.js"></script>
+  <script type="text/javascript" src="../../helpers.js"></script>
+  <script type="text/javascript" src="../../nav.js"></script>
+  <script type="text/javascript" src="volunteers.js"></script>
+  <script type="text/javascript" src="../../donatemodal.js"></script>
+  <script type="text/javascript" src="../../footer.js"></script>
 
 </body>
+
 </html>

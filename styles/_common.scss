@@ -2,6 +2,7 @@
 @import 'hero';
 @import 'nav';
 @import 'variables';
+@import 'modal';
 
 @mixin feature {
   margin-bottom: $padding-medium;

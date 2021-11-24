@@ -1,40 +1,44 @@
 <?xml version="1.0"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>DPS Rescue</title>
-  <meta name="description" content="Dog Rescue in California and Nevada"/>
+  <meta name="description" content="Dog Rescue in California and Nevada" />
   <meta name="keywords"
-        content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada"/>
+    content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada" />
   <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov"
-        rel="stylesheet">
-  <link rel="stylesheet" href="styles/index.css" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov" rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.css" type="text/css" />
   <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
   <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
   <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css"/>
+    href="https://cdn.jsdelivr.net/npm/bootstrap-grid-only@1.0.0/bootstrap.min.css" />
   <script type="text/javascript" src="../../ga.js"></script>
 </head>
-<body class="container">
-<div class="row">
-  <div class="col-xs-12">
-    <h2>Sticky Dogs</h2>
-    <p>Sticky Dogs are those who "stick around" a little longer than others. Perhaps they have medical issues, behavioral issues, social issues, are a little older or just for whatever reason have "stuck" around and need that extra love and attention to find their forever home. Some of these dogs also have a scholarship where someone has pledged a certain amount towards their normal adoption fee to aid in their getting adopted.</p>
-    <p>Please check out some of our sticky dogs!</p>
-  </div>
-  <div class="carousel-container col-xs-12"></div>
 
-</div>
-<script id="no-sticky" type="text/x-handlebars-template">
+<body class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Sticky Dogs</h2>
+      <p>Sticky Dogs are those who "stick around" a little longer than others. Perhaps they have medical issues,
+        behavioral issues, social issues, are a little older or just for whatever reason have "stuck" around and need
+        that extra love and attention to find their forever home. Some of these dogs also have a scholarship where
+        someone has pledged a certain amount towards their normal adoption fee to aid in their getting adopted.</p>
+      <p>Please check out some of our sticky dogs!</p>
+    </div>
+    <div class="carousel-container col-xs-12"></div>
+
+  </div>
+  <script id="no-sticky" type="text/x-handlebars-template">
 <p>No sticky dogs right now, check back later!</p>
 </script>
 
-<script id="sticky" type="text/x-handlebars-template">
+  <script id="sticky" type="text/x-handlebars-template">
   <div class="carousel card">
     {{#each this}}
       <div class="sticky-dog row">
@@ -71,19 +75,19 @@
 </script>
 
 
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-<script type="text/javascript" src="../../api.js"></script>
-<script type="text/javascript" src="../../helpers.js"></script>
-<script type="text/javascript" src="../../nav.js"></script>
-<script type="text/javascript" src="sticky.js"></script>
-<script type="text/javascript" src="../../footer.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script type="text/javascript" src="../../api.js"></script>
+  <script type="text/javascript" src="../../helpers.js"></script>
+  <script type="text/javascript" src="../../nav.js"></script>
+  <script type="text/javascript" src="sticky.js"></script>
+  <script type="text/javascript" src="../../donatemodal.js"></script>
+  <script type="text/javascript" src="../../footer.js"></script>
 
 </body>
+
 </html>
