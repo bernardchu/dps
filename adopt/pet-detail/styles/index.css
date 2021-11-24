@@ -125,6 +125,18 @@ nav a:hover ul.subnav {
 /* COLORS */
 /* SPACING */
 /* BREAKPOINTS */
+.donate-modal-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.donate-modal-image-container img {
+  border: none;
+}
+.donate-modal-image-container :hover {
+  border: none;
+}
+
 /**************************\
   Basic Modal Styles (https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699)
 \**************************/
@@ -432,6 +444,18 @@ nav a:hover ul.subnav {
 /* COLORS */
 /* SPACING */
 /* BREAKPOINTS */
+.donate-modal-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.donate-modal-image-container img {
+  border: none;
+}
+.donate-modal-image-container :hover {
+  border: none;
+}
+
 /**************************\
   Basic Modal Styles (https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699)
 \**************************/

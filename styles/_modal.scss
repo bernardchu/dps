@@ -1,3 +1,15 @@
+.donate-modal-image-container {
+  @include flex-centered;
+
+  // Don't have red border highlight donate modal image on hover
+  img {
+    border: none;
+  }
+  & :hover {
+    border: none;
+  }
+}
+
 /**************************\
   Basic Modal Styles (https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699)
 \**************************/
