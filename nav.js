@@ -5,7 +5,8 @@ var states = [
     name: 'Home',
     route: '/'
   },
-  { name: 'Adopt',
+  {
+    name: 'Adopt',
     route: '/adopt',
     children: [
       {
@@ -30,7 +31,8 @@ var states = [
       },
     ]
   },
-  { name: 'Volunteer',
+  {
+    name: 'Volunteer',
     route: '/volunteer',
     children: [
       {
@@ -43,7 +45,8 @@ var states = [
       },
     ]
   },
-  { name: 'Foster',
+  {
+    name: 'Foster',
     route: '/foster',
     children: [
       {
@@ -53,10 +56,11 @@ var states = [
       {
         name: 'Meet Our Fosters',
         route: '/meet-our-fosters/'
-       }
+      }
     ]
   },
-  { name: 'Donate',
+  {
+    name: 'Donate',
     route: '/donate',
     children: [
       {
@@ -67,13 +71,14 @@ var states = [
         name: 'Intensive Care',
         route: '/icu/'
       },
-      {
-        name: 'Calendar',
-        route: '/calendar/'
-      },
+      // {
+      // name: 'Calendar',
+      // route: '/calendar/'
+      // },
     ]
   },
-  { name: 'Success Stories',
+  {
+    name: 'Success Stories',
     route: '/success-stories/',
     children: []
   },
@@ -81,7 +86,8 @@ var states = [
   //   name: 'Train',
   //   route: '/train/'
   // },
-  { name: 'About',
+  {
+    name: 'About',
     route: '/about',
     children: [
       {
@@ -100,12 +106,12 @@ var states = [
   }
 ];
 
-$( 'document' ).ready( function () {
-  var nav = new Nav( states );
-  $( 'body' ).prepend( nav.buildNav() );
-} );
+$('document').ready(function () {
+  var nav = new Nav(states);
+  $('body').prepend(nav.buildNav());
+});
 
-function Nav (states) {
+function Nav(states) {
   this.states = states;
   this.mastheadNode = $('<div class="masthead"></div>');
   this.heroNode = $('<div class="row hero"></div>');
@@ -141,7 +147,7 @@ function Nav (states) {
   this.mastheadNode.append(this.navNode);
 }
 
-Nav.prototype.getRoute = function ( state ) {
+Nav.prototype.getRoute = function (state) {
   if (!state.children || !state.children.length) {
     return state.route;
   }
@@ -150,43 +156,43 @@ Nav.prototype.getRoute = function ( state ) {
 
 Nav.prototype.buildNav = function () {
   var _this = this;
-  this.states.forEach( function buildTopNav ( state ) {
-    _this.navNode.append( _this.buildTopStateNode( state ) );
-  } );
+  this.states.forEach(function buildTopNav(state) {
+    _this.navNode.append(_this.buildTopStateNode(state));
+  });
   return this.mastheadNode;
 };
 
-Nav.prototype.buildTopStateNode = function ( state ) {
+Nav.prototype.buildTopStateNode = function (state) {
   var _this = this;
 
-  var node = $( '<a class="nav-link" href="' + _this.getRoute( state ) + '">' + state.name + '</a>' );
-  if (_this.isStateActive( state )) {
-    node.addClass( 'active' );
+  var node = $('<a class="nav-link" href="' + _this.getRoute(state) + '">' + state.name + '</a>');
+  if (_this.isStateActive(state)) {
+    node.addClass('active');
   }
   if (state.children && state.children.length) {
-    var subNavNode = $( '<ul class="subnav"></ul>')
-    state.children.forEach( function ( child ) {
-      var childNode = _this.buildChildStateNode( state, child );
-      subNavNode.append( childNode );
-    } );
-    node.append( subNavNode );
+    var subNavNode = $('<ul class="subnav"></ul>')
+    state.children.forEach(function (child) {
+      var childNode = _this.buildChildStateNode(state, child);
+      subNavNode.append(childNode);
+    });
+    node.append(subNavNode);
   }
   return node;
 };
 
-Nav.prototype.isStateActive = function ( parent, child ) {
+Nav.prototype.isStateActive = function (parent, child) {
   if (!this.getStatePaths().length) {
     return parent.route === '/' && !child; // we must be in the home page
   }
-  var parentActive = !!(new RegExp( this.getParentPath() )).test( parent.route );
+  var parentActive = !!(new RegExp(this.getParentPath())).test(parent.route);
   if (!child) { return parentActive }
-  return parentActive && new RegExp( this.getChildPath() ).test( child.route );;
+  return parentActive && new RegExp(this.getChildPath()).test(child.route);;
 };
 
 Nav.prototype.getStatePaths = function () {
-  return window.location.pathname.split( '/' ).filter( function ( part ) {
+  return window.location.pathname.split('/').filter(function (part) {
     return !!part;
-  } )
+  })
 };
 
 Nav.prototype.getParentPath = function () {
@@ -197,11 +203,11 @@ Nav.prototype.getChildPath = function () {
   return this.getStatePaths()[1];
 };
 
-Nav.prototype.buildChildStateNode = function ( parent, child ) {
+Nav.prototype.buildChildStateNode = function (parent, child) {
   var _this = this;
-  var node = $( '<li><a href="' + parent.route + child.route + '">' + child.name + '</a></li>' );
-  if (_this.isStateActive( parent, child )) {
-    node.find( 'a' ).addClass( 'active' );
+  var node = $('<li><a href="' + parent.route + child.route + '">' + child.name + '</a></li>');
+  if (_this.isStateActive(parent, child)) {
+    node.find('a').addClass('active');
   }
   return node;
 };
