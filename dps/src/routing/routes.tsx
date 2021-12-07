@@ -1,8 +1,21 @@
 import { Outlet } from "react-router-dom";
 import DpsAdoptApplication from "../adopt/DpsAdoptApplication";
 import DpsAdoptAvailable from "../adopt/DpsAdoptAvailable";
+import DpsCatApplication from "../adopt/DpsCatApplication";
+import DpsRehome from "../adopt/DpsRehome";
+import DpsStickyDogs from "../adopt/DpsStickyDogs";
 import DpsHome from "../DpsHome";
 import { IDpsNavRoute } from "../model/DpsNavRoute";
+import DpsVolunteerFaq from "../volunteer/DpsVolunteerFaq";
+import DpsMeetVolunteers from "../volunteer/DpsMeetVolunteers";
+import DpsFosterFaq from "../foster/DpsFosterFaq";
+import DpsMeetFosters from "../foster/DpsMeetFosters";
+import DpsDonate from "../donate/DpsDonate";
+import DpsIcu from "../donate/DpsIcu";
+import DpsSuccessStories from "../success-stories/DpsSuccessStories";
+import DpsAboutUs from "../about/DpsAboutUs";
+import DpsContact from "../about/DpsContact";
+import DpsAboutFaq from "../about/DpsAboutFaq";
 
 const routes: IDpsNavRoute[] = [
   {
@@ -28,56 +41,68 @@ const routes: IDpsNavRoute[] = [
       {
         name: 'Cat Application',
         path: 'cat-application',
+        element: <DpsCatApplication />
       },
       {
         name: 'Sticky Dogs',
-        path: 'sticky'
+        path: 'sticky',
+        element: <DpsStickyDogs />
       },
       {
         name: 'Rehome',
-        path: 'rehome'
+        path: 'rehome',
+        element: <DpsRehome />
       },
     ]
   },
   {
     name: 'Volunteer',
     path: 'volunteer',
+    element: <Outlet />,
     children: [
       {
         name: 'FAQ',
-        path: 'faq'
+        path: 'faq',
+        element: <DpsVolunteerFaq />
       },
       {
         name: 'Meet Our Volunteers',
-        path: 'meet-our-volunteers'
+        path: 'meet-our-volunteers',
+        element: <DpsMeetVolunteers />
       },
     ]
   },
   {
     name: 'Foster',
     path: 'foster',
+    element: <Outlet />,
     children: [
       {
         name: 'FAQ',
-        path: 'faq'
+        path: 'faq',
+        element: <DpsFosterFaq />
       },
       {
         name: 'Meet Our Fosters',
-        path: 'meet-our-fosters'
+        path: 'meet-our-fosters',
+        element: <DpsMeetFosters />
       }
     ]
   },
   {
     name: 'Donate',
     path: 'donate',
+    element: <Outlet />,
     children: [
       {
         name: 'Donate',
-        path: 'donate'
+        path: 'donate',
+        element: <DpsDonate />
       },
       {
         name: 'Intensive Care',
-        path: 'icu'
+        path: 'icu',
+        element: <DpsIcu />
       },
       // {
       // name: 'Calendar',
@@ -88,6 +113,7 @@ const routes: IDpsNavRoute[] = [
   {
     name: 'Success Stories',
     path: 'success-stories',
+    element: <DpsSuccessStories />
   },
   // {
   //   name: 'Train',
@@ -96,18 +122,22 @@ const routes: IDpsNavRoute[] = [
   {
     name: 'About',
     path: 'about',
+    element: <Outlet />,
     children: [
       {
         name: 'About Us',
-        path: 'about-us'
+        path: 'about-us',
+        element: <DpsAboutUs />
       },
       {
         name: 'Contact',
-        path: 'contact'
+        path: 'contact',
+        element: <DpsContact />
       },
       {
         name: 'FAQ',
-        path: 'faq'
+        path: 'faq',
+        element: <DpsAboutFaq />
       }
     ]
   }
