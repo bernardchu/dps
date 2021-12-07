@@ -1,25 +1,19 @@
 import React from "react";
-import { DpsNavRoute } from "./model/DpsNavRoute";
+import DpsChildRouteMenu from "./DpsChildRouteMenu";
+import { IDpsNavRoute } from "./model/DpsNavRoute";
 
-type DpsNavTopRouteProps = {
-  route: DpsNavRoute
+interface DpsNavTopRouteProps {
+  route: IDpsNavRoute
 }
 
 class DpsNavTopRoute extends React.Component<DpsNavTopRouteProps> {
 
   render() {
+    const route: IDpsNavRoute = this.props.route;
     return (
-      <a className="nav-link" href={this.props.route.route}>
-        {this.props.route.name}
-        {this.props.route.children?.length &&
-          <ul className="subnav">
-            {this.props.route.children.map((child: DpsNavRoute) => {
-              return <li>
-                <a href={this.props.route.route + child.route}>{child.name}</a>
-              </li>
-            })}
-          </ul>
-        }
+      <a className="nav-link" href={route.route}>
+        {route.name}
+        {route.children?.length && <DpsChildRouteMenu children={route.children} parent={route} />}
       </a>
 
     );

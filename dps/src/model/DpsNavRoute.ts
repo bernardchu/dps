@@ -1,5 +1,5 @@
-export interface DpsNavRoute {
+export interface IDpsNavRoute {
   name: string;
   route: string;
-  children?: DpsNavRoute[];
+  children?: IDpsNavRoute[];
 }
