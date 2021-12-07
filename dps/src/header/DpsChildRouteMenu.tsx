@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import { IDpsNavRoute } from '../model/DpsNavRoute';
 
 export interface IDpsChildRouteMenuProps {
@@ -11,8 +12,8 @@ export default class DpsChildRouteMenu extends React.Component<IDpsChildRouteMen
     return (
       <ul className="subnav">
         {this.props.children.map((child: IDpsNavRoute) => {
-          return <li>
-            <a href={this.props.parent.route + child.route}>{child.name}</a>
+          return <li key={child.path}>
+            <NavLink to={`${this.props.parent.path}/${child.path}`}>{child.name}</NavLink>
           </li>
         })}
       </ul>

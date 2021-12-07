@@ -1,0 +1,20 @@
+import * as React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import routes from './routes';
+
+export interface IDpsRoutesProps {
+}
+
+export default class DpsRoutes extends React.Component<IDpsRoutesProps> {
+  public render() {
+    return (
+      <Routes>
+        {routes.map((route) => <Route path={route.path} element={route.element} key={route.path}>
+          {route.children?.length &&
+            route.children.map((child) => <Route path={child.path} element={child.element} key={child.path} />)
+          }
+        </Route>)}
+      </Routes>
+    );
+  }
+}

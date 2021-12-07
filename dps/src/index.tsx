@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import DpsApp from './DpsApp';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <DpsApp />
+    <BrowserRouter>
+      <DpsApp />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,5 +1,8 @@
+import React, { JSXElementConstructor, ReactElement } from "react";
+
 export interface IDpsNavRoute {
   name: string;
-  route: string;
+  path: string;
   children?: IDpsNavRoute[];
+  element?: ReactElement;
 }
