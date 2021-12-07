@@ -1,0 +1,15 @@
+@import 'variables';
+
+.footer {
+  margin-top: $padding-large;
+
+  p {
+    color: $text-faint;
+  }
+
+  hr {
+    height: 8px;
+    color: $dps-secondary-color;
+    background-color: $dps-secondary-color;
+  }
+}

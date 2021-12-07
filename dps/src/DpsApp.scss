@@ -1,0 +1,21 @@
+@import 'styles/carousel';
+@import 'styles/common';
+@import 'styles/events';
+@import 'styles/faq';
+@import 'styles/footer';
+@import 'styles/hero';
+@import 'styles/modal';
+@import 'styles/nav';
+@import 'styles/news';
+@import 'styles/twitter';
+
+.hero-button {
+  background-color: $dps-secondary-color;
+  margin-top: $padding-medium;
+  padding: $padding-medium;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.3em;
+  text-align: center;
+}

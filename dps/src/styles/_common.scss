@@ -1,0 +1,95 @@
+@import 'footer';
+@import 'hero';
+@import 'nav';
+@import 'variables';
+@import 'modal';
+
+@mixin feature {
+  margin-bottom: $padding-medium;
+  padding: $padding-medium;
+
+  img {
+    max-width: 100%;
+    margin: $padding-small 0;
+  }
+}
+
+@mixin button {
+  background-color: $dps-primary-color;
+  padding: $padding-medium $padding-large;
+  color: white;
+  text-decoration: none;
+}
+
+@mixin flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$card-box-shadow: 3px 3px 10px 2px rgba(207,207,207,1);
+
+// Bootstrap grid requires this
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  color: $text-color;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+a {
+  color: $dps-secondary-color;
+}
+
+img {
+  border: 3px solid white;
+
+  &:hover {
+    border: 3px solid $dps-secondary-color;
+  }
+
+  &.no-border {
+    border: none;
+
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+hr {
+  height: 4px;
+  color: $dps-secondary-color;
+  background-color: $dps-secondary-color;
+}
+
+.card {
+  -webkit-box-shadow: $card-box-shadow;
+  -moz-box-shadow: $card-box-shadow;
+  box-shadow: $card-box-shadow;
+}
+
+.hand:hover {
+cursor: pointer;
+}
+
+/** Common carousel styling */
+
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none;
+}
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white;
+}
+
+button.slick-prev:before, button.slick-next:before {
+  color: rgb(32, 51, 9);
+}
