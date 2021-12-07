@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import DpsFooter from './DpsFooter';
-import DpsHeader from './DpsHeader';
+import DpsHeader from './header/DpsHeader';
 
 class DpsApp extends React.Component {
   render() {

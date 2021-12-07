@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IDpsNavRoute } from './model/DpsNavRoute';
+import { IDpsNavRoute } from '../model/DpsNavRoute';
 
 export interface IDpsChildRouteMenuProps {
   children: IDpsNavRoute[];

@@ -1,6 +1,6 @@
 import React from "react";
 import DpsNavTopRoute from "./DpsNavTopRoute";
-import { IDpsNavRoute } from "./model/DpsNavRoute";
+import { IDpsNavRoute } from "../model/DpsNavRoute";
 
 class DpsNav extends React.Component {
   private static routes: IDpsNavRoute[] = [
