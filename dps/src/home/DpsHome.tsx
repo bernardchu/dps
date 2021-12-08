@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
 import DpsHomeFeatureCard from './DpsBasicFeatureCard';
-import DpsFeatures from './DpsFeatures';
+import DpsSidebarFeatures from './DpsFeatures';
 
 export default class DpsHome extends React.PureComponent {
   private static merchFeature: IDpsHomeFeatureCardData = {
@@ -27,7 +27,7 @@ export default class DpsHome extends React.PureComponent {
           </div>
           <DpsHomeFeatureCard feature={DpsHome.merchFeature} />
         </div>
-        <DpsFeatures />
+        <DpsSidebarFeatures />
       </div>
 
     );

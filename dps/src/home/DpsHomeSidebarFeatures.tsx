@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
-import DpsHomeFeatureCard from './DpsBasicFeatureCard';
+import DpsHomeFeatureCard from './DpsHomeFeatureCard';
 import DpsTwitterContainer from './DpsTwitterContainer';
 
-export default class DpsFeatures extends React.PureComponent {
+export default class DpsHomeSidebarFeatures extends React.PureComponent {
   private static features: IDpsHomeFeatureCardData[] = [
     {
       title: 'Fly With DPS',
@@ -55,7 +55,7 @@ export default class DpsFeatures extends React.PureComponent {
       <div className="col-md-4 col-sm-12 row">
         <div className="col-md-12">
           <DpsTwitterContainer />
-          {DpsFeatures.features.map(feature => <DpsHomeFeatureCard feature={feature} key={feature.title} />)}
+          {DpsHomeSidebarFeatures.features.map(feature => <DpsHomeFeatureCard feature={feature} key={feature.title} />)}
         </div>
       </div>
     );
