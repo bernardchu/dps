@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import DpsFeatures from './DpsFeatures';
 
-export default class DpsHome extends React.Component {
+export default class DpsHome extends React.PureComponent {
   public render() {
     return (
       <div>
