@@ -13,6 +13,9 @@ export default class DpsRoutes extends React.Component<IDpsRoutesProps> {
           {route.children?.length &&
             route.children.map((child) => <Route path={child.path} element={child.element} key={child.path} />)
           }
+          {route.children?.length &&
+            <Route index element={route.children[0].element} />
+          }
         </Route>)}
       </Routes>
     );
