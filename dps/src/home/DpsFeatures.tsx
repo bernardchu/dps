@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { IDpsBasicFeature } from '../model/IDpsBasicFeature';
-import DpsBasicFeatureCard from './DpsBasicFeatureCard';
+import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
+import DpsHomeFeatureCard from './DpsBasicFeatureCard';
 import DpsTwitterContainer from './DpsTwitterContainer';
 
 export default class DpsFeatures extends React.PureComponent {
-  private static features: IDpsBasicFeature[] = [
+  private static features: IDpsHomeFeatureCardData[] = [
     {
       title: 'Fly With DPS',
       bodyText: `Flying from ICN into SFO or LAX? Flying from PVG to SFO? DPS needs flight volunteers
@@ -38,11 +38,11 @@ export default class DpsFeatures extends React.PureComponent {
       title: 'Our Favorite Doctors',
       bodyText: `Thank you to our vets, who help us keep all of our dogs healthy!`,
       body: <ul>
-        <li><a href="https://www.perrisvetclinic.com/" target="_blank">Perris
+        <li><a href="https://www.perrisvetclinic.com/" target="_blank" rel="noreferrer">Perris
           Valley Animal Hospital</a></li>
-        <li><a href="http://sanjosepetcare.com/" target="_blank">Petcare
+        <li><a href="http://sanjosepetcare.com/" target="_blank" rel="noreferrer">Petcare
           Animal Hospital</a></li>
-        <li><a href="http://www.alphapethospital.com/" target="_blank">Dr.
+        <li><a href="http://www.alphapethospital.com/" target="_blank" rel="noreferrer">Dr.
           Peet at Alpha Animal Hospital</a></li>
       </ul>,
       externalLink: 'https://www.petfoodexpress.com/',
@@ -55,7 +55,7 @@ export default class DpsFeatures extends React.PureComponent {
       <div className="col-md-4 col-sm-12 row">
         <div className="col-md-12">
           <DpsTwitterContainer />
-          {DpsFeatures.features.map(feature => <DpsBasicFeatureCard feature={feature} />)}
+          {DpsFeatures.features.map(feature => <DpsHomeFeatureCard feature={feature} key={feature.title} />)}
         </div>
       </div>
     );

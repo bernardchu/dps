@@ -25,10 +25,10 @@ export default class DpsHomeFeatureCard extends React.PureComponent<IDpsHomeFeat
         {feature.body}
         <span className="featured_img">
           {feature.localPath && <Link to={feature.localPath}>
-            <img src={feature.imgSrc} />
+            <img src={feature.imgSrc} alt="" />
           </Link>}
           {feature.externalLink && <a href={feature.externalLink}>
-            <img src={feature.imgSrc} />
+            <img src={feature.imgSrc} alt="" />
           </a>}
         </span>
         <div>

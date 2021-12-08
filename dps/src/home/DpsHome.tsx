@@ -22,8 +22,8 @@ export default class DpsHome extends React.PureComponent {
               <h2>Get DPS Merchandise at Our Online Store</h2>
               <hr />
               <span className="featured_img">
-                <a href="https://www.bonfire.com/store/dpsrescue/" target="_blank">
-                  <img src="https://dps-festive.imgix.net/images/home/merch.png?auto=format&pad=20&bg=2E8C69" />
+                <a href="https://www.bonfire.com/store/dpsrescue/" target="_blank" rel="noreferrer">
+                  <img src="https://dps-festive.imgix.net/images/home/merch.png?auto=format&pad=20&bg=2E8C69" alt="merch" />
                 </a>
               </span>
             </div>
