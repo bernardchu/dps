@@ -1,8 +1,16 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
+import DpsHomeFeatureCard from './DpsBasicFeatureCard';
 import DpsFeatures from './DpsFeatures';
 
 export default class DpsHome extends React.PureComponent {
+  private static merchFeature: IDpsHomeFeatureCardData = {
+    title: 'Get DPS Merchandise at Our Online Store',
+    externalLink: 'https://www.bonfire.com/store/dpsrescue/',
+    imgSrc: 'https://dps-festive.imgix.net/images/home/merch.png?auto=format&pad=20&bg=2E8C69',
+  }
+
   public render() {
     return (
       <div>
@@ -17,17 +25,7 @@ export default class DpsHome extends React.PureComponent {
             <h2>Upcoming Events</h2>
             <hr />
           </div>
-          <div className="row">
-            <div className="col-md-12 featured card">
-              <h2>Get DPS Merchandise at Our Online Store</h2>
-              <hr />
-              <span className="featured_img">
-                <a href="https://www.bonfire.com/store/dpsrescue/" target="_blank" rel="noreferrer">
-                  <img src="https://dps-festive.imgix.net/images/home/merch.png?auto=format&pad=20&bg=2E8C69" alt="merch" />
-                </a>
-              </span>
-            </div>
-          </div>
+          <DpsHomeFeatureCard feature={DpsHome.merchFeature} />
         </div>
         <DpsFeatures />
       </div>
