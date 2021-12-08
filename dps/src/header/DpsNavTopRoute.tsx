@@ -1,6 +1,6 @@
 import React from "react";
 import DpsChildRouteMenu from "./DpsChildRouteMenu";
-import { IDpsNavRoute } from "../model/DpsNavRoute";
+import { IDpsNavRoute } from "../model/IDpsNavRoute";
 import { NavLink } from "react-router-dom";
 
 interface DpsNavTopRouteProps {

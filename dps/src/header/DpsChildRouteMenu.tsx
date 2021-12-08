@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { IDpsNavRoute } from '../model/DpsNavRoute';
+import { IDpsNavRoute } from '../model/IDpsNavRoute';
 
 export interface IDpsChildRouteMenuProps {
   children: IDpsNavRoute[];
