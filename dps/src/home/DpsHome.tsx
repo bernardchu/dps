@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
+import DpsHomeCarousel from './DpsHomeCarousel';
 import DpsHomeEvents from './DpsHomeEvents';
 import DpsHomeFeatureCard from './DpsHomeFeatureCard';
 import DpsHomeSidebarFeatures from './DpsHomeSidebarFeatures';
@@ -16,8 +17,7 @@ export default class DpsHome extends React.PureComponent {
     return (
       <div>
         <div className="row">
-          <div className="adoptable col-md-12"></div>
-
+          <DpsHomeCarousel />
           <Link to="adopt/available" className="hero-button col-xs-12">See All
             Available Dogs and Cats</Link>
         </div>
