@@ -33,11 +33,13 @@ export default class DpsAdoptAvailable extends React.PureComponent<{}, IDpsAdopt
       <div className="row">
         <h2>Available Dogs</h2>
         <div className="dogs col-md-12">
+          {!loaded && <div>Loading...</div>}
           {loaded && dogs.map(dog => <DpsAdoptableTile adoptable={dog} key={dog.id} />)}
         </div>
         <div className="clearfix"></div>
         <h2>Available Cats</h2>
         <div className="cats col-md-12">
+          {!loaded && <div>Loading...</div>}
           {loaded && cats.map(cat => <DpsAdoptableTile adoptable={cat} key={cat.id} />)}
         </div>
       </div>
