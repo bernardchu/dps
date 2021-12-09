@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
-import DpsHomeFeatureCard from './DpsBasicFeatureCard';
-import DpsSidebarFeatures from './DpsFeatures';
+import DpsHomeEvents from './DpsHomeEvents';
+import DpsHomeFeatureCard from './DpsHomeFeatureCard';
+import DpsHomeSidebarFeatures from './DpsHomeSidebarFeatures';
 
 export default class DpsHome extends React.PureComponent {
   private static merchFeature: IDpsHomeFeatureCardData = {
@@ -21,13 +22,10 @@ export default class DpsHome extends React.PureComponent {
             Available Dogs and Cats</Link>
         </div>
         <div className="col-md-8 col-sm-12 row features">
-          <div className="col-md-12 dates featured card">
-            <h2>Upcoming Events</h2>
-            <hr />
-          </div>
+          <DpsHomeEvents />
           <DpsHomeFeatureCard feature={DpsHome.merchFeature} />
         </div>
-        <DpsSidebarFeatures />
+        <DpsHomeSidebarFeatures />
       </div>
 
     );
