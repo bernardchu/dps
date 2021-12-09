@@ -1,18 +1,16 @@
 import * as React from 'react';
-import DpsApi from '../DpsApi';
+import DpsApi from '../api/DpsApi';
+import { IDpsDatesApiResponse } from '../api/IDpsApiResponses';
 import { IDpsAsyncState } from '../model/IDpsAsyncState';
-import { IDpsEventsApiResponse } from '../model/IDpsEventsInterfaces';
 import DpsHomeEventLocation from './DpsHomeEventLocation';
 
-
 export interface IDpsHomeEventsState extends IDpsAsyncState {
-  locations: IDpsEventsApiResponse;
+  locations: IDpsDatesApiResponse;
 }
 
 export default class DpsHomeEvents extends React.PureComponent<{}, IDpsHomeEventsState> {
   public componentDidMount() {
-    fetch(DpsApi.dates)
-      .then((response: Response) => response.json())
+    DpsApi.getDates()
       .then((locations) => {
         this.setState({
           locations: locations,

@@ -1,7 +1,3 @@
-export interface IDpsEventsApiResponse {
-  [key: string]: IDpsEventLocation;
-}
-
 export interface IDpsEventLocation {
   name: string;
   map_url: string;

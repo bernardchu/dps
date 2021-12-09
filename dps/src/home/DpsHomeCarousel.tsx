@@ -1,7 +1,7 @@
 import * as React from 'react';
-import DpsApi from '../DpsApi';
+import DpsApi from '../api/DpsApi';
 import { IDpsAdoptable } from '../model/IDpsAnimal';
-import { IDpsAvailableApiResponse } from '../model/IDpsAvailableApiResponse';
+import { IDpsAvailableApiResponse } from '../api/IDpsApiResponses';
 import Slider, { Settings } from "react-slick";
 import _ from 'lodash';
 import "slick-carousel/slick/slick.css";
@@ -24,8 +24,7 @@ export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCar
   };
 
   public componentDidMount() {
-    fetch(DpsApi.availableCompact)
-      .then((response: Response) => response.json())
+    DpsApi.getAvailableCompact()
       .then((animals: IDpsAvailableApiResponse) => {
         this.setState({
           dogs: _.shuffle(animals.dogs),
