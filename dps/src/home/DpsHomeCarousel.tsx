@@ -3,17 +3,17 @@ import DpsApi from '../DpsApi';
 import { IDpsAdoptable } from '../model/IDpsAnimal';
 import { IDpsAvailableApiResponse } from '../model/IDpsAvailableApiResponse';
 import Slider, { Settings } from "react-slick";
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import DpsHomeCarouselSlide from './DpsHomeCarouselSlide';
 
 export interface IDpsHomeCarouselState {
   loaded: boolean;
   dogs: IDpsAdoptable[];
 }
 
-export default class DpsHomeCarousel extends React.Component<{}, IDpsHomeCarouselState> {
+export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCarouselState> {
   private static settings = {
     dots: false,
     infinite: true,
@@ -42,23 +42,9 @@ export default class DpsHomeCarousel extends React.Component<{}, IDpsHomeCarouse
 
     return (
       <div className="adoptable col-md-12">
-
+        {!loaded && <div>Loading...</div>}
         {loaded && dogs?.length && <Slider {...DpsHomeCarousel.settings as unknown as Settings}>
-          {dogs.map((dog: IDpsAdoptable) => {
-            return <div className="adoptable-current" key={dog.id}>
-              <Link to={`adopt/pet-detail/?id=${dog.id}`}>
-                <img src={dog.imgurl} title={dog.name} alt={dog.name} />
-                <div className="adoptable-info-overlay">
-                  <div className="adoptable-info">'
-                    <h3>{dog.name}</h3>
-                    <h4>{dog.gender} {dog.breed}</h4>
-                    <h4>{dog.age}</h4>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          })
-          }
+          {dogs.map((dog: IDpsAdoptable) => <DpsHomeCarouselSlide dog={dog} key={dog.id} />)}
         </Slider>}
       </div>
     );
