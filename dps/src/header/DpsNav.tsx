@@ -1,6 +1,6 @@
 import React from "react";
 import DpsNavTopRoute from "./DpsNavTopRoute";
-import { IDpsNavRoute } from "../model/IDpsNavRoute";
+import { IDpsNavRoute } from "../model/IDpsRoutes";
 
 interface IDpsNavProps {
   routes: IDpsNavRoute[];

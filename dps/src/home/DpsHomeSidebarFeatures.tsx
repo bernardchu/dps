@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
+import { routes } from '../routing/routes';
 import DpsHomeFeatureCard from './DpsHomeFeatureCard';
 import DpsTwitterContainer from './DpsTwitterContainer';
 
@@ -10,13 +11,13 @@ export default class DpsHomeSidebarFeatures extends React.PureComponent {
       bodyText: `Flying from ICN into SFO or LAX? Flying from PVG to SFO? DPS needs flight volunteers
       for our international dogs! No cost to you, we handle all the heavy lifting (dog included)
       and you save a life!`,
-      localPath: 'about/contact',
+      localPath: `${routes.about.path}/${routes.about.children!.contact.path}`,
       imgSrc: 'http://dps-festive.imgix.net/images/home/flying-volunteers.jpg?fm=pjpg&w=700',
       linkText: 'Contact us if you can help out'
     }, {
       title: 'Get Involved',
       bodyText: `Like dogs? Want to help out in your community? Come volunteer or foster with DPS!`,
-      localPath: 'volunteer',
+      localPath: `${routes.volunteer.path}/${routes.volunteer.children!.faq.path}`,
       imgSrc: 'http://dps-festive.imgix.net/images/home/events.jpg?w=700',
       linkText: 'Learn more about how you can help'
     }, {
@@ -24,7 +25,7 @@ export default class DpsHomeSidebarFeatures extends React.PureComponent {
       bodyText: `DPS has matched thousands of dogs with their perfect home over the
       past decade. Read our success stories and if you've adopted one of our
       pups, we'd love to hear from you!`,
-      localPath: 'success-stories',
+      localPath: routes.successStories.path,
       imgSrc: 'http://dps-festive.imgix.net/images/home/success-stories.jpg?w=700',
       linkText: 'Read about our Happy Tails'
     }, {

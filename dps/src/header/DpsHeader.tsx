@@ -1,5 +1,5 @@
 import React from "react";
-import routes from "../routing/routes";
+import navRoutes from "../routing/routes";
 import DpsHero from "./DpsHero";
 import DpsNav from "./DpsNav";
 
@@ -8,7 +8,7 @@ class DpsHeader extends React.Component {
     return (
       <div className="masthead">
         <DpsHero />
-        <DpsNav routes={routes} />
+        <DpsNav routes={navRoutes} />
       </div>
     );
   }
