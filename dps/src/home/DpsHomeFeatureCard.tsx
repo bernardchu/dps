@@ -18,7 +18,7 @@ export default class DpsHomeFeatureCard extends React.PureComponent<IDpsHomeFeat
   public render() {
     const feature = this.props.feature;
     return (
-      <div className="featured card">
+      <div className="col-md-12 featured card">
         <h2>{feature.title}</h2>
         <hr />
         {feature.bodyText && <p>{feature.bodyText}</p>}
