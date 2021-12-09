@@ -1,12 +1,12 @@
 import * as React from 'react';
 import DpsApi from '../DpsApi';
+import { IDpsAsyncState } from '../model/IDpsAsyncState';
 import { IDpsEventsApiResponse } from '../model/IDpsEventsInterfaces';
 import DpsHomeEventLocation from './DpsHomeEventLocation';
 
 
-export interface IDpsHomeEventsState {
+export interface IDpsHomeEventsState extends IDpsAsyncState {
   locations: IDpsEventsApiResponse;
-  loaded: boolean;
 }
 
 export default class DpsHomeEvents extends React.PureComponent<{}, IDpsHomeEventsState> {

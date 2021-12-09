@@ -7,9 +7,9 @@ import _ from 'lodash';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import DpsHomeCarouselSlide from './DpsHomeCarouselSlide';
+import { IDpsAsyncState } from '../model/IDpsAsyncState';
 
-export interface IDpsHomeCarouselState {
-  loaded: boolean;
+export interface IDpsHomeCarouselState extends IDpsAsyncState {
   dogs: IDpsAdoptable[];
 }
 

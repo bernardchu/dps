@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import DpsAdoptApplication from "../adopt/DpsAdoptApplication";
-import DpsAdoptAvailable from "../adopt/DpsAdoptAvailable";
+import DpsAdoptAvailable from "../adopt/available/DpsAdoptAvailable";
 import DpsCatApplication from "../adopt/DpsCatApplication";
 import DpsRehome from "../adopt/DpsRehome";
 import DpsStickyDogs from "../adopt/DpsStickyDogs";
