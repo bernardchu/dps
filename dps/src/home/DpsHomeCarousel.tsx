@@ -43,6 +43,12 @@ export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCar
     return (
       <div className="adoptable col-md-12">
         {!loaded && <div>Loading...</div>}
+        {/* 
+        Annoying type shenanigans below because the react-slick docs incorrectly say that
+        lazyLoad should be 'progressive' or 'ondemand' when in fact it only works with a boolean.
+        Unfortunately, the @types package follows the docs, so we have to convince it to accept
+        the correct lazyLoad boolean.
+        */}
         {loaded && dogs?.length && <Slider {...DpsHomeCarousel.settings as unknown as Settings}>
           {dogs.map((dog: IDpsAdoptable) => <DpsHomeCarouselSlide dog={dog} key={dog.id} />)}
         </Slider>}
