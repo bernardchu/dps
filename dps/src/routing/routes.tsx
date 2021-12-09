@@ -16,6 +16,7 @@ import DpsSuccessStories from "../success-stories/DpsSuccessStories";
 import DpsAboutUs from "../about/DpsAboutUs";
 import DpsContact from "../about/DpsContact";
 import DpsAboutFaq from "../about/DpsAboutFaq";
+import DpsPetDetail from "../adopt/DpsPetDetail";
 
 function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
   return Object.keys(routes)
@@ -88,7 +89,7 @@ export const routes: { [key: string]: IDpsRoute } = {
       petDetail: {
         name: 'Pet Details',
         path: 'pet-detail',
-        element: <div></div>,
+        element: <DpsPetDetail />,
         inNav: false
       }
     }

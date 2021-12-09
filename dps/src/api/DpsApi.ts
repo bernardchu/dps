@@ -1,4 +1,5 @@
-import { IDpsAvailableApiResponse, IDpsDatesApiResponse } from "./IDpsApiResponses";
+import { url } from "inspector";
+import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse } from "./IDpsApiResponses";
 
 export default class DpsApi {
   private static baseUrl = 'http://api.dpsrescue.com/api/';
@@ -28,6 +29,12 @@ export default class DpsApi {
 
   public static getAvailableCompact(): Promise<IDpsAvailableApiResponse> {
     return this.fetchAndReturnJson<IDpsAvailableApiResponse>(DpsApi.availableCompact);
+  }
+
+  public static getAvailableById(id: string): Promise<IDpsAvailableIdResponse> {
+    const url = new URL(DpsApi.available);
+    url.searchParams.append("id", id);
+    return this.fetchAndReturnJson<IDpsAvailableIdResponse>(url.toString());
   }
 
   public static getDates(): Promise<IDpsDatesApiResponse> {
