@@ -60,7 +60,7 @@ export function DpsPetDetail() {
               </div>
             }
             {!print && <DpsPetDetailBasics pet={pet} />}
-            {pet.bio?.map(line => <p className="bio" key={line}>{line}</p>)}
+            {pet.bio?.map(line => <p className="bio" key={line} dangerouslySetInnerHTML={{ __html: line }} />)} {/* To properly parse escaped quotes and such */}
           </div>
 
         </div>
@@ -74,7 +74,7 @@ export function DpsPetDetail() {
               {pet.name} will not be at any scheduled events until we find a home that's
               interested. Please fill out an application if you think that's you!
             </p>}
-            {pet.boilerplate?.map(line => <p className="boilerplate" key={line}>{line}</p>)}
+            {pet.boilerplate.map(line => <p className="boilerplate" key={line} dangerouslySetInnerHTML={{ __html: line }} />)}
           </div>
           <div className="card apply">
             <h2>Interested in adopting?</h2>
