@@ -16,7 +16,7 @@ import DpsSuccessStories from "../success-stories/DpsSuccessStories";
 import DpsAboutUs from "../about/DpsAboutUs";
 import DpsContact from "../about/DpsContact";
 import DpsAboutFaq from "../about/DpsAboutFaq";
-import DpsPetDetail from "../adopt/DpsPetDetail";
+import DpsPetDetail from "../adopt/pet-detail/DpsPetDetail";
 
 function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
   return Object.keys(routes)
@@ -211,5 +211,4 @@ export const routes: { [key: string]: IDpsRoute } = {
 };
 
 const navRoutes = createNavRoutes(routes);
-console.log(navRoutes);
 export default navRoutes;

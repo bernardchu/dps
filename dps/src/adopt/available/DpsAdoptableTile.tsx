@@ -12,7 +12,7 @@ export default class DpsAdoptableTile extends React.PureComponent<IDpsAdoptableT
     return (
       <span className="available col-md-2 col-xs-4">
         <Link to={`../pet-detail/?id=${adoptable.id}`} className="img-container">
-          <img src={adoptable.imgurl} />
+          <img src={adoptable.imgurl} alt={adoptable.name} />
         </Link>
         <div className="name">{adoptable.name}</div>
         <div className="breed">{adoptable.breed}</div>

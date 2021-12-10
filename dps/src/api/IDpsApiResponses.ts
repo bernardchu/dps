@@ -11,6 +11,7 @@ export interface IDpsDatesApiResponse {
 }
 
 export interface IDpsAvailableIdResponse {
+  // numbers are 0 or 1 representing booleans
   id: string;
   name: string;
   species: string;
@@ -28,11 +29,11 @@ export interface IDpsAvailableIdResponse {
   insurance: string;
   bio: string[],
   dogs: string;
-  cats: string;
-  kids: string;
-  special_needs: string;
-  housetrained: string;
-  declawed: string;
+  cats: number;
+  kids: number;
+  special_needs: number;
+  housetrained: number;
+  declawed: number;
   last_updated: string;
   contact: string;
 }
