@@ -2,8 +2,11 @@ import { IDpsAvailableIdResponse } from "../api/IDpsApiResponses";
 
 export default class DpsDetailedPet {
   private _isDog: boolean;
+  private _video: string;
+
   constructor(private pet: IDpsAvailableIdResponse) {
     this._isDog = /dog/i.test(this.species);
+    this._video = pet.video.replace("/v/", "/embed/"); // make URL given by API embed properly
   }
 
   public get id(): string { return this.pet.id; }
@@ -15,7 +18,7 @@ export default class DpsDetailedPet {
   public get age(): string { return this.pet.age; }
   public get age_general(): string { return this.pet.age_general; }
   public get gender(): string { return this.pet.gender; }
-  public get video(): string { return this.pet.video; }
+  public get video(): string { return this._video; }
   public get pictures(): string[] { return this.pet.pictures; }
   public get coat_length(): string { return this.pet.coat_length; }
   public get upcoming(): string { return this.pet.upcoming; }
