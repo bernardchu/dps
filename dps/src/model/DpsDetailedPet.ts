@@ -6,7 +6,7 @@ export default class DpsDetailedPet {
 
   constructor(private pet: IDpsAvailableIdResponse) {
     this._isDog = /dog/i.test(this.species);
-    this._video = pet.video.replace("/v/", "/embed/"); // make URL given by API embed properly
+    this._video = pet.video ? pet.video.replace("/v/", "/embed/") : ''; // make URL given by API embed properly
   }
 
   public get id(): string { return this.pet.id; }

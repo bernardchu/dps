@@ -60,7 +60,7 @@ export function DpsPetDetail() {
               </div>
             }
             {!print && <DpsPetDetailBasics pet={pet} />}
-            {pet.bio.map(line => <p className="bio" key={line}>{line}</p>)}
+            {pet.bio?.map(line => <p className="bio" key={line}>{line}</p>)}
           </div>
 
         </div>
@@ -74,12 +74,12 @@ export function DpsPetDetail() {
               {pet.name} will not be at any scheduled events until we find a home that's
               interested. Please fill out an application if you think that's you!
             </p>}
-            {pet.boilerplate.map(line => <p className="boilerplate" key={line}>{line}</p>)}
+            {pet.boilerplate?.map(line => <p className="boilerplate" key={line}>{line}</p>)}
           </div>
           <div className="card apply">
             <h2>Interested in adopting?</h2>
             <p>Please read the <Link to={`../${routes.adopt.children!.dogApp.path}`}>adoption FAQ</Link>, then fill out the
-              <Link to={pet.isDog ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}>application</Link>
+              <Link to={pet.isDog ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}> application</Link>
             </p>
           </div>
         </div>

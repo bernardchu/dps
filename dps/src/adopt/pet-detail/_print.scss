@@ -1,44 +1,51 @@
 .print {
-  font-size: 28px;
-  width: 940px;
-  margin: auto;
+  
+}
 
+@media print {
+  body {
+    font-size: 28px;
+    width: 940px;
+    margin: auto;
+  }
+  
   p {
     line-height: initial;
   }
-
+  
   .print-stats {
     text-align: center;
   }
-
+  
   h2 {
     margin-top: 0;
     font-size: 48px;
   }
-
+  
   .masthead, .footer {
     display: none;
   }
-
+  
   .breed, .stats {
     font-size: 36px;
     margin: 0;
   }
-
+  
   .properties {
     font-weight: initial;
     margin: 0;
   }
 
-}
-
-@media print {
   .slick-arrow, .slick-dots {
     display: none !important;
   }
 
   img {
     width: 100%
+  }
+  
+  .masthead, .footer {
+    display: none;
   }
 }
 
