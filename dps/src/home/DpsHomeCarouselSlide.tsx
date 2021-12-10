@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { IDpsAdoptable } from '../model/IDpsAnimal';
+import { IDpsAdoptable } from '../model/IDpsAdoptable';
 
 export interface IDpsHomeCarouselSlideProps {
   dog: IDpsAdoptable;

@@ -1,4 +1,4 @@
-import { IDpsAdoptable } from "../model/IDpsAnimal";
+import { IDpsAdoptable } from "../model/IDpsAdoptable";
 import { IDpsEventLocation } from "../model/IDpsEventsInterfaces";
 
 export interface IDpsAvailableApiResponse {
@@ -14,7 +14,7 @@ export interface IDpsAvailableIdResponse {
   // numbers are 0 or 1 representing booleans
   id: string;
   name: string;
-  species: string;
+  species: 'dog' | 'cat';
   breed: string;
   primary_breed: string;
   secondary_breed: string;
@@ -28,7 +28,7 @@ export interface IDpsAvailableIdResponse {
   boilerplate: string[];
   insurance: string;
   bio: string[],
-  dogs: string;
+  dogs: number;
   cats: number;
   kids: number;
   special_needs: number;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DpsApi from '../../api/DpsApi';
-import { IDpsAdoptable } from '../../model/IDpsAnimal';
+import { IDpsAdoptable } from '../../model/IDpsAdoptable';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsAvailableApiResponse } from '../../api/IDpsApiResponses';
 import DpsAdoptableTile from './DpsAdoptableTile';

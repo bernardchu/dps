@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { IDpsAvailableIdResponse } from '../../api/IDpsApiResponses';
+import DpsDetailedPet from '../../model/DpsDetailedPet';
 
 export interface IDpsPetDetailHeadingProps {
-  pet: IDpsAvailableIdResponse
+  pet: DpsDetailedPet
 }
 
 export default class DpsPetDetailHeading extends React.PureComponent<IDpsPetDetailHeadingProps> {

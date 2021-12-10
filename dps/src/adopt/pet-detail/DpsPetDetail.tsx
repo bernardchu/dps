@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import DpsApi from '../../api/DpsApi';
 import { IDpsAvailableIdResponse } from '../../api/IDpsApiResponses';
+import DpsDetailedPet from '../../model/DpsDetailedPet';
 import { routes } from '../../routing/routes';
 import DpsPetDetailBasics from './DpsPetDetailBasics';
 import DpsPetDetailHeading from './DpsPetDetailHeading';
@@ -13,8 +14,8 @@ export function DpsPetDetail() {
   const id = searchParams.get('id');
   const print: boolean = searchParams.get('print') === 'true';
 
-  const petState = useState<IDpsAvailableIdResponse>();
-  const pet: IDpsAvailableIdResponse = petState[0] as IDpsAvailableIdResponse;
+  const petState = useState<DpsDetailedPet>();
+  const pet: DpsDetailedPet = petState[0] as DpsDetailedPet;
   const setPet = petState[1];
 
   const asyncState = useState<boolean>(false);
@@ -23,7 +24,7 @@ export function DpsPetDetail() {
 
   React.useEffect(() => {
     DpsApi.getAvailableById(id!).then(p => {
-      setPet(p);
+      setPet(new DpsDetailedPet(p));
       setLoaded(true);
     });
   });
@@ -66,8 +67,7 @@ export function DpsPetDetail() {
       {loaded && !print &&
         <div className="col-sm-4">
           <div className="card meet-this-dog">
-            {/dog/i.test(pet.species) && <h2>Meet this dog!</h2>}
-            {!/dog/i.test(pet.species) && <h2>Meet this cat!</h2>}
+            <h2>Meet this {pet.isDog ? 'dog' : 'cat'}!</h2>
             {pet.upcoming && <p className="upcoming">{pet.upcoming}</p>}
             {!pet.upcoming && <p className="upcoming">
               {pet.name} will not be at any scheduled events until we find a home that's
@@ -78,7 +78,7 @@ export function DpsPetDetail() {
           <div className="card apply">
             <h2>Interested in adopting?</h2>
             <p>Please read the <Link to={`../${routes.adopt.children!.dogApp.path}`}>adoption FAQ</Link>, then fill out the
-              <Link to={/dog/i.test(pet.species) ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}>application</Link>
+              <Link to={pet.isDog ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}>application</Link>
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DpsApi from '../api/DpsApi';
-import { IDpsAdoptable } from '../model/IDpsAnimal';
+import { IDpsAdoptable } from '../model/IDpsAdoptable';
 import { IDpsAvailableApiResponse } from '../api/IDpsApiResponses';
 import Slider, { Settings } from "react-slick";
 import _ from 'lodash';
