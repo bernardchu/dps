@@ -5,6 +5,7 @@ import DpsApi from '../../api/DpsApi';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
 import { routes } from '../../routing/routes';
 import DpsPetDetailBasics from './DpsPetDetailBasics';
+import DpsPetDetailCarousel from './DpsPetDetailCarousel';
 import DpsPetDetailHeading from './DpsPetDetailHeading';
 import './pet-detail.scss'
 
@@ -27,7 +28,10 @@ export function DpsPetDetail() {
       setPet(new DpsDetailedPet(p));
       setLoaded(true);
     });
-  });
+    // [id] below prevents infinite loop of calling useEffect, but including setLoaded and setPet as deps as the
+    // linter suggests results in 3 calls to the API instead of 1. So the linter is disabled here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return (
     <div className="row main">
@@ -39,11 +43,8 @@ export function DpsPetDetail() {
               <div>
                 <DpsPetDetailHeading pet={pet} />
                 <div className="carousel-container"> {/* {{#if print}}col-sm-6{{/if}} was in here before but it should be logically impossible?*/}
-                  <div className="carousel">
-                    {pet.pictures.map(pic => <img src={pic} alt={pet.name} title={pet.name} key={pic} />)}
-                    {pet.video && <iframe title={pet.name} width="560" height="400" src={pet.video} frameBorder="0"
-                      allow="autoplay; encrypted-media" allowFullScreen></iframe>}
-                  </div>
+                  <DpsPetDetailCarousel pet={pet} />
+
                 </div>
               </div>
             }
