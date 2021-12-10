@@ -14,27 +14,6 @@
   Basic Modal Styles (https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699)
 \**************************/
 
-.modal__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal__container {
-  background-color: #fff;
-  padding: 30px;
-  max-width: 500px;
-  max-height: 80vh;
-  border-radius: 4px;
-  overflow-y: auto;
-  box-sizing: border-box;
-}
 
 .modal__header {
   display: flex;
@@ -90,30 +69,30 @@
 }
 
 .micromodal-slide {
-  display: none;
+  // display: none;
 }
 
 .micromodal-slide.is-open {
-  display: block;
+  // display: block;
 }
 
-.micromodal-slide[aria-hidden="false"] .modal__overlay {
-  animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
+// .micromodal-slide[aria-hidden="false"] .modal__overlay {
+//   animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+// }
 
-.micromodal-slide[aria-hidden="false"] .modal__container {
-  animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
-}
+// .micromodal-slide[aria-hidden="false"] .modal__container {
+//   animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+// }
 
-.micromodal-slide[aria-hidden="true"] .modal__overlay {
-  animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
-}
+// .micromodal-slide[aria-hidden="true"] .modal__overlay {
+//   animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+// }
 
-.micromodal-slide[aria-hidden="true"] .modal__container {
-  animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
-}
+// .micromodal-slide[aria-hidden="true"] .modal__container {
+//   animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+// }
 
-.micromodal-slide .modal__container,
-.micromodal-slide .modal__overlay {
-  will-change: transform;
-}
+// .micromodal-slide .modal__container,
+// .micromodal-slide .modal__overlay {
+//   will-change: transform;
+// }
