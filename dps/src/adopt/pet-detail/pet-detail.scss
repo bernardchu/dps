@@ -1,0 +1,41 @@
+@import '../../styles/common';
+@import '../../styles/news';
+@import 'print';
+
+.meet-this-dog, .apply {
+  @include feature();
+  margin-top: $padding-large;
+}
+
+.pet-bio-container {
+  .pet-bio {
+    @include feature();
+  }
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+
+  .carousel {
+    width: 90%;
+
+    img {
+      border: none;
+
+      &:hover {
+        border: none;
+      }
+    }
+  }
+}
+
+.properties {
+  font-weight: bold;
+}
+
+@media (min-width: $breakpoint-sm) {
+  .pet-bio-container {
+    padding: $padding-large $padding-large 0 0;
+  }
+}

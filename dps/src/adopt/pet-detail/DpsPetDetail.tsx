@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import DpsApi from '../../api/DpsApi';
-import { IDpsAvailableIdResponse } from '../../api/IDpsApiResponses';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
 import { routes } from '../../routing/routes';
 import DpsPetDetailBasics from './DpsPetDetailBasics';
 import DpsPetDetailHeading from './DpsPetDetailHeading';
+import './pet-detail.scss'
 
 // useSearchParams necessitates function component over class component
 export function DpsPetDetail() {
