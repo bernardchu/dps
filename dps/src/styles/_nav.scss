@@ -15,7 +15,7 @@ nav {
     border-top: $border-thickness solid $text-color;
     border-bottom: $border-thickness solid $text-color;
 
-    .active {
+    &.active {
       border-width: $border-thickness * 2;
       font-weight: bold;
     }
@@ -39,6 +39,10 @@ nav {
 
     li {
       padding: $padding-small;
+
+      .active {
+        font-weight: bold;
+      }
     }
   }
 
