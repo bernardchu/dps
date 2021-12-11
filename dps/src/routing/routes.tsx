@@ -83,7 +83,7 @@ export const routes: { [key: string]: IDpsRoute } = {
       rehome: {
         name: 'Rehome',
         path: 'rehome',
-        element: <DpsRehome />,
+        element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform" />,
         inNav: true,
         navOrder: 4
       },
