@@ -8,7 +8,7 @@ export default class DpsAdoptApplication extends React.Component {
     return (
       <div className="row">
         <div className="col-xs-12">
-          <h2>Application Process</h2>
+          <h2 className="application-heading">Application Process</h2>
           <div className="application-buttons">
             <Link to={`../${routes.adopt.children!.application.path}`}>Dog Application</Link>
             <Link to={`../${routes.adopt.children!.catApp.path}`}>Cat Application</Link>

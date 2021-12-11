@@ -14,7 +14,7 @@ export interface IDpsHomeCarouselState extends IDpsAsyncState {
 }
 
 export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCarouselState> {
-  private static settings = {
+  private static readonly settings = {
     dots: false,
     infinite: true,
     speed: 300,

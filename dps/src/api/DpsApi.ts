@@ -1,3 +1,4 @@
+import { IDpsStickyDog } from "../model/IDpsStickyDog";
 import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse } from "./IDpsApiResponses";
 
 export default class DpsApi {
@@ -38,5 +39,9 @@ export default class DpsApi {
 
   public static getDates(): Promise<IDpsDatesApiResponse> {
     return this.fetchAndReturnJson<IDpsDatesApiResponse>(DpsApi.dates);
+  }
+
+  public static getSticky(): Promise<IDpsStickyDog[]> {
+    return this.fetchAndReturnJson<IDpsStickyDog[]>(DpsApi.sticky_dogs);
   }
 }

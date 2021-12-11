@@ -1,14 +1,10 @@
-.print {
-  
-}
-
 @media print {
   body {
     font-size: 28px;
     width: 940px;
     margin: auto;
   }
-  
+
   p {
     line-height: initial;
   }
