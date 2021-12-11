@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import DpsAdoptApplication from "../adopt/DpsAdoptApplication";
+import DpsAdoptApplication from "../adopt/dog-application/DpsAdoptApplication";
 import DpsAdoptAvailable from "../adopt/available/DpsAdoptAvailable";
 import DpsCatApplication from "../adopt/DpsCatApplication";
 import DpsRehome from "../adopt/DpsRehome";
@@ -17,6 +17,7 @@ import DpsAboutUs from "../about/DpsAboutUs";
 import DpsContact from "../about/DpsContact";
 import DpsAboutFaq from "../about/DpsAboutFaq";
 import DpsPetDetail from "../adopt/pet-detail/DpsPetDetail";
+import DpsRedirect from "./DpsRedirect";
 
 function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
   return Object.keys(routes)
@@ -90,6 +91,12 @@ export const routes: { [key: string]: IDpsRoute } = {
         name: 'Pet Details',
         path: 'pet-detail',
         element: <DpsPetDetail />,
+        inNav: false
+      },
+      application: {
+        name: 'Application redirect',
+        path: 'application',
+        element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLSf3PdbO6nBVx03MbUBRp-mr-j0u46eVkVD1_m8mTeI8hR98tg/viewform" />,
         inNav: false
       }
     }

@@ -20,7 +20,7 @@ function DpsApp() {
 
   React.useEffect(() => {
     setTimeout(() => setModalOpen(true), 2000);
-  }, []);
+  }, [setModalOpen]);
   return (
     <div className="container">
       <DpsHeader />

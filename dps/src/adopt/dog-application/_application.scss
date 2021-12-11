@@ -1,0 +1,22 @@
+@import '../../styles/common';
+
+h2 {
+  text-align: center;
+}
+
+.application-buttons {
+  margin: $padding-large 0;
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    @include button();
+  }
+}
+
+.application-steps {
+  li {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
