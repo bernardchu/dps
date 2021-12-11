@@ -12,36 +12,23 @@ export default class DpsApi {
     return url.toString();
   }
 
-  private static get featured(): string { return DpsApi.assembleUrl('featured') }
-  private static get available(): string { return DpsApi.assembleUrl('available') }
-  private static get availableCompact(): string { return DpsApi.assembleUrl('available', { view: 'compact' }) }
-  private static get dates(): string { return DpsApi.assembleUrl('dates') }
-  private static get volunteers(): string { return DpsApi.assembleUrl('volunteers') }
-  private static get fosters(): string { return DpsApi.assembleUrl('fosters') }
-  private static get sticky_dogs(): string { return DpsApi.assembleUrl('sticky_dogs') }
-  private static get icu(): string { return DpsApi.assembleUrl('icu') }
-  private static get success(): string { return DpsApi.assembleUrl('success') }
-  private static get newsletters(): string { return DpsApi.assembleUrl('newsletters') }
-
-  private static fetchAndReturnJson<T>(path: string): Promise<T> {
-    return fetch(path).then((response: Response) => response.json());
+  private static fetchAndReturnJson<T>(endpoint: string, params?: { [key: string]: string }): Promise<T> {
+    return fetch(DpsApi.assembleUrl(endpoint, params)).then((response: Response) => response.json());
   }
 
   public static getAvailableCompact(): Promise<IDpsAvailableApiResponse> {
-    return this.fetchAndReturnJson<IDpsAvailableApiResponse>(DpsApi.availableCompact);
+    return this.fetchAndReturnJson<IDpsAvailableApiResponse>('available', { view: 'compact' });
   }
 
   public static getAvailableById(id: string): Promise<IDpsAvailableIdResponse> {
-    const url = new URL(DpsApi.available);
-    url.searchParams.append("id", id);
-    return this.fetchAndReturnJson<IDpsAvailableIdResponse>(url.toString());
+    return this.fetchAndReturnJson<IDpsAvailableIdResponse>('available', { id });
   }
 
   public static getDates(): Promise<IDpsDatesApiResponse> {
-    return this.fetchAndReturnJson<IDpsDatesApiResponse>(DpsApi.dates);
+    return this.fetchAndReturnJson<IDpsDatesApiResponse>('dates');
   }
 
   public static getSticky(): Promise<IDpsStickyDog[]> {
-    return this.fetchAndReturnJson<IDpsStickyDog[]>(DpsApi.sticky_dogs);
+    return this.fetchAndReturnJson<IDpsStickyDog[]>('sticky_dogs');
   }
 }
