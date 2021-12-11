@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import DpsAdoptApplication from "../adopt/dog-application/DpsAdoptApplication";
 import DpsAdoptAvailable from "../adopt/available/DpsAdoptAvailable";
-import DpsCatApplication from "../adopt/DpsCatApplication";
+import DpsCatApplication from "../adopt/cat-application/DpsCatApplication";
 import DpsRehome from "../adopt/DpsRehome";
 import DpsStickyDogs from "../adopt/DpsStickyDogs";
 import DpsHome from "../home/DpsHome";
@@ -97,6 +97,12 @@ export const routes: { [key: string]: IDpsRoute } = {
         name: 'Application redirect',
         path: 'application',
         element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLSf3PdbO6nBVx03MbUBRp-mr-j0u46eVkVD1_m8mTeI8hR98tg/viewform" />,
+        inNav: false
+      },
+      catApplication: {
+        name: 'Cat application redirect',
+        path: 'catapp',
+        element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLSfLhSWqJWHMrW8cYu5Mf6yruf6rXPWG9iPNmibouDUFFVlZ-A/viewform" />,
         inNav: false
       }
     }
