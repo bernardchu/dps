@@ -16,7 +16,7 @@ export default class DpsHome extends React.PureComponent {
 
   public render() {
     return (
-      <div>
+      <>
         <div className="row">
           <DpsHomeCarousel />
           <Link to={`${routes.adopt.path}/${routes.adopt.children!.available.path}`} className="hero-button col-xs-12">See All
@@ -27,7 +27,7 @@ export default class DpsHome extends React.PureComponent {
           <DpsHomeFeatureCard feature={DpsHome.merchFeature} />
         </div>
         <DpsHomeSidebarFeatures />
-      </div>
+      </>
 
     );
   }
