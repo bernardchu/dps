@@ -8,7 +8,7 @@ import { IDpsNavRoute, IDpsRoute } from "../model/IDpsRoutes";
 import DpsVolunteerFaq from "../volunteer/DpsVolunteerFaq";
 import DpsMeetVolunteers from "../volunteer/DpsMeetVolunteers";
 import DpsFosterFaq from "../foster/DpsFosterFaq";
-import DpsMeetFosters from "../foster/DpsMeetFosters";
+import DpsMeetFosters from "../foster/meet/DpsMeetFosters";
 import DpsDonate from "../donate/DpsDonate";
 import DpsIcu from "../donate/DpsIcu";
 import DpsSuccessStories from "../success-stories/DpsSuccessStories";

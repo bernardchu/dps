@@ -1,0 +1,35 @@
+@import '../../styles/common';
+
+.intro {
+  margin-bottom: $padding-large;
+
+  .prose {
+    padding-right: $padding-large;
+  }
+}
+
+body img {
+  width: 100%;
+}
+
+.spotlight {
+  @include feature();
+  margin-bottom: $padding-large;
+
+  .bio {
+    padding-left: $padding-medium;
+  }
+}
+
+.fosters {
+  background-color: $dps-secondary-color;
+  color: white;
+
+  .foster {
+    padding: $padding-medium;
+
+    .bio {
+      padding-left: $padding-medium;
+    }
+  }
+}
