@@ -16,7 +16,7 @@ export default class DpsFaqSection extends React.PureComponent<IDpsFaqSectionPro
             <img src={section.imgUrl} alt="" />
           </div>
           <div className="col-md-8 col-sm-12">
-            {section.prose.map(line => <div dangerouslySetInnerHTML={{ __html: line }} />)}
+            {section.prose}
           </div>
         </div>
       </div>
