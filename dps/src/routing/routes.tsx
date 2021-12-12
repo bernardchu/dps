@@ -13,7 +13,7 @@ import DpsDonate from "../donate/DpsDonate";
 import DpsIcu from "../donate/DpsIcu";
 import DpsSuccessStories from "../success-stories/DpsSuccessStories";
 import DpsAboutUs from "../about/about-us/DpsAboutUs";
-import DpsContact from "../about/DpsContact";
+import DpsContact from "../about/contact/DpsContact";
 import DpsAboutFaq from "../about/DpsAboutFaq";
 import DpsPetDetail from "../adopt/pet-detail/DpsPetDetail";
 import DpsRedirect from "./DpsRedirect";
