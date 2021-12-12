@@ -10,12 +10,17 @@ nav {
     height: 100%;
     flex-grow: 1;
     text-align: center;
-    padding: $padding-small 0;
     margin: 0 $padding-small;
-    border-top: $border-thickness solid $text-color;
-    border-bottom: $border-thickness solid $text-color;
+    display: flex;
+    
+    .parent-link {
+      padding: $padding-small 0;
+      border-top: $border-thickness solid $text-color;
+      border-bottom: $border-thickness solid $text-color;
+      width: 100%;
+    }
 
-    &.active {
+    .active {
       border-width: $border-thickness * 2;
       font-weight: bold;
     }
