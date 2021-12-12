@@ -18,22 +18,22 @@ export default class DpsApi {
   }
 
   public static getAvailableCompact(): Promise<IDpsAvailableApiResponse> {
-    return this.fetchAndReturnJson<IDpsAvailableApiResponse>('available', { view: 'compact' });
+    return DpsApi.fetchAndReturnJson<IDpsAvailableApiResponse>('available', { view: 'compact' });
   }
 
   public static getAvailableById(id: string): Promise<IDpsAvailableIdResponse> {
-    return this.fetchAndReturnJson<IDpsAvailableIdResponse>('available', { id });
+    return DpsApi.fetchAndReturnJson<IDpsAvailableIdResponse>('available', { id });
   }
 
   public static getDates(): Promise<IDpsDatesApiResponse> {
-    return this.fetchAndReturnJson<IDpsDatesApiResponse>('dates');
+    return DpsApi.fetchAndReturnJson<IDpsDatesApiResponse>('dates');
   }
 
   public static getSticky(): Promise<IDpsStickyDog[]> {
-    return this.fetchAndReturnJson<IDpsStickyDog[]>('sticky_dogs');
+    return DpsApi.fetchAndReturnJson<IDpsStickyDog[]>('sticky_dogs');
   }
 
   public static getFosters(): Promise<IDpsFostersApiResponse> {
-    return this.fetchAndReturnJson<IDpsFostersApiResponse>('fosters');
+    return DpsApi.fetchAndReturnJson<IDpsFostersApiResponse>('fosters');
   }
 }
