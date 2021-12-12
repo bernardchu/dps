@@ -1,4 +1,5 @@
 import { IDpsFostersApiResponse } from "../model/IDpsFoster";
+import { IDpsIcuAnimal } from "../model/IDpsIcuAnimal";
 import { IDpsStickyDog } from "../model/IDpsStickyDog";
 import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse } from "./IDpsApiResponses";
 
@@ -35,5 +36,9 @@ export default class DpsApi {
 
   public static getFosters(): Promise<IDpsFostersApiResponse> {
     return DpsApi.fetchAndReturnJson<IDpsFostersApiResponse>('fosters');
+  }
+
+  public static getIcu(): Promise<IDpsIcuAnimal[]> {
+    return DpsApi.fetchAndReturnJson<IDpsIcuAnimal[]>('icu');
   }
 }

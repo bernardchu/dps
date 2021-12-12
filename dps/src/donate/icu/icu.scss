@@ -1,0 +1,24 @@
+@import '../../styles/common';
+
+.icu {
+  .dog {
+    padding: $padding-medium;
+
+    img {
+      width: 100%;
+    }
+
+    .name {
+      padding: $padding-small;
+      text-align: center;
+      background-color: $dps-secondary-color;
+      color: white;
+      margin-top: $padding-small;
+    }
+  }
+}
+
+.paypal-container {
+  margin-top: $padding-medium;
+  text-align: center;
+}

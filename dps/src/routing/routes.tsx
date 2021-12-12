@@ -10,7 +10,7 @@ import DpsMeetVolunteers from "../volunteer/DpsMeetVolunteers";
 import DpsFosterFaq from "../foster/DpsFosterFaq";
 import DpsMeetFosters from "../foster/meet/DpsMeetFosters";
 import DpsDonate from "../donate/donate/DpsDonate";
-import DpsIcu from "../donate/DpsIcu";
+import DpsIcu from "../donate/icu/DpsIcu";
 import DpsSuccessStories from "../success-stories/DpsSuccessStories";
 import DpsAboutUs from "../about/about-us/DpsAboutUs";
 import DpsContact from "../about/contact/DpsContact";
