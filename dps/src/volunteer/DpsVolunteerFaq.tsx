@@ -1,5 +1,5 @@
 import * as React from 'react';
-import DpsFaqSection from '../common/DpsFaqSection';
+import DpsFaq from '../common/DpsFaq';
 import { IDpsFaqSection } from '../model/IDpsFaqSection';
 import './volunteerFaq.scss';
 
@@ -54,14 +54,7 @@ export default class DpsVolunteerFaq extends React.PureComponent {
             src="http://dps-festive.imgix.net/images/volunteer/volunteer-header-group2.jpg?rect=100,280,650,450&w=370&h=250&fm=pjpg&fit=fill&fill=solid&fill-color=2E8C69"
             alt="" />
         </div>
-        <div className="faq">
-          {DpsVolunteerFaq.sections.map((section: IDpsFaqSection, index: number) => {
-            return <>
-              <DpsFaqSection section={section} key={section.heading} />
-              {index !== DpsVolunteerFaq.sections.length - 1 && <hr />}
-            </>
-          })}
-        </div>
+        <DpsFaq sections={DpsVolunteerFaq.sections} />
       </div>
 
     );

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import DpsFaqSection from '../common/DpsFaqSection';
+import DpsFaq from '../common/DpsFaq';
 import { IDpsFaqSection } from '../model/IDpsFaqSection';
 
 export default class DpsFosterFaq extends React.PureComponent {
@@ -38,14 +38,7 @@ export default class DpsFosterFaq extends React.PureComponent {
   public render() {
     return (
       <div className="row" >
-        <div className="faq">
-          {DpsFosterFaq.sections.map((section: IDpsFaqSection, index: number) => {
-            return <>
-              <DpsFaqSection section={section} key={section.heading} />
-              {index !== DpsFosterFaq.sections.length - 1 && <hr />}
-            </>
-          })}
-        </div>
+        <DpsFaq sections={DpsFosterFaq.sections} />
       </div>
     );
   }
