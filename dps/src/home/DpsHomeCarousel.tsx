@@ -2,10 +2,11 @@ import * as React from 'react';
 import DpsApi from '../api/DpsApi';
 import { IDpsAdoptable } from '../model/IDpsAdoptable';
 import { IDpsAvailableApiResponse } from '../api/IDpsApiResponses';
-import Slider, { Settings } from "react-slick";
+import Slider, { Settings } from 'react-slick';
 import _ from 'lodash';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './adoptableCarousel.scss';
 import DpsHomeCarouselSlide from './DpsHomeCarouselSlide';
 import { IDpsAsyncState } from '../model/IDpsAsyncState';
 

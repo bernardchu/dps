@@ -1,56 +1,12 @@
-/**** Carousel styling ****/
-
-/* Adoptable carousel styling */
-
-.adoptable {
-  .slick-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-
-      > img {
-        height: 350px;
-        max-width: 90%;
-      }
-
-      > div.adoptable-info-overlay {
-        position: absolute;
-        height: 0;
-        width: 90%;
-        left: 5%;
-        bottom: 0;
-        background: white;
-        opacity: 0.6;
-        overflow: hidden;
-        text-align: center;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-      }
-    }
-
-    a:hover {
-      > div.adoptable-info-overlay {
-        height: 50%;
-
-        .adoptable-info {
-          padding: 1em;
-
-        }
-      }
-    }
-
-    img {
-      border: none;
-    }
-  }
+/* Get rid of annoying border that appears when navigating carousel */
+.slick-slide:focus {
+  outline: none;
 }
 
-/* End adoptable carousel styling */
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: white;
+}
 
-/**** End Carousel Styling ****/
+button.slick-prev:before, button.slick-next:before {
+  color: rgb(32, 51, 9);
+}
