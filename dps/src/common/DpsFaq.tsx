@@ -13,10 +13,10 @@ export default class DpsFaq extends React.PureComponent<IDpsFaqProps> {
       <div>
         <div className="faq">
           {sections.map((section: IDpsFaqSection, index: number) => {
-            return <>
-              <DpsFaqSection section={section} key={section.heading} />
+            return <React.Fragment key={section.heading}>
+              <DpsFaqSection section={section} />
               {index !== sections.length - 1 && <hr />}
-            </>
+            </React.Fragment>
           })}
         </div>
       </div>

@@ -9,7 +9,7 @@ import DpsVolunteerFaq from "../volunteer/DpsVolunteerFaq";
 import DpsMeetVolunteers from "../volunteer/DpsMeetVolunteers";
 import DpsFosterFaq from "../foster/DpsFosterFaq";
 import DpsMeetFosters from "../foster/meet/DpsMeetFosters";
-import DpsDonate from "../donate/DpsDonate";
+import DpsDonate from "../donate/donate/DpsDonate";
 import DpsIcu from "../donate/DpsIcu";
 import DpsSuccessStories from "../success-stories/DpsSuccessStories";
 import DpsAboutUs from "../about/about-us/DpsAboutUs";

@@ -6,7 +6,7 @@ export default class DpsAboutUs extends React.PureComponent {
     return (
       <div className="row">
         <div className="col-xs-12 group-photo">
-          <img src="http://dps-festive.imgix.net/images/about/about-group.jpg" alt="Group photo" />
+          <img src="http://dps-festive.imgix.net/images/about/about-group.jpg" alt="Group of volunteers" />
         </div>
         <div className="col-xs-12">
           <p>Doggie Protective Services is a non-profit, volunteer-driven, animal
