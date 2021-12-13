@@ -20,7 +20,7 @@ import DpsRedirect from "./DpsRedirect";
 import DpsSuccessStory from "../success-stories/success-story/DpsSuccessStory";
 
 export function hasSubnavChildren(route: IDpsRoute): boolean {
-  if (!route.children?.length) { return false }
+  if (!route.children) { return false }
   return Object.keys(route.children)
     .map(key => route.children![key])
     .filter(child => child.inNav).length > 0;
