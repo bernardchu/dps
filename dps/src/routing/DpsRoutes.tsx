@@ -25,6 +25,7 @@ export default class DpsRoutes extends React.Component<IDpsRoutesProps> {
               <Route index element={DpsRoutes.getFirstChild(route).element} />
             }
           </Route>)}
+        <Route path="*" element={<main>Not found. Use the header to navigate to another page.</main>} />
       </Routes>
     );
   }
