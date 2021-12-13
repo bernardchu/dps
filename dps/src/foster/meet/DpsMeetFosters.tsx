@@ -35,14 +35,14 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
             people who help our rescue save lives!</p>
         </div>
         <div className="col-sm-4 hidden-xs">
-          <img className="no-border" src="http://dps-festive.imgix.net/images/foster/fosters/fosters-header.jpg" alt="fosters" />
+          <img className="no-border fosters" src="http://dps-festive.imgix.net/images/foster/fosters/fosters-header.jpg" alt="fosters" />
         </div>
       </div>
       <div className="row spotlight card feature">
         {!loaded && <div>Loading...</div>}
         {loaded && <>
           <div className="col-sm-3 hidden-xs photo">
-            <img src={spotlight.photo} alt={spotlight.name} title={spotlight.name} className="no-border" />
+            <img src={spotlight.photo} alt={spotlight.name} title={spotlight.name} className="no-border fosters" />
           </div>
           <div className="col-sm-9 col-xs-12 bio">
             <h3>Foster Spotlight: {spotlight.name}</h3>
@@ -54,7 +54,7 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
         {!loaded && <div>Loading...</div>}
         {loaded && fosters.map(foster => <div className="col-md-4 col-sm-6 foster" key={foster.photo}>
           <div className="col-xs-4 photo">
-            <img src={foster.photo} alt={foster.name} title={foster.name} className="no-border" />
+            <img src={foster.photo} alt={foster.name} title={foster.name} className="no-border fosters" />
           </div>
           <div className="col-xs-8 bio">
             <h3>{foster.name}</h3>
