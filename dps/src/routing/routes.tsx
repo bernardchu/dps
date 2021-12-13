@@ -6,7 +6,7 @@ import DpsStickyDogs from "../adopt/sticky/DpsStickyDogs";
 import DpsHome from "../home/DpsHome";
 import { IDpsNavRoute, IDpsRoute } from "../model/IDpsRoutes";
 import DpsVolunteerFaq from "../volunteer/DpsVolunteerFaq";
-import DpsMeetVolunteers from "../volunteer/DpsMeetVolunteers";
+import DpsMeetVolunteers from "../volunteer/meet/DpsMeetVolunteers";
 import DpsFosterFaq from "../foster/DpsFosterFaq";
 import DpsMeetFosters from "../foster/meet/DpsMeetFosters";
 import DpsDonate from "../donate/donate/DpsDonate";

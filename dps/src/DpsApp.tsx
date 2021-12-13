@@ -12,6 +12,7 @@ import { routes } from './routing/routes';
 
 function DpsApp() {
   const location = useLocation();
+  console.log(location);
   // don't show the donate modal if they open the page on a donate route
   const isDonateState = location.pathname.indexOf(routes.donate.path) > -1;
   const modalState = useState<boolean>(false);

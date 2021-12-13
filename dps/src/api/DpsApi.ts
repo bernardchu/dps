@@ -2,7 +2,7 @@ import { IDpsFostersApiResponse } from "../model/IDpsFoster";
 import { IDpsIcuAnimal } from "../model/IDpsIcuAnimal";
 import { IDpsStickyDog } from "../model/IDpsStickyDog";
 import { IDpsSuccessStory, IDpsSuccessStoryCompact } from "../model/IDpsSuccessStory";
-import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse } from "./IDpsApiResponses";
+import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse, IDpsVolunteerApiResponse } from "./IDpsApiResponses";
 
 export default class DpsApi {
   private static baseUrl = 'http://api.dpsrescue.com/api/';
@@ -50,5 +50,9 @@ export default class DpsApi {
   public static getSuccessStoryById(id: string): Promise<IDpsSuccessStory> {
     // API returns an array even when querying a single story
     return DpsApi.fetchAndReturnJson<IDpsSuccessStory[]>('success', { id }).then(stories => stories[0]);
+  }
+
+  public static getVolunteers(): Promise<IDpsVolunteerApiResponse> {
+    return DpsApi.fetchAndReturnJson<IDpsVolunteerApiResponse>('volunteers');
   }
 }

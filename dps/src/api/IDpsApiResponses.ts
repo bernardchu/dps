@@ -1,5 +1,6 @@
 import { IDpsAdoptable } from "../model/IDpsAdoptable";
 import { IDpsEventLocation } from "../model/IDpsEventsInterfaces";
+import { IDpsVolunteer } from "../model/IDpsVolunteer";
 
 export interface IDpsAvailableApiResponse {
   cats: IDpsAdoptable[];
@@ -36,4 +37,10 @@ export interface IDpsAvailableIdResponse {
   declawed: number;
   last_updated: string;
   contact: string;
+}
+
+export interface IDpsVolunteerApiResponse {
+  primary: IDpsVolunteer[];
+  secondary: IDpsVolunteer[];
+  directors: IDpsVolunteer[];
 }
