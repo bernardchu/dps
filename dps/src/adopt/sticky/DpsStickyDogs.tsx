@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Slider, { Settings } from 'react-slick';
 import DpsApi from '../../api/DpsApi';
+import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsStickyDog } from '../../model/IDpsStickyDog';
 import DpsStickyDogContent from './DpsStickyDogContent';
@@ -11,13 +12,6 @@ export interface IDpsStickyDogsState extends IDpsAsyncState {
 }
 
 export default class DpsStickyDogs extends React.Component<{}, IDpsStickyDogsState> {
-  private static readonly carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 300,
-    lazyLoad: true,
-  }
-
   public componentDidMount() {
     DpsApi.getSticky()
       .then((stickyDogs) => {
@@ -49,7 +43,7 @@ export default class DpsStickyDogs extends React.Component<{}, IDpsStickyDogsSta
           {loaded && !!stickyDogs?.length &&
 
             <div className="carousel card">
-              <Slider {...DpsStickyDogs.carouselSettings as unknown as Settings}>
+              <Slider {...dpsBasicCarouselSettings as unknown as Settings}>
                 {stickyDogs.map(dog => <DpsStickyDogContent dog={dog} key={dog.id} />)}
               </Slider>
             </div>

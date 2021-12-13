@@ -32,7 +32,7 @@ export default function DpsSuccessStories() {
     {isSuccessStoryState && <Outlet />}
     {!isSuccessStoryState && <div className="row success-stories">
       {!loaded && <div>Loading...</div>}
-      {loaded && stories.map(story =>
+      {loaded && stories?.map(story =>
         <div className="col-xs-4 col-sm-4 col-md-2 success-stories-dog" key={story.id}>
           <Link to={`${routes.successStories.children!.successStory.path}/?id=${story.id}`} className="img-container">
             <img src={`${story.photo1}?crop=faces,top&fit=crop&h=200&w=200`} alt={story.name} />
