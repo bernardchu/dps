@@ -17,6 +17,14 @@ import DpsContact from "../about/contact/DpsContact";
 import DpsAboutFaq from "../about/DpsAboutFaq";
 import DpsPetDetail from "../adopt/pet-detail/DpsPetDetail";
 import DpsRedirect from "./DpsRedirect";
+import DpsSuccessStory from "../success-stories/success-story/DpsSuccessStory";
+
+export function hasSubnavChildren(route: IDpsRoute): boolean {
+  if (!route.children?.length) { return false }
+  return Object.keys(route.children)
+    .map(key => route.children![key])
+    .filter(child => child.inNav).length > 0;
+}
 
 function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
   return Object.keys(routes)
@@ -29,8 +37,8 @@ function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
         element: route.element,
         path: route.path,
       };
-      if (route.children && Object.keys(route.children).length > 0) {
-        transformed.children = createNavRoutes(route.children)
+      if (hasSubnavChildren(route)) {
+        transformed.children = createNavRoutes(route.children!)
       }
       return transformed;
     });
@@ -184,7 +192,15 @@ export const routes: { [key: string]: IDpsRoute } = {
     path: 'success-stories',
     element: <DpsSuccessStories />,
     inNav: true,
-    navOrder: 5
+    navOrder: 5,
+    children: {
+      successStory: {
+        name: 'Success Story',
+        path: 'success-story',
+        element: <DpsSuccessStory />,
+        inNav: false
+      }
+    }
   },
   // train: {
   //   name: 'Train',

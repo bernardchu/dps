@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { IDpsRoute } from '../model/IDpsRoutes';
-import { routes } from './routes';
+import { hasSubnavChildren, routes } from './routes';
 
 export interface IDpsRoutesProps {
 }
@@ -21,7 +21,7 @@ export default class DpsRoutes extends React.Component<IDpsRoutesProps> {
             {route.children &&
               Object.keys(route.children).map(key => route.children![key]).map((child) => <Route path={child.path} element={child.element} key={child.path} />)
             }
-            {route.children &&
+            {route.children && hasSubnavChildren(route) &&
               <Route index element={DpsRoutes.getFirstChild(route).element} />
             }
           </Route>)}

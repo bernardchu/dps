@@ -1,6 +1,7 @@
 import { IDpsFostersApiResponse } from "../model/IDpsFoster";
 import { IDpsIcuAnimal } from "../model/IDpsIcuAnimal";
 import { IDpsStickyDog } from "../model/IDpsStickyDog";
+import { IDpsSuccessStory, IDpsSuccessStoryCompact } from "../model/IDpsSuccessStory";
 import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse } from "./IDpsApiResponses";
 
 export default class DpsApi {
@@ -40,5 +41,14 @@ export default class DpsApi {
 
   public static getIcu(): Promise<IDpsIcuAnimal[]> {
     return DpsApi.fetchAndReturnJson<IDpsIcuAnimal[]>('icu');
+  }
+
+  public static getSuccessStories(): Promise<IDpsSuccessStoryCompact[]> {
+    return DpsApi.fetchAndReturnJson<IDpsSuccessStoryCompact[]>('success', { view: 'compact' });
+  }
+
+  public static getSuccessStoryById(id: string): Promise<IDpsSuccessStory> {
+    // API returns an array even when querying a single story
+    return DpsApi.fetchAndReturnJson<IDpsSuccessStory[]>('success', { id }).then(stories => stories[0]);
   }
 }
