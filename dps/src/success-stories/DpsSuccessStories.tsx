@@ -6,6 +6,11 @@ import { IDpsSuccessStoryCompact } from '../model/IDpsSuccessStory';
 import { routes } from '../routing/routes';
 import './successStories.scss';
 
+/**
+ * Success stories is a strange route because it is a parent route that has content and it has
+ * a child route that is not in the nav. In order to show just the parent or child content, we have
+ * to switch between <Outlet /> and the parent content depending on which route we are actually in.
+ */
 export default function DpsSuccessStories() {
   const location = useLocation();
   const isSuccessStoryState = location.pathname.indexOf(routes.successStories.children!.successStory.path) > -1;
