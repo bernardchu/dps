@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Imgix from 'react-imgix';
 
 class DpsHero extends React.Component {
+  private static SOCIAL_ICON_WIDTH = 41; // px
+  private static INSTAGRAM_BG_COLOR = 'cd486b';
+
   render() {
     return (
       <div className="row hero">
@@ -16,9 +20,22 @@ class DpsHero extends React.Component {
         </div>
         <div className="social col-md-2 col-sm-3">
           <div className="small">
-            <a href="https://twitter.com/dpsrescue" target="_blank" rel="noreferrer"><img src="http://dps-festive.imgix.net/images/social-icons-twitter.png?w=35" alt="@DPSRescue" /></a>
-            <a href="https://www.facebook.com/DPSRescue" target="_blank" rel="noreferrer"><img src="http://dps-festive.imgix.net/images/social-icons-facebook.png?w=35&bg=cd486b" alt="DPSRescue" /></a>
-            <a href="https://www.instagram.com/dpsrescue/" target="_blank" rel="noreferrer"><img src="http://dps-festive.imgix.net/images/social-icons-instagram.png?w=35&bg=cd486b&pad=7" alt="DPSRescue" /></a>
+            <a href="https://twitter.com/dpsrescue" target="_blank" rel="noreferrer">
+              <Imgix src="http://dps-festive.imgix.net/images/social-icons-twitter.png"
+                width={DpsHero.SOCIAL_ICON_WIDTH}
+                htmlAttributes={{ alt: 'Twitter @DPSRescue' }} />
+            </a>
+            <a href="https://www.facebook.com/DPSRescue" target="_blank" rel="noreferrer">
+              <Imgix src="http://dps-festive.imgix.net/images/social-icons-facebook.png"
+                width={DpsHero.SOCIAL_ICON_WIDTH}
+                htmlAttributes={{ alt: 'DPSRescue Facebook' }} />
+            </a>
+            <a href="https://www.instagram.com/dpsrescue/" target="_blank" rel="noreferrer">
+              <Imgix src="http://dps-festive.imgix.net/images/social-icons-instagram.png"
+                width={DpsHero.SOCIAL_ICON_WIDTH}
+                imgixParams={{ pad: 7, bg: DpsHero.INSTAGRAM_BG_COLOR }}
+                htmlAttributes={{ alt: 'DPSRescue Instagram' }} />
+            </a>
           </div>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_donations" />
