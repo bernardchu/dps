@@ -18,15 +18,19 @@ export default class DpsHome extends React.PureComponent {
     return (
       <>
         <div className="row">
-          <DpsHomeCarousel />
-          <Link to={`${routes.adopt.path}/${routes.adopt.children!.available.path}`} className="hero-button col-xs-12">See All
-            Available Dogs and Cats</Link>
+          <div className="adoptable col-md-12">
+            <DpsHomeCarousel />
+            <Link to={`${routes.adopt.path}/${routes.adopt.children!.available.path}`} className="hero-button col-xs-12">See All
+              Available Dogs and Cats</Link>
+          </div>
         </div>
         <div className="col-md-8 col-sm-12 row features">
           <DpsHomeEvents />
           <DpsHomeFeatureCard feature={DpsHome.merchFeature} />
         </div>
-        <DpsHomeSidebarFeatures />
+        <div className="col-md-4 col-sm-12 row">
+          <DpsHomeSidebarFeatures />
+        </div>
       </>
 
     );

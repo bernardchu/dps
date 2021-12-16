@@ -55,11 +55,9 @@ export default class DpsHomeSidebarFeatures extends React.PureComponent {
     ];
 
     return (
-      <div className="col-md-4 col-sm-12 row">
-        <div className="col-md-12">
-          <DpsTwitterContainer />
-          {features.map(feature => <DpsHomeFeatureCard feature={feature} key={feature.title} />)}
-        </div>
+      <div className="col-md-12">
+        <DpsTwitterContainer />
+        {features.map(feature => <DpsHomeFeatureCard feature={feature} key={feature.title} />)}
       </div>
     );
   }
