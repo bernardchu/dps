@@ -12,6 +12,10 @@ export interface IDpsStickyDogsState extends IDpsAsyncState {
   stickyDogs: IDpsStickyDog[]
 }
 
+/**
+ * There have not been sticky dogs for a long time and there is no data served by the API to test against.
+ * This is just a best attempt at working code based on legacy code.
+ */
 export default class DpsStickyDogs extends React.Component<{}, IDpsStickyDogsState> {
   public componentDidMount() {
     DpsApi.getSticky()

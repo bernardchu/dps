@@ -10,6 +10,12 @@ import DpsPetDetailCarousel from './DpsPetDetailCarousel';
 import DpsPetDetailHeading from './DpsPetDetailHeading';
 import './pet-detail.scss'
 
+/**
+ * Shows details of one pet. A query param for id is used instead of a URL param (/pet-detail/?id=123 instead of /pet-detail/123)
+ * for the sake of backwards compatibility.
+ * Adding a query param print=true will render the page differently and add print media queries to facilitate printing pet bios
+ * for adoption events.
+ */
 // useSearchParams necessitates function component over class component
 export function DpsPetDetail() {
   const [searchParams] = useSearchParams();
