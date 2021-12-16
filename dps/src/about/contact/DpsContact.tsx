@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './contact.scss';
+import Imgix from 'react-imgix';
 
 export default class DpsContact extends React.Component {
   public render() {
@@ -10,7 +11,7 @@ export default class DpsContact extends React.Component {
             frameBorder="0" height="600" width="640" title="Contact Form"></iframe>
         </div>
         <div className="col-md-4">
-          <img src="http://dps-festive.imgix.net/images/about/contact/cindy.jpg?w=380" alt="Cindy" title="Cindy" />
+          <Imgix src="http://dps-festive.imgix.net/images/about/contact/cindy.jpg" width={380} htmlAttributes={{ alt: 'Cindy', title: 'Cindy' }} />
         </div>
       </div>);
   }
