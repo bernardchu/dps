@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DpsApi from '../../api/DpsApi';
+import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsVolunteer } from '../../model/IDpsVolunteer';
 import './meetVolunteers.scss';
@@ -34,7 +35,7 @@ export default class DpsMeetVolunteers extends React.PureComponent<{}, IDpsMeetV
     return (<>
       <h2>Meet Our Volunteers</h2>
       <div className="row secondary volunteer-section">
-        {!loaded && <div>Loading...</div>}
+        {!loaded && <DpsLoading />}
         {loaded && secondary.map(volunteer => <div className="secondary-volunteer col-md-4 col-sm-6 row" key={volunteer.photo}>
           <div className="col-xs-4 secondary-volunteer-image">
             <div className="image-circle-cropper">
@@ -50,7 +51,7 @@ export default class DpsMeetVolunteers extends React.PureComponent<{}, IDpsMeetV
       </div>
       <div className="row directors volunteer-section">
         <h2>Board of Directors and Executive Officers</h2>
-        {!loaded && <div>Loading...</div>}
+        {!loaded && <DpsLoading />}
         {loaded && directors.map(director => <div className="secondary-volunteer col-md-4 col-sm-6 row" key={director.photo}>
           <div className="col-xs-4 secondary-volunteer-image">
             <div className="image-circle-cropper">

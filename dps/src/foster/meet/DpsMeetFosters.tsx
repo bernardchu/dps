@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DpsApi from '../../api/DpsApi';
+import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsFoster, IDpsFosterSpotlight } from '../../model/IDpsFoster';
 import './meetFosters.scss';
@@ -39,7 +40,7 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
         </div>
       </div>
       <div className="row spotlight card feature">
-        {!loaded && <div>Loading...</div>}
+        {!loaded && <DpsLoading />}
         {loaded && <>
           <div className="col-sm-3 hidden-xs photo">
             <img src={spotlight.photo} alt={spotlight.name} title={spotlight.name} className="no-border fosters" />
@@ -51,7 +52,7 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
         </>}
       </div>
       <div className="row fosters">
-        {!loaded && <div>Loading...</div>}
+        {!loaded && <DpsLoading />}
         {loaded && fosters.map(foster => <div className="col-md-4 col-sm-6 foster" key={foster.photo}>
           <div className="col-xs-4 photo">
             <img src={foster.photo} alt={foster.name} title={foster.name} className="no-border fosters" />

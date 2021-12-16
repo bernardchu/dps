@@ -7,6 +7,7 @@ import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings'
 import DpsSuccessStoryWrapper from '../../model/DpsSuccessStory';
 import './successStory.scss';
 import Imgix from 'react-imgix';
+import DpsLoading from '../../common/DpsLoading';
 
 // useSearchParams necessitates function component over class component
 export function DpsSuccessStory() {
@@ -33,7 +34,7 @@ export function DpsSuccessStory() {
 
   return (
     <div className="row success-story">
-      {!loaded && <div>Loading...</div>}
+      {!loaded && <DpsLoading />}
       {loaded && <>
         <h2 className="name">{pet.name}</h2>
         <div className="carousel col-xs-12 col-md-4">

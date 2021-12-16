@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DpsApi from '../api/DpsApi';
 import { IDpsDatesApiResponse } from '../api/IDpsApiResponses';
+import DpsLoading from '../common/DpsLoading';
 import { IDpsAsyncState } from '../model/IDpsAsyncState';
 import DpsHomeEventLocation from './DpsHomeEventLocation';
 
@@ -29,7 +30,7 @@ export default class DpsHomeEvents extends React.PureComponent<{}, IDpsHomeEvent
       <div className="col-md-12 dates featured card">
         <h2>Upcoming Events</h2>
         <hr />
-        {!loaded && <div>Loading...</div>}
+        {!loaded && <DpsLoading />}
         {loaded && keys.length === 0 && <h4 className="event">No upcoming events - stay tuned for updates!</h4>}
         {loaded && keys.length > 0 && keys.map(location => <DpsHomeEventLocation location={locations[location]} key={location} />)}
       </div>

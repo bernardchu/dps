@@ -1,6 +1,7 @@
 import * as React from 'react';
 import MicroModal from 'react-micro-modal';
 import DpsApi from '../../api/DpsApi';
+import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
 import DpsIcuModal from './DpsIcuModal';
@@ -37,7 +38,7 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
           dogs who needed more care. Anything you can donate to help with their vet
           costs is much appreciated!</p>
         <div className="col-xs-12 row icu">
-          {!loaded && <div>Loading...</div>}
+          {!loaded && <DpsLoading />}
           {loaded && icu.map(animal =>
             <MicroModal
               trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}

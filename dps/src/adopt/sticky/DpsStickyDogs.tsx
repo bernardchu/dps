@@ -2,6 +2,7 @@ import * as React from 'react';
 import Slider, { Settings } from 'react-slick';
 import DpsApi from '../../api/DpsApi';
 import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
+import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsStickyDog } from '../../model/IDpsStickyDog';
 import DpsStickyDogContent from './DpsStickyDogContent';
@@ -38,7 +39,7 @@ export default class DpsStickyDogs extends React.Component<{}, IDpsStickyDogsSta
           <p>Please check out some of our sticky dogs!</p>
         </div>
         <div className="carousel-container col-xs-12">
-          {!loaded && <div>Loading...</div>}
+          {!loaded && <DpsLoading />}
           {loaded && !stickyDogs?.length && <p>No sticky dogs right now, check back later!</p>}
           {loaded && !!stickyDogs?.length &&
 

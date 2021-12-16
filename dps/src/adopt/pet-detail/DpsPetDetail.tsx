@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import DpsApi from '../../api/DpsApi';
+import DpsLoading from '../../common/DpsLoading';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
 import { routes } from '../../routing/routes';
 import DpsPetDetailBasics from './DpsPetDetailBasics';
@@ -35,7 +36,7 @@ export function DpsPetDetail() {
 
   return (
     <div className="row main">
-      {!loaded && <div>Loading...</div>}
+      {!loaded && <DpsLoading />}
       {loaded &&
         <div className={`row pet-bio-container ${print ? 'col-sm-12' : 'col-sm-8'}`}>
           <div className={`col-xs-12 pet-bio ${print ? '' : 'card'}`}>

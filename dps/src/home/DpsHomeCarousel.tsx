@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './adoptableCarousel.scss';
 import DpsHomeCarouselSlide from './DpsHomeCarouselSlide';
 import { IDpsAsyncState } from '../model/IDpsAsyncState';
+import DpsLoading from '../common/DpsLoading';
 
 export interface IDpsHomeCarouselState extends IDpsAsyncState {
   dogs: IDpsAdoptable[];
@@ -42,7 +43,7 @@ export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCar
 
     return (
       <div className="adoptable col-md-12">
-        {!loaded && <div>Loading...</div>}
+        {!loaded && <DpsLoading />}
         {/* 
         Annoying type shenanigans below because the react-slick docs incorrectly say that
         lazyLoad should be 'progressive' or 'ondemand' when in fact it only works with a boolean.

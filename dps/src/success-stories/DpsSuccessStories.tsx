@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import DpsApi from '../api/DpsApi';
+import DpsLoading from '../common/DpsLoading';
 import { IDpsSuccessStoryCompact } from '../model/IDpsSuccessStory';
 import { routes } from '../routing/routes';
 import './successStories.scss';
@@ -36,7 +37,7 @@ export default function DpsSuccessStories() {
   return (<>
     {isSuccessStoryState && <Outlet />}
     {!isSuccessStoryState && <div className="row success-stories">
-      {!loaded && <div>Loading...</div>}
+      {!loaded && <DpsLoading />}
       {loaded && stories?.map(story =>
         <div className="col-xs-4 col-sm-4 col-md-2 success-stories-dog" key={story.id}>
           <Link to={`${routes.successStories.children!.successStory.path}/?id=${story.id}`} className="img-container">
