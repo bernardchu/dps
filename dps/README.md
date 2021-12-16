@@ -1,6 +1,31 @@
-# Getting Started with Create React App
+# DPS Rescue webapp frontend
+
+## Quick Start
+
+### Production
+`npm run build` Builds the app for production to the `build` folder.
+
+### Development
+`npm start` Runs the app in the development mode and serves it at [http://localhost:3000](http://localhost:3000).
+
+## Overview
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+In the absence of formal requirements, most of the functionality is documented in the components themselves.
+Since there is little to no actual business logic, almost everything there is to know about the workings of the application can be discovered by simply following [routes](src/routing/routes.tsx) to their components.
+
+### Dependencies
+The most used dependencies are React, React Router, TypeScript, `react-micromodal` (a React skin on top of Micromodal), `react-slick` (a React skin on top of Slick carousel), and `bootstrap-grid-only` for simple layout styles.
+
+### Quirks
+Almost every route can be easily found by looking at the navbar and submenus that pop up, with the following exceptions:
+- The dog and cat applications have friendlier, user-facing routes that appear in the nav but the buttons that go to the actual Google Forms applications go to separate routes that simply redirect to the Forms.
+- While not technically a separate route, adding `print=true` as a query param to the `pet-detail` route changes the DOM and adds some `@media print` styling that makes printing pet bios for adoption events easier for volunteers.
+
+Some parent routes have no content and exist purely to namespace child routes.
+Therefore, ideally, they would not be accessible without the context of a child route, except to my knowledge React Router doesn't easily support abstract routes like this.
+Index routes are used to mimic this sort of behavior by acting as a sort of default child route when a parent route is visited directly.
 
 ## Available Scripts
 
@@ -18,6 +43,8 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+Given the relatively simple nature of the application, there are no tests at the moment.
 
 ### `npm run build`
 
