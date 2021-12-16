@@ -15,12 +15,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the absence of formal requirements, most of the functionality is documented in the components themselves.
 Since there is little to no actual business logic, almost everything there is to know about the workings of the application can be discovered by simply following [routes](src/routing/routes.tsx) to their components.
 
+Most pages are simply static content (e.g. the [cat application](src/adopt/cat-application/DpsCatApplication.tsx)) or renders of a single request to the API (e.g. the [available page](src/adopt/available/DpsAdoptAvailable.tsx)).
+
 ### Dependencies
 The most used dependencies are React, React Router, TypeScript, `react-micromodal` (a React skin on top of Micromodal), `react-slick` (a React skin on top of Slick carousel), and `bootstrap-grid-only` for simple layout styles.
 
 ### Quirks
 Almost every route can be easily found by looking at the navbar and submenus that pop up, with the following exceptions:
-- The dog and cat applications have friendlier, user-facing routes that appear in the nav but the buttons that go to the actual Google Forms applications go to separate routes that simply redirect to the Forms.
+- The dog and cat applications have friendlier, user-facing routes that appear in the nav but the buttons that go to the actual Google Forms applications go to separate routes that simply redirect to the Forms. This makes for nicer links that can be shared with the public and, in the event the Form changes, one place where it can be changed.
 - While not technically a separate route, adding `print=true` as a query param to the `pet-detail` route changes the DOM and adds some `@media print` styling that makes printing pet bios for adoption events easier for volunteers.
 
 Some parent routes have no content and exist purely to namespace child routes.
