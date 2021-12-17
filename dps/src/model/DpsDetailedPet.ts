@@ -1,5 +1,9 @@
 import { IDpsAvailableIdResponse } from "../api/IDpsApiResponses";
 
+/**
+ * Wrapper class for data coming from API. Makes some types a bit more sensible and takes care of some
+ * minor transformations.
+ */
 export default class DpsDetailedPet {
   private _isDog: boolean;
   private _video: string;

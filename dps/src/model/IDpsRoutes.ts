@@ -1,4 +1,4 @@
-import React, { JSXElementConstructor, ReactElement } from "react";
+import { ReactElement } from "react";
 
 export interface IDpsRoute {
   name: string;

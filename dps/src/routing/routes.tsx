@@ -26,6 +26,12 @@ export function hasSubnavChildren(route: IDpsRoute): boolean {
     .filter(child => child.inNav).length > 0;
 }
 
+/**
+ * Not all routes belong in the nav and its submenus. Also, it is easier to iterate through child
+ * routes if they are in an ordered collection like an array. This solves both of these problems.
+ * @param routes (see below) All routes in the application
+ * @returns Routes that should be part of the navbar and its submenus
+ */
 function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
   return Object.keys(routes)
     .map(key => routes[key])
@@ -44,6 +50,15 @@ function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
     });
 }
 
+/**
+ * This is a collection of all routes in the application. They are structured somewhat awkwardly with children
+ * pointing to key-value pairs instead of an array in order to make the paths reusable when referenced elsewhere
+ * in the application, e.g. in Links.
+ * When constructing the nav, it would make more sense to encode the child routes in arrays so that order is preserved,
+ * so in order to avoid duplicating information, we encode order explicitly on the route objects so that they can be
+ * sorted later when constructing the navbar.
+ * Some legacy routes are included here but commented out. It's unlikely they will return.
+ */
 export const routes: { [key: string]: IDpsRoute } = {
   home: {
     name: 'Home',

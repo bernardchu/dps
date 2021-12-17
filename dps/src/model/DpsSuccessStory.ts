@@ -4,6 +4,7 @@ import { IDpsSuccessStory, IDpsSuccessStoryUpdate } from "./IDpsSuccessStory";
 export default class DpsSuccessStoryWrapper {
   private readonly _photos: string[] = [];
   constructor(private readonly successStory: IDpsSuccessStory) {
+    // We don't actually care to separate photos by date so we flatten them all.
     this._photos = _.flatMap(successStory.updates, (update) => update.photos);
   }
 
