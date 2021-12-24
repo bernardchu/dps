@@ -1,10 +1,12 @@
+@import 'variables';
+
 /* Get rid of annoying border that appears when navigating carousel */
 .slick-slide:focus {
   outline: none;
 }
 
 .slick-prev:hover:before, .slick-next:hover:before {
-  color: white;
+  color: $dps-secondary-color;
 }
 
 button.slick-prev:before, button.slick-next:before {
