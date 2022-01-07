@@ -30,13 +30,15 @@ var faq = {
       ]
     },
     {
-	heading: "Do you have any additional foster resources",
+	heading: "Do you have any additional foster resources?",
 	imgUrl: "https://dps-festive.imgix.net/images/foster/faq/tips-for-getting-your-foster-pup-adopted.pdf?p=1&h=340&w=340&fit=crop&crop=top&pad=20&bg=A83F3B",
 	prose: [
 	    '<p>Yes! The following links are available to all DPS foster homes to support you on our foster journey! If you have other questions or need further training resources, please email your requests to foster@dpsrescue.org.</p>',
 	    '<ol>',
             '<li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/tips-for-getting-your-foster-pup-adopted.pdf">Tips for Getting your Foster Dog Adopted</a>:</strong> This handout contains advice, tips and tricks for helping DPS to market your foster dog and find them the right forever home.</li>',
+	    '<br/>',
             '<li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/foster-enrichment-101.pdf">Enrichment 101</a>:</strong> We know that everyone works full time and can&apos;t spend hours and hours doing training every day. This handout has some fun ideas for keeping your foster dog mentally and physically stimulated. It&apos;s just as important to tire out their minds as their bodies, so supplement daily walks with these activities for a well-rounded and calm foster dog!</li>',
+	    '<br/>',
             '<li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/crate-training.pdf">Crate Training</a>:</strong> Crate training is highly recommended for all dogs and puppies! Here is a step-by-step guide to teaching your foster pup to love their crate.</li>',
             '</ol>'
 	]
