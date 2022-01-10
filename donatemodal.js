@@ -1,4 +1,5 @@
 (function () {
+  return; // donate modal is disabled indefinitely
   const showModal = !document.referrer || document.referrer.indexOf(window.location.hostname) === -1;
   if (!showModal) {
     return;
