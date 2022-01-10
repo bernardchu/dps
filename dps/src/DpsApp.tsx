@@ -18,9 +18,11 @@ function DpsApp() {
   const modalOpen: boolean = modalState[0];
   const setModalOpen = modalState[1];
 
+  /*  donate modal is disabled indefinitely
   React.useEffect(() => {
     setTimeout(() => setModalOpen(true), 2000);
   }, [setModalOpen]);
+  */
   return (
     <div className="container">
       <DpsHeader />
