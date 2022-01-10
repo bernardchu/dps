@@ -40,6 +40,8 @@ var faq = {
             '<li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/foster-enrichment-101.pdf">Enrichment 101</a>:</strong> We know that everyone works full time and can&apos;t spend hours and hours doing training every day. This handout has some fun ideas for keeping your foster dog mentally and physically stimulated. It&apos;s just as important to tire out their minds as their bodies, so supplement daily walks with these activities for a well-rounded and calm foster dog!</li>',
 	    '<br/>',
             '<li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/crate-training.pdf">Crate Training</a>:</strong> Crate training is highly recommended for all dogs and puppies! Here is a step-by-step guide to teaching your foster pup to love their crate.</li>',
+	    '<br/>',
+	    '<li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/dps-puppy-packet.pdf">Puppy Manual</a>:</strong> Puppies can be a tremendous amount of fun, but they can also be exhausting! This manual contains many activities you can engage in with your foster puppy. Puppies are in a crucial socialization period of their lives; follow these tips to help DPS adopt out well-rounded and social puppies who will thrive in their adoptive homes!</li>',
             '</ol>'
 	]
     }
