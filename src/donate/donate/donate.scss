@@ -9,4 +9,11 @@
   img {
     width: 100%;
   }
+
+  .sibling-tiles {
+    .donate-sibling-tile {
+      @include flex-centered;
+      flex-direction: column;
+    }
+  }
 }
