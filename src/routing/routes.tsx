@@ -20,6 +20,7 @@ import DpsRedirect from "./DpsRedirect";
 import DpsSuccessStory from "../success-stories/success-story/DpsSuccessStory";
 import DpsSponsor from "../donate/sponsor/DpsSponsor";
 import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching";
+import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
 
 export function hasSubnavChildren(route: IDpsRoute): boolean {
   if (!route.children) { return false }
@@ -212,10 +213,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         inNav: true,
         navOrder: 3
       },
-      // calendar: {
-      // name: 'Calendar',
-      // route: '/calendar/'
-      // },
+      inHonorOf: {
+        name: 'In Honor Of',
+        path: 'in-honor-of',
+        element: <DpsInHonorOf />,
+        inNav: true,
+        navOrder: 4
+      },
     }
   },
   successStories: {
