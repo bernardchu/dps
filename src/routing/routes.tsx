@@ -19,6 +19,7 @@ import DpsPetDetail from "../adopt/pet-detail/DpsPetDetail";
 import DpsRedirect from "./DpsRedirect";
 import DpsSuccessStory from "../success-stories/success-story/DpsSuccessStory";
 import DpsSponsor from "../donate/sponsor/DpsSponsor";
+import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching";
 
 export function hasSubnavChildren(route: IDpsRoute): boolean {
   if (!route.children) { return false }
@@ -203,6 +204,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         element: <DpsSponsor />,
         inNav: true,
         navOrder: 2
+      },
+      employerMatching: {
+        name: 'Employer Matching',
+        path: 'employer-matching',
+        element: <DpsEmployerMatching />,
+        inNav: true,
+        navOrder: 3
       },
       // calendar: {
       // name: 'Calendar',
