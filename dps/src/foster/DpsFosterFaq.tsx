@@ -15,7 +15,7 @@ export default class DpsFosterFaq extends React.PureComponent {
     {
       heading: "How long would I foster for?",
       imgUrl: "http://dps-festive.imgix.net/images/foster/foster-rachel.jpg?h=340&fit=crop&w=340&crop=top",
-      prose: <p>There are several types of fosters. The shortest is Saturday—Sunday, with pick-up in Palo Alto at 4:00 pm on Saturday and drop off Sunday morning at 11:00 am. One-week fostering starts with Sunday pick-up at 3:00 pm; drop off is the following Saturday at 10:30 am. Two-week fostering is the same times as one week, but lasts for 2 weeks. We also need emergency fosters mid-week. If you foster a dog for a night or a week and wish to continue fostering the same dog until adopted, great! We love to give our dogs stable foster homes so they can adjust and feel comfortable.</p>
+      prose: <p>We love to give our dogs stable foster homes so they can adjust and feel comfortable while awaiting adoption. We ask for a minimum of a two week foster commitment when you sign on to take a dog or puppy. Occasionally we are in need of short-term fosters (when other fosters go out of town, or in case of emergency), so if you're only able to keep for a few days, please feel free to fill out the application and join our team!</p>
 
     },
     {
@@ -27,6 +27,22 @@ export default class DpsFosterFaq extends React.PureComponent {
       heading: "I’m thinking I might want to adopt soon. Can I foster-to-adopt?",
       imgUrl: "http://dps-festive.imgix.net/images/foster/foster-avery.jpg?h=340&fit=crop&w=340&crop=top",
       prose: <p>No&mdash;we do not allow foster to adopt. However, if you fall in love with a dog you are fostering, feel free to put in an application for that dog! Just know that we are getting and processing applications at all times and that dog might already be set up with an adopter. We do not give our fosters priority in the adoption process.</p>
+    },
+    {
+      heading: "Do you have any additional foster resources?",
+      imgUrl: "https://dps-festive.imgix.net/images/foster/faq/tips-for-getting-your-foster-pup-adopted.pdf?p=1&h=340&w=340&fit=crop&crop=top&pad=20&bg=A83F3B",
+      prose: <>
+        <p>Yes! The following links are available to all DPS foster homes to support you on our foster journey! If you have other questions or need further training resources, please email your requests to <a href="mailto:foster@dpsrescue.org">foster@dpsrescue.org</a>.</p>
+        <ol>
+          <li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/tips-for-getting-your-foster-pup-adopted.pdf">Tips for Getting your Foster Dog Adopted</a>:</strong> This handout contains advice, tips and tricks for helping DPS to market your foster dog and find them the right forever home.</li>
+          <br />
+          <li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/foster-enrichment-101.pdf">Enrichment 101</a>:</strong> We know that everyone works full time and can&apos;t spend hours and hours doing training every day. This handout has some fun ideas for keeping your foster dog mentally and physically stimulated. It&apos;s just as important to tire out their minds as their bodies, so supplement daily walks with these activities for a well-rounded and calm foster dog!</li>
+          <br />
+          <li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/crate-training.pdf">Crate Training</a>:</strong> Crate training is highly recommended for all dogs and puppies! Here is a step-by-step guide to teaching your foster pup to love their crate.</li>
+          <br />
+          <li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/dps-puppy-packet.pdf">Puppy Manual</a>:</strong> Puppies can be a tremendous amount of fun, but they can also be exhausting! This manual contains many activities you can engage in with your foster puppy. Puppies are in a crucial socialization period of their lives; follow these tips to help DPS adopt out well-rounded and social puppies who will thrive in their adoptive homes!</li>
+        </ol>
+      </>
     }
   ];
 
