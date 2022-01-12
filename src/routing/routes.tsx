@@ -18,6 +18,7 @@ import DpsAboutFaq from "../about/DpsAboutFaq";
 import DpsPetDetail from "../adopt/pet-detail/DpsPetDetail";
 import DpsRedirect from "./DpsRedirect";
 import DpsSuccessStory from "../success-stories/success-story/DpsSuccessStory";
+import DpsSponsor from "../donate/sponsor/DpsSponsor";
 
 export function hasSubnavChildren(route: IDpsRoute): boolean {
   if (!route.children) { return false }
@@ -190,11 +191,18 @@ export const routes: { [key: string]: IDpsRoute } = {
         navOrder: 0
       },
       icu: {
-        name: 'Intensive Care',
-        path: 'icu',
+        name: 'Medical Dogs',
+        path: 'medical-dogs',
         element: <DpsIcu />,
         inNav: true,
         navOrder: 1
+      },
+      sponsor: {
+        name: 'Sponsor a Dog',
+        path: 'sponsor',
+        element: <DpsSponsor />,
+        inNav: true,
+        navOrder: 2
       },
       // calendar: {
       // name: 'Calendar',
