@@ -30,13 +30,8 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
     const loaded = this.state?.loaded;
     return (<>
       <div className="row">
-        <h2>Intensive Care</h2>
-        <p>Some of the dogs we rescue need a little more TLC before they are ready to
-          find their furever homes. They come to us with a bellyful of puppies, a
-          broken limb or missing eye. We make sure they get patched up and adopted
-          into loving families. Read on for a behind-the-scenes look at some of our
-          dogs who needed more care. Anything you can donate to help with their vet
-          costs is much appreciated!</p>
+        <h2>Medical Dogs</h2>
+        <p>In 2021, we spent over $100,000 on medical dogs. We hope to save even more dogs with medical special needs in 2022, but we need your help! Click on each dog to read their story. You can donate via the link on their description or via Zelle, Venmo, or by sending a check.</p>
         <div className="col-xs-12 row icu">
           {!loaded && <DpsLoading />}
           {loaded && icu.map(animal =>
