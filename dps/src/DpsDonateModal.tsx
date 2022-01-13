@@ -12,22 +12,15 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
       <>
         <header className="modal__header">
           <h2 className="modal__title" id="donate-modal-title">
-            Holiday Drive to Save Lives
+            Join us in honoring Betty White
           </h2>
         </header>
         <main className="modal__content" id="modal-1-content">
           <div className="donate-modal-image-container">
-            <img src="https://dps-festive.imgix.net/images/donate/donation-popup.jpeg?w=300&h=220&fit=crop&crop=top" alt="donate" />
+            <img src="https://dps-festive.imgix.net/images/donate/betty-white-usa-today.jpeg?txt64=U291cmNlOiBVU0EgVG9kYXk=&txt-clr=white&w=300" alt="donate" />
           </div>
-          <p>Donate now to help us save more dogs and cats in need! Your gift will provide:</p>
-          <ul>
-            <li>Food, treats, toys and other necessities</li>
-            <li>Life-saving medical care</li>
-            <li>Support for our foster homes</li>
-            <li>Training for dogs with challenges</li>
-            <li>And so much more!</li>
-          </ul>
-          <Link onClick={() => this.props.closeModal()} to={`${routes.donate.path}/${routes.donate.children!.donate.path}`} className="hero-button col-xs-12">Donate</Link>
+          <p>Betty White demonstrated a lifelong commitment to helping animals in need. Join us in honoring Betty White's memory to make the world a better, kinder place for all animals by making a donation in support of the work we do.</p>
+          <Link onClick={() => this.props.closeModal()} to={`${routes.donate.path}/${routes.donate.children!.donate.path}`} className="hero-button col-xs-12">Donate Now</Link>
         </main>
       </>
 
