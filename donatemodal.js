@@ -1,5 +1,4 @@
 (function () {
-  return; // donate modal is disabled indefinitely
   const showModal = !document.referrer || document.referrer.indexOf(window.location.hostname) === -1;
   if (!showModal) {
     return;
@@ -11,23 +10,16 @@
     + '  <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">'
     + '    <header class="modal__header">'
     + '      <h2 class="modal__title" id="donate-modal-title">'
-    + '        Holiday Drive to Save Lives'
+    + '        Join us in honoring Betty White'
     + '      </h2>'
     + '      <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>'
     + '    </header>'
     + '    <main class="modal__content" id="modal-1-content">'
     + '      <div class="donate-modal-image-container">'
-    + '        <img src="https://dps-festive.imgix.net/images/donate/donation-popup.jpeg?w=300&h=220&fit=crop&crop=top"/>'
+    + '        <img src="https://dps-festive.imgix.net/images/donate/betty-white-usa-today.jpeg?txt64=U291cmNlOiBVU0EgVG9kYXk=&txt-clr=white&w=300"/>'
     + '      </div>'
-    + '      <p>Donate now to help us save more dogs and cats in need! Your gift will provide:</p>'
-    + '      <ul>'
-    + '        <li>Food, treats, toys and other necessities</li>'
-    + '        <li>Life-saving medical care</li>'
-    + '        <li>Support for our foster homes</li>'
-    + '        <li>Training for dogs with challenges</li>'
-    + '        <li>And so much more!</li>'
-    + '      </ul>'
-    + '      <a href="/donate/donate/" class="hero-button col-xs-12">Donate</a>'
+    + '      <p>Betty White demonstrated a lifelong commitment to helping animals in need. Join us in honoring Betty White\'s memory to make the world a better, kinder place for all animals by making a donation in support of the work we do.</p>'
+    + '      <a href="/donate/donate/" class="hero-button col-xs-12">Donate Now</a>'
     + '    </main>'
     + '  </div>'
     + '</div>'
