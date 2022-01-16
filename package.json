@@ -1,33 +1,58 @@
 {
   "name": "dps",
-  "version": "1.0.0",
-  "description": "Doggie Protective Services site",
-  "main": "dps.js",
-  "scripts": {
-    "serve": "serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/roastonbone/dps.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/roastonbone/dps/issues"
-  },
-  "homepage": "https://github.com/roastonbone/dps#readme",
-  "devDependencies": {
-    "create-react-app": "^4.0.3",
-    "serve": "^11.3.2"
-  },
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "bootstrap-grid-only": "1.0.0",
-    "lodash": "4.17.21",
-    "micromodal": "0.4.10",
-    "react": "17.0.2",
-    "react-router": "5.2.0",
-    "sass": "1.43.4",
-    "slick-carousel": "1.8.1"
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.20.37",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-imgix": "^9.3.1",
+    "bootstrap-grid-only": "^1.0.0",
+    "history": "^5.1.0",
+    "lodash": "^4.17.21",
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-imgix": "^9.3.0",
+    "react-micro-modal": "^2.0.2",
+    "react-router-dom": "^6.0.2",
+    "react-slick": "^0.28.1",
+    "react-twitter-widgets": "^1.10.0",
+    "slick-carousel": "^1.8.1",
+    "typescript": "^4.5.2",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@types/react-slick": "^0.23.7",
+    "react-scripts": "4.0.3"
   }
 }
