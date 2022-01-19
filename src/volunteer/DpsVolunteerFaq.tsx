@@ -2,6 +2,7 @@ import * as React from 'react';
 import DpsFaq from '../common/DpsFaq';
 import { IDpsFaqSection } from '../model/IDpsFaqSection';
 import './volunteerFaq.scss';
+import Imgix from 'react-imgix';
 
 export default class DpsVolunteerFaq extends React.PureComponent {
   private static sections: IDpsFaqSection[] = [
@@ -42,19 +43,45 @@ export default class DpsVolunteerFaq extends React.PureComponent {
     return (
       <div className="row">
         <div className="volunteer-header-images hidden-xs hidden-sm">
-          <img
-            src="http://dps-festive.imgix.net/images/volunteer/volunteer-header-marlina1.jpg?rect=0,0,4700,4000&w=370&h=250&fm=pjpg&fit=fill&fill=solid&fill-color=2E8C69"
-            alt="" />
-          <img
-            src="http://dps-festive.imgix.net/images/volunteer/volunteer-header-group1.jpg?rect=200,100,1600,1100&w=370&h=250&fm=pjpg&fit=fill&fill=solid&fill-color=2E8C69"
-            alt="" />
-          <img
-            src="http://dps-festive.imgix.net/images/volunteer/volunteer-header-group2.jpg?rect=100,280,650,450&w=370&h=250&fm=pjpg&fit=fill&fill=solid&fill-color=2E8C69"
-            alt="" />
+          <Imgix
+            src="http://dps-festive.imgix.net/images/volunteer/volunteer-header-marlina1.jpg"
+            imgixParams={{
+              rect: '0,0,4700,4000',
+              fm: 'pjpg',
+              fit: 'fill',
+              fill: 'solid',
+              'fill-color': '2E8C69'
+            }}
+            width={370}
+            height={250}
+          />
+          <Imgix
+            src="http://dps-festive.imgix.net/images/volunteer/volunteer-header-group1.jpg"
+            imgixParams={{
+              rect: '200,100,1600,1100',
+              fm: 'pjpg',
+              fit: 'fill',
+              fill: 'solid',
+              'fill-color': '2E8C69'
+            }}
+            width={370}
+            height={250}
+          />
+          <Imgix
+            src="http://dps-festive.imgix.net/images/volunteer/volunteer-header-group2.jpg"
+            imgixParams={{
+              rect: '100,280,650,450',
+              fm: 'pjpg',
+              fit: 'fill',
+              fill: 'solid',
+              'fill-color': '2E8C69'
+            }}
+            width={370}
+            height={250}
+          />
         </div>
         <DpsFaq sections={DpsVolunteerFaq.sections} />
       </div>
-
     );
   }
 }

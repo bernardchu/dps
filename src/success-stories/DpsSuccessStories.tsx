@@ -6,6 +6,7 @@ import DpsLoading from '../common/DpsLoading';
 import { IDpsSuccessStoryCompact } from '../model/IDpsSuccessStory';
 import { routes } from '../routing/routes';
 import './successStories.scss';
+import Imgix from 'react-imgix';
 
 /**
  * Success stories is a strange route because it is a parent route that has content and it has
@@ -41,7 +42,7 @@ export default function DpsSuccessStories() {
       {loaded && stories?.map(story =>
         <div className="col-xs-4 col-sm-4 col-md-2 success-stories-dog" key={story.id}>
           <Link to={`${routes.successStories.children!.successStory.path}/?id=${story.id}`} className="img-container">
-            <img src={`${story.photo1}?crop=faces,top&fit=crop&h=200&w=200`} alt={story.name} />
+            <Imgix src={story.photo1} imgixParams={{ crop: 'faces,top', fit: 'crop' }} height={200} width={200} htmlAttributes={{ alt: story.name }} />
           </Link>
           <div className="name">{story.name}</div>
         </div>)}

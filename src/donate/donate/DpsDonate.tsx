@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './donate.scss';
+import Imgix from 'react-imgix';
 
 export default class DpsDonate extends React.PureComponent {
   public render() {
@@ -32,7 +33,7 @@ export default class DpsDonate extends React.PureComponent {
           </ul>
         </div>
         <div className="col-md-5 hidden-sm hidden-xs">
-          <img src="http://dps-festive.imgix.net/images/donate/donate-header.png" alt="Mac" />
+          <Imgix src="http://dps-festive.imgix.net/images/donate/donate-header.png" htmlAttributes={{ alt: 'Mac' }} />
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsFoster, IDpsFosterSpotlight } from '../../model/IDpsFoster';
 import './meetFosters.scss';
+import Imgix from 'react-imgix';
 
 interface IDpsMeetFostersState extends IDpsAsyncState {
   fosters: IDpsFoster[];
@@ -36,7 +37,7 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
             people who help our rescue save lives!</p>
         </div>
         <div className="col-sm-4 hidden-xs">
-          <img className="no-border fosters" src="http://dps-festive.imgix.net/images/foster/fosters/fosters-header.jpg" alt="fosters" />
+          <Imgix className="no-border fosters" src="http://dps-festive.imgix.net/images/foster/fosters/fosters-header.jpg" htmlAttributes={{ alt: 'fosters' }} />
         </div>
       </div>
       <div className="row spotlight card feature">
