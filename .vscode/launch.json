@@ -1,0 +1,22 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Launch Sync",
+      "program": "/Users/Bernie/.nvm/versions/node/v16.13.0/bin/amplify",
+      "args": [
+        "mock",
+        "function",
+        "syncAvailable",
+        "--event",
+        "src/event.json"
+      ],
+      "console": "integratedTerminal"
+    }
+  ]
+}

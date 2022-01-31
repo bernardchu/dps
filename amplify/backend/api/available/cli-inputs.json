@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/available/{id}": {
+      "name": "/available/{id}",
+      "lambdaFunction": "getAvailable",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/available/sync": {
+      "name": "/available/sync",
+      "lambdaFunction": "syncAvailable",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
