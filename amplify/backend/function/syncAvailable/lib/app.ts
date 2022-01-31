@@ -7,7 +7,8 @@ See the License for the specific language governing permissions and limitations 
 */
 const aws = require('aws-sdk');
 const ssm = new aws.SSM();
-const fetch = require('node-fetch');
+const nodeFetch = require('node-fetch');
+
 require('dotenv').config();
 
 var express = require('express')
@@ -15,7 +16,7 @@ var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
 
 // declare a new express app
-var app = express()
+var app = express();
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
@@ -36,12 +37,11 @@ app.get('/available/sync', async function (req, res) {
     const rescuegroupsKeyParameter = await ssm.getParameter({
       Name: process.env['RESCUEGROUPS_KEY'],
       WithDecryption: true,
-    })
-      .promise();
+    }).promise();
     const rescuegroupsKey = rescuegroupsKeyParameter.Parameter.Value;
     const rescuegroupsUrl = new URL('https://toolkit.rescuegroups.org/javascript/v2.0/');
     rescuegroupsUrl.searchParams.append('key', rescuegroupsKey);
-    const response = await fetch(rescuegroupsUrl);
+    const response = await nodeFetch(rescuegroupsUrl.toString());
     const raw = await response.text();
     res.json({ success: raw, url: req.url });
   } catch (err) {

@@ -14,7 +14,7 @@
         "function",
         "syncAvailable",
         "--event",
-        "src/event.json"
+        "src/testEvent.json"
       ],
       "console": "integratedTerminal"
     }
