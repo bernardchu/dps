@@ -1,0 +1,1 @@
+export type rescueGroupsV2Animal = string[];
