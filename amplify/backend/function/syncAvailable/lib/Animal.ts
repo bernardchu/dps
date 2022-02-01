@@ -60,31 +60,34 @@ interface animalPictures {
 */
 
 export class Animal {
-  private id: string;
-  private lastUpdated: string;
-  private name: string;
-  private species: species;
-  private breed: string;
-  private primaryBreed: string;
-  private secondaryBreed: string;
-  private sex: string;
-  private mixed: string;
-  private goodWithDogs: string;
-  private goodWithCats: string;
-  private goodWithKids: string;
-  private declawed: string;
-  private housetrained: string;
-  private age: string;
-  private specialNeeds: string;
-  private altered: string;
-  private size: string;
-  private upToDate: string;
-  private color: string;
-  private coatLength: string;
-  private pattern: string;
-  private description: string;
-  private pictures: animalPictures[];
-  private contact: string;
+  public id: string;
+  public lastUpdated: string;
+  public name: string;
+  public species: species;
+  public breed: string;
+  public primaryBreed: string;
+  public secondaryBreed: string;
+  public sex: string;
+  public mixed: string;
+  public goodWithDogs: string;
+  public goodWithCats: string;
+  public goodWithKids: string;
+  public declawed: string;
+  public housetrained: string;
+  public age: string;
+  public specialNeeds: string;
+  public altered: string;
+  public size: string;
+  public upToDate: string;
+  public color: string;
+  public coatLength: string;
+  public pattern: string;
+  public description: string;
+  public get pictures(): animalPictures[] {
+    return this._pictures;
+  };
+  private _pictures: animalPictures[];
+  public contact: string;
 
   constructor(raw: rescueGroupsV2Animal) {
     this.id = raw[0];
@@ -110,7 +113,7 @@ export class Animal {
     this.coatLength = raw[23];
     this.pattern = raw[24];
     this.description = Animal.parseDescription(raw[31], this.species);
-    this.pictures = Animal.parseImages(raw.slice(32, 40));
+    this._pictures = Animal.parseImages(raw.slice(32, 40));
     this.contact = raw[42].replace(/(<([^>]+)>)/gi, ""); // strip HTML tags; contact is probably unneeded so it's untested
   }
 
@@ -126,7 +129,7 @@ export class Animal {
       [pictures[6], pictures[7]],
     ];
     const imageUriRegex = /.+src="(.+)" width/g;
-    return pairs.filter(pair => imageUriRegex.test(pair[0]) && imageUriRegex.test(pair[1]))
+    return pairs.filter(pair => pair[0] && pair[1])
       .map(pair => {
         return {
           image: Array.from(pair[0].matchAll(imageUriRegex), m => m[1])[0], // basically just get first capture group from the regex
