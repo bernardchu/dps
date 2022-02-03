@@ -139,4 +139,56 @@ describe('Animal class', () => {
       expect(animal.pictures).toHaveLength(0);
     });
   });
+
+  describe('description', () => {
+    describe('boilerplate', () => {
+      it.todo('should pass through the first two p nodes as boilerplate for dogs');
+      it.todo('should ignore given boilerplate and provide an alternative for cats');
+    });
+
+    describe('upcoming', () => {
+      // TODO: Use each for dog/cat/kitten (why not puppy though?)
+      it.todo('should parse out upcoming info if present in the third p node');
+      it.todo('should not parse out upcoming info if present in other p nodes');
+    });
+
+    // Seems the frontend doesn't use this info at the moment
+    describe.skip('insurance', () => {
+      it.todo('should parse out insurance info from any node beginning with "A healthy pet" after the boilerplate nodes');
+    });
+
+    describe('bio', () => {
+      it.todo('should include all p nodes except insurance and boilerplate nodes')
+      it.todo('should not include non-p nodes')
+    });
+
+    describe('age', () => {
+      it.todo.each([
+        ['1 week old'],
+        ['1-week old'],
+        ['2 weeks old'],
+        ['3-4 weeks old'],
+        ['1 month old'],
+        ['1-month old'],
+        ['2 months old'],
+        ['3-4 months old'],
+        ['1 year old'],
+        ['1-year old'],
+        ['2 years old'],
+        ['3-4 years old'],
+      ])(
+        'should parse "%s"',
+        (age) => {
+          expect(age).toBe(age);
+        }
+      );
+      it.todo('should be parsed from the third p node');
+      it.todo('should be flexible regarding where in the third p node the age appears');
+    });
+
+    it.todo('should not include any HTML tags');
+    it.todo('should not include backslash-escaped quotes');
+    // Somewhat lower priority since the frontend is already using dangerouslySetInnerHTML
+    it.todo('should not include any HTML entities');
+  });
 });
