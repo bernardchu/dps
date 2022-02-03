@@ -1,6 +1,14 @@
 import { rescueGroupsV2Animal } from "./rescueGroupsV2Animal";
 type species = 'Dog' | 'Cat';
-interface animalPictures {
+interface IAnimalDescription {
+  upcoming: string;
+  bio: string;
+  insurance: string;
+  boilerplate: string[];
+  age: number;
+}
+
+interface IAnimalPictures {
   image: string;
   thumb: string;
 }
@@ -82,11 +90,14 @@ export class Animal {
   public color: string;
   public coatLength: string;
   public pattern: string;
-  public description: string;
-  public get pictures(): animalPictures[] {
+  public get description(): IAnimalDescription {
+    return this._description;
+  }
+  private _description: IAnimalDescription;
+  public get pictures(): IAnimalPictures[] {
     return this._pictures;
   };
-  private _pictures: animalPictures[];
+  private _pictures: IAnimalPictures[];
   public contact: string;
 
   constructor(raw: rescueGroupsV2Animal) {
@@ -112,16 +123,24 @@ export class Animal {
     this.color = raw[22];
     this.coatLength = raw[23];
     this.pattern = raw[24];
-    this.description = Animal.parseDescription(raw[31], this.species);
+    this._description = Animal.parseDescription(raw[31], this.species);
     this._pictures = Animal.parseImages(raw.slice(32, 40));
     this.contact = raw[42].replace(/(<([^>]+)>)/gi, ""); // strip HTML tags; contact is probably unneeded so it's untested
   }
 
-  private static parseDescription(description: string, species: species): string {
-    return description;
+  private static parseDescription(description: string, species: species): IAnimalDescription {
+    // TODO: sanitize HTML entities
+
+    return {
+      upcoming: '',
+      bio: '',
+      insurance: '',
+      boilerplate: [''],
+      age: 0
+    };
   }
 
-  private static parseImages(pictures: string[]): animalPictures[] {
+  private static parseImages(pictures: string[]): IAnimalPictures[] {
     const pairs = [
       [pictures[0], pictures[1]],
       [pictures[2], pictures[3]],
