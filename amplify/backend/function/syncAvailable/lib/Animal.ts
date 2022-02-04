@@ -1,4 +1,6 @@
 import { rescueGroupsV2Animal } from "./rescueGroupsV2Animal";
+const jsdom = require('jsdom');
+
 type species = 'Dog' | 'Cat';
 interface IAnimalDescription {
   upcoming: string;
@@ -123,22 +125,11 @@ export class Animal {
     this.color = raw[22];
     this.coatLength = raw[23];
     this.pattern = raw[24];
-    this._description = Animal.parseDescription(raw[31], this.species);
+    this._description = AnimalDescriptionParser.parseDescription(raw[31], this.species);
     this._pictures = Animal.parseImages(raw.slice(32, 40));
     this.contact = raw[42].replace(/(<([^>]+)>)/gi, ""); // strip HTML tags; contact is probably unneeded so it's untested
   }
 
-  private static parseDescription(description: string, species: species): IAnimalDescription {
-    // TODO: sanitize HTML entities
-
-    return {
-      upcoming: '',
-      bio: '',
-      insurance: '',
-      boilerplate: [''],
-      age: 0
-    };
-  }
 
   private static parseImages(pictures: string[]): IAnimalPictures[] {
     const pairs = [
@@ -155,5 +146,43 @@ export class Animal {
           thumb: Array.from(pair[1].matchAll(imageUriRegex), m => m[1])[0]
         };
       })
+  }
+}
+
+class AnimalDescriptionParser {
+  private static EXPECTED_NUMBER_OF_BOILERPLATE_NODES = 2;
+  private static CAT_BOILERPLATE = [
+    'The adoption fee for adult cats is $100 and $150 per kitten.',
+    'All cats are spayed/neutered, microchipped, FIV/FELV tested negative, shots current, dewormed, and on Advantage for fleas.'
+  ];
+
+  private static handleBoilerplate(pNodes: HTMLParagraphElement[], species: species): string[] {
+    if (species === 'Dog') {
+      return pNodes.slice(0, this.EXPECTED_NUMBER_OF_BOILERPLATE_NODES)
+        .map(node => node.innerHTML)
+        .map(text => text.startsWith('*') ? text.substring(1) : text)
+        .map(t => t.trim());
+    }
+    return this.CAT_BOILERPLATE;
+  }
+
+  public static parseDescription(descriptionIn: string, species: species): IAnimalDescription {
+    // TODO: sanitize HTML entities
+    const { JSDOM } = jsdom;
+    const nodes: Document = new JSDOM(descriptionIn).window.document;
+    const pNodes: HTMLParagraphElement[] = Array.prototype.slice.call(nodes.getElementsByTagName('p'));
+    const descriptionOut: IAnimalDescription = {
+      upcoming: '',
+      bio: '',
+      insurance: '',
+      boilerplate: this.handleBoilerplate(pNodes, species),
+      age: 0
+    };
+
+    // Handle upcoming and bio
+    pNodes.reduce((desc: IAnimalDescription, pNode: HTMLParagraphElement) => {
+      return descriptionOut;
+    }, descriptionOut);
+    return descriptionOut;
   }
 }

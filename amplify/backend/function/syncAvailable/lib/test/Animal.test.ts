@@ -1,7 +1,7 @@
 import { Animal } from "../Animal";
 import { rescueGroupsV2Animal } from "../rescueGroupsV2Animal";
 import { RescueGroupsV2AnimalRawBuilder } from "./AnimalRawBuilder";
-
+import { RescueGroupsV2AnimalRawDescriptionBuilder } from "./AnimalRawDescriptionBuilder";
 
 let animal: Animal;
 
@@ -142,8 +142,23 @@ describe('Animal class', () => {
 
   describe('description', () => {
     describe('boilerplate', () => {
-      it.todo('should pass through the first two p nodes as boilerplate for dogs');
-      it.todo('should ignore given boilerplate and provide an alternative for cats');
+      const boilerplate = ['some boilerplate', 'some more boilerplate'];
+      const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+      basicDescription.boilerplate = [
+        `<p>${boilerplate[0]}</p>`,
+        `<p>${boilerplate[1]}</p>`
+      ]
+      it('should pass through the text in the first two p nodes as boilerplate for dogs', () => {
+        const dog: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ species: 'Dog', description: basicDescription.build() }).getRaw();
+        animal = new Animal(dog);
+        expect(animal.description.boilerplate).toEqual(boilerplate);
+      });
+      it('should ignore given boilerplate and provide an alternative for cats', () => {
+        const cat: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ species: 'Cat', description: basicDescription.build() }).getRaw();
+        animal = new Animal(cat);
+        expect(animal.description.boilerplate).not.toEqual(basicDescription.boilerplate);
+        expect(animal.description.boilerplate).toEqual([expect.stringMatching('cat'), expect.stringMatching('cat')]);
+      });
     });
 
     describe('upcoming', () => {
@@ -158,12 +173,12 @@ describe('Animal class', () => {
     });
 
     describe('bio', () => {
-      it.todo('should include all p nodes except insurance and boilerplate nodes')
+      it.todo('should include all p nodes except insurance, upcoming, and boilerplate nodes')
       it.todo('should not include non-p nodes')
     });
 
     describe('age', () => {
-      it.todo.each([
+      xit.each([
         ['1 week old'],
         ['1-week old'],
         ['2 weeks old'],
@@ -182,7 +197,8 @@ describe('Animal class', () => {
           expect(age).toBe(age);
         }
       );
-      it.todo('should be parsed from the third p node');
+      it.todo('should be parsed out from the description');
+      it.todo('should be parsed from the first occurrence of a string that looks like an age');
       it.todo('should be flexible regarding where in the third p node the age appears');
     });
 
