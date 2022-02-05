@@ -155,6 +155,7 @@ class AnimalDescriptionParser {
     'The adoption fee for adult cats is $100 and $150 per kitten.',
     'All cats are spayed/neutered, microchipped, FIV/FELV tested negative, shots current, dewormed, and on Advantage for fleas.'
   ];
+  private static upcomingRegex = /^this\s(?:dog|cat|kitten|puppy)\swill\sbe\s/i;
 
   private static handleBoilerplate(pNodes: HTMLParagraphElement[], species: species): string[] {
     if (species === 'Dog') {
@@ -166,23 +167,25 @@ class AnimalDescriptionParser {
     return this.CAT_BOILERPLATE;
   }
 
+  private static handleUpcoming(pNodes: HTMLParagraphElement[]): string {
+    const expectedUpcomingNodeIndex = this.EXPECTED_NUMBER_OF_BOILERPLATE_NODES;
+    const possibleUpcomingInfo = pNodes[expectedUpcomingNodeIndex].innerHTML;
+    return possibleUpcomingInfo.match(this.upcomingRegex) ? possibleUpcomingInfo : '';
+  }
+
   public static parseDescription(descriptionIn: string, species: species): IAnimalDescription {
     // TODO: sanitize HTML entities
     const { JSDOM } = jsdom;
     const nodes: Document = new JSDOM(descriptionIn).window.document;
     const pNodes: HTMLParagraphElement[] = Array.prototype.slice.call(nodes.getElementsByTagName('p'));
     const descriptionOut: IAnimalDescription = {
-      upcoming: '',
+      upcoming: this.handleUpcoming(pNodes),
       bio: '',
       insurance: '',
       boilerplate: this.handleBoilerplate(pNodes, species),
       age: 0
     };
 
-    // Handle upcoming and bio
-    pNodes.reduce((desc: IAnimalDescription, pNode: HTMLParagraphElement) => {
-      return descriptionOut;
-    }, descriptionOut);
     return descriptionOut;
   }
 }

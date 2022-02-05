@@ -144,10 +144,10 @@ describe('Animal class', () => {
     describe('boilerplate', () => {
       const boilerplate = ['some boilerplate', 'some more boilerplate'];
       const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
-      basicDescription.boilerplate = [
-        `<p>${boilerplate[0]}</p>`,
-        `<p>${boilerplate[1]}</p>`
-      ]
+      basicDescription.setBoilerplate([
+        boilerplate[0],
+        boilerplate[1]
+      ]);
       it('should pass through the text in the first two p nodes as boilerplate for dogs', () => {
         const dog: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ species: 'Dog', description: basicDescription.build() }).getRaw();
         animal = new Animal(dog);
@@ -162,9 +162,49 @@ describe('Animal class', () => {
     });
 
     describe('upcoming', () => {
-      // TODO: Use each for dog/cat/kitten (why not puppy though?)
-      it.todo('should parse out upcoming info if present in the third p node');
-      it.todo('should not parse out upcoming info if present in other p nodes');
+      it.each([
+        ['This dog will be at a meet and greet event on Saturday, February 5th'],
+        ['This cat will be at a meet and greet event on Saturday, February 5th'],
+        ['This kitten will be at a meet and greet event on Saturday, February 5th'],
+        ['This puppy will be at a meet and greet event on Saturday, February 5th']
+      ])(
+        'should parse out upcoming info "%s" if present at the beginning of the third p node',
+        (upcomingText) => {
+          const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+          basicDescription.setUpcoming(upcomingText);
+          basicDescription.isUpcoming = true;
+          const upcomingPet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+          animal = new Animal(upcomingPet);
+          expect(animal.description.upcoming).toBe(upcomingText);
+        }
+      );
+
+      it('should not parse out upcoming info if present in other p nodes', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        basicDescription.setBoilerplate([
+          'This dog will be at a meet and greet event on Saturday, February 5th',
+          'This dog will be at a meet and greet event on Saturday, February 5th'
+        ]);
+        basicDescription.setBio([
+          'This dog will be at a meet and greet event on Saturday, February 5th',
+          'This dog will be at a meet and greet event on Saturday, February 5th'
+        ]);
+        basicDescription.setUpcoming('blah');
+        basicDescription.isUpcoming = true;
+        const notUpcomingPet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(notUpcomingPet);
+        expect(animal.description.upcoming).toBeFalsy();
+      });
+
+      it('should ignore "will not be"', () => {
+        const notUpcoming = "This dog will not be at a meet and greet";
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        basicDescription.setUpcoming(notUpcoming);
+        basicDescription.isUpcoming = true;
+        const notUpcomingPet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(notUpcomingPet);
+        expect(animal.description.upcoming).toBeFalsy();
+      });
     });
 
     // Seems the frontend doesn't use this info at the moment
