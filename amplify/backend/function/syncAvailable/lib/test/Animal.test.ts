@@ -314,9 +314,16 @@ describe('Animal class', () => {
       });
     });
 
-    it.todo('should not include any HTML tags');
-    it.todo('should not include backslash-escaped quotes');
+    it('should not include backslash-escaped quotes', () => {
+      const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+      const bio = [`\\"a\\"`, `\\'b\\'`];
+      basicDescription.setBioInPBlocks(bio);
+      const pet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+      animal = new Animal(pet);
+      expect(animal.description.bio).toEqual([`"a"`, `'b'`]);
+    });
     // Somewhat lower priority since the frontend is already using dangerouslySetInnerHTML
+    it.todo('should not include any HTML tags');
     it.todo('should not include any HTML entities');
   });
 });

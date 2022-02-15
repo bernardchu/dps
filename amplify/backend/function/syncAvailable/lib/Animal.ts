@@ -158,6 +158,10 @@ class AnimalDescriptionParser {
   private static upcomingRegex = /^this\s(?:dog|cat|kitten|puppy)\swill\sbe\s/i;
   private static ageRegex = /(\d+-?\d*)[\s-](weeks?|months?|years?) old/;
 
+  private static unescape(raw: string): string {
+    return raw.replaceAll(/\\'/g, "'").replaceAll(/\\"/g, '"');
+  }
+
   private static handleBoilerplate(pNodes: HTMLParagraphElement[], species: species): string[] {
     if (species === 'Dog') {
       return pNodes.slice(0, this.EXPECTED_NUMBER_OF_BOILERPLATE_NODES)
@@ -200,7 +204,8 @@ class AnimalDescriptionParser {
   public static parseDescription(descriptionIn: string, species: species): IAnimalDescription {
     // TODO: sanitize HTML entities
     const { JSDOM } = jsdom;
-    const nodes: Document = new JSDOM(descriptionIn).window.document;
+    const unescaped = this.unescape(descriptionIn);
+    const nodes: Document = new JSDOM(unescaped).window.document;
     const pNodes: HTMLParagraphElement[] = Array.prototype.slice.call(nodes.getElementsByTagName('p'));
     const upcoming: string = this.handleUpcoming(pNodes);
     const bio = this.handleBio(pNodes, !!upcoming);
