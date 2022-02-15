@@ -281,9 +281,37 @@ describe('Animal class', () => {
           expect(animal.description.age).toEqual(expectedAge);
         }
       );
-      it.todo('should be parsed out from the description');
-      it.todo('should be parsed from the first occurrence of a string that looks like an age');
-      it.todo('should be flexible regarding where in the third p node the age appears');
+      it('should be parsed out from the bio', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        const decoyAge = '1 year old';
+        const expectedAge = '2 months old';
+        const bio = [`this is a ${expectedAge} animal`];
+        basicDescription.setBioInPBlocks(bio);
+        basicDescription.setUpcoming(decoyAge);
+        basicDescription.setBoilerplate([decoyAge]);
+        const pet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(pet);
+        expect(animal.description.age).toEqual(expectedAge);
+      });
+      it('should be parsed from the first occurrence of a string that looks like an age', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        const decoyAge = '1 year old';
+        const expectedAge = '2 months old';
+        const bio = [`this is a ${expectedAge} animal that lives with a ${decoyAge} child`];
+        basicDescription.setBioInPBlocks(bio);
+        const pet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(pet);
+        expect(animal.description.age).toEqual(expectedAge);
+      });
+      it('should be flexible regarding where in the bio the age appears', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        const expectedAge = '2 months old';
+        const bio = ['stuff', 'things', `this is a ${expectedAge} animal`];
+        basicDescription.setBioInPBlocks(bio);
+        const pet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(pet);
+        expect(animal.description.age).toEqual(expectedAge);
+      });
     });
 
     it.todo('should not include any HTML tags');
