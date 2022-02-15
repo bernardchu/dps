@@ -7,7 +7,7 @@ interface IAnimalDescription {
   bio: string[];
   insurance: string;
   boilerplate: string[];
-  age: number;
+  age: string;
 }
 
 interface IAnimalPictures {
@@ -156,6 +156,7 @@ class AnimalDescriptionParser {
     'All cats are spayed/neutered, microchipped, FIV/FELV tested negative, shots current, dewormed, and on Advantage for fleas.'
   ];
   private static upcomingRegex = /^this\s(?:dog|cat|kitten|puppy)\swill\sbe\s/i;
+  private static ageRegex = /(\d+-?\d*)[\s-](weeks?|months?|years?) old/;
 
   private static handleBoilerplate(pNodes: HTMLParagraphElement[], species: species): string[] {
     if (species === 'Dog') {
@@ -178,18 +179,38 @@ class AnimalDescriptionParser {
     return pNodes.slice(bioStartIndex).map(n => n.innerHTML);
   }
 
+  private static handleAge(bio: string[]): string {
+    const flattenedBio = bio.reduce((flattened, bioChunk) => flattened + bioChunk, '');
+    const match = new RegExp(this.ageRegex).exec(flattenedBio);
+    if (!match) { return null; }
+    const num = match[1];
+    const unit = match[2];
+    const correctedUnit = this.handleAgeUnit(num, unit);
+    return `${num} ${correctedUnit} old`;
+  }
+
+  private static handleAgeUnit(matchedNum: string, unit: string): string {
+    const isPlural = matchedNum.indexOf('-') > -1 || matchedNum !== '1';
+    if (isPlural) {
+      return unit.endsWith('s') ? unit : unit + 's';
+    }
+    return unit.endsWith('s') ? unit.substring(0, unit.length - 1) : unit;
+  }
+
   public static parseDescription(descriptionIn: string, species: species): IAnimalDescription {
     // TODO: sanitize HTML entities
     const { JSDOM } = jsdom;
     const nodes: Document = new JSDOM(descriptionIn).window.document;
     const pNodes: HTMLParagraphElement[] = Array.prototype.slice.call(nodes.getElementsByTagName('p'));
     const upcoming: string = this.handleUpcoming(pNodes);
+    const bio = this.handleBio(pNodes, !!upcoming);
+    const age = this.handleAge(bio);
     const descriptionOut: IAnimalDescription = {
       upcoming,
-      bio: this.handleBio(pNodes, !!upcoming),
+      bio,
+      age,
       insurance: '',
       boilerplate: this.handleBoilerplate(pNodes, species),
-      age: 0
     };
 
     return descriptionOut;

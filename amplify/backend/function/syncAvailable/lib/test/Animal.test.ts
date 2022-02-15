@@ -247,7 +247,7 @@ describe('Animal class', () => {
     });
 
     describe('age', () => {
-      xit.each([
+      it.each([
         // a 1 week old puppy would never show up on the site
         ['12 weeks old', '12 weeks old'], // simplest case
         ['12 week old', '12 weeks old'], // correct to plural
@@ -273,7 +273,12 @@ describe('Animal class', () => {
       ])(
         'should parse "%s"',
         (incomingAge, expectedAge) => {
-          expect(expectedAge).toBe(expectedAge);
+          const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+          const bio = [`this is a ${incomingAge} animal`];
+          basicDescription.setBioInPBlocks(bio);
+          const pet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+          animal = new Animal(pet);
+          expect(animal.description.age).toEqual(expectedAge);
         }
       );
       it.todo('should be parsed out from the description');
