@@ -4,7 +4,7 @@ const jsdom = require('jsdom');
 type species = 'Dog' | 'Cat';
 interface IAnimalDescription {
   upcoming: string;
-  bio: string;
+  bio: string[];
   insurance: string;
   boilerplate: string[];
   age: number;
@@ -173,14 +173,20 @@ class AnimalDescriptionParser {
     return possibleUpcomingInfo.match(this.upcomingRegex) ? possibleUpcomingInfo : '';
   }
 
+  private static handleBio(pNodes: HTMLParagraphElement[], isUpcoming: boolean): string[] {
+    const bioStartIndex = this.EXPECTED_NUMBER_OF_BOILERPLATE_NODES + (isUpcoming ? 1 : 0);
+    return pNodes.slice(bioStartIndex).map(n => n.innerHTML);
+  }
+
   public static parseDescription(descriptionIn: string, species: species): IAnimalDescription {
     // TODO: sanitize HTML entities
     const { JSDOM } = jsdom;
     const nodes: Document = new JSDOM(descriptionIn).window.document;
     const pNodes: HTMLParagraphElement[] = Array.prototype.slice.call(nodes.getElementsByTagName('p'));
+    const upcoming: string = this.handleUpcoming(pNodes);
     const descriptionOut: IAnimalDescription = {
-      upcoming: this.handleUpcoming(pNodes),
-      bio: '',
+      upcoming,
+      bio: this.handleBio(pNodes, !!upcoming),
       insurance: '',
       boilerplate: this.handleBoilerplate(pNodes, species),
       age: 0

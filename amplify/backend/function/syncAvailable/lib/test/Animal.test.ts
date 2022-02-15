@@ -185,7 +185,7 @@ describe('Animal class', () => {
           'This dog will be at a meet and greet event on Saturday, February 5th',
           'This dog will be at a meet and greet event on Saturday, February 5th'
         ]);
-        basicDescription.setBio([
+        basicDescription.setBioInPBlocks([
           'This dog will be at a meet and greet event on Saturday, February 5th',
           'This dog will be at a meet and greet event on Saturday, February 5th'
         ]);
@@ -213,28 +213,67 @@ describe('Animal class', () => {
     });
 
     describe('bio', () => {
-      it.todo('should include all p nodes except insurance, upcoming, and boilerplate nodes')
-      it.todo('should not include non-p nodes')
+      it('should include all p nodes except boilerplate nodes if not upcoming', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        const bio = ['bio', 'is', 'here'];
+        basicDescription.setBioInPBlocks(bio);
+        basicDescription.isUpcoming = false;
+        const notUpcomingPet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(notUpcomingPet);
+        expect(animal.description.bio).toEqual(bio);
+      });
+
+      it('should include all p nodes except boilerplate and upcoming nodes nodes if upcoming', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        const bio = ['bio', 'is', 'here'];
+        basicDescription.setBioInPBlocks(bio);
+        basicDescription.isUpcoming = true;
+        const upcomingPet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(upcomingPet);
+        expect(animal.description.bio).toEqual(bio);
+      });
+
+      it('should not include non-p nodes', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        const bio = ['bio', 'is', 'here'];
+        basicDescription.setBioInPBlocks(bio);
+        const nonPBlocks = ['<br />', '<div>a div</div>'];
+        basicDescription.bio = basicDescription.bio.concat(nonPBlocks);
+        basicDescription.isUpcoming = false;
+        const notUpcomingPet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(notUpcomingPet);
+        expect(animal.description.bio).toEqual(bio);
+      });
     });
 
     describe('age', () => {
       xit.each([
-        ['1 week old'],
-        ['1-week old'],
-        ['2 weeks old'],
-        ['3-4 weeks old'],
-        ['1 month old'],
-        ['1-month old'],
-        ['2 months old'],
-        ['3-4 months old'],
-        ['1 year old'],
-        ['1-year old'],
-        ['2 years old'],
-        ['3-4 years old'],
+        // a 1 week old puppy would never show up on the site
+        ['12 weeks old', '12 weeks old'], // simplest case
+        ['12 week old', '12 weeks old'], // correct to plural
+        ['12-week old', '12 weeks old'], // hyphen removed and pluralized
+        ['10-12 weeks old', '10-12 weeks old'], // range is ok
+        ['10-12 week old', '10-12 weeks old'], // range and pluralize
+        // months
+        ['1 month old', '1 month old'],
+        ['1-month old', '1 month old'],
+        ['2 months old', '2 months old'],
+        ['2 month old', '2 months old'],
+        ['2-month old', '2 months old'],
+        ['3-4 month old', '3-4 months old'],
+        ['10-11 months old', '10-11 months old'],
+        // years
+        ['1 year old', '1 year old'],
+        ['1-year old', '1 year old'],
+        ['2 years old', '2 years old'],
+        ['2 year old', '2 years old'],
+        ['2-year old', '2 years old'],
+        ['3-4 year old', '3-4 years old'],
+        ['10-11 years old', '10-11 years old'],
       ])(
         'should parse "%s"',
-        (age) => {
-          expect(age).toBe(age);
+        (incomingAge, expectedAge) => {
+          expect(expectedAge).toBe(expectedAge);
         }
       );
       it.todo('should be parsed out from the description');

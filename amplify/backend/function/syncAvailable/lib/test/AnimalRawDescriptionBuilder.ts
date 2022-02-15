@@ -27,16 +27,14 @@ export class RescueGroupsV2AnimalRawDescriptionBuilder {
     this._upcoming = RescueGroupsV2AnimalRawDescriptionBuilder.wrapInP([upcoming]);
   }
 
-  private _bio = [
+  public bio = [
     '<p>Astro is a 4 year old Turkish Van Mix who was one of many cats we rescued from a hoarding situation. Our amazing volunteers have spent countless hours saving and caring for these cats who were in desperate need of help. Its been such a labor of love but the reward of having these wonderful cats find their forever families will be well worth the efforts.</p>',
     '<p>Astro was a little shy when he first went to his current foster home but since then he has really blossomed. He has never been shown love in the way he is experiencing it now and he has really started to trust his humans. His foster mom reports in the beginning he was very cautious of her, keeping his distance except during mealtime, but slowly and surely he has now turned into a lap cat. He loves to watch TV on the couch with his foster family and sleeps with his humans in bed at night. He gets along well with other cats and we think he would do fine with a cat savvy dog. If you are looking for a bonded pair, he and Squawk could be adopted together. They are currently in the same foster home and love playing and lounging on the cat tree together for hours on end. All Astor needs is a family to call his own!</p>',
     '<p>He has been neutered, tested negative for FIV/FeLV, vaccinated, dewormed, flea treatment applied and microchipped. His adoption fee is $100. Apply to adopt this handsome guy today!</p>'
   ];
-  public get bio() {
-    return this._bio;
-  }
-  public setBio(bio: string[]) {
-    this._bio = RescueGroupsV2AnimalRawDescriptionBuilder.wrapInP(bio);
+  
+  public setBioInPBlocks(bio: string[]) {
+    this.bio = RescueGroupsV2AnimalRawDescriptionBuilder.wrapInP(bio);
   }
 
   public isUpcoming = true;
