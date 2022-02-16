@@ -81,17 +81,17 @@ export class Animal {
   public primaryBreed: string;
   public secondaryBreed: string;
   public sex: string;
-  public mixed: string;
-  public goodWithDogs: string;
-  public goodWithCats: string;
-  public goodWithKids: string;
-  public declawed: string;
-  public housetrained: string;
+  public mixed: boolean;
+  public goodWithDogs: boolean;
+  public goodWithCats: boolean;
+  public goodWithKids: boolean;
+  public declawed: boolean;
+  public housetrained: boolean;
   public age: string;
-  public specialNeeds: string;
-  public altered: string;
+  public specialNeeds: boolean;
+  public altered: boolean;
   public size: string;
-  public upToDate: string;
+  public upToDate: boolean;
   public color: string;
   public coatLength: string;
   public pattern: string;
@@ -114,17 +114,17 @@ export class Animal {
     this.primaryBreed = raw[8];
     this.secondaryBreed = raw[9];
     this.sex = raw[10];
-    this.mixed = raw[11];
-    this.goodWithDogs = raw[12];
-    this.goodWithCats = raw[13];
-    this.goodWithKids = raw[14];
-    this.declawed = raw[15];
-    this.housetrained = raw[16];
+    this.mixed = Animal.convertToBoolean(raw[11]);
+    this.goodWithDogs = Animal.convertToBoolean(raw[12]);
+    this.goodWithCats = Animal.convertToBoolean(raw[13]);
+    this.goodWithKids = Animal.convertToBoolean(raw[14]);
+    this.declawed = Animal.convertToBoolean(raw[15]);
+    this.housetrained = Animal.convertToBoolean(raw[16]);
     this.age = raw[17];
-    this.specialNeeds = raw[18];
-    this.altered = raw[19];
+    this.specialNeeds = Animal.convertToBoolean(raw[18]);
+    this.altered = Animal.convertToBoolean(raw[19]);
     this.size = raw[20];
-    this.upToDate = raw[21];
+    this.upToDate = Animal.convertToBoolean(raw[21]);
     this.color = raw[22];
     this.coatLength = raw[23];
     this.pattern = raw[24];
@@ -152,6 +152,10 @@ export class Animal {
           thumb: Array.from(pair[1].matchAll(imageUriRegex), m => m[1])[0]
         };
       })
+  }
+
+  private static convertToBoolean(str: string): boolean {
+    return !!str.match(/yes/i);
   }
 }
 
