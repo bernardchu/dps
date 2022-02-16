@@ -133,6 +133,39 @@ export class Animal {
     this.contact = raw[42].replace(/(<([^>]+)>)/gi, ""); // strip HTML tags; contact is probably unneeded so it's untested
   }
 
+  public serialize() {
+    const props = [
+      'id',
+      'lastUpdated',
+      'name',
+      'species',
+      'breed',
+      'primaryBreed',
+      'secondaryBreed',
+      'sex',
+      'mixed',
+      'goodWithDogs',
+      'goodWithCats',
+      'goodWithKids',
+      'declawed',
+      'housetrained',
+      'age',
+      'specialNeeds',
+      'altered',
+      'size',
+      'upToDate',
+      'color',
+      'coatLength',
+      'pattern',
+      'description',
+      'pictures'
+    ];
+    return props.reduce((ret, prop) => {
+      ret[prop] = this[prop];
+      return ret;
+    }, {});
+  }
+
   /**
    * @param pictures up to eight strings representing up to four pairs (image and thumb) of URIs of images of the animal.
    * @returns images organized into image and thumb
