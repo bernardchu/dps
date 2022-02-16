@@ -69,6 +69,9 @@ interface IAnimalPictures {
 ],
 */
 
+/**
+ * Organizes the string arrays that we get from the RescueGroups V2 API into useful fields.
+ */
 export class Animal {
   public id: string;
   public lastUpdated: string;
@@ -130,7 +133,10 @@ export class Animal {
     this.contact = raw[42].replace(/(<([^>]+)>)/gi, ""); // strip HTML tags; contact is probably unneeded so it's untested
   }
 
-
+  /**
+   * @param pictures up to eight strings representing up to four pairs (image and thumb) of URIs of images of the animal.
+   * @returns images organized into image and thumb
+   */
   private static parseImages(pictures: string[]): IAnimalPictures[] {
     const pairs = [
       [pictures[0], pictures[1]],
@@ -149,6 +155,12 @@ export class Animal {
   }
 }
 
+/**
+ * A lot of info gets parsed out of the description, which is generally the longest field. See the tests for more info.
+ * In general, we parse out just the p html nodes and expect some number (see the constant) of the first nodes to be
+ * boilerplate, followed possibly by one node that says if the animal has any upcoming events they will be attending,
+ * followed by any number of nodes comprising the animal's bio.
+ */
 class AnimalDescriptionParser {
   private static EXPECTED_NUMBER_OF_BOILERPLATE_NODES = 2;
   private static CAT_BOILERPLATE = [
