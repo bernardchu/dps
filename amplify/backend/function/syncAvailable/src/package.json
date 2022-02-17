@@ -7,14 +7,14 @@
     "aws-sdk": "^2.1065.0",
     "aws-serverless-express": "^3.3.5",
     "body-parser": "^1.17.1",
-    "dotenv": "^14.3.2",
     "express": "^4.15.2",
     "jsdom": "^19.0.0",
     "node-fetch": "2.6.7"
   },
   "scripts": {
     "test": "jest",
-    "amplify:generateSyncAvailable": "cd .. && tsc -p ./tsconfig.json && cd - && jest"
+    "amplify:generateSyncAvailable": "npm run ts && npm run test",
+    "ts": "cd .. && tsc -p ./tsconfig.json && cd -"
   },
   "author": "",
   "license": "ISC",

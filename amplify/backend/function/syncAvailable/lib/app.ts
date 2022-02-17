@@ -9,8 +9,6 @@ const aws = require('aws-sdk');
 const ssm = new aws.SSM();
 const nodeFetch = require('node-fetch');
 
-require('dotenv').config();
-
 var express = require('express')
 var bodyParser = require('body-parser')
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
