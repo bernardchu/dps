@@ -7,6 +7,20 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "Get available",
+      "program": "/Users/Bernie/.nvm/versions/node/v16.13.0/bin/amplify",
+      "args": [
+        "mock",
+        "function",
+        "getAvailable",
+        "--event",
+        "src/getAvailable.json"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "Launch Sync",
       "program": "/Users/Bernie/.nvm/versions/node/v16.13.0/bin/amplify",
       "args": [
