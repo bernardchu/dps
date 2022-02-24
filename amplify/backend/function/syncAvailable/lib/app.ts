@@ -1,4 +1,5 @@
 import { Animal } from "./Animal";
+import { AvailableSyncer } from "./AvailableSyncer";
 import { RescueGroupsV2ResponseToAnimalConverter } from "./RescueGroupsV2ResponseToAnimalConverter";
 
 /*
@@ -15,7 +16,6 @@ var bodyParser = require('body-parser')
 var express = require('express')
 
 const ssm = new aws.SSM();
-const nodeFetch = require('node-fetch');
 const dynamodb = new aws.DynamoDB.DocumentClient();
 
 let tableName = "available";
@@ -40,17 +40,15 @@ app.use(function (req, res, next) {
 
 const DYNAMODB_BATCH_LIMIT = 25;
 
-/**********************
- * Example get method *
- **********************/
-
 /**
  * Assumes/requires that the available-<env name> table exists. We can't create it on the fly if it doesn't because
  * there is a delay after table creation.
  */
 app.get('/available/sync', async function (req, res) {
+  const syncer = new AvailableSyncer(tableName, dynamodb, _, DYNAMODB_BATCH_LIMIT);
   try {
-    await emptyTable(tableName, dynamodb);
+    // empty the table
+    await syncer.emptyTable();
     console.log('emptied table ', tableName);
 
     // fetch and process data from RescueGroups API
@@ -59,26 +57,10 @@ app.get('/available/sync', async function (req, res) {
       WithDecryption: true,
     }).promise();
     const rescuegroupsKey = rescuegroupsKeyParameter.Parameter.Value;
-    const rescuegroupsUrl = new URL('https://toolkit.rescuegroups.org/javascript/v2.0/');
-    rescuegroupsUrl.searchParams.append('key', rescuegroupsKey);
-    const response = await nodeFetch(rescuegroupsUrl.toString());
-    const raw = await response.text();
-    const animals: Animal[] = RescueGroupsV2ResponseToAnimalConverter.parse(raw);
+    const animals: Animal[] = await syncer.fetchFromRescueGroups(rescuegroupsKey);
 
-    // batch up data and put in DynamoDB
-    const batches: Animal[][] = _.chunk(animals, DYNAMODB_BATCH_LIMIT);
-    const requests = batches.map(batch => {
-      const RequestItems = {};
-      RequestItems[tableName] = batch.map(animal => {
-        return {
-          PutRequest: {
-            Item: animal.serialize()
-          }
-        }
-      });
-      return { RequestItems };
-    })
-    return Promise.all(requests.map(r => dynamodb.batchWrite(r).promise()))
+    // batch up data and add to the now-empty table
+    return syncer.writeAnimals(animals)
       .then(responses => res.json({ success: responses, url: req.url }))
       .catch(err => res.json({ error: err, url: req.url, body: req.body }))
   } catch (err) {
@@ -95,39 +77,3 @@ app.listen(3000, function () {
 // to port it to AWS Lambda we will create a wrapper around that will load the app from
 // this file
 module.exports = app
-
-/**
- * Empties table to prepare to fill it. We can't just delete the table because DynamoDB takes up to a minute
- * or sometimes even more to fully delete a table and we can't wait that long.
- * @param tableName name of table to empty
- * @param ddb dynamoDB instance
- */
-async function emptyTable(tableName: string, ddb) {
-  const scanParams = {
-    TableName: tableName,
-    AttributesToGet: ['id']
-  }
-
-  ddb.scan(scanParams, (err, data) => {
-    if (err) {
-      console.error(err)
-    } else {
-      const batches = _.chunk(data.Items, DYNAMODB_BATCH_LIMIT);
-      const requests = batches.map(batch => {
-        const RequestItems = {};
-        RequestItems[tableName] = batch.map(animal => {
-          return {
-            DeleteRequest: {
-              Key: {
-                'id': animal.id
-              }
-            }
-          }
-        });
-        return { RequestItems };
-      })
-      return Promise.all(requests.map(r => dynamodb.batchWrite(r).promise()))
-        .catch(err => console.error(err));
-    }
-  });
-}
