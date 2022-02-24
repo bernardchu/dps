@@ -10,9 +10,6 @@
     "moduleResolution": "node",
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "outDir": "./src",
-    "baseUrl": "./",
-    "rootDir": "./lib",
     "paths": {
       "src": [
         "./lib"

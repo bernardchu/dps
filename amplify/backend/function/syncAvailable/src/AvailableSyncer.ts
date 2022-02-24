@@ -1,9 +1,10 @@
 import { Animal } from "./Animal";
 import { RescueGroupsV2ResponseToAnimalConverter } from "./RescueGroupsV2ResponseToAnimalConverter";
-const nodeFetch = require('node-fetch');
+import _ = require('lodash');
+import nodeFetch from 'node-fetch';
 
 export class AvailableSyncer {
-  constructor(private tableName: string, private dynamoDB, private lodash, private batchLimit: number) { }
+  constructor(private tableName: string, private dynamoDB: AWS.DynamoDB.DocumentClient, private batchLimit: number) { }
 
   /**
    * Empties table to prepare to fill it. We can't just delete the table because DynamoDB takes up to a minute
@@ -12,17 +13,17 @@ export class AvailableSyncer {
    * @param ddb dynamoDB instance
    */
   public async emptyTable(): Promise<any> {
-    const scanParams = {
+    const scanParams: AWS.DynamoDB.ScanInput = {
       TableName: this.tableName,
       AttributesToGet: ['id']
     }
-
-    this.dynamoDB.scan(scanParams, (err, data) => {
+    console.log('*****', _);
+    this.dynamoDB.scan(scanParams, (err, data: AWS.DynamoDB.ScanOutput) => {
       if (err) {
         console.error(err)
       } else {
-        const batches = this.lodash.chunk(data.Items, this.batchLimit);
-        const requests = batches.map(batch => {
+        const batches = _.chunk(data.Items, this.batchLimit);
+        const requests: AWS.DynamoDB.BatchWriteItemInput[] = batches.map(batch => {
           const RequestItems = {};
           RequestItems[this.tableName] = batch.map(animal => {
             return {
@@ -51,8 +52,8 @@ export class AvailableSyncer {
     return RescueGroupsV2ResponseToAnimalConverter.parse(raw);
   }
 
-  public async writeAnimals(animals: Animal[]): Promise<Promise<any>[]> {
-    const batches: Animal[][] = this.lodash.chunk(animals, this.batchLimit);
+  public async writeAnimals(animals: Animal[]): Promise<AWS.DynamoDB.BatchWriteItemOutput[]> {
+    const batches: Animal[][] = _.chunk(animals, this.batchLimit);
     const requests = batches.map(batch => {
       const RequestItems = {};
       RequestItems[this.tableName] = batch.map(animal => {

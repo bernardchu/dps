@@ -1,6 +1,6 @@
 import { Animal } from "./Animal";
 import { AvailableSyncer } from "./AvailableSyncer";
-import { RescueGroupsV2ResponseToAnimalConverter } from "./RescueGroupsV2ResponseToAnimalConverter";
+import * as AWS from 'aws-sdk';
 
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -9,14 +9,13 @@ Licensed under the Apache License, Version 2.0 (the "License"). You may not use 
 or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and limitations under the License.
 */
-const aws = require('aws-sdk');
-const _ = require('lodash');
+
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
 var bodyParser = require('body-parser')
 var express = require('express')
 
-const ssm = new aws.SSM();
-const dynamodb = new aws.DynamoDB.DocumentClient();
+const ssm = new AWS.SSM();
+const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 let tableName = "available";
 if (process.env.ENV && process.env.ENV !== "NONE") {
@@ -24,7 +23,7 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
 }
 
 // require('dotenv').config();
-aws.config.update({ region: process.env.TABLE_REGION });
+AWS.config.update({ region: process.env.TABLE_REGION });
 
 // declare a new express app
 var app = express();
@@ -45,7 +44,7 @@ const DYNAMODB_BATCH_LIMIT = 25;
  * there is a delay after table creation.
  */
 app.get('/available/sync', async function (req, res) {
-  const syncer = new AvailableSyncer(tableName, dynamodb, _, DYNAMODB_BATCH_LIMIT);
+  const syncer = new AvailableSyncer(tableName, dynamodb, DYNAMODB_BATCH_LIMIT);
   try {
     // empty the table
     await syncer.emptyTable();
@@ -56,7 +55,7 @@ app.get('/available/sync', async function (req, res) {
       Name: process.env['RESCUEGROUPS_KEY'],
       WithDecryption: true,
     }).promise();
-    const rescuegroupsKey = rescuegroupsKeyParameter.Parameter.Value;
+    const rescuegroupsKey: string = rescuegroupsKeyParameter.Parameter.Value;
     const animals: Animal[] = await syncer.fetchFromRescueGroups(rescuegroupsKey);
 
     // batch up data and add to the now-empty table

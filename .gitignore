@@ -36,4 +36,4 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 amplify/backend/function/syncAvailable/src/**/*.js
-amplify/backend/function/syncAvailable/lib/**/*.test.js
+amplify/backend/function/syncAvailable/src/**/*.test.js

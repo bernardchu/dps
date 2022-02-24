@@ -20,7 +20,7 @@
         },
         "syncAvailable": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/syncAvailable-6f53636a32414e6f7562-build.zip",
+          "s3Key": "amplify-builds/syncAvailable-4e2f6a2b655631657930-build.zip",
           "secretsPathAmplifyAppId": "d30y4zvewr5g0k"
         }
       }
