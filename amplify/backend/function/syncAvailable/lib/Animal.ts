@@ -208,7 +208,7 @@ class AnimalDescriptionParser {
   private static ageRegex = /(\d+-?\d*)[\s-](weeks?|months?|years?) old/;
 
   private static unescape(raw: string): string {
-    return raw.replaceAll(/\\'/g, "'").replaceAll(/\\"/g, '"');
+    return raw.replace(/\\'/g, "'").replace(/\\"/g, '"');
   }
 
   private static handleBoilerplate(pNodes: HTMLParagraphElement[], species: species): string[] {
