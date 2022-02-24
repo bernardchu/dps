@@ -44,10 +44,15 @@ const DYNAMODB_BATCH_LIMIT = 25;
  * Example get method *
  **********************/
 
+/**
+ * Assumes/requires that the available-<env name> table exists. We can't create it on the fly if it doesn't because
+ * there is a delay after table creation.
+ */
 app.get('/available/sync', async function (req, res) {
-  console.log('foo');
   try {
-    // await createTableIfNonexistent(tableName, dynamodb);
+    await emptyTable(tableName, dynamodb);
+    console.log('emptied table ', tableName);
+
     // fetch and process data from RescueGroups API
     const rescuegroupsKeyParameter = await ssm.getParameter({
       Name: process.env['RESCUEGROUPS_KEY'],
@@ -77,12 +82,13 @@ app.get('/available/sync', async function (req, res) {
       .then(responses => res.json({ success: responses, url: req.url }))
       .catch(err => res.json({ error: err, url: req.url, body: req.body }))
   } catch (err) {
+    console.log(err);
     res.json({ error: err, url: req.url, body: req.body });
   }
 });
 
 app.listen(3000, function () {
-  console.log("App started")
+  console.log("App started: sync available animals")
 });
 
 // Export the app object. When executing the application local this does nothing. However,
@@ -90,56 +96,38 @@ app.listen(3000, function () {
 // this file
 module.exports = app
 
-async function createTableIfNonexistent(name: string, ddb): Promise<null> {
-  return ddb.listTables({})
-    .promise()
-    .then((data) => {
-      console.log(`Found tables ${data.tableNames}`);
-      const exists = data.TableNames
-        .filter(name => {
-          return name === tableName;
-        })
-        .length > 0;
-      if (exists) {
-        console.log(`table ${tableName} exists.`)
-        return Promise.resolve();
-      }
-      else {
-        console.log(`table ${tableName} does not exist, attempting to create.`)
-        const params = {
-          TableName: tableName,
-          KeySchema: [{
-            AttributeName: "id",
-            KeyType: "HASH", //Partition key
-          }],
-          AttributeDefinitions: [
-            { AttributeName: 'id', AttributeType: 'S' },
-            { AttributeName: 'lastUpdated', AttributeType: 'S' },
-            { AttributeName: 'name', AttributeType: 'S' },
-            { AttributeName: 'species', AttributeType: 'S' },
-            { AttributeName: 'breed', AttributeType: 'S' },
-            { AttributeName: 'primaryBreed', AttributeType: 'S' },
-            { AttributeName: 'secondaryBreed', AttributeType: 'S' },
-            { AttributeName: 'sex', AttributeType: 'S' },
-            { AttributeName: 'mixed', AttributeType: 'B' },
-            { AttributeName: 'goodWithDogs', AttributeType: 'B' },
-            { AttributeName: 'goodWithCats', AttributeType: 'B' },
-            { AttributeName: 'goodWithKids', AttributeType: 'B' },
-            { AttributeName: 'declawed', AttributeType: 'B' },
-            { AttributeName: 'housetrained', AttributeType: 'B' },
-            { AttributeName: 'age', AttributeType: 'S' },
-            { AttributeName: 'specialNeeds', AttributeType: 'B' },
-            { AttributeName: 'altered', AttributeType: 'B' },
-            { AttributeName: 'size', AttributeType: 'S' },
-            { AttributeName: 'upToDate', AttributeType: 'B' },
-            { AttributeName: 'color', AttributeType: 'S' },
-            { AttributeName: 'coatLength', AttributeType: 'S' },
-            { AttributeName: 'pattern', AttributeType: 'S' },
-            { AttributeName: 'description', AttributeType: 'M' },
-            { AttributeName: 'pictures', AttributeType: 'M' },
-          ]
-        };
-        return dynamodb.createTable(params).promise();
-      }
-    });
+/**
+ * Empties table to prepare to fill it. We can't just delete the table because DynamoDB takes up to a minute
+ * or sometimes even more to fully delete a table and we can't wait that long.
+ * @param tableName name of table to empty
+ * @param ddb dynamoDB instance
+ */
+async function emptyTable(tableName: string, ddb) {
+  const scanParams = {
+    TableName: tableName,
+    AttributesToGet: ['id']
+  }
+
+  ddb.scan(scanParams, (err, data) => {
+    if (err) {
+      console.error(err)
+    } else {
+      const batches = _.chunk(data.Items, DYNAMODB_BATCH_LIMIT);
+      const requests = batches.map(batch => {
+        const RequestItems = {};
+        RequestItems[tableName] = batch.map(animal => {
+          return {
+            DeleteRequest: {
+              Key: {
+                'id': animal.id
+              }
+            }
+          }
+        });
+        return { RequestItems };
+      })
+      return Promise.all(requests.map(r => dynamodb.batchWrite(r).promise()))
+        .catch(err => console.error(err));
+    }
+  });
 }
