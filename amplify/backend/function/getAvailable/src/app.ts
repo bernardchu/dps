@@ -1,5 +1,6 @@
 import * as AWS from 'aws-sdk';
 import _ = require('lodash');
+const ImgixClient = require('@imgix/js-core');
 import { IAnimalCompact, IAnimalFull, IAnimalPreCompact } from '../../common/IAnimal';
 
 /*
@@ -13,6 +14,7 @@ See the License for the specific language governing permissions and limitations 
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 var bodyParser = require('body-parser')
 var express = require('express')
+const ssm = new AWS.SSM();
 
 AWS.config.update({ region: process.env.TABLE_REGION });
 
@@ -64,7 +66,17 @@ const convertUrlType = (param, type) => {
  * Normally /available seems like it would be the right path but there's some weird behavior with AWS API gateways
  * when attempting to use just the root of the resource so that's why /all is added.
  */
-app.get(path + '/all', function (req, res) {
+app.get(path + '/all', async function (req, res) {
+  const imgixKeyParameter = await ssm.getParameter({
+    Name: '/amplify/imgixSecureUrlToken',
+    WithDecryption: true,
+  }).promise();
+  const imgixSecureUrlToken = imgixKeyParameter.Parameter.Value;
+  const imgixClient = new ImgixClient({
+    domain: 'dps-wp.imgix.net',
+    secureURLToken: imgixSecureUrlToken,
+  });
+
   const attributesToGet: Array<keyof IAnimalFull> = [
     partitionKeyName,
     'age',
@@ -92,10 +104,10 @@ app.get(path + '/all', function (req, res) {
           gender: animal.gender,
           name: animal.name,
           species: animal.species,
-          imgUrl: animal.pictures[0].image
+          imgUrl: signImageUrl(animal.pictures[0].image, imgixClient)
         }
         return compact;
-      })
+      });
       const groupedBySpecies: { [key: string]: IAnimalCompact[] } = _.groupBy(compactAnimals, a => a.species);
       const groupedByLowerCasedPluralizedSpecies: { [key: string]: IAnimalCompact[] } = Object.keys(groupedBySpecies)
         .reduce((groups, key) => {
@@ -154,3 +166,7 @@ app.listen(3000, function () {
 // to port it to AWS Lambda we will create a wrapper around that will load the app from
 // this file
 module.exports = app
+
+function signImageUrl(url: string, client: typeof ImgixClient): string {
+  return client.buildURL(url);
+}

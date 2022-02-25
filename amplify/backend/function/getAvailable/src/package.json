@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@imgix/js-core": "^3.5.0",
     "aws-sdk": "^2.845.0",
     "aws-serverless-express": "^3.3.5",
     "body-parser": "^1.17.1",
