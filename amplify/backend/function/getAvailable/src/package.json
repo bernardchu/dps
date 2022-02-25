@@ -7,11 +7,17 @@
     "aws-sdk": "^2.845.0",
     "aws-serverless-express": "^3.3.5",
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "lodash": "^4.17.21"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@types/node": "^17.0.21",
+    "typescript": "^4.5.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "amplify:generateGetAvailable": "npm run ts",
+    "ts": "cd .. && tsc -p ./tsconfig.json && cd -"
   },
   "author": "",
   "license": "ISC"
