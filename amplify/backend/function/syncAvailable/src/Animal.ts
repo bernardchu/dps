@@ -1,18 +1,15 @@
+import { IAnimalFull } from "./IAnimal";
+import { IAnimalPictures } from "./IAnimalPictures";
 import { rescueGroupsV2Animal } from "./rescueGroupsV2Animal";
+import { species } from "./species";
 const jsdom = require('jsdom');
 
-type species = 'Dog' | 'Cat';
 interface IAnimalDescription {
   upcoming: string;
   bio: string[];
   insurance: string;
   boilerplate: string[];
   age: string;
-}
-
-interface IAnimalPictures {
-  image: string;
-  thumb: string;
 }
 
 /* Example of a chunk of raw output from rescue groups endpoint
@@ -80,14 +77,14 @@ export class Animal {
   public breed: string;
   public primaryBreed: string;
   public secondaryBreed: string;
-  public sex: string;
+  public gender: string;
   public mixed: boolean;
   public goodWithDogs: boolean;
   public goodWithCats: boolean;
   public goodWithKids: boolean;
   public declawed: boolean;
   public housetrained: boolean;
-  public age: string;
+  public ageGeneral: string;
   public specialNeeds: boolean;
   public altered: boolean;
   public size: string;
@@ -113,14 +110,14 @@ export class Animal {
     this.breed = raw[7];
     this.primaryBreed = raw[8];
     this.secondaryBreed = raw[9];
-    this.sex = raw[10];
+    this.gender = raw[10];
     this.mixed = Animal.convertToBoolean(raw[11]);
     this.goodWithDogs = Animal.convertToBoolean(raw[12]);
     this.goodWithCats = Animal.convertToBoolean(raw[13]);
     this.goodWithKids = Animal.convertToBoolean(raw[14]);
     this.declawed = Animal.convertToBoolean(raw[15]);
     this.housetrained = Animal.convertToBoolean(raw[16]);
-    this.age = raw[17];
+    this.ageGeneral = raw[17];
     this.specialNeeds = Animal.convertToBoolean(raw[18]);
     this.altered = Animal.convertToBoolean(raw[19]);
     this.size = raw[20];
@@ -133,7 +130,7 @@ export class Animal {
     this.contact = raw[42].replace(/(<([^>]+)>)/gi, ""); // strip HTML tags; contact is probably unneeded so it's untested
   }
 
-  public serialize() {
+  public serialize(): IAnimalFull {
     const props = [
       'id',
       'lastUpdated',
@@ -142,14 +139,14 @@ export class Animal {
       'breed',
       'primaryBreed',
       'secondaryBreed',
-      'sex',
+      'gender',
       'mixed',
       'goodWithDogs',
       'goodWithCats',
       'goodWithKids',
       'declawed',
       'housetrained',
-      'age',
+      'ageGeneral',
       'specialNeeds',
       'altered',
       'size',
@@ -157,13 +154,18 @@ export class Animal {
       'color',
       'coatLength',
       'pattern',
-      'description',
       'pictures'
     ];
-    return props.reduce((ret, prop) => {
+    const ret = props.reduce((ret, prop) => {
       ret[prop] = this[prop];
       return ret;
     }, {});
+    ret['age'] = this.description.age;
+    ret['bio'] = this.description.bio;
+    ret['boilerplate'] = this.description.boilerplate;
+    ret['upcoming'] = this.description.upcoming;
+    ret['video'] = ''; // TODO
+    return ret as IAnimalFull;
   }
 
   /**

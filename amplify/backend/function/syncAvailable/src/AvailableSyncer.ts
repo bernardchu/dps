@@ -17,7 +17,7 @@ export class AvailableSyncer {
       TableName: this.tableName,
       AttributesToGet: ['id']
     }
-    console.log('*****', _);
+
     this.dynamoDB.scan(scanParams, (err, data: AWS.DynamoDB.ScanOutput) => {
       if (err) {
         console.error(err)
