@@ -1,7 +1,6 @@
-import { IAnimalFull } from "./IAnimal";
-import { IAnimalPictures } from "./IAnimalPictures";
+import { IAnimalFull, IAnimalPictures, species } from "../../common/IAnimal";
 import { rescueGroupsV2Animal } from "./rescueGroupsV2Animal";
-import { species } from "./species";
+
 const jsdom = require('jsdom');
 
 interface IAnimalDescription {

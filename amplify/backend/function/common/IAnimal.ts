@@ -1,5 +1,4 @@
-import { IAnimalPictures } from "./IAnimalPictures";
-import { species } from "./species";
+export type species = 'Dog' | 'Cat';
 
 export interface IAnimalBase {
   id: string;
@@ -10,12 +9,20 @@ export interface IAnimalBase {
   species: species;
 }
 
+export interface IAnimalPictures {
+  image: string;
+  thumb: string;
+}
+
 export interface IAnimalCompact extends IAnimalBase {
   imgUrl: string;
 }
 
-export interface IAnimalDetailed extends IAnimalBase {
+export interface IAnimalPreCompact extends IAnimalBase {
   pictures: IAnimalPictures;
+}
+
+export interface IAnimalDetailed extends IAnimalPreCompact {
   upcoming: string;
   bio: string[];
   boilerplate: string[];

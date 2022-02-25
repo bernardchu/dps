@@ -1,5 +1,7 @@
 import * as AWS from 'aws-sdk';
 import _ = require('lodash');
+import { IAnimalCompact, IAnimalFull, IAnimalPreCompact } from '../../common/IAnimal';
+
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
@@ -56,15 +58,6 @@ const convertUrlType = (param, type) => {
 /****************************************
  * HTTP Get method for list all objects *
  ****************************************/
-interface IAvailableCompactFromDB {
-  id: string;
-  description: string;
-  breed: string;
-  gender: string;
-  name: string;
-  pictures: any;
-  species: string;
-}
 
 /**
  * Get all available animals.
@@ -72,17 +65,18 @@ interface IAvailableCompactFromDB {
  * when attempting to use just the root of the resource so that's why /all is added.
  */
 app.get(path + '/all', function (req, res) {
+  const attributesToGet: Array<keyof IAnimalFull> = [
+    partitionKeyName,
+    'age',
+    'breed',
+    'gender',
+    'pictures',
+    'name',
+    'species'
+  ];
   const scanParams: AWS.DynamoDB.ScanInput = {
     TableName: tableName,
-    AttributesToGet: [
-      partitionKeyName,
-      'age',
-      'breed',
-      'gender',
-      'pictures',
-      'name',
-      'species'
-    ]
+    AttributesToGet: attributesToGet
   }
 
   dynamodb.scan(scanParams, (err, data: AWS.DynamoDB.ScanOutput) => {
@@ -90,12 +84,25 @@ app.get(path + '/all', function (req, res) {
       res.statusCode = 500;
       res.json({ error: 'Could not load items: ' + err });
     } else {
-      const groupedBySpecies = _.groupBy(data.Items, i => i.species);
-      const groupedByLowerCasedPluralizedSpecies = Object.keys(groupedBySpecies).reduce((groups, key) => {
-        const lowerCasedPluralizedSpecies = key.toLowerCase() + 's';
-        groups[lowerCasedPluralizedSpecies] = groupedBySpecies[key];
-        return groups;
-      }, {});
+      const compactAnimals: IAnimalCompact[] = (data.Items as unknown as IAnimalPreCompact[]).map((animal: IAnimalPreCompact) => {
+        const compact: IAnimalCompact = {
+          id: animal.id,
+          age: animal.age,
+          breed: animal.breed,
+          gender: animal.gender,
+          name: animal.name,
+          species: animal.species,
+          imgUrl: animal.pictures[0].image
+        }
+        return compact;
+      })
+      const groupedBySpecies: { [key: string]: IAnimalCompact[] } = _.groupBy(compactAnimals, a => a.species);
+      const groupedByLowerCasedPluralizedSpecies: { [key: string]: IAnimalCompact[] } = Object.keys(groupedBySpecies)
+        .reduce((groups, key) => {
+          const lowerCasedPluralizedSpecies = key.toLowerCase() + 's';
+          groups[lowerCasedPluralizedSpecies] = groupedBySpecies[key];
+          return groups;
+        }, {});
       res.json(groupedByLowerCasedPluralizedSpecies);
     }
   });
