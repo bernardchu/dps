@@ -19,10 +19,10 @@ export interface IAnimalCompact extends IAnimalBase {
 }
 
 export interface IAnimalPreCompact extends IAnimalBase {
-  pictures: IAnimalPictures;
+  pictures: IAnimalPictures[];
 }
 
-export interface IAnimalDetailed extends IAnimalPreCompact {
+export interface IAnimalDetailed extends IAnimalBase {
   upcoming: string;
   bio: string[];
   boilerplate: string[];
@@ -40,6 +40,10 @@ export interface IAnimalDetailed extends IAnimalPreCompact {
   contact: string;
 }
 
+export interface IAnimalDetailedProcessed extends IAnimalDetailed {
+  pictures: string[];
+}
+
 export interface IAnimalFull extends IAnimalDetailed {
   mixed: string;
   ageGeneral: string;
@@ -48,4 +52,5 @@ export interface IAnimalFull extends IAnimalDetailed {
   upToDate: string;
   color: string;
   pattern: string;
+  pictures: IAnimalPictures[];
 }

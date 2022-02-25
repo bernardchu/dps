@@ -1,7 +1,7 @@
 import * as AWS from 'aws-sdk';
 import _ = require('lodash');
 const ImgixClient = require('@imgix/js-core');
-import { IAnimalCompact, IAnimalFull, IAnimalPreCompact } from '../../common/IAnimal';
+import { IAnimalCompact, IAnimalDetailedProcessed, IAnimalFull, IAnimalPreCompact } from '../../common/IAnimal';
 
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -124,21 +124,27 @@ app.get(path + '/all', async function (req, res) {
  * HTTP Get method for get single object *
  *****************************************/
 
-app.get(path + '/object' + hashKeyPath + sortKeyPath, function (req, res) {
-  var params = {};
-  if (userIdPresent && req.apiGateway) {
-    params[partitionKeyName] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
-  } else {
-    params[partitionKeyName] = req.params[partitionKeyName];
-    try {
-      params[partitionKeyName] = convertUrlType(req.params[partitionKeyName], partitionKeyType);
-    } catch (err) {
-      res.statusCode = 500;
-      res.json({ error: 'Wrong column type ' + err });
-    }
+app.get(path + '/object' + hashKeyPath + sortKeyPath, async function (req, res) {
+  const imgixKeyParameter = await ssm.getParameter({
+    Name: '/amplify/imgixSecureUrlToken',
+    WithDecryption: true,
+  }).promise();
+  const imgixSecureUrlToken = imgixKeyParameter.Parameter.Value;
+  const imgixClient = new ImgixClient({
+    domain: 'dps-wp.imgix.net',
+    secureURLToken: imgixSecureUrlToken,
+  });
+
+  const params = {};
+  params[partitionKeyName] = req.params[partitionKeyName];
+  try {
+    params[partitionKeyName] = convertUrlType(req.params[partitionKeyName], partitionKeyType);
+  } catch (err) {
+    res.statusCode = 500;
+    res.json({ error: 'Wrong column type ' + err });
   }
 
-  let getItemParams = {
+  const getItemParams: AWS.DynamoDB.GetItemInput = {
     TableName: tableName,
     Key: params
   }
@@ -149,7 +155,32 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, function (req, res) {
       res.json({ error: 'Could not load item: ' + err.message });
     } else {
       if (data.Item) {
-        res.json(data.Item);
+        const animal: IAnimalFull = data.Item as unknown as IAnimalFull
+        const processed: IAnimalDetailedProcessed = {
+          id: animal.id,
+          age: animal.age,
+          breed: animal.breed,
+          gender: animal.gender,
+          name: animal.name,
+          species: animal.species,
+          upcoming: animal.upcoming,
+          bio: animal.bio,
+          boilerplate: animal.boilerplate,
+          coatLength: animal.coatLength,
+          goodWithDogs: animal.goodWithDogs,
+          goodWithCats: animal.goodWithCats,
+          goodWithKids: animal.goodWithKids,
+          declawed: animal.declawed,
+          lastUpdated: animal.lastUpdated,
+          primaryBreed: animal.primaryBreed,
+          secondaryBreed: animal.secondaryBreed,
+          housetrained: animal.housetrained,
+          specialNeeds: animal.specialNeeds,
+          video: animal.video,
+          contact: animal.contact,
+          pictures: animal.pictures.map(p => signImageUrl(p.image, imgixClient))
+        }
+        res.json(processed);
       } else {
         res.json(data);
       }
