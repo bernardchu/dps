@@ -1,0 +1,19 @@
+{
+  "name": "getSheets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.845.0",
+    "aws-serverless-express": "^3.3.5",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "amplify:generateGetSheets": "npm run ts",
+    "ts": "cd .. && tsc -p ./tsconfig.json && cd -"
+  },
+  "author": "",
+  "license": "ISC"
+}
