@@ -21,6 +21,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/sheets/sync": {
+      "name": "/sheets/sync",
+      "lambdaFunction": "syncSheets",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

@@ -52,6 +52,25 @@
           }
         }
       ]
+    },
+    "syncSheets": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "sheets",
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "attributeEnvMap": {
+            "Name": "TABLE_NAME",
+            "Arn": "TABLE_ARN"
+          }
+        }
+      ]
     }
   },
   "auth": {},
@@ -79,6 +98,14 @@
         {
           "category": "function",
           "resourceName": "getSheets",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "syncSheets",
           "attributes": [
             "Name",
             "Arn"

@@ -42,3 +42,5 @@ amplify/backend/function/getAvailable/src/**/*.js
 amplify/backend/function/getAvailable/src/**/*.test.js
 amplify/backend/function/getSheets/src/**/*.js
 amplify/backend/function/getSheets/src/**/*.test.js
+amplify/backend/function/syncSheets/src/**/*.js
+amplify/backend/function/syncSheets/src/**/*.test.js
