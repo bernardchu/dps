@@ -61,9 +61,10 @@ app.get('/available/sync', async function (req, res) {
     const rescueGroupsApiKey: string = keyParameters.Parameters.find(p => p.Name === rescueGroupsApiKeyName).Value;
     const animals: Animal[] = await syncer.fetchPetDataFromRescueGroups(rescueGroupsKey);
     const videoData = await syncer.fetchPetVideoDataFromRescueGroups(rescueGroupsApiKey);
+    const animalsWithVideo: Animal[] = syncer.joinAnimalsWithVideos(animals, videoData);
 
     // batch up data and add to the now-empty table
-    return syncer.writeAnimals(animals)
+    return syncer.writeAnimals(animalsWithVideo)
       .then(responses => res.json({ success: responses, url: req.url }))
       .catch(err => res.json({ error: err, url: req.url, body: req.body }))
   } catch (err) {

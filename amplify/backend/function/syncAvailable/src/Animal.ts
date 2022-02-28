@@ -100,6 +100,7 @@ export class Animal {
   };
   private _pictures: IAnimalPictures[];
   public contact: string;
+  public video: string; // has to be joined from another source, not initially constructed
 
   constructor(raw: rescueGroupsV2Animal) {
     this.id = raw[0];
@@ -153,7 +154,8 @@ export class Animal {
       'color',
       'coatLength',
       'pattern',
-      'pictures'
+      'pictures',
+      'video'
     ];
     const ret = props.reduce((ret, prop) => {
       ret[prop] = this[prop];
@@ -163,7 +165,6 @@ export class Animal {
     ret['bio'] = this.description.bio;
     ret['boilerplate'] = this.description.boilerplate;
     ret['upcoming'] = this.description.upcoming;
-    ret['video'] = ''; // TODO
     return ret as IAnimalFull;
   }
 

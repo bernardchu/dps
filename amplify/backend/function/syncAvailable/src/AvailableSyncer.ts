@@ -109,6 +109,13 @@ export class AvailableSyncer {
     }, {})
   }
 
+  public joinAnimalsWithVideos(animals: Animal[], videoData: IAnimalVideoData): Animal[] {
+    return animals.map((a) => {
+      a.video = videoData[a.id];
+      return a;
+    });
+  }
+
   public async writeAnimals(animals: Animal[]): Promise<AWS.DynamoDB.BatchWriteItemOutput[]> {
     const batches: Animal[][] = _.chunk(animals, this.batchLimit);
     const requests = batches.map(batch => {
