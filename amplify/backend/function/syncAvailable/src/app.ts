@@ -50,13 +50,17 @@ app.get('/available/sync', async function (req, res) {
     await syncer.emptyTable();
     console.log('emptied table ', tableName);
 
+    const rescueGroupsKeyName = process.env['RESCUEGROUPS_KEY'];
+    const rescueGroupsApiKeyName = '/amplify/rescueGroupsApiKey';
     // fetch and process data from RescueGroups API
-    const rescuegroupsKeyParameter = await ssm.getParameter({
-      Name: process.env['RESCUEGROUPS_KEY'],
+    const keyParameters = await ssm.getParameters({
+      Names: [rescueGroupsKeyName, rescueGroupsApiKeyName],
       WithDecryption: true,
     }).promise();
-    const rescuegroupsKey: string = rescuegroupsKeyParameter.Parameter.Value;
-    const animals: Animal[] = await syncer.fetchFromRescueGroups(rescuegroupsKey);
+    const rescueGroupsKey: string = keyParameters.Parameters.find(p => p.Name === rescueGroupsKeyName).Value;
+    const rescueGroupsApiKey: string = keyParameters.Parameters.find(p => p.Name === rescueGroupsApiKeyName).Value;
+    const animals: Animal[] = await syncer.fetchPetDataFromRescueGroups(rescueGroupsKey);
+    const videoData = await syncer.fetchPetVideoDataFromRescueGroups(rescueGroupsApiKey);
 
     // batch up data and add to the now-empty table
     return syncer.writeAnimals(animals)
