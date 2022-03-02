@@ -1,6 +1,8 @@
 import * as AWS from 'aws-sdk';
 import { ISheet } from '../../common/ISheet';
 import { DatesHandler, ISheetEvent } from './DatesHandler';
+import { FeaturedHandler, INewsItemDB } from './FeaturedHandler';
+import { SheetsMapper } from './SheetsMapper';
 
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -76,15 +78,30 @@ async function getSheet(name: string): Promise<ISheet> {
 app.get(path + '/dates', function (req, res) {
   getSheet('events').then((sheet: ISheet) => {
     const events: string[][] = sheet.data;
-    const eventData: ISheetEvent[] = events.map(row => {
-      return {
-        date: row[0],
-        time: row[1],
-        location: row[2],
-        lastinterview: row[3]
-      }
-    });
+    const eventData: ISheetEvent[] = SheetsMapper.mapData(events, ['date', 'time', 'location', 'lastinterview']);
     res.json(DatesHandler.organize(eventData));
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not load items: ' + err.message });
+    })
+});
+
+/************
+ * Featured *
+ ************/
+app.get(path + '/featured', function (req, res) {
+  getSheet('news').then((sheet: ISheet) => {
+    const news: INewsItemDB[] = SheetsMapper.mapData(sheet.data, [
+      'title',
+      'imgurl',
+      'href',
+      'href_text',
+      'description',
+      'new_tab',
+      'expires'
+    ]);
+    res.json(FeaturedHandler.organize(news));
   })
     .catch(err => {
       res.statusCode = 500;
