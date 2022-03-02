@@ -1,4 +1,5 @@
 import * as AWS from 'aws-sdk';
+import { Auth, sheets_v4 } from 'googleapis';
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
@@ -11,6 +12,7 @@ var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware'
 var bodyParser = require('body-parser')
 var express = require('express')
 
+const ssm = new AWS.SSM();
 AWS.config.update({ region: process.env.TABLE_REGION });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
@@ -56,36 +58,36 @@ const convertUrlType = (param, type) => {
  * HTTP Get method for list objects *
  ********************************/
 
-app.get(path + hashKeyPath, function (req, res) {
-  var condition = {}
-  condition[partitionKeyName] = {
-    ComparisonOperator: 'EQ'
-  }
+app.get(path, async function (req, res) {
+  const dpsSheetsCredentialsParameter = await ssm.getParameter({
+    Name: '/amplify/dpsGoogleSheetCredentials',
+    WithDecryption: true,
+  }).promise();
+  const credentialsJSON = dpsSheetsCredentialsParameter.Parameter.Value;
+  const credentials = JSON.parse(credentialsJSON);
 
-  if (userIdPresent && req.apiGateway) {
-    condition[partitionKeyName]['AttributeValueList'] = [req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH];
-  } else {
-    try {
-      condition[partitionKeyName]['AttributeValueList'] = [convertUrlType(req.params[partitionKeyName], partitionKeyType)];
-    } catch (err) {
-      res.statusCode = 500;
-      res.json({ error: 'Wrong column type ' + err });
-    }
-  }
-
-  let queryParams = {
-    TableName: tableName,
-    KeyConditions: condition
-  }
-
-  dynamodb.query(queryParams, (err, data) => {
-    if (err) {
-      res.statusCode = 500;
-      res.json({ error: 'Could not load items: ' + err });
-    } else {
-      res.json(data.Items);
-    }
+  const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+  const client = new Auth.GoogleAuth({
+    scopes,
+    credentials
   });
+
+  new sheets_v4.Sheets({ auth: client }).spreadsheets.get(
+    {
+      spreadsheetId: '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw',
+      ranges: ['events!A:E'],
+      includeGridData: true
+    },
+    (err, sheetResponse) => {
+      if (err) {
+        console.error('The API returned an error.');
+        throw err;
+      }
+      console.log(sheetResponse.data.sheets[0].data[0].rowData[0].values);
+      res.json('Updated');
+    }
+  );
+
 });
 
 app.listen(3000, function () {
