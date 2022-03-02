@@ -55,37 +55,41 @@ const convertUrlType = (param, type) => {
   }
 }
 
-/*****************************************
- * HTTP Get method for get single object *
- *****************************************/
-app.get(path + '/dates', function (req, res) {
+async function getSheet(name: string): Promise<ISheet> {
   const params = {};
-  params[partitionKeyName] = 'events';
+  params[partitionKeyName] = name;
 
   const getItemParams = {
     TableName: tableName,
     Key: params
   }
 
-  dynamodb.get(getItemParams).promise()
+  return dynamodb.get(getItemParams).promise()
     .then((data: AWS.DynamoDB.GetItemOutput) => {
-      const sheet = data.Item as unknown as ISheet;
-      const events: string[][] = sheet.data;
-      const eventData: ISheetEvent[] = events.map(row => {
-        return {
-          date: row[0],
-          time: row[1],
-          location: row[2],
-          lastinterview: row[3]
-        }
-      });
-      res.json(DatesHandler.organize(eventData));
-    })
+      return data.Item as unknown as ISheet;
+    });
+}
+
+/*********
+ * Dates *
+ *********/
+app.get(path + '/dates', function (req, res) {
+  getSheet('events').then((sheet: ISheet) => {
+    const events: string[][] = sheet.data;
+    const eventData: ISheetEvent[] = events.map(row => {
+      return {
+        date: row[0],
+        time: row[1],
+        location: row[2],
+        lastinterview: row[3]
+      }
+    });
+    res.json(DatesHandler.organize(eventData));
+  })
     .catch(err => {
       res.statusCode = 500;
       res.json({ error: 'Could not load items: ' + err.message });
     })
-
 });
 
 app.listen(3000, function () {
