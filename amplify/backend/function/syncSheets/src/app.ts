@@ -58,6 +58,9 @@ const convertUrlType = (param, type) => {
  * HTTP Get method for list objects *
  ********************************/
 
+/**
+ * Assumes the existence of a sheets-<env name> table.
+ */
 app.get(path, async function (req, res) {
   const dpsSheetsCredentialsParameter = await ssm.getParameter({
     Name: '/amplify/dpsGoogleSheetCredentials',
@@ -71,11 +74,20 @@ app.get(path, async function (req, res) {
     scopes,
     credentials
   });
+  const ranges = {
+    'events': 'A:E',
+    'sticky-dogs': 'A:D',
+    'volunteers': 'A:E',
+    'fosters': 'A:C',
+    'icu': 'A:C',
+    'news': 'A:G',
+    'newsletters': 'A:C'
+  };
 
   new sheets_v4.Sheets({ auth: client }).spreadsheets.get(
     {
       spreadsheetId: '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw',
-      ranges: ['events!A:E'],
+      ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`),
       includeGridData: true
     },
     (err, sheetResponse) => {
@@ -83,8 +95,25 @@ app.get(path, async function (req, res) {
         console.error('The API returned an error.');
         throw err;
       }
-      console.log(sheetResponse.data.sheets[0].data[0].rowData[0].values);
-      res.json('Updated');
+      const sheets = sheetResponse.data.sheets;
+      const processed = sheets.map(sheet => {
+        return {
+          name: sheet.properties.title,
+          data: sheet.data[0].rowData.map(row => row.values).map(r => r.map(cell => cell.formattedValue)),
+          lastUpdated: new Date().toUTCString()
+        }
+      });
+      const RequestItems = {};
+      RequestItems[tableName] = processed.map(sheet => {
+        return {
+          PutRequest: {
+            Item: sheet
+          }
+        }
+      });
+      return dynamodb.batchWrite({ RequestItems }).promise()
+        .then(responses => res.json({ success: responses, url: req.url }))
+        .catch(err => res.json({ error: err, url: req.url, body: req.body }))
     }
   );
 
