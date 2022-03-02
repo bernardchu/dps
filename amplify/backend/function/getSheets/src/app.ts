@@ -124,6 +124,26 @@ app.get(path + '/fosters', function (req, res) {
     })
 });
 
+/*******
+ * ICU *
+ *******/
+interface IICUAnimal {
+  name: string;
+  photo: string;
+  bio: string;
+}
+
+app.get(path + '/icu', function (req, res) {
+  getSheet('icu').then((sheet: ISheet) => {
+    const icu: IICUAnimal[] = SheetsMapper.mapData(sheet.data, ['name', 'photo', 'bio']);
+    res.json(icu);
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not load items: ' + err.message });
+    })
+});
+
 app.listen(3000, function () {
   console.log("App started")
 });
