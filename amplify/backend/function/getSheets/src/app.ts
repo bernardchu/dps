@@ -4,6 +4,7 @@ import { DatesHandler, ISheetEvent } from './DatesHandler';
 import { FeaturedHandler, INewsItemDB } from './FeaturedHandler';
 import { FostersHandler, ISheetFoster } from './FostersHandler';
 import { SheetsMapper } from './SheetsMapper';
+import { IVolunteer, VolunteersHandler } from './VolunteersHandler';
 
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -157,6 +158,21 @@ app.get(path + '/newsletters', function (req, res) {
   getSheet('newsletters').then((sheet: ISheet) => {
     const newsletters: INewsletter[] = SheetsMapper.mapData(sheet.data, ['date', 'link', 'pdf']);
     res.json(newsletters);
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not load items: ' + err.message });
+    })
+});
+
+
+/**************
+ * Volunteers *
+ **************/
+app.get(path + '/volunteers', function (req, res) {
+  getSheet('volunteers').then((sheet: ISheet) => {
+    const volunteers: IVolunteer[] = SheetsMapper.mapData(sheet.data, ['name', 'title', 'type', 'photo', 'bio']);
+    res.json(VolunteersHandler.organize(volunteers));
   })
     .catch(err => {
       res.statusCode = 500;
