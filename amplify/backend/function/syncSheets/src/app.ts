@@ -63,55 +63,59 @@ const convertUrlType = (param, type) => {
  * Assumes the existence of a sheets-<env name> table.
  */
 app.get(path, async function (req, res) {
-  const dpsSheetsCredentialsParameter = await ssm.getParameter({
-    Name: '/amplify/dpsGoogleSheetCredentials',
-    WithDecryption: true,
-  }).promise();
-  const credentialsJSON = dpsSheetsCredentialsParameter.Parameter.Value;
-  const credentials = JSON.parse(credentialsJSON);
+  try {
+    const dpsSheetsCredentialsParameter = await ssm.getParameter({
+      Name: '/amplify/dpsGoogleSheetCredentials',
+      WithDecryption: true,
+    }).promise();
+    const credentialsJSON = dpsSheetsCredentialsParameter.Parameter.Value;
+    const credentials = JSON.parse(credentialsJSON);
 
-  const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
-  const client = new Auth.GoogleAuth({
-    scopes,
-    credentials
-  });
-  const ranges = {
-    'events': 'A:E',
-    'sticky-dogs': 'A:D',
-    'volunteers': 'A:E',
-    'fosters': 'A:C',
-    'icu': 'A:C',
-    'news': 'A:G',
-    'newsletters': 'A:C'
-  };
+    const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+    const client = new Auth.GoogleAuth({
+      scopes,
+      credentials
+    });
+    const ranges = {
+      'events': 'A:E',
+      'sticky-dogs': 'A:D',
+      'volunteers': 'A:E',
+      'fosters': 'A:C',
+      'icu': 'A:C',
+      'news': 'A:G',
+      'newsletters': 'A:C'
+    };
 
-  new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
-    spreadsheetId: '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw',
-    ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`), // e.g. events!A:E
-    includeGridData: true
-  })
-    .then((sheetResponse) => {
-      const sheets = sheetResponse.data.sheets;
-      const processed = sheets.map(sheet => {
-        return {
-          name: sheet.properties.title,
-          data: SheetDataProcessor.simplify(sheet.data[0].rowData),
-          lastUpdated: new Date().toUTCString()
-        }
-      });
-      const RequestItems = {};
-      RequestItems[tableName] = processed.map(sheet => {
-        return {
-          PutRequest: {
-            Item: sheet
-          }
-        }
-      });
-      return dynamodb.batchWrite({ RequestItems }).promise()
+    new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
+      spreadsheetId: '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw',
+      ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`), // e.g. events!A:E
+      includeGridData: true
     })
-    .then(responses => res.json({ success: responses, url: req.url }))
-    .catch(err => res.json({ error: err, url: req.url, body: req.body }))
-
+      .then((sheetResponse) => {
+        const sheets = sheetResponse.data.sheets;
+        const processed = sheets.map(sheet => {
+          return {
+            name: sheet.properties.title,
+            data: SheetDataProcessor.simplify(sheet.data[0].rowData),
+            lastUpdated: new Date().toUTCString()
+          }
+        });
+        const RequestItems = {};
+        RequestItems[tableName] = processed.map(sheet => {
+          return {
+            PutRequest: {
+              Item: sheet
+            }
+          }
+        });
+        return dynamodb.batchWrite({ RequestItems }).promise()
+      })
+      .then(responses => res.json({ success: responses, url: req.url }))
+      .catch(err => res.json({ error: err, url: req.url, body: req.body }))
+  } catch (err) {
+    console.log(err);
+    res.json({ error: err, url: req.url, body: req.body });
+  }
 });
 
 app.listen(3000, function () {
