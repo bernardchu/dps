@@ -1,5 +1,6 @@
 import * as AWS from 'aws-sdk';
 import { Auth, sheets_v4 } from 'googleapis';
+import { SheetDataProcessor } from './SheetDataProcessor';
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
@@ -94,7 +95,7 @@ app.get(path, async function (req, res) {
       const processed = sheets.map(sheet => {
         return {
           name: sheet.properties.title,
-          data: sheet.data[0].rowData.map(row => row.values).map(r => r.map(cell => cell.formattedValue)),
+          data: SheetDataProcessor.simplify(sheet.data[0].rowData),
           lastUpdated: new Date().toUTCString()
         }
       });
