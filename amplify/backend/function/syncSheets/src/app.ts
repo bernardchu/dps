@@ -84,17 +84,12 @@ app.get(path, async function (req, res) {
     'newsletters': 'A:C'
   };
 
-  new sheets_v4.Sheets({ auth: client }).spreadsheets.get(
-    {
-      spreadsheetId: '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw',
-      ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`),
-      includeGridData: true
-    },
-    (err, sheetResponse) => {
-      if (err) {
-        console.error('The API returned an error.');
-        throw err;
-      }
+  new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
+    spreadsheetId: '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw',
+    ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`), // e.g. events!A:E
+    includeGridData: true
+  })
+    .then((sheetResponse) => {
       const sheets = sheetResponse.data.sheets;
       const processed = sheets.map(sheet => {
         return {
@@ -112,10 +107,9 @@ app.get(path, async function (req, res) {
         }
       });
       return dynamodb.batchWrite({ RequestItems }).promise()
-        .then(responses => res.json({ success: responses, url: req.url }))
-        .catch(err => res.json({ error: err, url: req.url, body: req.body }))
-    }
-  );
+    })
+    .then(responses => res.json({ success: responses, url: req.url }))
+    .catch(err => res.json({ error: err, url: req.url, body: req.body }))
 
 });
 
