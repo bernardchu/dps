@@ -144,6 +144,26 @@ app.get(path + '/icu', function (req, res) {
     })
 });
 
+/***************
+ * Newsletters *
+ ***************/
+interface INewsletter {
+  date: string;
+  link: string;
+  pdf: string;
+}
+
+app.get(path + '/newsletters', function (req, res) {
+  getSheet('newsletters').then((sheet: ISheet) => {
+    const newsletters: INewsletter[] = SheetsMapper.mapData(sheet.data, ['date', 'link', 'pdf']);
+    res.json(newsletters);
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not load items: ' + err.message });
+    })
+});
+
 app.listen(3000, function () {
   console.log("App started")
 });
