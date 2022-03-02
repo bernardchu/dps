@@ -2,6 +2,7 @@ import * as AWS from 'aws-sdk';
 import { ISheet } from '../../common/ISheet';
 import { DatesHandler, ISheetEvent } from './DatesHandler';
 import { FeaturedHandler, INewsItemDB } from './FeaturedHandler';
+import { FostersHandler, ISheetFoster } from './FostersHandler';
 import { SheetsMapper } from './SheetsMapper';
 
 /*
@@ -102,6 +103,20 @@ app.get(path + '/featured', function (req, res) {
       'expires'
     ]);
     res.json(FeaturedHandler.organize(news));
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not load items: ' + err.message });
+    })
+});
+
+/***********
+ * Fosters *
+ ***********/
+app.get(path + '/fosters', function (req, res) {
+  getSheet('fosters').then((sheet: ISheet) => {
+    const fosters: ISheetFoster[] = SheetsMapper.mapData(sheet.data, ['name', 'photo', 'bio']);
+    res.json(FostersHandler.organize(fosters));
   })
     .catch(err => {
       res.statusCode = 500;
