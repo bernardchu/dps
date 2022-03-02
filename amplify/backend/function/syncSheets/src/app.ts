@@ -1,6 +1,7 @@
 import * as AWS from 'aws-sdk';
 import { Auth, sheets_v4 } from 'googleapis';
 import { SheetDataProcessor } from './SheetDataProcessor';
+import { ISheet } from '../../common/ISheet';
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
@@ -74,7 +75,7 @@ app.get(path, async function (req, res) {
     })
       .then((sheetResponse) => {
         const sheets = sheetResponse.data.sheets;
-        const processed = sheets.map(sheet => {
+        const processed: ISheet[] = sheets.map(sheet => {
           return {
             name: sheet.properties.title,
             data: SheetDataProcessor.simplify(sheet.data[0].rowData),

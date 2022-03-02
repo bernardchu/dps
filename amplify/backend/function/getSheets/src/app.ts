@@ -1,4 +1,6 @@
 import * as AWS from 'aws-sdk';
+import { ISheet } from '../../common/ISheet';
+import { DatesHandler, ISheetEvent } from './DatesHandler';
 
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -53,77 +55,37 @@ const convertUrlType = (param, type) => {
   }
 }
 
-/********************************
- * HTTP Get method for list objects *
- ********************************/
-
-app.get(path + hashKeyPath, function (req, res) {
-  var condition = {}
-  condition[partitionKeyName] = {
-    ComparisonOperator: 'EQ'
-  }
-
-  if (userIdPresent && req.apiGateway) {
-    condition[partitionKeyName]['AttributeValueList'] = [req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH];
-  } else {
-    try {
-      condition[partitionKeyName]['AttributeValueList'] = [convertUrlType(req.params[partitionKeyName], partitionKeyType)];
-    } catch (err) {
-      res.statusCode = 500;
-      res.json({ error: 'Wrong column type ' + err });
-    }
-  }
-
-  let queryParams = {
-    TableName: tableName,
-    KeyConditions: condition
-  }
-
-  dynamodb.query(queryParams, (err, data) => {
-    if (err) {
-      res.statusCode = 500;
-      res.json({ error: 'Could not load items: ' + err });
-    } else {
-      res.json(data.Items);
-    }
-  });
-});
-
 /*****************************************
  * HTTP Get method for get single object *
  *****************************************/
+app.get(path + '/dates', function (req, res) {
+  const params = {};
+  params[partitionKeyName] = 'events';
 
-app.get(path + '/object' + hashKeyPath + sortKeyPath, function (req, res) {
-  var params = {};
-  if (userIdPresent && req.apiGateway) {
-    params[partitionKeyName] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
-  } else {
-    params[partitionKeyName] = req.params[partitionKeyName];
-    try {
-      params[partitionKeyName] = convertUrlType(req.params[partitionKeyName], partitionKeyType);
-    } catch (err) {
-      res.statusCode = 500;
-      res.json({ error: 'Wrong column type ' + err });
-    }
-  }
-
-  let getItemParams = {
+  const getItemParams = {
     TableName: tableName,
     Key: params
   }
 
-  dynamodb.get(getItemParams, (err, data) => {
-    if (err) {
+  dynamodb.get(getItemParams).promise()
+    .then((data: AWS.DynamoDB.GetItemOutput) => {
+      const sheet = data.Item as unknown as ISheet;
+      const events: string[][] = sheet.data;
+      const eventData: ISheetEvent[] = events.map(row => {
+        return {
+          date: row[0],
+          time: row[1],
+          location: row[2],
+          lastinterview: row[3]
+        }
+      });
+      res.json(DatesHandler.organize(eventData));
+    })
+    .catch(err => {
       res.statusCode = 500;
       res.json({ error: 'Could not load items: ' + err.message });
-    } else {
-      if (data.Item) {
-        res.json(data.Item);
-      } else {
-        res.json(data);
-      }
-    }
-  });
+    })
+
 });
 
 app.listen(3000, function () {
