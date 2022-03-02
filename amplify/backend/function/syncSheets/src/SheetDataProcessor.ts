@@ -14,6 +14,8 @@ export class SheetDataProcessor {
     justValues.shift();
     // Google also returns a bunch of empty rows that we don't need; trim those
     const filtered = justValues.filter(row => !row.every(cell => cell === undefined));
-    return filtered;
+    // DynamoDB filters out undefined when saving, which screws up the number of cells in a row
+    const blanked = filtered.map(row => row.map(cell => cell === undefined ? '' : cell))
+    return blanked;
   }
 }
