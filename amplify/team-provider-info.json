@@ -25,11 +25,11 @@
         },
         "getSheets": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/getSheets-384d3747583268536737-build.zip"
+          "s3Key": "amplify-builds/getSheets-304d415077644a715161-build.zip"
         },
         "syncSheets": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/syncSheets-334d396658706a337665-build.zip"
+          "s3Key": "amplify-builds/syncSheets-426a57506d474b623141-build.zip"
         }
       }
     }

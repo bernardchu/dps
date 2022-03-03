@@ -2,7 +2,6 @@ import * as AWS from 'aws-sdk';
 import { Auth, sheets_v4 } from 'googleapis';
 import { SheetDataProcessor } from './SheetDataProcessor';
 import { ISheet } from '../../common/ISheet';
-import { SheetsMapper } from '../../getSheets/src/SheetsMapper';
 import _ = require('lodash');
 
 /*
@@ -44,6 +43,7 @@ app.use(function (req, res, next) {
 });
 
 const spreadSheetId = '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw';
+const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 /**
  * Assumes the existence of a sheets-<env name> table.
@@ -57,7 +57,6 @@ app.get(path, async function (req, res) {
     const credentialsJSON = dpsSheetsCredentialsParameter.Parameter.Value;
     const credentials = JSON.parse(credentialsJSON);
 
-    const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
     const client = new Auth.GoogleAuth({
       scopes,
       credentials
@@ -121,7 +120,8 @@ interface IDBSuccessStory {
 }
 
 /**
- * Assumes the existence of a sheets-<env name> table.
+ * Assumes the existence of a successStories-<env name> table.
+ * Massages sheet data into IDBSuccessStory[] and saves in DB.
  */
 app.get(path + '/success', async function (req, res) {
   try {
@@ -132,14 +132,10 @@ app.get(path + '/success', async function (req, res) {
     const credentialsJSON = dpsSheetsCredentialsParameter.Parameter.Value;
     const credentials = JSON.parse(credentialsJSON);
 
-    const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
     const client = new Auth.GoogleAuth({
       scopes,
       credentials
     });
-    const ranges = {
-      'success': 'A:I'
-    };
 
     new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
       spreadsheetId: spreadSheetId,
@@ -149,7 +145,7 @@ app.get(path + '/success', async function (req, res) {
       .then((sheetResponse) => {
         const successStorySheet = sheetResponse.data.sheets[0];
         const gridData: string[][] = SheetDataProcessor.simplify(successStorySheet.data[0].rowData)
-        const organized: ISuccessStory[] = SheetsMapper.mapData(gridData, [
+        const columns = [
           'id',
           'name',
           'date',
@@ -159,7 +155,14 @@ app.get(path + '/success', async function (req, res) {
           'photo3',
           'photo4',
           'photo5'
-        ]);
+        ];
+        // TODO: basically a copy of SheetsMapper; is there a decent way to share code? Can't put into ../../common
+        const organized: ISuccessStory[] = gridData.map(row => {
+          return columns.reduce((obj, key, index) => {
+            obj[key as string] = row[index];
+            return obj;
+          }, {}) as unknown as ISuccessStory;
+        });
         const byId: { [key: string]: ISuccessStory[] } = _.groupBy(organized, ss => ss.id);
         const dbEntries: IDBSuccessStory[] = Object.keys(byId).map(id => {
           return {
@@ -167,6 +170,8 @@ app.get(path + '/success', async function (req, res) {
             stories: byId[id]
           };
         });
+
+        // Write to db
         const batches = _.chunk(dbEntries, DYNAMODB_BATCH_LIMIT);
         const requests: AWS.DynamoDB.BatchWriteItemInput[] = batches.map(batch => {
           const RequestItems = {};
