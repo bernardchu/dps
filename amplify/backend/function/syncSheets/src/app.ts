@@ -2,6 +2,7 @@ import * as AWS from 'aws-sdk';
 import { Auth, sheets_v4 } from 'googleapis';
 import { SheetDataProcessor } from './SheetDataProcessor';
 import { ISheet } from '../../common/ISheet';
+import { ISuccessStory, IDBSuccessStory } from '../../common/ISuccessStory';
 import _ = require('lodash');
 
 /*
@@ -102,22 +103,6 @@ app.get(path, async function (req, res) {
     res.json({ error: err, url: req.url, body: req.body });
   }
 });
-
-interface ISuccessStory {
-  id: string;
-  name: string;
-  date: string;
-  story: string;
-  photo1: string;
-  photo2: string;
-  photo3: string;
-  photo4: string;
-  photo5: string;
-}
-interface IDBSuccessStory {
-  id: string;
-  stories: ISuccessStory[];
-}
 
 /**
  * Assumes the existence of a successStories-<env name> table.

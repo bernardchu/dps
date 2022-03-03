@@ -5,6 +5,7 @@ import { FeaturedHandler, INewsItemDB } from './FeaturedHandler';
 import { FostersHandler, ISheetFoster } from './FostersHandler';
 import { SheetsMapper } from './SheetsMapper';
 import { IVolunteer, VolunteersHandler } from './VolunteersHandler';
+import { ISuccessStory, IDBSuccessStory } from '../../common/ISuccessStory';
 
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -22,21 +23,15 @@ AWS.config.update({ region: process.env.TABLE_REGION });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-let tableName = "sheets";
+let sheetsTableName = "sheets";
+let successStoriesTableName = "successStories";
 if (process.env.ENV && process.env.ENV !== "NONE") {
-  tableName = tableName + '-' + process.env.ENV;
+  sheetsTableName = sheetsTableName + '-' + process.env.ENV;
+  successStoriesTableName = successStoriesTableName + '-' + process.env.ENV;
 }
 
-const userIdPresent = false; // TODO: update in case is required to use that definition
 const partitionKeyName = "name";
-const partitionKeyType = "S";
-const sortKeyName = "";
-const sortKeyType = "";
-const hasSortKey = sortKeyName !== "";
 const path = "/sheets";
-const UNAUTH = 'UNAUTH';
-const hashKeyPath = '/:' + partitionKeyName;
-const sortKeyPath = hasSortKey ? '/:' + sortKeyName : '';
 // declare a new express app
 var app = express()
 app.use(bodyParser.json())
@@ -64,7 +59,7 @@ async function getSheet(name: string): Promise<ISheet> {
   params[partitionKeyName] = name;
 
   const getItemParams = {
-    TableName: tableName,
+    TableName: sheetsTableName,
     Key: params
   }
 
@@ -174,6 +169,29 @@ app.get(path + '/volunteers', function (req, res) {
     const volunteers: IVolunteer[] = SheetsMapper.mapData(sheet.data, ['name', 'title', 'type', 'photo', 'bio']);
     res.json(VolunteersHandler.organize(volunteers));
   })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not load items: ' + err.message });
+    })
+});
+
+/*******************
+ * Success Stories *
+ *******************/
+app.get(path + '/success/all', function (req, res) {
+  dynamodb.scan({ TableName: successStoriesTableName }).promise()
+    .then((data: AWS.DynamoDB.ScanOutput) => {
+      const storiesById: IDBSuccessStory[] = data.Items as unknown as IDBSuccessStory[];
+      const firstStories: ISuccessStory[] = storiesById.map(sbi => sbi.stories[0]);
+      const stories = firstStories.map(story => {
+        return {
+          id: story.id,
+          name: story.name,
+          photo1: story.photo1
+        };
+      });
+      res.json(stories);
+    })
     .catch(err => {
       res.statusCode = 500;
       res.json({ error: 'Could not load items: ' + err.message });
