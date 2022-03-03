@@ -2,6 +2,9 @@ import * as AWS from 'aws-sdk';
 import { Auth, sheets_v4 } from 'googleapis';
 import { SheetDataProcessor } from './SheetDataProcessor';
 import { ISheet } from '../../common/ISheet';
+import { SheetsMapper } from '../../getSheets/src/SheetsMapper';
+import _ = require('lodash');
+
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
@@ -18,10 +21,13 @@ const ssm = new AWS.SSM();
 AWS.config.update({ region: process.env.TABLE_REGION });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
+const DYNAMODB_BATCH_LIMIT = 25;
 
-let tableName = "sheets";
+let sheetsTableName = "sheets";
+let successStoriesTableName = "successStories";
 if (process.env.ENV && process.env.ENV !== "NONE") {
-  tableName = tableName + '-' + process.env.ENV;
+  sheetsTableName = sheetsTableName + '-' + process.env.ENV;
+  successStoriesTableName = successStoriesTableName + '-' + process.env.ENV;
 }
 
 const path = "/sheets/sync";
@@ -37,9 +43,7 @@ app.use(function (req, res, next) {
   next()
 });
 
-/********************************
- * HTTP Get method for list objects *
- ********************************/
+const spreadSheetId = '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw';
 
 /**
  * Assumes the existence of a sheets-<env name> table.
@@ -69,7 +73,7 @@ app.get(path, async function (req, res) {
     };
 
     new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
-      spreadsheetId: '1tismwQONGusoCzAC4cCuPVHTSMdV9hSvkTNDbCiVDKw',
+      spreadsheetId: spreadSheetId,
       ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`), // e.g. events!A:E
       includeGridData: true
     })
@@ -83,7 +87,7 @@ app.get(path, async function (req, res) {
           }
         });
         const RequestItems = {};
-        RequestItems[tableName] = processed.map(sheet => {
+        RequestItems[sheetsTableName] = processed.map(sheet => {
           return {
             PutRequest: {
               Item: sheet
@@ -99,6 +103,93 @@ app.get(path, async function (req, res) {
     res.json({ error: err, url: req.url, body: req.body });
   }
 });
+
+interface ISuccessStory {
+  id: string;
+  name: string;
+  date: string;
+  story: string;
+  photo1: string;
+  photo2: string;
+  photo3: string;
+  photo4: string;
+  photo5: string;
+}
+interface IDBSuccessStory {
+  id: string;
+  stories: ISuccessStory[];
+}
+
+/**
+ * Assumes the existence of a sheets-<env name> table.
+ */
+app.get(path + '/success', async function (req, res) {
+  try {
+    const dpsSheetsCredentialsParameter = await ssm.getParameter({
+      Name: '/amplify/dpsGoogleSheetCredentials',
+      WithDecryption: true,
+    }).promise();
+    const credentialsJSON = dpsSheetsCredentialsParameter.Parameter.Value;
+    const credentials = JSON.parse(credentialsJSON);
+
+    const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+    const client = new Auth.GoogleAuth({
+      scopes,
+      credentials
+    });
+    const ranges = {
+      'success': 'A:I'
+    };
+
+    new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
+      spreadsheetId: spreadSheetId,
+      ranges: ['success!A:I'],
+      includeGridData: true
+    })
+      .then((sheetResponse) => {
+        const successStorySheet = sheetResponse.data.sheets[0];
+        const gridData: string[][] = SheetDataProcessor.simplify(successStorySheet.data[0].rowData)
+        const organized: ISuccessStory[] = SheetsMapper.mapData(gridData, [
+          'id',
+          'name',
+          'date',
+          'story',
+          'photo1',
+          'photo2',
+          'photo3',
+          'photo4',
+          'photo5'
+        ]);
+        const byId: { [key: string]: ISuccessStory[] } = _.groupBy(organized, ss => ss.id);
+        const dbEntries: IDBSuccessStory[] = Object.keys(byId).map(id => {
+          return {
+            id,
+            stories: byId[id]
+          };
+        });
+        const batches = _.chunk(dbEntries, DYNAMODB_BATCH_LIMIT);
+        const requests: AWS.DynamoDB.BatchWriteItemInput[] = batches.map(batch => {
+          const RequestItems = {};
+          RequestItems[successStoriesTableName] = batch.map(story => {
+            return {
+              PutRequest: {
+                Item: story
+              }
+            }
+          });
+          return { RequestItems };
+        });
+        return Promise.all(requests.map(r => dynamodb.batchWrite(r).promise()));
+      })
+      .then(responses => res.json({ success: responses, url: req.url }))
+      .catch(err => res.json({ error: err, url: req.url, body: req.body }))
+  } catch (err) {
+    console.log(err);
+    res.json({ error: err, url: req.url, body: req.body });
+  }
+});
+
+
 
 app.listen(3000, function () {
   console.log("App started")
