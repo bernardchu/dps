@@ -14,3 +14,15 @@ export interface IDBSuccessStory {
   id: string;
   stories: ISuccessStory[];
 }
+
+export interface ISuccessStoryResponse {
+  id: string;
+  name: string;
+  updates: ISuccessStoryUpdate[];
+}
+
+export interface ISuccessStoryUpdate {
+  date: string;
+  photos: string[];
+  story: string;
+}

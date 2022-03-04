@@ -5,7 +5,7 @@ import { FeaturedHandler, INewsItemDB } from './FeaturedHandler';
 import { FostersHandler, ISheetFoster } from './FostersHandler';
 import { SheetsMapper } from './SheetsMapper';
 import { IVolunteer, VolunteersHandler } from './VolunteersHandler';
-import { ISuccessStory, IDBSuccessStory } from '../../common/ISuccessStory';
+import { ISuccessStory, IDBSuccessStory, ISuccessStoryResponse } from '../../common/ISuccessStory';
 
 /*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -191,6 +191,39 @@ app.get(path + '/success/all', function (req, res) {
         };
       });
       res.json(stories);
+    })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not load items: ' + err.message });
+    })
+});
+
+const successPartitionKeyName = 'id';
+app.get(path + `/success/object/:${successPartitionKeyName}`, function (req, res) {
+  const params = {};
+  params[successPartitionKeyName] = req.params[successPartitionKeyName];
+
+  const getItemParams: AWS.DynamoDB.GetItemInput = {
+    TableName: successStoriesTableName,
+    Key: params
+  }
+
+  dynamodb.get(getItemParams).promise()
+    .then((data) => {
+      const animal: IDBSuccessStory = data.Item as IDBSuccessStory;
+      const stories: ISuccessStory[] = animal.stories;
+      const ret: ISuccessStoryResponse = {
+        id: animal.id,
+        name: animal.stories[0].name,
+        updates: stories.map(story => {
+          return {
+            date: story.date,
+            story: story.story,
+            photos: ['photo1', 'photo2', 'photo3', 'photo4', 'photo5'].map(key => story[key]).filter(p => !!p)
+          };
+        })
+      };
+      res.json(ret);
     })
     .catch(err => {
       res.statusCode = 500;
