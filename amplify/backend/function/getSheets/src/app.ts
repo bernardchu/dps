@@ -160,7 +160,6 @@ app.get(path + '/newsletters', function (req, res) {
     })
 });
 
-
 /**************
  * Volunteers *
  **************/
@@ -173,6 +172,14 @@ app.get(path + '/volunteers', function (req, res) {
       res.statusCode = 500;
       res.json({ error: 'Could not load items: ' + err.message });
     })
+});
+
+/***************
+ * Sticky Dogs *
+ ***************/
+// Probably will be deprecated so just a stub for now.
+app.get(path + '/sticky', function (req, res) {
+  res.json([]);
 });
 
 /*******************
