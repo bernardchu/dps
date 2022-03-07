@@ -16,7 +16,7 @@
       "function": {
         "getAvailable": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/getAvailable-6e5231364475692f2b58-build.zip"
+          "s3Key": "amplify-builds/getAvailable-322b6f3756647377774e-build.zip"
         },
         "syncAvailable": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",

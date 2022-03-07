@@ -36,7 +36,7 @@ export class DatesHandler {
     },
     'palo alto': {
       name: 'Palo Alto Pet Food Express',
-      map_url: 'http://petfoodexpress.com/stores/detail/palo-alto'
+      map_url: 'https://www.google.com/maps/dir//Pet+Food+Express,+3910+Middlefield+Rd,+Palo+Alto,+CA+94303/@37.4191608,-122.180418,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x808fba6c4de54605:0x2f24f8c213697755!2m2!1d-122.1103434!2d37.4191994'
     },
     'campbell': {
       name: 'Campbell Pet Food Express',
@@ -92,7 +92,7 @@ export class DatesHandler {
     },
     'long beach': {
       name: 'Long Beach Pet Food Express',
-      map_url: 'https://www.petfoodexpress.com/stores/detail/long-beach/'
+      map_url: 'https://www.google.com/maps?daddr=Pet+Food+Express++4220+Long+Beach+Blvd.++++++Long+Beach+++CA+++90807'
     },
     'carlsbad': {
       name: 'Carlsbad Pet &amp; Feed',
