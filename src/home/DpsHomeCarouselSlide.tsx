@@ -12,7 +12,7 @@ export default class DpsHomeCarouselSlide extends React.PureComponent<IDpsHomeCa
     return (
       <div className="adoptable-current">
         <Link to={`adopt/pet-detail/?id=${dog.id}`}>
-          <img src={dog.imgurl} title={dog.name} alt={dog.name} />
+          <img src={dog.imgUrl} title={dog.name} alt={dog.name} />
           <div className="adoptable-info-overlay">
             <div className="adoptable-info">'
               <h3>{dog.name}</h3>

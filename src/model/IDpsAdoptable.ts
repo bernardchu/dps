@@ -4,7 +4,7 @@ export interface IDpsAdoptable {
   breed: string;
   gender: string;
   id: string;
-  imgurl: string;
+  imgUrl: string;
   name: string;
   species: string;
 }

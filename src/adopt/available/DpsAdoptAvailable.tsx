@@ -28,7 +28,9 @@ export default class DpsAdoptAvailable extends React.PureComponent<{}, IDpsAdopt
 
   public render() {
     const dogs = this.state?.dogs;
+    dogs?.sort((a, b) => a.name > b.name ? 1 : -1);
     const cats = this.state?.cats;
+    cats?.sort((a, b) => a.name > b.name ? 1 : -1);
     const loaded = this.state?.loaded;
     return (
       <div className="row">

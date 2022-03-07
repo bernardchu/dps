@@ -5,12 +5,10 @@ import { IDpsSuccessStory, IDpsSuccessStoryCompact } from "../model/IDpsSuccessS
 import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse, IDpsVolunteerApiResponse } from "./IDpsApiResponses";
 
 export default class DpsApi {
-  private static baseUrl = 'http://api.dpsrescue.com/api/';
-  // private static baseUrl = 'http://roastonbone.com/dps-test/dps-api/api/'; // test API
-  private static suffix = '.php';
+  private static baseUrl = process.env.API_URL || 'https://api.dpsrescue.link/' // test API;
 
   private static assembleUrl(endpoint: string, params?: { [key: string]: string }): string {
-    const url = new URL(endpoint + DpsApi.suffix, DpsApi.baseUrl);
+    const url = new URL(endpoint, DpsApi.baseUrl);
     params && Object.keys(params).forEach(param => url.searchParams.append(param, params[param]));
     return url.toString();
   }
@@ -20,39 +18,39 @@ export default class DpsApi {
   }
 
   public static getAvailableCompact(): Promise<IDpsAvailableApiResponse> {
-    return DpsApi.fetchAndReturnJson<IDpsAvailableApiResponse>('available', { view: 'compact' });
+    return DpsApi.fetchAndReturnJson<IDpsAvailableApiResponse>('available/all');
   }
 
   public static getAvailableById(id: string): Promise<IDpsAvailableIdResponse> {
-    return DpsApi.fetchAndReturnJson<IDpsAvailableIdResponse>('available', { id });
+    return DpsApi.fetchAndReturnJson<IDpsAvailableIdResponse>(`available/object/${id}`);
   }
 
   public static getDates(): Promise<IDpsDatesApiResponse> {
-    return DpsApi.fetchAndReturnJson<IDpsDatesApiResponse>('dates');
+    return DpsApi.fetchAndReturnJson<IDpsDatesApiResponse>('sheets/dates');
   }
 
   public static getSticky(): Promise<IDpsStickyDog[]> {
-    return DpsApi.fetchAndReturnJson<IDpsStickyDog[]>('sticky_dogs');
+    return DpsApi.fetchAndReturnJson<IDpsStickyDog[]>('sheets/sticky');
   }
 
   public static getFosters(): Promise<IDpsFostersApiResponse> {
-    return DpsApi.fetchAndReturnJson<IDpsFostersApiResponse>('fosters');
+    return DpsApi.fetchAndReturnJson<IDpsFostersApiResponse>('sheets/fosters');
   }
 
   public static getIcu(): Promise<IDpsIcuAnimal[]> {
-    return DpsApi.fetchAndReturnJson<IDpsIcuAnimal[]>('icu');
+    return DpsApi.fetchAndReturnJson<IDpsIcuAnimal[]>('sheets/icu');
   }
 
   public static getSuccessStories(): Promise<IDpsSuccessStoryCompact[]> {
-    return DpsApi.fetchAndReturnJson<IDpsSuccessStoryCompact[]>('success', { view: 'compact' });
+    return DpsApi.fetchAndReturnJson<IDpsSuccessStoryCompact[]>('/sheets/success/all');
   }
 
   public static getSuccessStoryById(id: string): Promise<IDpsSuccessStory> {
     // API returns an array even when querying a single story
-    return DpsApi.fetchAndReturnJson<IDpsSuccessStory[]>('success', { id }).then(stories => stories[0]);
+    return DpsApi.fetchAndReturnJson<IDpsSuccessStory>(`sheets/success/object/${id}`);
   }
 
   public static getVolunteers(): Promise<IDpsVolunteerApiResponse> {
-    return DpsApi.fetchAndReturnJson<IDpsVolunteerApiResponse>('volunteers');
+    return DpsApi.fetchAndReturnJson<IDpsVolunteerApiResponse>('sheets/volunteers');
   }
 }

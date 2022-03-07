@@ -25,14 +25,11 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
   tableName = tableName + '-' + process.env.ENV;
 }
 
-const userIdPresent = false; // TODO: update in case is required to use that definition
 const partitionKeyName = "id";
 const partitionKeyType = "S";
 const sortKeyName = "";
-const sortKeyType = "";
 const hasSortKey = sortKeyName !== "";
 const path = "/available";
-const UNAUTH = 'UNAUTH';
 const hashKeyPath = '/:' + partitionKeyName;
 const sortKeyPath = hasSortKey ? '/:' + sortKeyName : '';
 // declare a new express app
@@ -76,6 +73,15 @@ app.get(path + '/all', async function (req, res) {
     domain: 'dps-wp.imgix.net',
     secureURLToken: imgixSecureUrlToken,
   });
+  // makes more sense for these to be dictated by the consumer of the API but these images must be signed so
+  // the params must be included as part of the signing
+  const imgixParams = {
+    w: 400,
+    h: 400,
+    fit: 'crop',
+    crop: 'top',
+    fm: 'pjpg'
+  };
 
   const attributesToGet: Array<keyof IAnimalFull> = [
     partitionKeyName,
@@ -104,7 +110,7 @@ app.get(path + '/all', async function (req, res) {
           gender: animal.gender,
           name: animal.name,
           species: animal.species,
-          imgUrl: signImageUrl(animal.pictures[0].image, imgixClient)
+          imgUrl: signImageUrl(animal.pictures[0].image, imgixClient, imgixParams)
         }
         return compact;
       });
@@ -134,6 +140,16 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, async function (req, res) 
     domain: 'dps-wp.imgix.net',
     secureURLToken: imgixSecureUrlToken,
   });
+  // makes more sense for these to be dictated by the consumer of the API but these images must be signed so
+  // the params must be included as part of the signing
+  const imgixParams = {
+    w: 600,
+    h: 400,
+    fit: 'fill',
+    fm: 'pjpg',
+    fill: 'solid',
+    'fill-color': 'ffffff'
+  };
 
   const params = {};
   params[partitionKeyName] = req.params[partitionKeyName];
@@ -178,7 +194,7 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, async function (req, res) 
           specialNeeds: animal.specialNeeds,
           video: animal.video,
           contact: animal.contact,
-          pictures: animal.pictures.map(p => signImageUrl(p.image, imgixClient))
+          pictures: animal.pictures.map(p => signImageUrl(p.image, imgixClient, imgixParams))
         }
         res.json(processed);
       } else {
@@ -198,6 +214,6 @@ app.listen(3000, function () {
 // this file
 module.exports = app
 
-function signImageUrl(url: string, client: typeof ImgixClient): string {
-  return client.buildURL(url);
+function signImageUrl(url: string, client: typeof ImgixClient, params?): string {
+  return params ? client.buildURL(url, params) : client.buildURL(url);
 }
