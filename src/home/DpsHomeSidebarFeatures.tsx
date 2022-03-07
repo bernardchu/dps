@@ -15,13 +15,13 @@ export default class DpsHomeSidebarFeatures extends React.PureComponent {
         for our international dogs! No cost to you, we handle all the heavy lifting (dog included)
         and you save a life!`,
         localPath: `${routes.about.path}/${routes.about.children!.contact.path}`,
-        imgSrc: 'http://dps-festive.imgix.net/images/home/flying-volunteers.jpg?fm=pjpg&w=700',
+        imgSrc: 'https://dps-festive.imgix.net/images/home/flying-volunteers.jpg?fm=pjpg&w=700',
         linkText: 'Contact us if you can help out'
       }, {
         title: 'Get Involved',
         bodyText: `Like dogs? Want to help out in your community? Come volunteer or foster with DPS!`,
         localPath: `${routes.volunteer.path}/${routes.volunteer.children!.faq.path}`,
-        imgSrc: 'http://dps-festive.imgix.net/images/home/events.jpg?w=700',
+        imgSrc: 'https://dps-festive.imgix.net/images/home/events.jpg?w=700',
         linkText: 'Learn more about how you can help'
       }, {
         title: 'Fur-ever After',
@@ -29,14 +29,14 @@ export default class DpsHomeSidebarFeatures extends React.PureComponent {
         past decade. Read our success stories and if you've adopted one of our
         pups, we'd love to hear from you!`,
         localPath: routes.successStories.path,
-        imgSrc: 'http://dps-festive.imgix.net/images/home/success-stories.jpg?w=700',
+        imgSrc: 'https://dps-festive.imgix.net/images/home/success-stories.jpg?w=700',
         linkText: 'Read about our Happy Tails'
       }, {
         title: 'We ❤️ Pet Food Express!',
         bodyText: `Thank you to our partner, Pet Food Express, for hosting our adoption
         events in your stores! We couldn't save all of these dogs without you!`,
         externalLink: 'https://www.petfoodexpress.com/',
-        imgSrc: 'http://dps-festive.imgix.net/images/home/pet-food-express.jpg?w=700',
+        imgSrc: 'https://dps-festive.imgix.net/images/home/pet-food-express.jpg?w=700',
         linkText: 'Find a PFE near you'
       }, {
         title: 'Our Favorite Doctors',
@@ -50,7 +50,7 @@ export default class DpsHomeSidebarFeatures extends React.PureComponent {
             Peet at Alpha Animal Hospital</a></li>
         </ul>,
         externalLink: 'https://www.petfoodexpress.com/',
-        imgSrc: 'http://dps-festive.imgix.net/images/home/vets.jpg?w=700'
+        imgSrc: 'https://dps-festive.imgix.net/images/home/vets.jpg?w=700'
       },
     ];
 

@@ -11,13 +11,13 @@ class DpsHero extends React.Component {
       <div className="row hero">
         <Link to="/" className="logo col-md-2 hidden-sm hidden-xs">
           <Imgix
-            src="http://dps-festive.imgix.net/images/logo-v2.png"
+            src="https://dps-festive.imgix.net/images/logo-v2.png"
             imgixParams={{ rect: '210,400,390,230', auto: 'format' }}
             htmlAttributes={{ alt: 'DPS Logo' }} />
         </Link>
         <Link to="/" className="logo hidden-md hidden-lg col-sm-10 col-xs-10">
           <Imgix
-            src="http://dps-festive.imgix.net/images/logo-v2.png"
+            src="https://dps-festive.imgix.net/images/logo-v2.png"
             imgixParams={{ rect: '210,400,690,230', auto: 'format' }}
             htmlAttributes={{ alt: 'DPS Logo' }} />
         </Link>
@@ -28,19 +28,19 @@ class DpsHero extends React.Component {
           <div className="small">
             <a href="https://twitter.com/dpsrescue" target="_blank" rel="noreferrer">
               <Imgix
-                src="http://dps-festive.imgix.net/images/social-icons-twitter.png"
+                src="https://dps-festive.imgix.net/images/social-icons-twitter.png"
                 width={DpsHero.SOCIAL_ICON_WIDTH}
                 htmlAttributes={{ alt: 'Twitter @DPSRescue' }} />
             </a>
             <a href="https://www.facebook.com/DPSRescue" target="_blank" rel="noreferrer">
               <Imgix
-                src="http://dps-festive.imgix.net/images/social-icons-facebook.png"
+                src="https://dps-festive.imgix.net/images/social-icons-facebook.png"
                 width={DpsHero.SOCIAL_ICON_WIDTH}
                 htmlAttributes={{ alt: 'DPSRescue Facebook' }} />
             </a>
             <a href="https://www.instagram.com/dpsrescue/" target="_blank" rel="noreferrer">
               <Imgix
-                src="http://dps-festive.imgix.net/images/social-icons-instagram.png"
+                src="https://dps-festive.imgix.net/images/social-icons-instagram.png"
                 width={DpsHero.SOCIAL_ICON_WIDTH}
                 imgixParams={{ pad: 7, bg: DpsHero.INSTAGRAM_BG_COLOR }}
                 htmlAttributes={{ alt: 'DPSRescue Instagram' }} />

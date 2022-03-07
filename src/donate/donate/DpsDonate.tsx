@@ -49,7 +49,7 @@ export default class DpsDonate extends React.PureComponent {
           </ul>
         </div>
         <div className="col-md-5 hidden-sm hidden-xs">
-          <Imgix src="http://dps-festive.imgix.net/images/donate/donate-header.png" htmlAttributes={{ alt: 'Mac' }} />
+          <Imgix src="https://dps-festive.imgix.net/images/donate/donate-header.png" htmlAttributes={{ alt: 'Mac' }} />
         </div>
       </div>
       <hr />
