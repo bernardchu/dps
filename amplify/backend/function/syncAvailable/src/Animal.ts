@@ -231,7 +231,10 @@ class AnimalDescriptionParser {
 
   private static handleBio(pNodes: HTMLParagraphElement[], isUpcoming: boolean): string[] {
     const bioStartIndex = this.EXPECTED_NUMBER_OF_BOILERPLATE_NODES + (isUpcoming ? 1 : 0);
-    return pNodes.slice(bioStartIndex).map(n => n.innerHTML);
+    return pNodes.slice(bioStartIndex)
+      .map(n => n.innerHTML)
+      .map(contents => contents.replace('&nbsp;', ' ').trim())
+      .filter(contents => !!contents);
   }
 
   private static handleAge(bio: string[]): string {

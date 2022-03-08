@@ -244,6 +244,16 @@ describe('Animal class', () => {
         animal = new Animal(notUpcomingPet);
         expect(animal.description.bio).toEqual(bio);
       });
+
+      it('should not include empty p nodes', () => {
+        const basicDescription = new RescueGroupsV2AnimalRawDescriptionBuilder();
+        const bioWithNbspNodes = ['&nbsp;', 'bio', '&nbsp;', 'stuff'];
+        basicDescription.setBioInPBlocks(bioWithNbspNodes);
+        basicDescription.isUpcoming = false;
+        const notUpcomingPet: rescueGroupsV2Animal = new RescueGroupsV2AnimalRawBuilder({ description: basicDescription.build() }).getRaw();
+        animal = new Animal(notUpcomingPet);
+        expect(animal.description.bio).toEqual(['bio', 'stuff']);
+      });
     });
 
     describe('age', () => {

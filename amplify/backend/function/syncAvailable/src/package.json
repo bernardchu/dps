@@ -14,7 +14,7 @@
     "xml-js": "^1.6.11"
   },
   "scripts": {
-    "test": "jest",
+    "test": "npm run ts && jest",
     "amplify:generateSyncAvailable": "npm run ts && npm run test",
     "ts": "cd .. && tsc -p ./tsconfig.json && cd -"
   },

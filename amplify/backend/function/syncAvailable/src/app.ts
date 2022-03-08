@@ -48,7 +48,6 @@ app.get('/available/sync', async function (req, res) {
   try {
     // empty the table
     await syncer.emptyTable();
-    console.log('emptied table ', tableName);
 
     const rescueGroupsKeyName = process.env['RESCUEGROUPS_KEY'];
     const rescueGroupsApiKeyName = '/amplify/rescueGroupsApiKey';
