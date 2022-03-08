@@ -13,23 +13,17 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
       <>
         <header className="modal__header">
           <h2 className="modal__title" id="donate-modal-title">
-            Join us in honoring Betty White
+            Puppy Alert!
           </h2>
         </header>
         <main className="modal__content" id="modal-1-content">
           <div className="donate-modal-image-container">
             <Imgix
-              src="https://dps-festive.imgix.net/images/donate/betty-white-usa-today.jpeg"
-              imgixParams={{
-                'txt-color': 'white',
-                // @types/react-imgix lacks foo64 param defs
-                // @ts-ignore
-                txt64: 'Source: USA Today'
-              }}
+              src="https://dps-festive.imgix.net/images/donate/donate-mama-dog.jpg"
               width={300}
               htmlAttributes={{ alt: 'donate' }} />
           </div>
-          <p>Betty White demonstrated a lifelong commitment to helping animals in need. Join us in honoring Betty White's memory to make the world a better, kinder place for all animals by making a donation in support of the work we do.</p>
+          <p>DPS currently has 7 nursing mama dogs and their 47 babies in our foster homes. Please donate to help us with veterinary care, puppy food, potty pads and the myriad other needs of these sweet rescue dogs and puppies!</p>
           <Link onClick={() => this.props.closeModal()} to={`${routes.donate.path}/${routes.donate.children!.donate.path}`} className="hero-button col-xs-12">Donate Now</Link>
         </main>
       </>

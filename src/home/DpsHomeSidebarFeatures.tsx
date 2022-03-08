@@ -48,6 +48,8 @@ export default class DpsHomeSidebarFeatures extends React.PureComponent {
             Animal Hospital</a></li>
           <li><a href="http://www.alphapethospital.com/" target="_blank" rel="noreferrer">Dr.
             Peet at Alpha Animal Hospital</a></li>
+          <li><a href="https://happyvalleypethospital.com/" target="_blank" rel="noreferrer">
+            Dr. Cheung at Happy Valley Pet Hospital</a></li>
         </ul>,
         externalLink: 'https://www.petfoodexpress.com/',
         imgSrc: 'https://dps-festive.imgix.net/images/home/vets.jpg?w=700'

@@ -41,6 +41,8 @@ export default class DpsFosterFaq extends React.PureComponent {
           <li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/crate-training.pdf">Crate Training</a>:</strong> Crate training is highly recommended for all dogs and puppies! Here is a step-by-step guide to teaching your foster pup to love their crate.</li>
           <br />
           <li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/dps-puppy-packet.pdf">Puppy Manual</a>:</strong> Puppies can be a tremendous amount of fun, but they can also be exhausting! This manual contains many activities you can engage in with your foster puppy. Puppies are in a crucial socialization period of their lives; follow these tips to help DPS adopt out well-rounded and social puppies who will thrive in their adoptive homes!</li>
+          <br />
+          <li><strong><a href="https://dps-festive.imgix.net/images/foster/faq/shy-dogs.pdf">Tips and Tricks for Shy Dogs</a> and <a href="https://dps-festive.imgix.net/images/foster/faq/treat-and-retreat.pdf">Treat and Retreat</a></strong></li>
         </ol>
       </>
     }
