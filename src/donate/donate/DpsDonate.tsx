@@ -21,7 +21,7 @@ export default class DpsDonate extends React.PureComponent {
           As a non-profit organization with no government funding, we rely on donations to continue to rescue dogs and cats in need. The average cost per dog is $627, which includes bailing them out of the shelter, a health check, spay or neuter, vaccinations, microchipping and spending several weeks at a foster home to evaluate before adoption.  There are so many ways to donate!
         </div>
         <div className="col-md-3 hidden-sm hidden-xs">
-          <Imgix src="http://dps-festive.imgix.net/images/donate/donate-header.png"
+          <Imgix src="https://dps-festive.imgix.net/images/donate/donate-header.png"
             width={300}
             htmlAttributes={{ alt: 'Mac' }} />
         </div>
@@ -47,9 +47,6 @@ export default class DpsDonate extends React.PureComponent {
             <li>Dog beds​</li>
             <li>Flea Treatment (Frontline or Advantage)</li>
           </ul>
-        </div>
-        <div className="col-md-5 hidden-sm hidden-xs">
-          <Imgix src="https://dps-festive.imgix.net/images/donate/donate-header.png" htmlAttributes={{ alt: 'Mac' }} />
         </div>
       </div>
       <hr />
