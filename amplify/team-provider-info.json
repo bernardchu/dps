@@ -16,11 +16,11 @@
       "function": {
         "getAvailable": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/getAvailable-322b6f3756647377774e-build.zip"
+          "s3Key": "amplify-builds/getAvailable-36726433364949483478-build.zip"
         },
         "syncAvailable": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/syncAvailable-6f4867776d675144674d-build.zip",
+          "s3Key": "amplify-builds/syncAvailable-45753976534c77785541-build.zip",
           "secretsPathAmplifyAppId": "d30y4zvewr5g0k"
         },
         "getSheets": {

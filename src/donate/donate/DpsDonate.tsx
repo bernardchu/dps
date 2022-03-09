@@ -53,8 +53,8 @@ export default class DpsDonate extends React.PureComponent {
       <div className="row donate">
         <h1>More Ways to Give</h1>
         <div className="sibling-tiles">
-          {otherDonateRoutes.map(route => <Link className="donate-sibling-tile col-xs-12 col-sm-6 col-md-3" key={route.name} to={`../${route.path}`}>
-            <Imgix src="http://dps-festive.imgix.net/images/logo-v2.png" width={400} />
+          {otherDonateRoutes.map(route => <Link className="donate-sibling-tile col-xs-6 col-md-3" key={route.name} to={`../${route.path}`}>
+            <Imgix src="https://dps-festive.imgix.net/images/donate/donate-paw-print.png" width={300} />
             {route.name}
           </Link>)}
         </div>
