@@ -49,7 +49,7 @@ app.get('/available/sync', async function (req, res) {
     // empty the table
     await syncer.emptyTable();
 
-    const rescueGroupsKeyName = process.env['RESCUEGROUPS_KEY'];
+    const rescueGroupsKeyName = '/amplify/rescueGroupsKey';
     const rescueGroupsApiKeyName = '/amplify/rescueGroupsApiKey';
     // fetch and process data from RescueGroups API
     const keyParameters = await ssm.getParameters({
