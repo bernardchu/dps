@@ -1,11 +1,44 @@
 # DPS Website Deployment
 ## Frontend
 Hook up the relevant branch to Amplify and it will set up continuous deployment.
-
-Since we use `react-router`, to make proper use of HTML5 pushState, follow the directions [here](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa) to ensure that direct links work correctly (this setting is in the Amplify console, left side menu, under "Rewrites and redirects").
+Set build settings using [the example build yaml file](./amplify-build.yml).
+It's not clear why, but the default address that amplify will provide for you may not work (some DNS issues perhaps) but using a custom domain should (see below).
 
 DNS for the frontend can be set up by following the instructions for [adding custom domains in the Amplify docs](https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-amazon-route-53.html).
 
+Since we use `react-router`, to make proper use of HTML5 pushState, follow the directions [here](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa) to ensure that direct links work correctly (this setting is in the Amplify console, left side menu, under "Rewrites and redirects").
+
 ## Backend
 Deploys automatically with `amplify push`.
+If a deployment already exists and you want to sync your local environment to that, `amplify pull` should do the trick but I've never had to do it so I'm not sure how it works.
 DNS for API can be set up by following the instructions for [routing traffic for an Amazon API Gateway API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-api-gateway.html).
+
+### Secrets
+Add the following parameters to AWS Systems Manager Parameter Store
+- `/amplify/rescueGroupsKey` is the key needed to access most of the animal data (looks like gross JavaScript that needs parsing).
+- `/amplify/rescueGroupsApiKey` is the key needed to access the data used to join YouTube video data with the rest of the animal data.
+- `/amplify/imgixSecureUrlToken` is used to sign animal image URLs.
+- `/amplify/dpsGoogleSheetCredentials` is the JSON generated when a service account is created in order to give the application access to the Google Sheet containing the non-animal data.
+
+Amplify will create a bunch of IAM roles for the different lambdas in the backend; these roles need to be given permission to access these parameters in SSM.
+These roles generally look like `dpsLambdaRole<some hash>-<environment name>`.
+You can see the actual role used by a Lambda if you get a 500 error when attempting to test an endpoint and you view the error in CloudWatch.
+Attach a policy to these roles that gives the `GetParametersByPath`, `GetParameters`, and `GetParameter` actions for `Resources`: `"arn:aws:ssm:*:<account ID>:parameter/amplify/*"`.
+Example JSON:
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParametersByPath",
+                "ssm:GetParameters",
+                "ssm:GetParameter"
+            ],
+            "Resource": "arn:aws:ssm:us-west-1:<account ID>:parameter/amplify/*"
+        }
+    ]
+}
+```
