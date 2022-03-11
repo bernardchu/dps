@@ -8,11 +8,9 @@ import { IVolunteer, VolunteersHandler } from './VolunteersHandler';
 import { ISuccessStory, IDBSuccessStory, ISuccessStoryResponse } from '../../common/ISuccessStory';
 
 /*
-Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-    http://aws.amazon.com/apache2.0/
-or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
+Each endpoint fetches the JSON blob from the corresponding row in the sheets table, organizes it, and returns it.
+Exceptions: the /success/ endpoints read from the more structured successStories table and the /sticky endpoint 
+will probably be deprecated so it just returns []
 */
 
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')

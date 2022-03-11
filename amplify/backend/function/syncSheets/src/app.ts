@@ -6,11 +6,12 @@ import { ISuccessStory, IDBSuccessStory } from '../../common/ISuccessStory';
 import _ = require('lodash');
 
 /*
-Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-    http://aws.amazon.com/apache2.0/
-or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
+Endpoints for syncing the sheets and successStories tables.
+These tables are not cleared before writing to them; we assume that using the correct primary keys (sheet name
+for most sheets or pet name for success stories) will ensure that the correct objects are updated.
+If deletions of entire sheets or of individual success stories becomes common enough that going into
+DynamoDB's web interface for the occasional deletion is not feasible, that functionality should be
+straightforward to adapt from the syncAvailable code.
 */
 
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
@@ -74,6 +75,7 @@ app.get(path, async function (req, res) {
 
     new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
       spreadsheetId: spreadSheetId,
+      // Sheets "A1 notation": https://developers.google.com/sheets/api/guides/concepts#expandable-1
       ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`), // e.g. events!A:E
       includeGridData: true
     })

@@ -27,3 +27,4 @@ These are synced manually as changes to these sheets occur relatively infrequent
 ### Images
 We use [Imgix](https://docs.imgix.com/) to manage the vast majority of our images.
 We serve many images that we don't control (e.g. the adoptable animals) and their API simplifies the challenge of consistency across images.
+Ensure that all image URLs use https when filling out the Google Sheet.

@@ -42,3 +42,12 @@ Example JSON:
     ]
 }
 ```
+
+### Google API
+We use the Google API to read the spreadsheet and sync data to our own databases.
+[Create a service account](https://cloud.google.com/docs/authentication/production) and include the JSON as a secret (see above).
+Then share the Google Sheet with the email address given in the `"client_email"` field in the JSON.
+Fair warning - Google's documentation is atrocious.
+
+### Database tables
+Ensure that tables named `available` (primary key "id" - string), `sheets` (primary key "name" - string), and `successStories` (primary key "id" - string) all suffixed with `-<env name>` e.g. `available-prod` exist.

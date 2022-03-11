@@ -1,3 +1,67 @@
 # DPS Website Backend
 ## Overview
 The backend was generated using AWS Amplify.
+The high-level goal is to sync three database tables with data in RescueGroups and Google Sheets and serve that data via HTTP.
+Conventional CUD operations are not present; tables are wiped and repopulated with the latest data.
+For simplicity, all requests are GET requests.
+This allows for a convenient (can be easily done entirely on a mobile device) workflow where, for example, if an update needs to be made to the list of upcoming adoption events, it's simple to just update the relevant Google Sheet and then use a browser to GET the relevant sheets sync endpoint rather than having to update any code.
+Furthermore, because the only CUD operations that occur sync the latest data, issues of data integrity and security become trivial.
+
+## Database
+We use DynamoDB for easy integration with Amplify.
+Since we do a fair amount of syncing, i.e. delete all old data and replace with new, dropping and recreating tables during these operations seems like a reasonable strategy to employ.
+While this is feasible using a SQL database, DynamoDB has a lag for these operations that makes it impractical.
+Thus, we instead delete all items using Batch operations before adding new ones.
+The [Deployment](./Deployment#database-tables) doc contains more info about which tables should be added.
+
+## Lambdas
+...are present in `amplify/backend/function`.
+See `app.ts` in each function's `src` directory for more info.
+
+### TypeScript
+Amplify does not use TypeScript by default, but I prefer it so I added it.
+If you add a new lambda via `amplify update api`, you can TypeScript-ify it by copying over one of the existing `tsconfig.json` files and adding the following npm `scripts` to `package.json`:
+```
+"scripts": {
+  "amplify:generateGetSheets": "npm run ts",
+  "ts": "cd .. && tsc -p ./tsconfig.json && cd -"
+},
+```
+(replace `GetSheets` above with the name of the new lambda)
+
+### Local development
+To run a lambda function locally:
+`npm run ts && amplify mock function <lambda name> --event path/to/event.json`, e.g.
+`npm run ts && amplify mock function syncAvailable --event src/testEvent.json`
+Relevent test event JSON files are present within the `src` directories of each lambda, though IDs might need to be updated for certain events such as getting an available animal by ID.
+Unfortunately there seems to be no way to debug within an IDE when running lambdas locally.
+It may be possible to do some better debugging when running test events through the AWS Lambda web interface but I haven't tried much.
+
+### Endpoints (all GET)
+TODO: would be better as swagger, maybe.
+| Path                      | Functionality                                                                                           |
+|---------------------------|---------------------------------------------------------------------------------------------------------|
+| /available/sync           | Fetches data from RescueGroups, empties contents of `available` table, and repopulates it with new data |
+| /available/all            | Returns an abbreviated view of all available animals.                                                   |
+| /available/object/:id     | Returns a detailed view of one animal                                                                   |
+| /sheets/dates             | Returns all upcoming adoption events                                                                    |
+| /sheets/featured          | Returns all featured items for the news feed on the main page.                                          |
+| /sheets/fosters           | Returns all fosters.                                                                                    |
+| /sheets/icu               | Returns all ICU animals.                                                                                |
+| /sheets/newsletters       | Returns all newsletters                                                                                 |
+| /sheets/volunteers        | Returns all volunteers.                                                                                 |
+| /sheets/sticky            | Should return all sticky dogs but will probably be deprecated so just returns [] for now.               |
+| /sheets/success/all       | Returns an abbreviated view of all success stories.                                                     |
+| /sheets/success/object:id | Returns a detailed view of one success story.                                                           |
+| /sheets/sync/success      | Syncs the success stories sheet with the successStories database table.                                 |
+| /sheets/sync              | Syncs all sheets except the success stories sheet.                                                      |
+
+### Tests
+Most of the functionality is just moving data around from one place to another so it isn't tested.
+However the syncSheets code that parses the strange JavaScript-like API response is thoroughly tested.
+Tests are run as part of the `generateSyncSheets` script to ensure CI; any new tests that are added to other lambdas should be run during their corresponding `generate` npm scripts as well.
+
+## Common development pitfalls
+The most common error is probably a 500 when testing out a lambda (that was working fine during development) on a deployment.
+These are usually the result of the IAM user that executes the lambda not having sufficient correct permissions.
+Generally the error message in the CloudWatch logs will point in the right direction.
