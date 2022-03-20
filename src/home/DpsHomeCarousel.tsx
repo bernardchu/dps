@@ -22,7 +22,23 @@ export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCar
     speed: 300,
     slidesToShow: 3,
     lazyLoad: true,
-    adaptiveHeight: true
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   public componentDidMount() {
