@@ -1,4 +1,6 @@
 # DPS Website Deployment
+Everything is currently deployed in AWS us-east-1.
+
 ## Frontend
 Hook up the relevant branch to Amplify and it will set up continuous deployment.
 Set build settings using [the example build yaml file](./amplify-build.yml).
@@ -12,17 +14,22 @@ Since we use `react-router`, to make proper use of HTML5 pushState, follow the d
 ## Backend
 Deploys automatically with `amplify push`.
 If a deployment already exists and you want to sync your local environment to that, `amplify pull` should do the trick but I've never had to do it so I'm not sure how it works.
-DNS for API can be set up by following the instructions for [routing traffic for an Amazon API Gateway API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-api-gateway.html).
+For a new deployment, run `amplify init`. You can ignore/fill in whatever if it asks for "secrets for functions". These do not matter. See the section on Secrets for how those get set.
+Make sure you do an `amplify push` before continuing with setup instructions.
+DNS for API can be set up by following the instructions for [routing traffic for an Amazon API Gateway API](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-api-gateway.html). This will involve creating a domain in the API Gateway, which require reqruesting a cert. Then, you will need to configure the API mappings.
+
+### Database tables
+Ensure that tables named `available` (primary key "id" - string), `sheets` (primary key "name" - string), and `successStories` (primary key "id" - string) all suffixed with `-<env name>` e.g. `available-prod` exist.
 
 ### Secrets
-Add the following parameters to AWS Systems Manager Parameter Store
+Add the following parameters to AWS Systems Manager Parameter Store. You will only need to do this the first time you're deploying to an AWS account.
 - `/amplify/rescueGroupsKey` is the key needed to access most of the animal data (looks like gross JavaScript that needs parsing).
 - `/amplify/rescueGroupsApiKey` is the key needed to access the data used to join YouTube video data with the rest of the animal data.
 - `/amplify/imgixSecureUrlToken` is used to sign animal image URLs.
 - `/amplify/dpsGoogleSheetCredentials` is the JSON generated when a service account is created in order to give the application access to the Google Sheet containing the non-animal data.
 
 Amplify will create a bunch of IAM roles for the different lambdas in the backend; these roles need to be given permission to access these parameters in SSM.
-These roles generally look like `dpsLambdaRole<some hash>-<environment name>`.
+These roles generally look like `dpsLambdaRole<some hash>-<environment name>`. There is an existing policy in the DPS AWS account called LambdaSecrets that you can use to grant each Lambda role all the necessary permissions.
 You can see the actual role used by a Lambda if you get a 500 error when attempting to test an endpoint and you view the error in CloudWatch.
 Attach a policy to these roles that gives the `GetParametersByPath`, `GetParameters`, and `GetParameter` actions for `Resources`: `"arn:aws:ssm:*:<account ID>:parameter/amplify/*"`.
 Example JSON:
@@ -50,5 +57,4 @@ We use the Google API to read the spreadsheet and sync data to our own databases
 Then share the Google Sheet with the email address given in the `"client_email"` field in the JSON.
 Fair warning - Google's documentation is atrocious.
 
-### Database tables
-Ensure that tables named `available` (primary key "id" - string), `sheets` (primary key "name" - string), and `successStories` (primary key "id" - string) all suffixed with `-<env name>` e.g. `available-prod` exist.
+
