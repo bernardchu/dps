@@ -15,6 +15,7 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
           <h2 className="modal__title" id="donate-modal-title">
             Puppy Alert!
           </h2>
+          <span className="hand" onClick={() => this.props.closeModal()}>X</span>
         </header>
         <main className="modal__content" id="modal-1-content">
           <div className="donate-modal-image-container">
