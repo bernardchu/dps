@@ -2,6 +2,7 @@
 ## Frontend
 Hook up the relevant branch to Amplify and it will set up continuous deployment.
 Set build settings using [the example build yaml file](./amplify-build.yml).
+In the AWS Amplify console, under App Settings, set an Environment Variable API_URL that points to the desired API base URL for this deployment, e.g. http://api.dpsrescue.link/.
 It's not clear why, but the default address that amplify will provide for you may not work (some DNS issues perhaps) but using a custom domain should (see below).
 
 DNS for the frontend can be set up by following the instructions for [adding custom domains in the Amplify docs](https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-amazon-route-53.html).

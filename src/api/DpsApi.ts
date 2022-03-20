@@ -5,7 +5,7 @@ import { IDpsSuccessStory, IDpsSuccessStoryCompact } from "../model/IDpsSuccessS
 import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse, IDpsVolunteerApiResponse } from "./IDpsApiResponses";
 
 export default class DpsApi {
-  private static baseUrl = process.env.API_URL || 'https://api.dpsrescue.link/' // test API;
+  private static baseUrl = process.env.REACT_APP_API_URL || 'https://api.dpsrescue.link/' // test API;
 
   private static assembleUrl(endpoint: string, params?: { [key: string]: string }): string {
     const url = new URL(endpoint, DpsApi.baseUrl);
