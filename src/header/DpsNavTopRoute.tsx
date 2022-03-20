@@ -12,12 +12,17 @@ class DpsNavTopRoute extends React.Component<DpsNavTopRouteProps> {
     const route: IDpsNavRoute = this.props.route;
     return (
       <div className="nav-link">
-        <NavLink to={route.path} className="parent-link">
-          {route.name}
-        </NavLink>
+        <NavLink
+          to={route.path}
+          className="parent-link"
+          dangerouslySetInnerHTML={{ __html: DpsNavTopRoute.convertToNbsp(route.name) }} />
         {route.children?.length && <DpsChildRouteMenu children={route.children} parent={route} />}
       </div>
     );
+  }
+
+  private static convertToNbsp(name: string): string {
+    return name.replace(/\s/g, '&nbsp;');
   }
 }
 
