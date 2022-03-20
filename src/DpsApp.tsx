@@ -33,6 +33,16 @@ function DpsApp() {
         openInitially={false}
         closeOnOverlayClick={true}
         closeOnEscapePress={true}
+        overrides={
+          {
+            Dialog: {
+              style: {
+                maxWidth: '80vw',
+                width: '500px'
+              }
+            }
+          }
+        }
         handleClose={() => setModalOpen(false)}>
         {(close) => <DpsDonateModalContent closeModal={close} />}
       </MicroModal>}
