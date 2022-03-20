@@ -23,6 +23,7 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <script>
     (function redirectToOrg() {
+      return; // might want this later
       const host = location.hostname;
       if (/\w+\.com/.test(location.hostname)) {
         const newHost = location.hostname.replace('.com', '.org');
