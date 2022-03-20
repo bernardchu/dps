@@ -57,4 +57,7 @@ We use the Google API to read the spreadsheet and sync data to our own databases
 Then share the Google Sheet with the email address given in the `"client_email"` field in the JSON.
 Fair warning - Google's documentation is atrocious.
 
+### Images
+There are two types of images used for DPS: 1) Static images hosted in our own S3 bucket and 2) images returned from Rescue Groups. All images are processed in real-time by using imgix. The imgix account can be accessed by using Google sign in from ops@dpsrescue.org.
+
 
