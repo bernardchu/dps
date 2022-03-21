@@ -32,13 +32,14 @@ const DYNAMODB_BATCH_LIMIT = 25;
 
 /**
  * Assumes/requires that the available-<env name> table exists. We can't create it on the fly if it doesn't because
- * there is a delay after table creation.
+ * there is a delay after table creation. We can't just delete and recreate the table because DynamoDB can take a minute
+ * or more to fully delete a table and we can't wait that long, plus the aforementioned creation delay.
  */
 app.get('/available/sync', async function (req, res) {
   const syncer = new AvailableSyncer(tableName, dynamodb, DYNAMODB_BATCH_LIMIT);
   try {
-    // empty the table
-    await syncer.emptyTable();
+    // get animals currently in the db
+    const dbAnimals = await syncer.getDbAnimals();
 
     const rescueGroupsKeyName = '/amplify/rescueGroupsKey';
     const rescueGroupsApiKeyName = '/amplify/rescueGroupsApiKey';
@@ -53,7 +54,13 @@ app.get('/available/sync', async function (req, res) {
     const videoData = await syncer.fetchPetVideoDataFromRescueGroups(rescueGroupsApiKey);
     const animalsWithVideo: Animal[] = syncer.joinAnimalsWithVideos(animals, videoData);
 
-    // batch up data and add to the now-empty table
+    // compare current db animals with incoming to know which to delete
+    const animalIdsToDelete: string[] = dbAnimals
+      .filter(animal => !animalsWithVideo.find(a => a.id === animal.id))
+      .map(animal => animal.id);
+    await syncer.deleteFromTable(animalIdsToDelete);
+
+    // batch up data and write/overwrite new/existing animals
     return syncer.writeAnimals(animalsWithVideo)
       .then(responses => res.json({ success: responses, url: req.url }))
       .catch(err => res.json({ error: err, url: req.url, body: req.body }))

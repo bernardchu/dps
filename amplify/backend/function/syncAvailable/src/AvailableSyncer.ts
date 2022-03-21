@@ -20,39 +20,38 @@ export class AvailableSyncer {
   constructor(private tableName: string, private dynamoDB: AWS.DynamoDB.DocumentClient, private batchLimit: number) { }
 
   /**
-   * Empties table to prepare to fill it. We can't just delete the table because DynamoDB takes up to a minute
-   * or sometimes even more to fully delete a table and we can't wait that long.
-   * @param tableName name of table to empty
-   * @param ddb dynamoDB instance
+   * @returns animals currently in the available dynamoDB table
    */
-  public async emptyTable(): Promise<any> {
+  public async getDbAnimals(): Promise<any> {
     const scanParams: AWS.DynamoDB.ScanInput = {
       TableName: this.tableName,
       AttributesToGet: ['id']
     }
 
-    this.dynamoDB.scan(scanParams, (err, data: AWS.DynamoDB.ScanOutput) => {
-      if (err) {
-        console.error(err)
-      } else {
-        const batches = _.chunk(data.Items, this.batchLimit);
-        const requests: AWS.DynamoDB.BatchWriteItemInput[] = batches.map(batch => {
-          const RequestItems = {};
-          RequestItems[this.tableName] = batch.map(animal => {
-            return {
-              DeleteRequest: {
-                Key: {
-                  'id': animal.id
-                }
-              }
-            }
-          });
-          return { RequestItems };
-        })
-        return Promise.all(requests.map(r => this.dynamoDB.batchWrite(r).promise()))
-          .catch(err => console.error(err));
-      }
-    });
+    return this.dynamoDB.scan(scanParams).promise()
+      .then((data: AWS.DynamoDB.ScanOutput) => data.Items)
+      .catch(err => console.error(err));
+  }
+  /**
+   * Deletes animals from table
+   * @param ids: ids of animals to be removed from table
+   */
+  public async deleteFromTable(ids: string[]): Promise<any> {
+    if (!ids.length) { return }
+    const batches = _.chunk(ids, this.batchLimit);
+    const requests: AWS.DynamoDB.BatchWriteItemInput[] = batches.map(batch => {
+      const RequestItems = {};
+      RequestItems[this.tableName] = batch.map(id => {
+        return {
+          DeleteRequest: {
+            Key: { id }
+          }
+        }
+      });
+      return { RequestItems };
+    })
+    return Promise.all(requests.map(r => this.dynamoDB.batchWrite(r).promise()))
+      .catch(err => console.error(err));
   }
 
   private readonly RESCUE_GROUPS_BASE_URI = 'https://toolkit.rescuegroups.org/javascript/v2.0/';
