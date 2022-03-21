@@ -11,17 +11,25 @@ nav.bm-item-list {
   }
 
   .bm-child-list {
-    &.dropdown-hide {display: none;}
-    &.dropdown-show {display: block;}
+    list-style: none;
+    overflow: hidden;
+    margin: 0px;
+    &.dropdown-hide {
+      transition: max-height 0.3s ease;
+      max-height: 0px;
+    }
+    &.dropdown-show {
+      transition: max-height 0.3s ease;
+      max-height: 400px;
+    }
   }
 }
 
 .bm-burger-button {
-  position: fixed;
+  position: relative;
   width: 36px;
   height: 30px;
-  left: 36px;
-  top: 36px;
+  margin-left: 1em;
 }
 .bm-burger-bars {
   background: #373a47;
@@ -39,6 +47,8 @@ nav.bm-item-list {
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
+  left: 0;
+  top: 0;
 }
 .bm-menu {
   background: $dps-primary-color;
@@ -49,5 +59,8 @@ nav.bm-item-list {
   fill: #373a47;
 }
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3)
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Imgix from 'react-imgix';
+import DpsHamburgerMenu from '../hamburger/DpsHamburgerMenu';
 
 class DpsHero extends React.Component {
   private static SOCIAL_ICON_WIDTH = 41; // px
@@ -58,6 +59,7 @@ class DpsHero extends React.Component {
             <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
           </form>
         </div>
+        <DpsHamburgerMenu />
       </div>
     );
   }
