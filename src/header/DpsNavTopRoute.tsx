@@ -2,6 +2,7 @@ import React from "react";
 import DpsChildRouteMenu from "./DpsChildRouteMenu";
 import { IDpsNavRoute } from "../model/IDpsRoutes";
 import { NavLink } from "react-router-dom";
+import { convertToNbsp } from "../routing/routes";
 
 interface DpsNavTopRouteProps {
   route: IDpsNavRoute
@@ -15,14 +16,10 @@ class DpsNavTopRoute extends React.Component<DpsNavTopRouteProps> {
         <NavLink
           to={route.path}
           className="parent-link"
-          dangerouslySetInnerHTML={{ __html: DpsNavTopRoute.convertToNbsp(route.name) }} />
+          dangerouslySetInnerHTML={{ __html: convertToNbsp(route.name) }} />
         {route.children?.length && <DpsChildRouteMenu children={route.children} parent={route} />}
       </div>
     );
-  }
-
-  private static convertToNbsp(name: string): string {
-    return name.replace(/\s/g, '&nbsp;');
   }
 }
 

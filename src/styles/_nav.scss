@@ -19,11 +19,11 @@ nav {
       border-bottom: $border-thickness solid $text-color;
       width: 100%;
     }
+  }
 
-    .active {
-      border-width: $border-thickness * 2;
-      font-weight: bold;
-    }
+  .active {
+    border-width: $border-thickness * 2;
+    font-weight: bold;
   }
 
   a {

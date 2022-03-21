@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
 import './DpsApp.scss';
 import 'bootstrap-grid-only/bootstrap.css'
 import DpsFooter from './DpsFooter';

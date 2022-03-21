@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import DpsApp from './DpsApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import DpsHamburgerMenu from './hamburger/DpsHamburgerMenu';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <DpsHamburgerMenu />
       <DpsApp />
     </BrowserRouter>
   </React.StrictMode>,

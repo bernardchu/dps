@@ -29,6 +29,10 @@ export function hasSubnavChildren(route: IDpsRoute): boolean {
     .filter(child => child.inNav).length > 0;
 }
 
+export function convertToNbsp(name: string): string {
+  return name.replace(/\s/g, '&nbsp;');
+}
+
 /**
  * Not all routes belong in the nav and its submenus. Also, it is easier to iterate through child
  * routes if they are in an ordered collection like an array. This solves both of these problems.
