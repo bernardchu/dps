@@ -9,9 +9,11 @@ export interface IDpsHamburgerMenuProps {
 }
 
 export default class DpsHamburgerMenu extends React.PureComponent<IDpsHamburgerMenuProps> {
+  private static hiddenWidths = 'hidden-md hidden-lg';
+
   public render() {
     return (
-      <Menu>
+      <Menu className={DpsHamburgerMenu.hiddenWidths} burgerButtonClassName={DpsHamburgerMenu.hiddenWidths}>
         {navRoutes.map((route) => {
           if (route.children?.length) {
             return <><span className="bm-item">{route.name}</span><DpsHamburgerChildMenu parent={route} /></>
