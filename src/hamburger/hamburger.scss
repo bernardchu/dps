@@ -9,6 +9,11 @@ nav.bm-item-list {
     display: block;
     padding: .5em;
   }
+
+  .bm-child-list {
+    &.dropdown-hide {display: none;}
+    &.dropdown-show {display: block;}
+  }
 }
 
 .bm-burger-button {

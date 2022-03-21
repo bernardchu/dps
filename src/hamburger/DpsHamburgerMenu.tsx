@@ -5,20 +5,38 @@ import './hamburger.scss';
 import DpsHamburgerChildMenu from './DpsHamburgerChildMenu';
 import { NavLink } from 'react-router-dom';
 
-export interface IDpsHamburgerMenuProps {
+export interface IDpsHamburgerMenuState {
+  menuOpen: boolean;
 }
 
-export default class DpsHamburgerMenu extends React.PureComponent<IDpsHamburgerMenuProps> {
+export default class DpsHamburgerMenu extends React.PureComponent<{}, IDpsHamburgerMenuState> {
   private static hiddenWidths = 'hidden-md hidden-lg';
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      menuOpen: false
+    }
+  }
+
+  handleStateChange(state: { isOpen: boolean }) {
+    this.setState({ menuOpen: state.isOpen })
+  }
+
+  closeMenu() {
+    this.setState({ menuOpen: false })
+  }
 
   public render() {
     return (
-      <Menu className={DpsHamburgerMenu.hiddenWidths} burgerButtonClassName={DpsHamburgerMenu.hiddenWidths}>
+      <Menu className={DpsHamburgerMenu.hiddenWidths}
+        isOpen={this.state.menuOpen}
+        onStateChange={(state) => this.handleStateChange(state)}
+        burgerButtonClassName={DpsHamburgerMenu.hiddenWidths}>
         {navRoutes.map((route) => {
           if (route.children?.length) {
-            return <><span className="bm-item">{route.name}</span><DpsHamburgerChildMenu parent={route} /></>
+            return <DpsHamburgerChildMenu parent={route} hamburgerCloser={this.closeMenu.bind(this)} />
           }
-          return <NavLink to={route.path} className="bm-item">{route.name}</NavLink>
+          return <NavLink to={route.path} className="bm-item" onClick={() => this.closeMenu()}>{route.name}</NavLink>
         })}
       </Menu>
     );
