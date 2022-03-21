@@ -35,6 +35,7 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+amplify/team-provider-info.json
 amplify/backend/function/common/**/*.js
 amplify/backend/function/syncAvailable/src/**/*.js
 amplify/backend/function/syncAvailable/src/**/*.test.js
