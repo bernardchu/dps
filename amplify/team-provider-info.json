@@ -16,20 +16,20 @@
       "function": {
         "getAvailable": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/getAvailable-7834643574736c303761-build.zip"
+          "s3Key": "amplify-builds/getAvailable-444a7268363263484c54-build.zip"
         },
         "syncAvailable": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/syncAvailable-6a6f6b712b52526a4141-build.zip",
+          "s3Key": "amplify-builds/syncAvailable-4f4a4571516652545264-build.zip",
           "secretsPathAmplifyAppId": "d30y4zvewr5g0k"
         },
         "getSheets": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/getSheets-344675716a7035596a41-build.zip"
+          "s3Key": "amplify-builds/getSheets-66376c686f4a65644b6b-build.zip"
         },
         "syncSheets": {
           "deploymentBucketName": "amplify-dps-dev-152631-deployment",
-          "s3Key": "amplify-builds/syncSheets-4b2b694c78525442645a-build.zip"
+          "s3Key": "amplify-builds/syncSheets-4f4e5369763241414f6e-build.zip"
         }
       }
     }
