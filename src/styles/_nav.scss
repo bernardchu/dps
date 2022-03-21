@@ -28,8 +28,11 @@ nav {
 
   a {
     color: $text-color;
-    text-transform: uppercase;
     text-decoration: none;
+  }
+  
+  &.nav a {
+    text-transform: uppercase;
   }
 
   ul.subnav {

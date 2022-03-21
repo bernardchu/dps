@@ -10,7 +10,7 @@ export interface IDpsHamburgerMenuState {
 }
 
 export default class DpsHamburgerMenu extends React.PureComponent<{}, IDpsHamburgerMenuState> {
-  private static hiddenWidths = 'hidden-md hidden-lg';
+  private static hiddenWidths = 'hidden-sm hidden-md hidden-lg';
   constructor(props: any) {
     super(props)
     this.state = {

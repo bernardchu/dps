@@ -9,7 +9,7 @@ interface IDpsNavProps {
 class DpsNav extends React.Component<IDpsNavProps> {
   render() {
     return (
-      <nav className="hidden-sm hidden-xs">
+      <nav className="hidden-xs nav">
         {this.props.routes.map((route) => <DpsNavTopRoute route={route} key={route.name} />)}
       </nav>
     );
