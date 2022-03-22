@@ -13,6 +13,7 @@
 
 .hero {
   @include flex-centered();
+  justify-content: space-between;
 
   .logo {
     img {

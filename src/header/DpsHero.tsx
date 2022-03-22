@@ -4,8 +4,8 @@ import Imgix from 'react-imgix';
 import DpsHamburgerMenu from '../hamburger/DpsHamburgerMenu';
 
 class DpsHero extends React.Component {
-  private static SOCIAL_ICON_WIDTH = 41; // px
-  private static INSTAGRAM_BG_COLOR = 'cd486b';
+  public static SOCIAL_ICON_WIDTH = 41; // px
+  public static INSTAGRAM_BG_COLOR = 'cd486b';
 
   render() {
     return (
@@ -25,7 +25,7 @@ class DpsHero extends React.Component {
         <div className="col-md-8 col-sm-9 title hidden-sm hidden-xs">
           <h1>Doggie Protective Services</h1>
         </div>
-        <div className="social col-md-2 col-sm-3">
+        <div className="social col-md-2 col-sm-3 hidden-sm hidden-xs">
           <div className="small">
             <a href="https://twitter.com/dpsrescue" target="_blank" rel="noreferrer">
               <Imgix
