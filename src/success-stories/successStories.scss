@@ -1,10 +1,10 @@
 @import '../styles/common';
 
 .success-stories {
-  img {
-    width: 100%;
+  .success-stories-dog {
+    @include flex-centered;
+    flex-direction: column;
   }
-
   .name {
     text-align: center;
     font-weight: bold;
