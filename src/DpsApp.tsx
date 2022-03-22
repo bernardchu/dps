@@ -40,6 +40,11 @@ function DpsApp() {
                 maxWidth: '80vw',
                 width: '500px'
               }
+            },
+            Overlay: {
+              style: {
+                zIndex: 1001
+              }
             }
           }
         }
