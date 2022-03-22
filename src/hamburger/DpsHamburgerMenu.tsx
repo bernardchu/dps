@@ -30,6 +30,7 @@ export default class DpsHamburgerMenu extends React.PureComponent<{}, IDpsHambur
   public render() {
     return (
       <Menu className={DpsHamburgerMenu.hiddenWidths}
+        disableAutoFocus
         isOpen={this.state.menuOpen}
         onStateChange={(state) => this.handleStateChange(state)}
         burgerButtonClassName={DpsHamburgerMenu.hiddenWidths}>
