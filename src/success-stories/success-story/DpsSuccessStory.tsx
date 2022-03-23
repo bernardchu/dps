@@ -33,7 +33,7 @@ export function DpsSuccessStory() {
   }, [id]);
 
   return (
-    <div className="row success-story">
+    <div className="row success-story container">
       {!loaded && <DpsLoading />}
       {loaded && <>
         <h2 className="name">{pet.name}</h2>
