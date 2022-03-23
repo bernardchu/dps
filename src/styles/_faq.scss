@@ -16,6 +16,7 @@
 
       a {
         @include button();
+        display: inline-block;
       }
     }
   }
