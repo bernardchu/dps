@@ -25,14 +25,14 @@ export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCar
     adaptiveHeight: true,
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 840, // weirdly arbitrary number but at this point it's just a bit too wide for two slides
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
