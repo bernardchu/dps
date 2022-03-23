@@ -12,7 +12,7 @@
 
       > img {
         height: 350px;
-        max-width: 100%;
+        max-width: 99%; // on mobile, you can see a sliver of the next image unless this is included.
       }
 
       > div.adoptable-info-overlay {
