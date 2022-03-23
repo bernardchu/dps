@@ -18,7 +18,7 @@ export default class DpsHome extends React.PureComponent {
     return (
       <>
         <div className="row">
-          <div className="adoptable col-md-12">
+          <div className="adoptable col-md-12 container">
             <DpsHomeCarousel />
             <Link to={`${routes.adopt.path}/${routes.adopt.children!.available.path}`} className="hero-button col-xs-12">See All
               Available Dogs and Cats</Link>
