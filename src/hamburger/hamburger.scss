@@ -22,6 +22,10 @@ nav.bm-item-list {
       transition: max-height 0.3s ease;
       max-height: 400px;
     }
+
+    .bm-child-list-item {
+      padding: .5em 0;
+    }
   }
 }
 
