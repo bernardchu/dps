@@ -42,7 +42,7 @@ export default function DpsSuccessStories() {
       {loaded && stories?.map(story =>
         <div className="col-xs-6 col-sm-4 col-md-3 col-lg-2 success-stories-dog" key={story.id}>
           <Link to={`${routes.successStories.children!.successStory.path}/?id=${story.id}`} className="img-container">
-            <Imgix src={story.photo1} imgixParams={{ crop: 'faces,top', fit: 'crop' }} height={200} width={200} htmlAttributes={{ alt: story.name }} />
+            <Imgix src={story.photo1} imgixParams={{ crop: 'faces,top', fit: 'crop' }} height={180} width={180} htmlAttributes={{ alt: story.name }} />
           </Link>
           <div className="name">{story.name}</div>
         </div>)}
