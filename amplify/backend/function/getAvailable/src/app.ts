@@ -17,6 +17,7 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
   tableName = tableName + '-' + process.env.ENV;
 }
 
+const imgixDomain = 'dps-wp.imgix.net';
 const partitionKeyName = "id";
 const partitionKeyType = "S";
 const sortKeyName = "";
@@ -62,7 +63,7 @@ app.get(path + '/all', async function (req, res) {
   }).promise();
   const imgixSecureUrlToken = imgixKeyParameter.Parameter.Value;
   const imgixClient = new ImgixClient({
-    domain: 'dps-wp.imgix.net',
+    domain: imgixDomain,
     secureURLToken: imgixSecureUrlToken,
   });
   // makes more sense for these to be dictated by the consumer of the API but these images must be signed so
@@ -129,7 +130,7 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, async function (req, res) 
   }).promise();
   const imgixSecureUrlToken = imgixKeyParameter.Parameter.Value;
   const imgixClient = new ImgixClient({
-    domain: 'dps-wp.imgix.net',
+    domain: imgixDomain,
     secureURLToken: imgixSecureUrlToken,
   });
   // makes more sense for these to be dictated by the consumer of the API but these images must be signed so
