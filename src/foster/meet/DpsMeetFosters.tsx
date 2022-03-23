@@ -37,7 +37,7 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
             people who help our rescue save lives!</p>
         </div>
         <div className="col-sm-4 hidden-xs">
-          <Imgix className="no-border fosters" src="https://dps-festive.imgix.net/images/foster/fosters/fosters-header.jpg" htmlAttributes={{ alt: 'fosters' }} />
+          <Imgix className="no-border fosters" src="/images/foster/fosters/fosters-header.jpg" htmlAttributes={{ alt: 'fosters' }} />
         </div>
       </div>
       <div className="row spotlight card feature">

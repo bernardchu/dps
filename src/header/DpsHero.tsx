@@ -10,13 +10,13 @@ class DpsHero extends React.Component {
       <div className="row hero">
         <Link to="/" className="logo col-md-2 hidden-sm hidden-xs">
           <Imgix
-            src="https://dps-festive.imgix.net/images/logo-v2.png"
+            src="/images/logo-v2.png"
             imgixParams={{ rect: '210,400,390,230', auto: 'format' }}
             htmlAttributes={{ alt: 'DPS Logo' }} />
         </Link>
         <Link to="/" className="logo hidden-md hidden-lg col-sm-10 col-xs-10">
           <Imgix
-            src="https://dps-festive.imgix.net/images/logo-v2.png"
+            src="/images/logo-v2.png"
             imgixParams={{ rect: '210,400,690,230', auto: 'format' }}
             htmlAttributes={{ alt: 'DPS Logo' }} />
         </Link>

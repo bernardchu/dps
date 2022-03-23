@@ -11,7 +11,7 @@ export default class DpsHome extends React.PureComponent {
   private static merchFeature: IDpsHomeFeatureCardData = {
     title: 'Get DPS Merchandise at Our Online Store',
     externalLink: 'https://www.bonfire.com/store/dpsrescue/',
-    imgSrc: 'https://dps-festive.imgix.net/images/home/merch.png?auto=format&pad=20&bg=2E8C69',
+    imgSrc: '/images/home/merch.png?auto=format&pad=20&bg=2E8C69',
   }
 
   public render() {

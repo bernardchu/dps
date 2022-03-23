@@ -9,6 +9,8 @@ import MicroModal from 'react-micro-modal';
 import 'react-micro-modal/dist/index.css';
 import DpsDonateModalContent from './DpsDonateModal';
 import { routes } from './routing/routes';
+import { ImgixProvider } from 'react-imgix';
+import { imgixDomain } from './common/DpsImgixDomain';
 
 function DpsApp() {
   const location = useLocation();
@@ -24,33 +26,35 @@ function DpsApp() {
 
   return (
     <div className="container">
-      <DpsHeader />
-      <DpsRoutes />
-      <Outlet />
-      <DpsFooter />
-      {!isDonateState && <MicroModal
-        open={modalOpen}
-        openInitially={false}
-        closeOnOverlayClick={true}
-        closeOnEscapePress={true}
-        overrides={
-          {
-            Dialog: {
-              style: {
-                maxWidth: '80vw',
-                width: '500px'
-              }
-            },
-            Overlay: {
-              style: {
-                zIndex: 1001
+      <ImgixProvider domain={imgixDomain}>
+        <DpsHeader />
+        <DpsRoutes />
+        <Outlet />
+        <DpsFooter />
+        {!isDonateState && <MicroModal
+          open={modalOpen}
+          openInitially={false}
+          closeOnOverlayClick={true}
+          closeOnEscapePress={true}
+          overrides={
+            {
+              Dialog: {
+                style: {
+                  maxWidth: '80vw',
+                  width: '500px'
+                }
+              },
+              Overlay: {
+                style: {
+                  zIndex: 1001
+                }
               }
             }
           }
-        }
-        handleClose={() => setModalOpen(false)}>
-        {(close) => <DpsDonateModalContent closeModal={close} />}
-      </MicroModal>}
+          handleClose={() => setModalOpen(false)}>
+          {(close) => <DpsDonateModalContent closeModal={close} />}
+        </MicroModal>}
+      </ImgixProvider>
     </div>
   );
 }

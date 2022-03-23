@@ -15,19 +15,19 @@ export default class DpsSocials extends React.PureComponent<IDpsSocialsProps> {
         <div className="small">
           <a href="https://twitter.com/dpsrescue" target="_blank" rel="noreferrer">
             <Imgix
-              src="https://dps-festive.imgix.net/images/social-icons-twitter.png"
+              src="/images/social-icons-twitter.png"
               width={DpsSocials.SOCIAL_ICON_WIDTH}
               htmlAttributes={{ alt: 'Twitter @DPSRescue' }} />
           </a>
           <a href="https://www.facebook.com/DPSRescue" target="_blank" rel="noreferrer">
             <Imgix
-              src="https://dps-festive.imgix.net/images/social-icons-facebook.png"
+              src="/images/social-icons-facebook.png"
               width={DpsSocials.SOCIAL_ICON_WIDTH}
               htmlAttributes={{ alt: 'DPSRescue Facebook' }} />
           </a>
           <a href="https://www.instagram.com/dpsrescue/" target="_blank" rel="noreferrer">
             <Imgix
-              src="https://dps-festive.imgix.net/images/social-icons-instagram.png"
+              src="/images/social-icons-instagram.png"
               width={DpsSocials.SOCIAL_ICON_WIDTH}
               imgixParams={{ pad: 7, bg: DpsSocials.INSTAGRAM_BG_COLOR }}
               htmlAttributes={{ alt: 'DPSRescue Instagram' }} />
