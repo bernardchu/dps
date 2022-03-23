@@ -11,6 +11,7 @@ h2.application-heading {
 
   a {
     @include button();
+    margin: 0 .5em;
   }
 }
 
