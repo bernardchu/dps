@@ -21,7 +21,7 @@ export default class DpsDonate extends React.PureComponent {
           As a non-profit organization with no government funding, we rely on donations to continue to rescue dogs and cats in need. The average cost per dog is $627, which includes bailing them out of the shelter, a health check, spay or neuter, vaccinations, microchipping and spending several weeks at a foster home to evaluate before adoption.  There are so many ways to donate!
         </div>
         <div className="col-md-3 hidden-sm hidden-xs">
-          <Imgix src="/images/donate/donate-header.png"
+          <Imgix src="/donate/donate-header.png"
             width={300}
             htmlAttributes={{ alt: 'Mac' }} />
         </div>
@@ -54,7 +54,7 @@ export default class DpsDonate extends React.PureComponent {
         <h1>More Ways to Give</h1>
         <div className="sibling-tiles">
           {otherDonateRoutes.map(route => <Link className="donate-sibling-tile col-xs-6 col-md-3" key={route.name} to={`../${route.path}`}>
-            <Imgix src="/images/donate/donate-paw-print.png" width={300} />
+            <Imgix src="/donate/donate-paw-print.png" width={300} />
             {route.name}
           </Link>)}
         </div>

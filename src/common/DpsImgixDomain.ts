@@ -1,1 +1,1 @@
-export const imgixDomain = 'dps-festive.imgix.net';
+export const imgixDomain = 'dps-festive.imgix.net/images';

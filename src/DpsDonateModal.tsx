@@ -20,7 +20,7 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
         <main className="modal__content" id="modal-1-content">
           <div className="donate-modal-image-container">
             <Imgix
-              src="/images/donate/donate-mama-dog.jpg"
+              src="/donate/donate-mama-dog.jpg"
               width={300}
               htmlAttributes={{ alt: 'donate' }} />
           </div>
