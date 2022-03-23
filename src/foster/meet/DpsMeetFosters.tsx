@@ -54,7 +54,7 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
       </div>
       <div className="row fosters">
         {!loaded && <DpsLoading />}
-        {loaded && fosters.map(foster => <div className="col-md-4 col-sm-6 foster" key={foster.photo}>
+        {loaded && fosters.map(foster => <div className="col-md-4 col-sm-6 col-xs-12 foster" key={foster.photo}>
           <div className="col-xs-4 photo">
             <img src={foster.photo} alt={foster.name} title={foster.name} className="no-border fosters" />
           </div>
