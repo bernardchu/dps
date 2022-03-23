@@ -3,6 +3,7 @@ import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
 
 export interface IDpsIcuModalProps {
   animal: IDpsIcuAnimal;
+  closeModal: any;
 }
 
 export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> {
@@ -17,6 +18,7 @@ export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> 
               <h2 className="modal__title" id="modal-1-title">
                 {animal.name}
               </h2>
+              <span className="hand" onClick={() => this.props.closeModal()}>X</span>
             </header>
             <main className="modal__content" id="modal-1-content">
               <div dangerouslySetInnerHTML={{ __html: animal.bio }} />

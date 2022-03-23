@@ -42,7 +42,7 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
               closeOnEscapePress={true}
               disableFirstElementFocus={true}
               key={animal.photo}>
-              {() => <DpsIcuModal animal={animal} />}
+              {(close) => <DpsIcuModal animal={animal} closeModal={close} />}
             </MicroModal>)}
         </div>
       </div>
