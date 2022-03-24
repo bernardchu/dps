@@ -4,6 +4,7 @@ import { SheetDataProcessor } from './SheetDataProcessor';
 import { ISheet } from '../../common/ISheet';
 import { ISuccessStory, IDBSuccessStory } from '../../common/ISuccessStory';
 import _ = require('lodash');
+import SuccessStoriesSyncer from './successStoriesSyncer';
 
 /*
 Endpoints for syncing the sheets and successStories tables.
@@ -115,6 +116,11 @@ app.get(path, async function (req, res) {
  */
 app.get(path + '/success', async function (req, res) {
   try {
+    const successStoriesSyncer = new SuccessStoriesSyncer(successStoriesTableName, dynamodb, DYNAMODB_BATCH_LIMIT);
+    // get SS currently in DB
+    const currentStoryIds: string[] = await successStoriesSyncer.getDbSuccessStories();
+
+    // get SS in Google Sheet
     const dpsSheetsCredentialsParameter = await ssm.getParameter({
       Name: '/amplify/dpsGoogleSheetCredentials',
       WithDecryption: true,
@@ -127,57 +133,16 @@ app.get(path + '/success', async function (req, res) {
       credentials
     });
 
-    new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
-      spreadsheetId: spreadSheetId,
-      ranges: ['success!A:I'],
-      includeGridData: true
-    })
-      .then((sheetResponse) => {
-        const successStorySheet = sheetResponse.data.sheets[0];
-        const gridData: string[][] = SheetDataProcessor.simplify(successStorySheet.data[0].rowData)
-        const columns = [
-          'id',
-          'name',
-          'date',
-          'story',
-          'photo1',
-          'photo2',
-          'photo3',
-          'photo4',
-          'photo5'
-        ];
-        // TODO: basically a copy of SheetsMapper; is there a decent way to share code? Can't put into ../../common
-        const organized: ISuccessStory[] = gridData.map(row => {
-          return columns.reduce((obj, key, index) => {
-            obj[key as string] = row[index];
-            return obj;
-          }, {}) as unknown as ISuccessStory;
-        });
-        const byId: { [key: string]: ISuccessStory[] } = _.groupBy(organized, ss => ss.id);
-        const dbEntries: IDBSuccessStory[] = Object.keys(byId).map(id => {
-          return {
-            id,
-            stories: byId[id]
-          };
-        });
+    const incomingStories: IDBSuccessStory[] = await successStoriesSyncer.getSuccessStoriesFromSheet(credentials, client, spreadSheetId);
 
-        // Write to db
-        const batches = _.chunk(dbEntries, DYNAMODB_BATCH_LIMIT);
-        const requests: AWS.DynamoDB.BatchWriteItemInput[] = batches.map(batch => {
-          const RequestItems = {};
-          RequestItems[successStoriesTableName] = batch.map(story => {
-            return {
-              PutRequest: {
-                Item: story
-              }
-            }
-          });
-          return { RequestItems };
-        });
-        return Promise.all(requests.map(r => dynamodb.batchWrite(r).promise()));
-      })
+    // delete SS that are no longer in the sheet
+    const storyIdsToBeDeleted: string[] = currentStoryIds.filter(id => !incomingStories.find(s => s.id === id));
+    await successStoriesSyncer.deleteFromTable(storyIdsToBeDeleted);
+
+    // Write incoming SS to db
+    successStoriesSyncer.writeToDb(incomingStories)
       .then(responses => res.json({ success: responses, url: req.url }))
-      .catch(err => res.json({ error: err, url: req.url, body: req.body }))
+      .catch(err => res.json({ error: err, url: req.url, body: req.body }));
   } catch (err) {
     console.log(err);
     res.json({ error: err, url: req.url, body: req.body });
