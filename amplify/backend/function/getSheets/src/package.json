@@ -13,7 +13,17 @@
   },
   "scripts": {
     "amplify:generateGetSheets": "npm run ts",
-    "ts": "cd .. && tsc -p ./tsconfig.json && cd -"
+    "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
+    "mock:getDates": "npm run premock && amplify mock function getSheets --event src/testDates.json",
+    "mock:getFeatured": "npm run premock && amplify mock function getSheets --event src/testFeatured.json",
+    "mock:getFosters": "npm run premock && amplify mock function getSheets --event src/testFosters.json",
+    "mock:getICU": "npm run premock && amplify mock function getSheets --event src/testICU.json",
+    "mock:getNewsletters": "npm run premock && amplify mock function getSheets --event src/testNewsletters.json",
+    "mock:getSticky": "npm run premock && amplify mock function getSheets --event src/testSticky.json",
+    "mock:getSuccessAll": "npm run premock && amplify mock function getSheets --event src/testSuccessAll.json",
+    "mock:getSuccessById": "npm run premock && amplify mock function getSheets --event src/testSuccessById.json",
+    "mock:getVolunteers": "npm run premock && amplify mock function getSheets --event src/testVolunteers.json",
+    "premock": "npm run ts"
   },
   "author": "",
   "license": "ISC"
