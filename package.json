@@ -31,7 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "ts:backend": "cd amplify/backend/function/getAvailable/src && npm run ts; cd ../../getSheets/src && npm run ts; cd ../../syncAvailable/src && npm run ts; cd ../../syncSheets/src && npm run ts; cd ../../../../../"
   },
   "eslintConfig": {
     "extends": [
