@@ -16,7 +16,9 @@
   "scripts": {
     "test": "npm run ts && jest",
     "amplify:generateSyncAvailable": "npm run ts && npm run test",
-    "ts": "cd .. && tsc -p ./tsconfig.json && cd -"
+    "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
+    "mock:syncAvailable": "npm run premock && amplify mock function syncAvailable --event src/testEvent.json",
+    "premock": "npm run ts"
   },
   "author": "",
   "license": "ISC",
