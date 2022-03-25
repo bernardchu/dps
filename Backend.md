@@ -36,6 +36,7 @@ To run a lambda function locally:
 `npm run ts && amplify mock function <lambda name> --event path/to/event.json`, e.g.
 `npm run ts && amplify mock function syncAvailable --event src/testEvent.json`
 Relevent test event JSON files are present within the `src` directories of each lambda, though IDs might need to be updated for certain events such as getting an available animal by ID.
+The above has been condensed into `npm run mock:<something>` scripts for each lambda.
 Unfortunately there seems to be no way to debug within an IDE when running lambdas locally.
 It may be possible to do some better debugging when running test events through the AWS Lambda web interface but I haven't tried much.
 
