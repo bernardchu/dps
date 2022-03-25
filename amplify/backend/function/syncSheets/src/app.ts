@@ -49,6 +49,9 @@ const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 /**
  * Assumes the existence of a sheets-<env name> table.
+ * PUTs contents of all sheets except success stories into that table.
+ * Does not delete sheets from DB that are no longer in the Google sheet as
+ * sheet deletion is rare and none of these sheets are directly user-facing.
  */
 app.get(path, async function (req, res) {
   try {
