@@ -61,7 +61,7 @@ TODO: would be better as swagger, maybe.
 | /sheets/sticky            | Should return all sticky dogs but will probably be deprecated so just returns [] for now.               |
 | /sheets/success/all       | Returns an abbreviated view of all success stories.                                                     |
 | /sheets/success/object:id | Returns a detailed view of one success story.                                                           |
-| /sheets/sync/success      | Syncs the success stories sheet with the successStories database table.                                 |
+| /sheets/success/sync      | Syncs the success stories sheet with the successStories database table.                                 |
 | /sheets/sync              | Syncs all sheets except the success stories sheet.                                                      |
 
 ### Tests

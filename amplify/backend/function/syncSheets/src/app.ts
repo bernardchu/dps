@@ -2,7 +2,7 @@ import * as AWS from 'aws-sdk';
 import { Auth, sheets_v4 } from 'googleapis';
 import { SheetDataProcessor } from './SheetDataProcessor';
 import { ISheet } from '../../common/ISheet';
-import { ISuccessStory, IDBSuccessStory } from '../../common/ISuccessStory';
+import { IDBSuccessStory } from '../../common/ISuccessStory';
 import _ = require('lodash');
 import SuccessStoriesSyncer from './successStoriesSyncer';
 
@@ -32,7 +32,7 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
   successStoriesTableName = successStoriesTableName + '-' + process.env.ENV;
 }
 
-const path = "/sheets/sync";
+const path = "/sheets";
 // declare a new express app
 var app = express()
 app.use(bodyParser.json())
@@ -54,7 +54,7 @@ const scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
  * Does not delete sheets from DB that are no longer in the Google sheet as
  * sheet deletion is rare and none of these sheets are directly user-facing.
  */
-app.get(path, async function (req, res) {
+app.get(path + '/sync', async function (req, res) {
   try {
     const dpsSheetsCredentialsParameter = await ssm.getParameter({
       Name: '/amplify/dpsGoogleSheetCredentials',
@@ -114,7 +114,7 @@ app.get(path, async function (req, res) {
  * Assumes the existence of a successStories-<env name> table.
  * Massages sheet data into IDBSuccessStory[] and saves in DB.
  */
-app.get(path + '/success', async function (req, res) {
+app.get(path + '/success/sync', async function (req, res) {
   try {
     const successStoriesSyncer = new SuccessStoriesSyncer(successStoriesTableName, dynamodb, DYNAMODB_BATCH_LIMIT);
     // get SS currently in DB
