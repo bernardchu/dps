@@ -30,6 +30,14 @@ To sync success stories use:
 * https://api.dpsrescue.com/sheets/success/sync (prod)
 * https://api.dpsrescue.info/sheets/success/sync (dev)
 
+To sync from Rescue Groups use:
+* https://api.dpsrescue.com/available/sync (prod)
+* https://api.dpsrescue.info/available/sync (dev)
+
+To check animals use:
+* https://api.dpsrescue.com/available/all (prod)
+* https://api.dpsrescue.info/available/all (dev)
+
 ## Development Process
 
 ### Environments
