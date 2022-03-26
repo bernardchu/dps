@@ -28,6 +28,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/sheets/success/sync": {
+      "name": "/sheets/success/sync",
+      "lambdaFunction": "syncSheets",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
