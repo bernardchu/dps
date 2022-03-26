@@ -11,6 +11,8 @@ DNS for the frontend can be set up by following the instructions for [adding cus
 
 Since we use `react-router`, to make proper use of HTML5 pushState, follow the directions [here](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa) to ensure that direct links work correctly (this setting is in the Amplify console, left side menu, under "Rewrites and redirects").
 
+You can point the frontend at different backends by setting the Environment Variable on the app, e.g. `API_URL` => `https://api.dpsrescue.com/`.
+
 ## Backend
 Deploys automatically with `amplify push`.
 However, this simply bundles your local code and deploys it (there is no cloud build step) so be sure that TypeScript is compiled before pushing (use `npm run install:backend && npm run ts:backend` from [package.json](./package.json) to do all of it at once).
