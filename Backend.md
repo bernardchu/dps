@@ -20,7 +20,7 @@ See `app.ts` in each function's `src` directory for more info.
 
 ### TypeScript
 Amplify does not use TypeScript by default, but I prefer it so I added it.
-To compile TS for all the backend lambdas, use `npm run ts:backend` from [package.json](./package.json).
+To compile TS for all the backend lambdas, use `npm run ts:backend` from [package.json](./package.json) (use `npm run install:backend` to install TypeScript everywhere first, if you haven't).
 
 If you add a new lambda via `amplify update api`, you can TypeScript-ify it by copying over one of the existing `tsconfig.json` files and adding the following npm `scripts` to `package.json`:
 ```
