@@ -10,7 +10,7 @@ export default class DpsAboutUs extends React.PureComponent {
           <Imgix src="/about/about-group.jpg" htmlAttributes={{ alt: 'Group of volunteers' }} />
         </div>
         <div className="col-xs-12">
-          <p>Doggie Protective Services is a non-profit, volunteer-driven, animal
+          <p>Doggie Protective Services is a non-profit, volunteer-driven animal
             rescue organization. We are a 501(c)(3) rescue that was incorporated in
             2001. We rescue dogs of all breeds, ages, and sizes. Since our creation,
             we have helped over 12,000 dogs and cats find their forever homes.</p>
