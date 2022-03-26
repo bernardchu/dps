@@ -14,6 +14,8 @@ While this is feasible using a SQL database, DynamoDB has a lag for these operat
 Thus, we instead delete all items using Batch operations before adding new ones.
 The [Deployment](./Deployment#database-tables) doc contains more info about which tables should be added.
 
+DynamoDB current provision levels are best guesses. You will need to keep an eye on the monitoring to make sure provision values are not being exceeded.
+
 ## Lambdas
 ...are present in `amplify/backend/function`.
 See `app.ts` in each function's `src` directory for more info.
@@ -30,6 +32,9 @@ If you add a new lambda via `amplify update api`, you can TypeScript-ify it by c
 },
 ```
 (replace `GetSheets` above with the name of the new lambda)
+
+### EventBridge
+To ensure the available animals are getting sync'd regularly, we use EventBridge to call the available/sync endpoint every 5 minutes. It is very important to note that you must set the EventBridge retries to be 1 or more. Setting it to 0 will use the default 185 retries and this is stupid.
 
 ### Local development
 To run a lambda function locally:
