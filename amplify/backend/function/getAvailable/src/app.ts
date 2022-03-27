@@ -17,7 +17,7 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
   tableName = tableName + '-' + process.env.ENV;
 }
 
-const imgixDomain = 'dps-wp.imgix.net';
+const imgixDomain = 'dpsrescue-wp.imgix.net';
 const partitionKeyName = "id";
 const partitionKeyType = "S";
 const sortKeyName = "";
