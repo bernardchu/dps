@@ -45,6 +45,9 @@ The above has been condensed into `npm run mock:<something>` scripts for each la
 Unfortunately there seems to be no way to debug within an IDE when running lambdas locally.
 It may be possible to do some better debugging when running test events through the AWS Lambda web interface but I haven't tried much.
 
+### Google Sheets
+One-time setup: Follow these instructions to create a [Service Account](https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets). Once you've created a key, make sure you give the new Service Account email access to the Google Sheet. Then, download the key as JSON and upload that value into the AWS Parameter Store `dpsGoogleSheetCredentials`.
+
 ### Endpoints (all GET)
 TODO: would be better as swagger, maybe.
 | Path                      | Functionality                                                                                           |
