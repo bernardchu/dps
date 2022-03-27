@@ -31,8 +31,11 @@ Add the following parameters to AWS Systems Manager Parameter Store. You will on
 - `/amplify/imgixSecureUrlToken` is used to sign animal image URLs.
 - `/amplify/dpsGoogleSheetCredentials` is the JSON generated when a service account is created in order to give the application access to the Google Sheet containing the non-animal data.
 
-Amplify will create a bunch of IAM roles for the different lambdas in the backend; these roles need to be given permission to access these parameters in SSM.
-These roles generally look like `dpsLambdaRole<some hash>-<environment name>`. There is an existing policy in the DPS AWS account called LambdaSecrets that you can use to grant each Lambda role all the necessary permissions.
+### Lambda role permissions
+For each backend lambda, Amplify will create one IAM role to execute that lambda.
+These roles need to be given permission to access these parameters in Systems Manager and to perform certain operations in DynamoDB.
+Their names generally look like `dpsLambdaRole<some hash>-<environment name>`.
+There is an existing policy in the DPS AWS account called LambdaSecrets that you can use to grant each Lambda role all the necessary permissions.
 You can see the actual role used by a Lambda if you get a 500 error when attempting to test an endpoint and you view the error in CloudWatch.
 Attach a policy to these roles that gives the `GetParametersByPath`, `GetParameters`, and `GetParameter` actions for `Resources`: `"arn:aws:ssm:*:<account ID>:parameter/amplify/*"`.
 Example JSON:
@@ -53,6 +56,7 @@ Example JSON:
     ]
 }
 ```
+In addition, add permissions for DynamoDB `BatchWriteItem` (or simply grant access to all DynamoDB operations for simplicity) either to the same policy or in a different one.
 
 ### Google API
 We use the Google API to read the spreadsheet and sync data to our own databases.
