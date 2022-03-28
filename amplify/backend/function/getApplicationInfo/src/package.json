@@ -1,0 +1,27 @@
+{
+  "name": "getApplicationInfo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.845.0",
+    "aws-serverless-express": "^3.3.5",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@types/node": "^17.0.21",
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "amplify:generateGetApplicationInfo": "npm run ts",
+    "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
+    "mock:getDogInfo": "npm run premock && amplify mock function getApplicationInfo --event src/getDogInfo.json",
+    "mock:getCatInfo": "npm run premock && amplify mock function getAvailable --event src/getCatInfo.json",
+    "premock": "npm run ts"
+  },
+  "author": "",
+  "license": "ISC"
+}

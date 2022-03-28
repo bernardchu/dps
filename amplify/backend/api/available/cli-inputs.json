@@ -35,6 +35,20 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/application/dog": {
+      "name": "/application/dog",
+      "lambdaFunction": "getApplicationInfo",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/application/cat": {
+      "name": "/application/cat",
+      "lambdaFunction": "getApplicationInfo",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
