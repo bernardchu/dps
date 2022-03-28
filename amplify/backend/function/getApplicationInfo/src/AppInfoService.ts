@@ -86,7 +86,7 @@ export class ApplicationInfoService {
 
   constructor(private dynamodb: DynamoDB.DocumentClient, private availableTableName: string, private sheetsTableName: string) { }
 
-  public async getAnimals(species: species): Promise<{ name: string, species: species }[]> {
+  public async getAnimals(species: species): Promise<string[]> {
     const availableAttributesToGet: Array<keyof IAnimalFull> = [
       'name',
       'species'
@@ -97,7 +97,9 @@ export class ApplicationInfoService {
     }
     return this.dynamodb.scan(scanParams).promise()
       .then((data: AWS.DynamoDB.ScanOutput) => data.Items as unknown as { name: string, species: species }[])
-      .then(availableAnimals => availableAnimals.filter(a => a.species === species));
+      .then(availableAnimals => availableAnimals.filter(a => a.species === species))
+      .then(filteredAnimals => filteredAnimals.map(a => a.name))
+      .then(animalNames => animalNames.sort()); // assuming all names are going to be capitalized
   }
 
   public async getUpcomingSaturdayEvents(): Promise<IEvent[]> {
