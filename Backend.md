@@ -45,10 +45,14 @@ The above has been condensed into `npm run mock:<something>` scripts for each la
 Unfortunately there seems to be no way to debug within an IDE when running lambdas locally.
 It may be possible to do some better debugging when running test events through the AWS Lambda web interface but I haven't tried much.
 
-### Google Sheets
+### Adding new
+If the new lambda is meant to handle a new API endpoint, use `amplify update api` and add a lambda there, which will properly update settings for exposed routes on the API gateway.
+Otherwise `amplify add function` may suffice.
+
+## Google Sheets
 One-time setup: Follow these instructions to create a [Service Account](https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets). Once you've created a key, make sure you give the new Service Account email access to the Google Sheet. Then, download the key as JSON and upload that value into the AWS Parameter Store `dpsGoogleSheetCredentials`.
 
-### Endpoints (all GET)
+## Endpoints (all GET)
 TODO: would be better as swagger, maybe.
 | Path                      | Functionality                                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------------------------|
@@ -66,8 +70,10 @@ TODO: would be better as swagger, maybe.
 | /sheets/success/object:id | Returns a detailed view of one success story.                                                           |
 | /sheets/success/sync      | Syncs the success stories sheet with the successStories database table.                                 |
 | /sheets/sync              | Syncs all sheets except the success stories sheet.                                                      |
+| /application/dog          | Returns next coming adoption event info with names of available dogs (used by adoption form)            |
+| /application/cat          | Returns next coming adoption event info with names of available cats (used by adoption form)            |
 
-### Tests
+## Tests
 Most of the functionality is just moving data around from one place to another so it isn't tested.
 However the syncSheets code that parses the strange JavaScript-like API response is thoroughly tested.
 Tests are run as part of the `generateSyncSheets` script to ensure CI; any new tests that are added to other lambdas should be run during their corresponding `generate` npm scripts as well.
