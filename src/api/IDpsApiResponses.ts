@@ -12,29 +12,28 @@ export interface IDpsDatesApiResponse {
 }
 
 export interface IDpsAvailableIdResponse {
-  // numbers are 0 or 1 representing booleans
+  age: string;
+  bio: string[],
+  boilerplate: string[];
+  breed: string;
+  coatLength: string;
+  declawed: boolean;
+  gender: string;
+  goodWithCats: boolean;
+  goodWithDogs: boolean;
+  goodWithKids: boolean;
+  housetrained: boolean;
   id: string;
   name: string;
-  species: 'dog' | 'cat';
-  breed: string;
-  primary_breed: string;
-  secondary_breed: string;
-  age: string;
-  age_general: string;
-  gender: string;
-  video: string;
   pictures: string[];
-  coat_length: string;
+  primaryBreed: string;
+  secondaryBreed: string;
+  specialNeeds: boolean;
+  species: 'dog' | 'cat';
   upcoming: string;
-  boilerplate: string[];
+  age_general: string;
+  video: string;
   insurance: string;
-  bio: string[],
-  dogs: number;
-  cats: number;
-  kids: number;
-  special_needs: number;
-  housetrained: number;
-  declawed: number;
   last_updated: string;
   contact: string;
 }
