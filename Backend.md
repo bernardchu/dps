@@ -48,6 +48,7 @@ It may be possible to do some better debugging when running test events through 
 ### Adding new
 If the new lambda is meant to handle a new API endpoint, use `amplify update api` and add a lambda there, which will properly update settings for exposed routes on the API gateway.
 Otherwise `amplify add function` may suffice.
+Depending on what permissions you want your lambda to have, use `amplify update function` to set them properly before pushing to minimize chances of errors once pushed.
 
 ## Google Sheets
 One-time setup: Follow these instructions to create a [Service Account](https://robocorp.com/docs/development-guide/google-sheets/interacting-with-google-sheets). Once you've created a key, make sure you give the new Service Account email access to the Google Sheet. Then, download the key as JSON and upload that value into the AWS Parameter Store `dpsGoogleSheetCredentials`.

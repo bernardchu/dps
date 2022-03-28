@@ -23,6 +23,22 @@
     "storagesheetsArn": {
       "Type": "String",
       "Default": "storagesheetsArn"
+    },
+    "storageavailableName": {
+      "Type": "String",
+      "Default": "storageavailableName"
+    },
+    "storageavailableArn": {
+      "Type": "String",
+      "Default": "storageavailableArn"
+    },
+    "storageavailableStreamArn": {
+      "Type": "String",
+      "Default": "storageavailableStreamArn"
+    },
+    "storagesheetsStreamArn": {
+      "Type": "String",
+      "Default": "storagesheetsStreamArn"
     }
   },
   "Conditions": {
@@ -77,6 +93,24 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "STORAGE_AVAILABLE_NAME": {
+              "Ref": "storageavailableName"
+            },
+            "STORAGE_AVAILABLE_ARN": {
+              "Ref": "storageavailableArn"
+            },
+            "STORAGE_AVAILABLE_STREAMARN": {
+              "Ref": "storageavailableStreamArn"
+            },
+            "STORAGE_SHEETS_NAME": {
+              "Ref": "storagesheetsName"
+            },
+            "STORAGE_SHEETS_ARN": {
+              "Ref": "storagesheetsArn"
+            },
+            "STORAGE_SHEETS_STREAMARN": {
+              "Ref": "storagesheetsStreamArn"
             }
           }
         },
@@ -179,6 +213,79 @@
                 "dynamodb:PutItem",
                 "dynamodb:UpdateItem",
                 "dynamodb:DeleteItem"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storagesheetsArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storagesheetsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageavailableArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageavailableArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query"
               ],
               "Resource": [
                 {
