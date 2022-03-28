@@ -19,7 +19,7 @@
     "amplify:generateGetApplicationInfo": "npm run ts",
     "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
     "mock:getDogInfo": "npm run premock && amplify mock function getApplicationInfo --event src/getDogInfo.json",
-    "mock:getCatInfo": "npm run premock && amplify mock function getAvailable --event src/getCatInfo.json",
+    "mock:getCatInfo": "npm run premock && amplify mock function getApplicationInfo --event src/getCatInfo.json",
     "premock": "npm run ts"
   },
   "author": "",
