@@ -45,3 +45,5 @@ amplify/backend/function/getSheets/src/**/*.js
 amplify/backend/function/getSheets/src/**/*.test.js
 amplify/backend/function/syncSheets/src/**/*.js
 amplify/backend/function/syncSheets/src/**/*.test.js
+amplify/backend/function/getApplicationInfo/src/**/*.js
+amplify/backend/function/getApplicationInfo/src/**/*.test.js
