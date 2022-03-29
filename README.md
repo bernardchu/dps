@@ -41,7 +41,10 @@ To check animals use:
 ## Development Process
 
 ### Environments
-Frontend changes will automatically deploy to amplify once the code is merged into the appropriate branch. Backend changes need to be pushed with `amplify push` from a terminal.
+Frontend changes will automatically deploy to amplify once the code is merged into the appropriate branch.
+Backend changes need to be pushed with `amplify push` from a terminal.
+More complex backend changes, such as creation of a new lambda, may not be immediately reflected in a local `amplify status` when checking out an updated branch.
+`amplify env checkout <your current env>` should resolve this.
 
 #### Production
 There are two amplify apps, one for the [frontend](https://us-east-1.console.aws.amazon.com/amplify/home?region=us-east-1#/d2nmfhy26u2704) and one for the [backend](https://us-east-1.console.aws.amazon.com/amplify/home?region=us-east-1#/dc11q6d25hrn6), for dumb reasons.
@@ -59,7 +62,7 @@ You can access the dev frontend by hitting dpsrescue.info and the backend is cur
 1. To deploy the backend to dev, run `npm run ts:backend; amplify push`.
 1. To deploy the frontend to dev, force push the branch to `amp`: `git push -f origin <branch-main>:amp`. Amplify will detect the change and automatically push a new build.
 1. Once you are happy with your changes, create a PR from `<branch-name>` to `main`. Merge the PR. This will automatically deploy the frontend.
-1. If you also have backend changes that need to be deployed, make sure your local repo is up to date with `main` and do `npm run ts:backend; amplify push`
+1. If you also have backend changes that need to be deployed, make sure your local repo is up to date with `main` and do `npm run ts:backend && amplify env checkout <whichever env> && amplify push`
 
 ### Images
 We use [imgix](https://docs.imgix.com/) to manage the vast majority of our images.
