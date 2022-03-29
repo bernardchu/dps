@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "amplify:generateSyncSheets": "npm run ts",
+    "amplify:syncSheets": "npm run ts",
     "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
     "mock:syncSheets": "npm run premock && amplify mock function syncSheets --event src/testSyncSheets.json",
     "mock:syncSuccess": "npm run premock && amplify mock function syncSheets --event src/testSyncSuccess.json",

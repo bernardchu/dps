@@ -16,7 +16,7 @@
     "typescript": "^4.5.5"
   },
   "scripts": {
-    "amplify:generateGetApplicationInfo": "npm run ts",
+    "amplify:getApplicationInfo": "npm run ts",
     "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
     "mock:getDogInfo": "npm run premock && amplify mock function getApplicationInfo --event src/getDogInfo.json",
     "mock:getCatInfo": "npm run premock && amplify mock function getApplicationInfo --event src/getCatInfo.json",

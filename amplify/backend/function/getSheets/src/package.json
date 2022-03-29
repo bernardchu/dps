@@ -12,7 +12,7 @@
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "amplify:generateGetSheets": "npm run ts",
+    "amplify:getSheets": "npm run ts",
     "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
     "mock:getDates": "npm run premock && amplify mock function getSheets --event src/testDates.json",
     "mock:getFeatured": "npm run premock && amplify mock function getSheets --event src/testFeatured.json",

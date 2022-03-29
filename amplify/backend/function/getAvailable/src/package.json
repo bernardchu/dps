@@ -17,7 +17,7 @@
     "typescript": "^4.5.5"
   },
   "scripts": {
-    "amplify:generateGetAvailable": "npm run ts",
+    "amplify:getAvailable": "npm run ts",
     "ts": "cd .. && tsc -p ./tsconfig.json && cd -",
     "mock:getAllAvailable": "npm run premock && amplify mock function getAvailable --event src/getAllEvent.json",
     "mock:getOneAvailable": "npm run premock && amplify mock function getAvailable --event src/getOneEvent.json",
