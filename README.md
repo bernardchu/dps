@@ -65,3 +65,5 @@ You can access the dev frontend by hitting dpsrescue.info and the backend is cur
 We use [imgix](https://docs.imgix.com/) to manage the vast majority of our images.
 We serve many images that we don't control (e.g. the adoptable animals) and their API simplifies the challenge of consistency across images.
 Ensure that all image URLs use https when filling out the Google Sheet.
+
+To add a new image, upload them into our [S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/dpsrescue?region=us-east-1&tab=objects#). They are organized by website section.
