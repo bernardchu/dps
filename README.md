@@ -59,10 +59,11 @@ You can access the dev frontend by hitting dpsrescue.info and the backend is cur
 ## Git Workflow
 1. Create a feature branch
 1. Get the feature branch locally `git pull; git checkout <branch-name>; git pull`
-1. To deploy the backend to dev, run `npm run install:all; npm run ts:backend; amplify push`.
-1. To deploy the frontend to dev, force push the branch to `amp`: `git push -f origin <branch-main>:amp`. Amplify will detect the change and automatically push a new build.
-1. Once you are happy with your changes, create a PR from `<branch-name>` to `main`. Merge the PR. This will automatically deploy the frontend.
-1. If you also have backend changes that need to be deployed, make sure your local repo is up to date with `main` and do `npm run ts:backend && amplify env checkout <whichever env> && amplify push`
+2. Make sure you are using the amplify dev env: `amplify env checkout dev`
+3. To deploy the backend to dev, run `npm run install:all; npm run ts:backend; amplify push`.
+4. To deploy the frontend to dev, force push the branch to `amp`: `git push -f origin <branch-main>:amp`. Amplify will detect the change and automatically push a new build.
+5. Once you are happy with your changes, create a PR from `<branch-name>` to `main`. Merge the PR. This will automatically deploy the frontend.
+6. If you also have backend changes that need to be deployed, make sure your local repo is up to date with `main` and do `npm run ts:backend && amplify env checkout prod && amplify push`
 
 ### Images
 We use [imgix](https://docs.imgix.com/) to manage the vast majority of our images.
