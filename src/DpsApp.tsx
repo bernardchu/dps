@@ -15,7 +15,10 @@ import { imgixDomain } from './common/DpsImgixDomain';
 function DpsApp() {
   const location = useLocation();
   // don't show the donate modal if they open the page on a donate route
-  const isDonateState = location.pathname.indexOf(routes.donate.path) > -1;
+  // currently only searches within top-level routes
+  const hideDonateRoutes = Object.keys(routes).map(key => routes[key]).filter(route => route.hideDonate);
+  const hideDonatePaths = hideDonateRoutes.map(route => route.path);
+  const isHiddenDonateRoute = hideDonatePaths.some(path => location.pathname.indexOf(path) > -1);
   const modalState = useState<boolean>(false);
   const modalOpen: boolean = modalState[0];
   const setModalOpen = modalState[1];
@@ -31,7 +34,7 @@ function DpsApp() {
         <DpsRoutes />
         <Outlet />
         <DpsFooter />
-        {!isDonateState && <MicroModal
+        {!isHiddenDonateRoute && <MicroModal
           open={modalOpen}
           openInitially={false}
           closeOnOverlayClick={true}

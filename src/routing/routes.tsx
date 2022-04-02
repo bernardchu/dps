@@ -21,6 +21,7 @@ import DpsSuccessStory from "../success-stories/success-story/DpsSuccessStory";
 import DpsSponsor from "../donate/sponsor/DpsSponsor";
 import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching";
 import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
+import DpsPrint from "../print/DpsPrint";
 
 export function hasSubnavChildren(route: IDpsRoute): boolean {
   if (!route.children) { return false }
@@ -73,6 +74,13 @@ export const routes: { [key: string]: IDpsRoute } = {
     element: <DpsHome />,
     inNav: true,
     navOrder: 0
+  },
+  print: {
+    name: 'Print',
+    path: 'print',
+    element: <DpsPrint />,
+    inNav: false,
+    hideDonate: true
   },
   adopt: {
     name: 'Adopt',
@@ -188,6 +196,7 @@ export const routes: { [key: string]: IDpsRoute } = {
     element: <Outlet />,
     inNav: true,
     navOrder: 4,
+    hideDonate: true,
     children: {
       donate: {
         name: 'Donate',

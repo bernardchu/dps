@@ -9,6 +9,7 @@ export interface IDpsRoute {
   element: ReactElement;
   inNav: boolean;
   navOrder?: number;
+  hideDonate?: boolean;
 }
 
 export interface IDpsNavRoute {
