@@ -23,6 +23,10 @@
     "storageavailableArn": {
       "Type": "String",
       "Default": "storageavailableArn"
+    },
+    "storageavailableStreamArn": {
+      "Type": "String",
+      "Default": "storageavailableStreamArn"
     }
   },
   "Conditions": {
@@ -77,6 +81,15 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "STORAGE_AVAILABLE_NAME": {
+              "Ref": "storageavailableName"
+            },
+            "STORAGE_AVAILABLE_ARN": {
+              "Ref": "storageavailableArn"
+            },
+            "STORAGE_AVAILABLE_STREAMARN": {
+              "Ref": "storageavailableStreamArn"
             }
           }
         },
@@ -179,6 +192,52 @@
                 "dynamodb:PutItem",
                 "dynamodb:UpdateItem",
                 "dynamodb:DeleteItem"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageavailableArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageavailableArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query"
               ],
               "Resource": [
                 {

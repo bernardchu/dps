@@ -3,5 +3,15 @@
   "secretNames": [
     "BAR",
     "RESCUEGROUPS_KEY"
-  ]
+  ],
+  "permissions": {
+    "storage": {
+      "available": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
 }
