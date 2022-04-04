@@ -4,6 +4,9 @@
     "storage": {
       "sheets": [
         "read"
+      ],
+      "successStories": [
+        "read"
       ]
     }
   }

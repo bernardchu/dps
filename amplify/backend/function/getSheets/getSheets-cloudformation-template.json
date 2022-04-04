@@ -27,6 +27,18 @@
     "storagesheetsStreamArn": {
       "Type": "String",
       "Default": "storagesheetsStreamArn"
+    },
+    "storagesuccessStoriesName": {
+      "Type": "String",
+      "Default": "storagesuccessStoriesName"
+    },
+    "storagesuccessStoriesArn": {
+      "Type": "String",
+      "Default": "storagesuccessStoriesArn"
+    },
+    "storagesuccessStoriesStreamArn": {
+      "Type": "String",
+      "Default": "storagesuccessStoriesStreamArn"
     }
   },
   "Conditions": {
@@ -90,6 +102,15 @@
             },
             "STORAGE_SHEETS_STREAMARN": {
               "Ref": "storagesheetsStreamArn"
+            },
+            "STORAGE_SUCCESSSTORIES_NAME": {
+              "Ref": "storagesuccessStoriesName"
+            },
+            "STORAGE_SUCCESSSTORIES_ARN": {
+              "Ref": "storagesuccessStoriesArn"
+            },
+            "STORAGE_SUCCESSSTORIES_STREAMARN": {
+              "Ref": "storagesuccessStoriesStreamArn"
             }
           }
         },
@@ -249,6 +270,33 @@
                     [
                       {
                         "Ref": "storagesheetsArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Get*",
+                "dynamodb:BatchGetItem",
+                "dynamodb:List*",
+                "dynamodb:Describe*",
+                "dynamodb:Scan",
+                "dynamodb:Query"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storagesuccessStoriesArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storagesuccessStoriesArn"
                       },
                       "index/*"
                     ]

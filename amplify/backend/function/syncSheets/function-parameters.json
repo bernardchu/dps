@@ -1,3 +1,19 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "sheets": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "successStories": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
 }
