@@ -7,6 +7,10 @@
     "sheets": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
+    },
+    "successStories": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   },
   "function": {

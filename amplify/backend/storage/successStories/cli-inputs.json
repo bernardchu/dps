@@ -1,0 +1,10 @@
+{
+  "resourceName": "successStories",
+  "tableName": "successStories",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
