@@ -15,6 +15,14 @@ export type AmplifyDependentResourcesAttributes = {
             "PartitionKeyName": "string",
             "PartitionKeyType": "string",
             "Region": "string"
+        },
+        "successStories": {
+            "Name": "string",
+            "Arn": "string",
+            "StreamArn": "string",
+            "PartitionKeyName": "string",
+            "PartitionKeyType": "string",
+            "Region": "string"
         }
     },
     "function": {

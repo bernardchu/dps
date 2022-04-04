@@ -25,7 +25,10 @@ This will involve creating a domain in the API Gateway, which require reqruestin
 Then, you will need to configure the API mappings.
 
 ### Database tables
-Ensure that tables named `available` (primary key "id" - string), `sheets` (primary key "name" - string), and `successStories` (primary key "id" - string) all suffixed with `-<env name>` e.g. `available-prod` exist.
+Amplify should automatically create the necessary tables, but double-check after initial `amplify push` of a new environment that tables named `available` (primary key "id" - string), `sheets` (primary key "name" - string), and `successStories` (primary key "id" - string) all suffixed with `-<env name>` e.g. `available-prod` exist.
+Next, set read capacity and write capacity levels depending on expected load.
+For dev environments, very little is needed (5 and 5 for each table should be more than enough for each table).
+For production, as of 2022, 5 and 5 is sufficient for `sheets` and `successStories` and 20 read / 10 write suffices for `available`.
 
 ### Secrets
 Add the following parameters to AWS Systems Manager Parameter Store. You will only need to do this the first time you're deploying to an AWS account.
@@ -59,7 +62,9 @@ Example JSON:
     ]
 }
 ```
-In addition, add permissions for DynamoDB `BatchWriteItem` (or simply grant access to all DynamoDB operations for simplicity) either to the same policy or in a different one.
+If errors persist, there may be some dynamoDB permissions that fell through the cracks (amplify should set all permissions correctly during `push`).
+You may need to add more permissions depending on what operations each lambda is performing on which tables.
+Alternatively, for simplicity, simply grant access to all DynamoDB operations for simplicity) either to the same policy or in a different one, though this is a more dangerous practice.
 
 ### Google API
 We use the Google API to read the spreadsheet and sync data to our own databases.
