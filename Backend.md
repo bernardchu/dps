@@ -19,6 +19,7 @@ DynamoDB current provision levels are best guesses. You will need to keep an eye
 ## Lambdas
 ...are present in `amplify/backend/function`.
 See `app.ts` in each function's `src` directory for more info.
+There is some duplicated code that is not ideal, but sharing that code in a lambda layer [removes support](https://github.com/aws-amplify/amplify-cli/issues/9849) for `amplify mock ...` so for now that tradeoff is probably not worth it.
 
 ### TypeScript
 Amplify does not use TypeScript by default, but I prefer it so I added it.
