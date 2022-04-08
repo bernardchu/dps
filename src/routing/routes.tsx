@@ -23,6 +23,8 @@ import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching
 import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
 import DpsPrint from "../print/DpsPrint";
 
+const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
+
 export function hasSubnavChildren(route: IDpsRoute): boolean {
   if (!route.children) { return false }
   return Object.keys(route.children)
@@ -75,6 +77,13 @@ export const routes: { [key: string]: IDpsRoute } = {
     inNav: true,
     navOrder: 0
   },
+  rehome: {
+    name: 'Rehome',
+    path: 'rehome',
+    element: <DpsRedirect to={rehomeLink} />,
+    inNav: false,
+    navOrder: 0
+  },
   print: {
     name: 'Print',
     path: 'print',
@@ -120,7 +129,7 @@ export const routes: { [key: string]: IDpsRoute } = {
       rehome: {
         name: 'Rehome',
         path: 'rehome',
-        element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform" />,
+        element: <DpsRedirect to={rehomeLink} />,
         inNav: true,
         navOrder: 4
       },
