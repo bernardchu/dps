@@ -280,6 +280,11 @@ describe('Animal class', () => {
         ['2-year old', '2 years old'],
         ['3-4 year old', '3-4 years old'],
         ['10-11 years old', '10-11 years old'],
+        ['1 1/2 year old', '1 1/2 years old'],
+        ['1 1/2 years old', '1 1/2 years old'],
+        ['3 1/2 years old', '3 1/2 years old'],
+        ['3 1/2 months old', '3 1/2 months old'],
+        ['13 2/3 years old', '13 2/3 years old'],
       ])(
         'should parse "%s"',
         (incomingAge, expectedAge) => {

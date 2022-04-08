@@ -207,7 +207,7 @@ class AnimalDescriptionParser {
     'All cats are spayed/neutered, microchipped, FIV/FELV tested negative, shots current, dewormed, and on Advantage for fleas.'
   ];
   private static upcomingRegex = /^this\s(?:dog|cat|kitten|puppy)\swill\sbe\s/i;
-  private static ageRegex = /(\d+-?\d*)[\s-](weeks?|months?|years?) old/;
+  private static ageRegex = /(\d+(?:[\s]\d\/\d)?-?\d*)[\s-](weeks?|months?|years?) old/;
 
   private static unescape(raw: string): string {
     return raw.replace(/\\'/g, "'").replace(/\\"/g, '"');
