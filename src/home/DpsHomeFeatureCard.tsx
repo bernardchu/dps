@@ -12,7 +12,7 @@ export interface IDpsHomeFeatureCardProps {
  * an image, and an internal route. External links can be provided as well, though it would look
  * strange probably to include both internal and external.
  * 
- * For fancier features, DOM elements can be specified directly in the feature data instead of
+ * For fancier features, DOM elements can be specified directly in the body field instead of
  * or in addition to the basic body text.
  */
 export default class DpsHomeFeatureCard extends React.PureComponent<IDpsHomeFeatureCardProps> {
@@ -26,10 +26,10 @@ export default class DpsHomeFeatureCard extends React.PureComponent<IDpsHomeFeat
         {feature.body}
         <span className="featured_img">
           {feature.localPath && <Link to={feature.localPath}>
-            <Imgix src={feature.imgSrc} />
+            {feature.imgSrc && <Imgix src={feature.imgSrc} />}
           </Link>}
           {feature.externalLink && <a href={feature.externalLink}>
-            <Imgix src={feature.imgSrc} />
+            {feature.imgSrc && <Imgix src={feature.imgSrc} />}
           </a>}
         </span>
         <div>

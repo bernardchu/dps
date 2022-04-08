@@ -6,6 +6,6 @@ export interface IDpsHomeFeatureCardData {
   bodyText?: string;
   localPath?: string;
   externalLink?: string;
-  imgSrc: string;
+  imgSrc?: string;
   linkText?: string;
 }
