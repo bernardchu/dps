@@ -20,7 +20,7 @@ export default class DpsHome extends React.PureComponent {
       <p>We specialize in rescuing those that may be at risk of euthanasia, including pregnant and nursing mama dogs, medical cases, and the shy and shut down pups who do not thrive in the shelter environment.</p>
       <p>We don’t just rescue dogs! We also have a team that rescues cats and kittens, including bottle babies and nursing mama cats, and cares for them until they are old enough to be adopted.</p>
       <p>We hold biweekly Saturday meet and greet events from 12-3 pm at Pet Food Express in Palo Alto and host individual adoptions throughout the week by appointment. We welcome adopters from Northern CA and beyond; as long as you can come in person to meet and adopt your new family member, you’re more than welcome to adopt from DPS!</p>
-      <p>We are always in need of more foster homes and volunteers! Click <a href="/foster">here</a> to sign up to become a lifesaving foster home or <a href="/volunteer">here</a> to sign up to volunteer at our events, to join our transport team, or to learn other ways you can support DPS!</p>
+      <p>We are always in need of more foster homes and volunteers! Click <Link to={`${routes.foster.path}/${routes.foster.children!.faq.path}`}>here</Link> to sign up to become a lifesaving foster home or <Link to={`${routes.volunteer.path}/${routes.volunteer.children!.faq.path}`}>here</Link> to sign up to volunteer at our events, to join our transport team, or to learn other ways you can support DPS!</p>
     </div>
   }
 
