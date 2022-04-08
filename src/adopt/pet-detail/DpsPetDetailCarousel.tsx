@@ -14,8 +14,8 @@ export default class DpsPetDetailCarousel extends React.PureComponent<IDpsPetDet
       <div className="carousel">
         <Slider {...dpsBasicCarouselSettings as unknown as Settings}>
           {pet.pictures.map(pic => <img src={pic} alt={pet.name} title={pet.name} key={pic} />)}
-          {pet.video && <iframe title={pet.name} width="560" height="400" src={pet.video} frameBorder="0"
-            allow="autoplay; encrypted-media" allowFullScreen></iframe>}
+          {pet.video && <div className="auto-resizable-iframe"><div><iframe title={pet.name} width="560" height="400" src={pet.video} frameBorder="0"
+            allow="autoplay; encrypted-media" allowFullScreen></iframe></div></div>}
         </Slider>
       </div>
     );

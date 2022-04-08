@@ -1,7 +1,8 @@
 @import '../../styles/common';
 @import 'print';
 
-.meet-this-dog, .apply {
+.meet-this-dog,
+.apply {
   @include feature();
   margin-top: $padding-large;
 }
@@ -18,6 +19,26 @@
 
   .carousel {
     width: 90%;
+
+    // https://stackoverflow.com/questions/7737557/how-can-i-make-the-youtube-player-scale-to-the-width-of-the-page-but-also-keep-t
+    .auto-resizable-iframe {
+      max-width: 100%;
+      margin: 0px auto;
+    }
+
+    .auto-resizable-iframe>div {
+      position: relative;
+      padding-bottom: 75%;
+      height: 0px;
+    }
+
+    .auto-resizable-iframe iframe {
+      position: absolute;
+      top: 0px;
+      left: 1px; // otherwise you get a sliver of video present if you play the video and go to prev image
+      width: 99%; // otherwise you get a sliver of video present if you play the video and go to next image
+      height: 100%;
+    }
 
     img {
       border: none;
