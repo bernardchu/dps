@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import DpsApp from './DpsApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import ScrollToTop from './routing/ScrollToTop';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <DpsApp />
     </BrowserRouter>
   </React.StrictMode>,
