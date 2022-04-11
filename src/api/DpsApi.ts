@@ -1,3 +1,4 @@
+import { IDpsModalContent } from "../donate-modal/IDpsModalContent";
 import { IDpsFostersApiResponse } from "../model/IDpsFoster";
 import { IDpsIcuAnimal } from "../model/IDpsIcuAnimal";
 import { IDpsStickyDog } from "../model/IDpsStickyDog";
@@ -52,5 +53,9 @@ export default class DpsApi {
 
   public static getVolunteers(): Promise<IDpsVolunteerApiResponse> {
     return DpsApi.fetchAndReturnJson<IDpsVolunteerApiResponse>('sheets/volunteers');
+  }
+
+  public static getModalContent(): Promise<IDpsModalContent> {
+    return DpsApi.fetchAndReturnJson<IDpsModalContent>('sheets/modal');
   }
 }

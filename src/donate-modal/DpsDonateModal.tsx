@@ -2,13 +2,12 @@ import * as React from 'react';
 import { useState } from 'react';
 import MicroModal from 'react-micro-modal';
 import { useLocation } from 'react-router-dom';
+import DpsApi from '../api/DpsApi';
 import { routes } from '../routing/routes';
 import DpsDonateModalContent from './DpsDonateModalContent';
+import { IDpsModalContent } from './IDpsModalContent';
 
-export interface IDpsDonateModalProps {
-}
-
-export function DpsDonateModal(props: IDpsDonateModalProps) {
+export function DpsDonateModal() {
   const location = useLocation();
   // don't show the donate modal if they open the page on a donate route
   // currently only searches within top-level routes
@@ -19,9 +18,16 @@ export function DpsDonateModal(props: IDpsDonateModalProps) {
   const modalOpen: boolean = modalState[0];
   const setModalOpen = modalState[1];
 
+  const modalContentState = useState<IDpsModalContent>();
+  const modalContent: IDpsModalContent = modalContentState[0] as IDpsModalContent;
+  const setModalContent = modalContentState[1];
+
   React.useEffect(() => {
-    setTimeout(() => setModalOpen(true), 2000);
-  }, [setModalOpen]);
+    !isHiddenDonateRoute && !modalContent && DpsApi.getModalContent().then(content => {
+      !modalContent && setModalContent(content);
+      setTimeout(() => setModalOpen(true), 2000);
+    });
+  }, [setModalOpen, setModalContent, modalContent, isHiddenDonateRoute]);
 
   return (
     <>
@@ -46,7 +52,7 @@ export function DpsDonateModal(props: IDpsDonateModalProps) {
           }
         }
         handleClose={() => setModalOpen(false)}>
-        {(close) => <DpsDonateModalContent closeModal={close} />}
+        {(close) => <DpsDonateModalContent closeModal={close} content={modalContent} />}
       </MicroModal>}
     </>
   );
