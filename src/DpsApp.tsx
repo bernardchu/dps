@@ -7,7 +7,7 @@ import DpsHeader from './header/DpsHeader';
 import DpsRoutes from './routing/DpsRoutes';
 import MicroModal from 'react-micro-modal';
 import 'react-micro-modal/dist/index.css';
-import DpsDonateModalContent from './DpsDonateModal';
+import DpsDonateModalContent from './donate-modal/DpsDonateModalContent';
 import { routes } from './routing/routes';
 import { ImgixProvider } from 'react-imgix';
 import { imgixDomain } from './common/DpsImgixDomain';

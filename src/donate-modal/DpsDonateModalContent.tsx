@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from './routing/routes';
+import { routes } from '../routing/routes';
 import Imgix from 'react-imgix';
 
 interface IDpsDonateModalContentProps {
