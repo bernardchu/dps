@@ -28,7 +28,7 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
               width={300}
               htmlAttributes={{ alt: 'donate' }} />
           </div>
-          {bodyText.map(p => <p key={p}>{p}</p>)}
+          {bodyText}
           <Link onClick={() => this.props.closeModal()} to={`${routes.donate.path}/${routes.donate.children!.donate.path}`} className="hero-button col-xs-12">{buttonText || 'Donate Now'}</Link>
         </main>
       </>

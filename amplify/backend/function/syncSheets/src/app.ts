@@ -70,6 +70,7 @@ app.get(path + '/sync', async function (req, res) {
     const ranges = {
       'events': 'A:E',
       'sticky-dogs': 'A:D',
+      'modal': 'A:D',
       'volunteers': 'A:E',
       'fosters': 'A:C',
       'icu': 'A:C',

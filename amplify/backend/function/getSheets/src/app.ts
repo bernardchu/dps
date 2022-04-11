@@ -172,6 +172,27 @@ app.get(path + '/volunteers', function (req, res) {
     })
 });
 
+/*********
+ * Modal *
+ *********/
+interface IDpsModalContent {
+  heading: string;
+  bodyText: string;
+  imgUrl: string;
+  buttonText: string;
+}
+
+app.get(path + '/modal', function (req, res) {
+  getSheet('modal').then((sheet: ISheet) => {
+    const modalContent: IDpsModalContent = SheetsMapper.mapData(sheet.data, ['heading', 'bodyText', 'imgUrl', 'buttonText'])[0];
+    res.json(modalContent);
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not modal content: ' + err.message });
+    })
+});
+
 /***************
  * Sticky Dogs *
  ***************/
