@@ -26,14 +26,11 @@ export default function DpsSuccessStories() {
   const setLoaded = asyncState[1];
 
   React.useEffect(() => {
-    DpsApi.getSuccessStories().then((successStories) => {
+    !stories && DpsApi.getSuccessStories().then((successStories) => {
       setLoaded(true);
       setStories(successStories);
     });
-    // [] below prevents infinite loop of calling useEffect, but including setLoaded and setStories as deps as the
-    // linter suggests results in multiple calls to the API instead of 1. So the linter is disabled here.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [setLoaded, setStories, stories]);
 
   return (<>
     {isSuccessStoryState && <Outlet />}

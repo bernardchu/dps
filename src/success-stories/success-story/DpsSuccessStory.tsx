@@ -23,14 +23,11 @@ export function DpsSuccessStory() {
   const setLoaded = asyncState[1];
 
   React.useEffect(() => {
-    DpsApi.getSuccessStoryById(id!).then(p => {
+    !pet && DpsApi.getSuccessStoryById(id!).then(p => {
       setPet(new DpsSuccessStoryWrapper(p));
       setLoaded(true);
     });
-    // [id] below prevents infinite loop of calling useEffect, but including setLoaded and setPet as deps as the
-    // linter suggests results in 3 calls to the API instead of 1. So the linter is disabled here.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, [id, setPet, setLoaded, pet]);
 
   return (
     <div className="row success-story container">
@@ -39,7 +36,12 @@ export function DpsSuccessStory() {
         <h2 className="name">{pet.name}</h2>
         <div className="carousel col-xs-12 col-md-4">
           <Slider {...dpsBasicCarouselSettings as unknown as Settings}>
-            {pet.photos.map(pic => <Imgix src={pic} htmlAttributes={{ alt: pet.name, title: pet.name }} key={pic} width={380} />)}
+            {pet.photos.map(pic => <Imgix
+              src={pic}
+              htmlAttributes={{ alt: pet.name, title: pet.name }}
+              key={pic}
+              className="no-border"
+              width={380} />)}
           </Slider>
         </div>
         <div className="updates col-xs-12 col-md-8">

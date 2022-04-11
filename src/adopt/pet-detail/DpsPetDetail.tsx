@@ -31,14 +31,11 @@ export function DpsPetDetail() {
   const setLoaded = asyncState[1];
 
   React.useEffect(() => {
-    DpsApi.getAvailableById(id!).then(p => {
+    !pet && DpsApi.getAvailableById(id!).then(p => {
       setPet(new DpsDetailedPet(p));
       setLoaded(true);
     });
-    // [id] below prevents infinite loop of calling useEffect, but including setLoaded and setPet as deps as the
-    // linter suggests results in 3 calls to the API instead of 1. So the linter is disabled here.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  }, [id, setLoaded, setPet, pet]);
 
   return (
     <div className="row main">
