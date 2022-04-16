@@ -46,6 +46,7 @@ export default class DpsDonate extends React.PureComponent {
             <li>Blankets</li>
             <li>Dog beds​</li>
             <li>Flea Treatment (Frontline or Advantage)</li>
+            <li><a href="https://a.co/e0Fxj6f">Or check out our Amazon Wishlist</a></li>
           </ul>
         </div>
       </div>
