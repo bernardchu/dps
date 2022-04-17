@@ -23,6 +23,7 @@
     "mock:getSuccessAll": "npm run premock && amplify mock function getSheets --event src/testSuccessAll.json",
     "mock:getSuccessById": "npm run premock && amplify mock function getSheets --event src/testSuccessById.json",
     "mock:getVolunteers": "npm run premock && amplify mock function getSheets --event src/testVolunteers.json",
+    "mock:getModal": "npm run premock && amplify mock function getSheets --event src/testModal.json",
     "premock": "npm run ts"
   },
   "author": "",
