@@ -15,7 +15,10 @@ export default class DpsApi {
   }
 
   private static fetchAndReturnJson<T>(endpoint: string, params?: { [key: string]: string }): Promise<T> {
-    return fetch(DpsApi.assembleUrl(endpoint, params)).then((response: Response) => response.json());
+    return fetch(DpsApi.assembleUrl(endpoint, params)).then(async (response: Response) => {
+      if (response.ok) { return response.json(); }
+      return Promise.reject(await response.json());
+    });
   }
 
   public static getAvailableCompact(): Promise<IDpsAvailableApiResponse> {

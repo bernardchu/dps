@@ -23,10 +23,12 @@ export function DpsDonateModal() {
   const setModalContent = modalContentState[1];
 
   React.useEffect(() => {
-    !isHiddenDonateRoute && !modalContent && DpsApi.getModalContent().then(content => {
-      !modalContent && setModalContent(content);
-      setTimeout(() => setModalOpen(true), 2000);
-    });
+    !isHiddenDonateRoute && !modalContent && DpsApi.getModalContent()
+      .then(content => {
+        !modalContent && setModalContent(content);
+        setTimeout(() => setModalOpen(true), 2000);
+      })
+      .catch(err => console.log(err));
   }, [setModalOpen, setModalContent, modalContent, isHiddenDonateRoute]);
 
   return (

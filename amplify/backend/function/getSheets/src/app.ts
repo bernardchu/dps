@@ -190,7 +190,7 @@ app.get(path + '/modal', function (req, res) {
   })
     .catch(err => {
       res.statusCode = 500;
-      res.json({ error: 'Could not modal content: ' + err.message });
+      res.json({ error: 'Could not get modal content: ' + err.message });
     })
 });
 
