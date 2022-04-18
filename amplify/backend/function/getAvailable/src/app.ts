@@ -30,10 +30,11 @@ var app = express()
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
-// Enable CORS for all methods
+// Enable CORS for all methods, set cache-control
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "*")
+  res.set('Cache-control', `public, must-revalidate, max-age=${60 * 5 /* 5m */}`);
   next()
 });
 
