@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { paypalEmail } from '../../common/DpsConstants';
 import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
 
 export interface IDpsIcuModalProps {
@@ -26,7 +27,7 @@ export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> 
                 <form target="PayPal" action="https://www.paypal.com/cgi-bin/webscr"
                   method="post">
                   <input type="hidden" name="business"
-                    value="doggieprotectiveservices@earthlink.net" />
+                    value={paypalEmail} />
                   <input type="hidden" name="cmd" value="_donations" />
                   <input type="hidden"
                     name="item_name"
@@ -36,12 +37,12 @@ export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> 
                   <input type="hidden"
                     name="currency_code"
                     value="USD" />
-                  <input type="hidden" name="return" value="http://dpsrescue.com/" />
+                  <input type="hidden" name="return" value={window.location.origin} />
                   <input
                     type="hidden" name="cancel_return"
-                    value="http://dpsrescue.com/" />
+                    value={window.location.origin} />
                   <input type="hidden" name="receiver_email"
-                    value="doggieprotectiveservices@earthlink.net" />
+                    value={paypalEmail} />
                   <input type="hidden"
                     name="no_shipping"
                     value="1" />

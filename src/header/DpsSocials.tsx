@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Imgix from 'react-imgix';
+import { paypalEmail } from '../common/DpsConstants';
 
 export interface IDpsSocialsProps {
   className?: string;
@@ -35,7 +36,7 @@ export default class DpsSocials extends React.PureComponent<IDpsSocialsProps> {
         </div>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_donations" />
-          <input type="hidden" name="business" value="doggieprotectiveservices@earthlink.net" />
+          <input type="hidden" name="business" value={paypalEmail} />
           <input type="hidden" name="lc" value="US" />
           <input type="hidden" name="item_name" value="Doggie Protective Services" />
           <input type="hidden" name="no_note" value="0" />
