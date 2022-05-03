@@ -5,7 +5,7 @@ import DpsApi from '../api/DpsApi';
 import DpsLoading from '../common/DpsLoading';
 import { IDpsSuccessStoryCompact } from '../model/IDpsSuccessStory';
 import { routes } from '../routing/routes';
-import './successStories.scss';
+import './successStories.module.scss';
 import Imgix from 'react-imgix';
 
 /**

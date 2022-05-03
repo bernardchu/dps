@@ -5,7 +5,7 @@ import Slider, { Settings } from 'react-slick';
 import DpsApi from '../../api/DpsApi';
 import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
 import DpsSuccessStoryWrapper from '../../model/DpsSuccessStory';
-import './successStory.scss';
+import './successStory.module.scss';
 import Imgix from 'react-imgix';
 import DpsLoading from '../../common/DpsLoading';
 

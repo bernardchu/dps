@@ -6,7 +6,7 @@ import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsStickyDog } from '../../model/IDpsStickyDog';
 import DpsStickyDogContent from './DpsStickyDogContent';
-import './sticky.scss';
+import './sticky.module.scss';
 
 export interface IDpsStickyDogsState extends IDpsAsyncState {
   stickyDogs: IDpsStickyDog[]

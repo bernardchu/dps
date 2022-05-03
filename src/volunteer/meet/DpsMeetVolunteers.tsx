@@ -3,7 +3,7 @@ import DpsApi from '../../api/DpsApi';
 import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsVolunteer } from '../../model/IDpsVolunteer';
-import './meetVolunteers.scss';
+import './meetVolunteers.module.scss';
 
 interface IDpsMeetVolunteersState extends IDpsAsyncState {
   directors: IDpsVolunteer[];

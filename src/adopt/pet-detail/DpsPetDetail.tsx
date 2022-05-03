@@ -8,7 +8,7 @@ import { routes } from '../../routing/routes';
 import DpsPetDetailBasics from './DpsPetDetailBasics';
 import DpsPetDetailCarousel from './DpsPetDetailCarousel';
 import DpsPetDetailHeading from './DpsPetDetailHeading';
-import './pet-detail.scss'
+import './pet-detail.module.scss'
 
 /**
  * Shows details of one pet. A query param for id is used instead of a URL param (/pet-detail/?id=123 instead of /pet-detail/123)

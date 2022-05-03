@@ -4,7 +4,7 @@ import { IDpsAdoptable } from '../../model/IDpsAdoptable';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsAvailableApiResponse } from '../../api/IDpsApiResponses';
 import DpsAdoptableTile from './DpsAdoptableTile';
-import './available.scss'
+import './available.module.scss'
 import DpsLoading from '../../common/DpsLoading';
 
 export interface IDpsAdoptAvailableState extends IDpsAsyncState {

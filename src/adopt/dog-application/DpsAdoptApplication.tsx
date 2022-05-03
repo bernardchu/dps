@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '../../routing/routes';
-import './_application.scss';
+import './dogApplication.module.scss';
 
 export default class DpsAdoptApplication extends React.Component {
   public render() {

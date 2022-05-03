@@ -5,7 +5,7 @@ import { IDpsInHonorOfDonation, IDpsInHonorOfResponse } from '../../api/IDpsApiR
 import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import DpsInHonorOfTile from './DpsInHonorOfTile';
-import './inHonorOf.scss';
+import './inHonorOf.module.scss';
 
 interface IDpsInHonorOfState extends IDpsAsyncState {
   donations: IDpsInHonorOfDonation[]

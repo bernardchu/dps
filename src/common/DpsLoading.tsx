@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './loading.scss';
+import './loading.module.scss';
 
 export default class DpsLoading extends React.PureComponent {
   public render() {

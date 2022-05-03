@@ -1,9 +1,9 @@
 import * as React from 'react';
-import './donate.scss';
 import Imgix from 'react-imgix';
-import { routes } from '../../routing/routes';
-import { IDpsRoute } from '../../model/IDpsRoutes';
 import { Link } from 'react-router-dom';
+import { IDpsRoute } from '../../model/IDpsRoutes';
+import { routes } from '../../routing/routes';
+import './donate.module.scss';
 
 export default class DpsDonate extends React.PureComponent {
   private static isDonateRoute(route: IDpsRoute): boolean {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './contact.scss';
+import './contact.module.scss';
 import Imgix from 'react-imgix';
 
 export default class DpsContact extends React.Component {
