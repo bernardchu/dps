@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from '../routing/NavLink';
 import { IDpsNavRoute } from '../model/IDpsRoutes';
 
 export interface IDpsHamburgerChildMenuProps {
@@ -27,7 +27,7 @@ export default function DpsHamburgerChildMenu(props: IDpsHamburgerChildMenuProps
       <ul className={`bm-child-list dropdown-${dropdownOpen ? 'show' : 'hide'}`}>
         {parent.children!.map((child: IDpsNavRoute) => {
           return <li key={child.path} className="bm-child-list-item">
-            <NavLink to={`${parent.path}/${child.path}`} onClick={() => { closeMenus() }}>{child.name}</NavLink>
+            <NavLink href={`${parent.path}/${child.path}`} onClick={() => { closeMenus() }}>{child.name}</NavLink>
           </li>
         })}
       </ul>
