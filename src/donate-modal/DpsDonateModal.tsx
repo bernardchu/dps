@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { useState } from 'react';
 import MicroModal from 'react-micro-modal';
-import { useLocation } from 'react-router-dom';
 import DpsApi from '../api/DpsApi';
 import { routes } from '../routing/routes';
 import DpsDonateModalContent from './DpsDonateModalContent';
 import { IDpsModalContent } from './IDpsModalContent';
 
 export function DpsDonateModal() {
-  const location = useLocation();
+  const location = document.location;
   // don't show the donate modal if they open the page on a donate route
   // currently only searches within top-level routes
   const hideDonateRoutes = Object.keys(routes).map(key => routes[key]).filter(route => route.hideDonate);

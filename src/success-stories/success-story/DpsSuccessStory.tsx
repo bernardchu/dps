@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import Slider, { Settings } from 'react-slick';
 import DpsApi from '../../api/DpsApi';
 import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
@@ -8,11 +7,12 @@ import DpsSuccessStoryWrapper from '../../model/DpsSuccessStory';
 import './successStory.module.scss';
 import Imgix from 'react-imgix';
 import DpsLoading from '../../common/DpsLoading';
+import { useRouter } from 'next/router';
 
 // useSearchParams necessitates function component over class component
 export function DpsSuccessStory() {
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get('id');
+  const router = useRouter();
+  const id: string = router.query.id as string;
 
   const petState = useState<DpsSuccessStoryWrapper>();
   const pet: DpsSuccessStoryWrapper = petState[0] as DpsSuccessStoryWrapper;

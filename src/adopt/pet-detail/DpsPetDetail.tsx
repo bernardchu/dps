@@ -1,6 +1,7 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useState } from 'react';
-import Link from 'next/link';
 import DpsApi from '../../api/DpsApi';
 import DpsLoading from '../../common/DpsLoading';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
@@ -8,7 +9,7 @@ import { routes } from '../../routing/routes';
 import DpsPetDetailBasics from './DpsPetDetailBasics';
 import DpsPetDetailCarousel from './DpsPetDetailCarousel';
 import DpsPetDetailHeading from './DpsPetDetailHeading';
-import './pet-detail.module.scss'
+import './pet-detail.module.scss';
 
 /**
  * Shows details of one pet. A query param for id is used instead of a URL param (/pet-detail/?id=123 instead of /pet-detail/123)
@@ -18,9 +19,9 @@ import './pet-detail.module.scss'
  */
 // useSearchParams necessitates function component over class component
 export function DpsPetDetail() {
-  const [searchParams] = useSearchParams();
-  const id = searchParams.get('id');
-  const print: boolean = searchParams.get('print') === 'true';
+  const router = useRouter();
+  const id: string = router.query.id as string;
+  const print: boolean = router.query.print === 'true';
 
   const petState = useState<DpsDetailedPet>();
   const pet: DpsDetailedPet = petState[0] as DpsDetailedPet;

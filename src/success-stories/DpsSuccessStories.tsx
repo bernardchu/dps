@@ -14,7 +14,7 @@ import Imgix from 'react-imgix';
  * to switch between <Outlet /> and the parent content depending on which route we are actually in.
  */
 export default function DpsSuccessStories() {
-  const location = useLocation();
+  const location = document.location;
   const isSuccessStoryState = location.pathname.indexOf(routes.successStories.children!.successStory.path) > -1;
 
   const petState = useState<IDpsSuccessStoryCompact[]>();
