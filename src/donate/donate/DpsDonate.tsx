@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Imgix from 'react-imgix';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { IDpsRoute } from '../../model/IDpsRoutes';
 import { routes } from '../../routing/routes';
 import './donate.module.scss';
@@ -55,9 +55,11 @@ export default class DpsDonate extends React.PureComponent {
       <div className="row donate">
         <h1>More Ways to Give</h1>
         <div className="sibling-tiles">
-          {otherDonateRoutes.map(route => <Link className="donate-sibling-tile col-xs-6 col-md-3" key={route.name} to={`../${route.path}`}>
-            <Imgix src="/donate/donate-paw-print.png" width={300} />
-            {route.name}
+          {otherDonateRoutes.map(route => <Link key={route.name} href={`../${route.path}`}>
+            <a className="donate-sibling-tile col-xs-6 col-md-3" >
+              <Imgix src="/donate/donate-paw-print.png" width={300} />
+              {route.name}
+            </a>
           </Link>)}
         </div>
       </div>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { routes } from '../../routing/routes';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { IDpsStickyDog } from '../../model/IDpsStickyDog';
 
 export interface IDpsStickyDogContentProps {
@@ -13,8 +13,8 @@ export default class DpsStickyDogContent extends React.PureComponent<IDpsStickyD
     return (
       <div className="sticky-dog row">
         <div className="col-md-6 left row">
-          <Link to={`../${routes.adopt.children!.petDetail.path}/?id=${dog.id}}`} className="col-xs-12">
-            <img src={dog.pictures[0]} alt={dog.name} title={dog.name} className="no-border" />
+          <Link href={`../${routes.adopt.children!.petDetail.path}/?id=${dog.id}}`}>
+            <a className="col-xs-12"><img src={dog.pictures[0]} alt={dog.name} title={dog.name} className="no-border" /></a>
           </Link>
           <hr className="hidden-sm hidden-xs" />
           <div className="paypal col-xs-12 row">

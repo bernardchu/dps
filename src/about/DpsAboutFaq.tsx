@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import DpsFaq from '../common/DpsFaq';
 import { IDpsFaqSection } from '../model/IDpsFaqSection';
 import { routes } from '../routing/routes';
@@ -44,7 +44,7 @@ export default class DpsAboutFaq extends React.PureComponent {
       {
         heading: "What is the process for adopting a dog?",
         imgUrl: "/about/faq/lily.jpg?h=340&fit=crop&w=340&crop=top",
-        prose: <p>Please look at our <Link to={`../../${routes.adopt.path}/${routes.adopt.children!.dogApp.path}`}>apply page</Link></p>,
+        prose: <p>Please look at our <Link href={`../../${routes.adopt.path}/${routes.adopt.children!.dogApp.path}`}><a>apply page</a></Link></p>,
 
       }
     ]

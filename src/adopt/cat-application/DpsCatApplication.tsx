@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { routes } from '../../routing/routes';
 import './catApplication.module.scss';
 
@@ -10,7 +10,7 @@ export default class DpsCatApplication extends React.Component {
         <div className="col-xs-12">
           <h2 className="application-heading">Cat Application Process</h2>
           <div className="application-buttons">
-            <Link to={`../${routes.adopt.children!.catApplication.path}`}>Cat Application</Link>
+            <Link href={`../${routes.adopt.children!.catApplication.path}`}><a>Cat Application</a></Link>
           </div>
 
           <p>Our responsibility is to both the adopter and our animals who have been entrusted to our care. We strive to

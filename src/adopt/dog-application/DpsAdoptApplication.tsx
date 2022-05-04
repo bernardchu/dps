@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { routes } from '../../routing/routes';
 import './dogApplication.module.scss';
 
@@ -10,8 +10,8 @@ export default class DpsAdoptApplication extends React.Component {
         <div className="col-xs-12">
           <h2 className="application-heading">Application Process</h2>
           <div className="application-buttons">
-            <Link to={`../${routes.adopt.children!.application.path}`}>Dog Application</Link>
-            <Link to={`../${routes.adopt.children!.catApp.path}`}>Cat Application</Link>
+            <Link href={`../${routes.adopt.children!.application.path}`}><a>Dog Application</a></Link>
+            <Link href={`../${routes.adopt.children!.catApp.path}`}><a>Cat Application</a></Link>
           </div>
 
           <p>

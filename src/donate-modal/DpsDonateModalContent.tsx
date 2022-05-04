@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { routes } from '../routing/routes';
 import Imgix from 'react-imgix';
 import { IDpsModalContent } from './IDpsModalContent';
@@ -29,7 +29,7 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
               htmlAttributes={{ alt: 'donate' }} />
           </div>
           <p>{bodyText}</p>
-          <Link onClick={() => this.props.closeModal()} to={`${routes.donate.path}/${routes.donate.children!.donate.path}`} className="hero-button col-xs-12">{buttonText || 'Donate Now'}</Link>
+          <Link href={`${routes.donate.path}/${routes.donate.children!.donate.path}`}><a className="hero-button col-xs-12" onClick={() => this.props.closeModal()} >{buttonText || 'Donate Now'}</a></Link>
         </main>
       </>
 

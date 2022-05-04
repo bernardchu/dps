@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import Link from 'next/link';
 import DpsApi from '../../api/DpsApi';
 import DpsLoading from '../../common/DpsLoading';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
@@ -82,8 +82,8 @@ export function DpsPetDetail() {
           </div>
           <div className="card apply">
             <h2>Interested in adopting?</h2>
-            <p>Please read the <Link to={`../${routes.adopt.children!.dogApp.path}`}>adoption FAQ</Link>, then fill out the
-              <Link to={pet.isDog ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}> application</Link>
+            <p>Please read the <Link href={`../${routes.adopt.children!.dogApp.path}`}><a>adoption FAQ</a></Link>, then fill out the
+              <Link href={pet.isDog ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}> <a>application</a></Link>
             </p>
           </div>
         </div>

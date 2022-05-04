@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Imgix from 'react-imgix';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
 
 export interface IDpsHomeFeatureCardProps {
@@ -25,15 +25,15 @@ export default class DpsHomeFeatureCard extends React.PureComponent<IDpsHomeFeat
         {feature.bodyText && <p>{feature.bodyText}</p>}
         {feature.body}
         <span className="featured_img">
-          {feature.localPath && <Link to={feature.localPath}>
-            {feature.imgSrc && <Imgix src={feature.imgSrc} />}
+          {feature.localPath && <Link href={feature.localPath}>
+            <a>{feature.imgSrc && <Imgix src={feature.imgSrc} />}</a>
           </Link>}
           {feature.externalLink && <a href={feature.externalLink}>
             {feature.imgSrc && <Imgix src={feature.imgSrc} />}
           </a>}
         </span>
         <div>
-          {feature.localPath && feature.linkText && <Link to={feature.localPath}>{feature.linkText}</Link>}
+          {feature.localPath && feature.linkText && <Link href={feature.localPath}><a>{feature.linkText}</a></Link>}
           {feature.externalLink && feature.linkText && <a href={feature.externalLink}>{feature.linkText}</a>}
         </div>
       </div>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { IDpsAdoptable } from '../../model/IDpsAdoptable';
 import { routes } from '../../routing/routes';
 
@@ -12,8 +12,8 @@ export default class DpsAdoptableTile extends React.PureComponent<IDpsAdoptableT
     const adoptable = this.props.adoptable;
     return (
       <span className="available col-md-2 col-xs-4">
-        <Link to={`../${routes.adopt.children!.petDetail.path}/?id=${adoptable.id}`} className="img-container">
-          <img src={adoptable.imgUrl} alt={adoptable.name} />
+        <Link href={`../${routes.adopt.children!.petDetail.path}/?id=${adoptable.id}`}>
+          <a className="img-container"><img src={adoptable.imgUrl} alt={adoptable.name} /></a>
         </Link>
         <div className="name">{adoptable.name}</div>
         <div className="breed">{adoptable.breed}</div>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import DpsApi from '../api/DpsApi';
 import { IDpsAvailableApiResponse } from '../api/IDpsApiResponses';
 import DpsLoading from '../common/DpsLoading';
@@ -39,7 +39,7 @@ export default class DpsPrint extends React.PureComponent<{}, IDpsPrintAvailable
           <div className="dogs col-md-12">
             {!loaded && <DpsLoading />}
             {loaded && dogs.map(dog => <React.Fragment key={dog.id}>
-              <p>{dog.name}&nbsp;<Link to={`../${routes.adopt.path}/${routes.adopt.children!.petDetail.path}/?id=${dog.id}&print=true`}>print</Link></p>
+              <p>{dog.name}&nbsp;<Link href={`../${routes.adopt.path}/${routes.adopt.children!.petDetail.path}/?id=${dog.id}&print=true`}><a>print</a></Link></p>
             </React.Fragment>)}
           </div>
           <div className="clearfix"></div>
@@ -47,7 +47,7 @@ export default class DpsPrint extends React.PureComponent<{}, IDpsPrintAvailable
           <div className="cats col-md-12">
             {!loaded && <DpsLoading />}
             {loaded && cats.map(cat => <React.Fragment key={cat.id}>
-              <p>{cat.name}&nbsp;<Link to={`../${routes.adopt.path}/${routes.adopt.children!.petDetail.path}/?id=${cat.id}&print=true`}>print</Link></p>
+              <p>{cat.name}&nbsp;<Link href={`../${routes.adopt.path}/${routes.adopt.children!.petDetail.path}/?id=${cat.id}&print=true`}><a>print</a></Link></p>
             </React.Fragment>)}
           </div>
         </div>
