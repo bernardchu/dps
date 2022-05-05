@@ -6,7 +6,7 @@ import Slider, { Settings } from 'react-slick';
 import _ from 'lodash';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './adoptableCarousel.module.scss';
+import styles from './adoptableCarousel.module.scss';
 import DpsHomeCarouselSlide from './DpsHomeCarouselSlide';
 import { IDpsAsyncState } from '../model/IDpsAsyncState';
 import DpsLoading from '../common/DpsLoading';

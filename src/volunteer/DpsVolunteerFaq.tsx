@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DpsFaq from '../common/DpsFaq';
 import { IDpsFaqSection } from '../model/IDpsFaqSection';
-import './volunteerFaq.module.scss';
+import styles from './volunteerFaq.module.scss';
 import Imgix from 'react-imgix';
 
 export default class DpsVolunteerFaq extends React.PureComponent {

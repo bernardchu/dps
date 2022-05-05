@@ -5,8 +5,9 @@ import DpsApi from '../api/DpsApi';
 import DpsLoading from '../common/DpsLoading';
 import { IDpsSuccessStoryCompact } from '../model/IDpsSuccessStory';
 import { routes } from '../routing/routes';
-import './successStories.module.scss';
+import styles from './successStories.module.scss';
 import Imgix from 'react-imgix';
+import { useRouter } from 'next/router';
 
 /**
  * Success stories is a strange route because it is a parent route that has content and it has
@@ -14,8 +15,8 @@ import Imgix from 'react-imgix';
  * to switch between <Outlet /> and the parent content depending on which route we are actually in.
  */
 export default function DpsSuccessStories() {
-  const location = document.location;
-  const isSuccessStoryState = location.pathname.indexOf(routes.successStories.children!.successStory.path) > -1;
+  const router = useRouter();
+  const isSuccessStoryState = router.asPath.indexOf(routes.successStories.children!.successStory.path) > -1;
 
   const petState = useState<IDpsSuccessStoryCompact[]>();
   const stories: IDpsSuccessStoryCompact[] = petState[0] as IDpsSuccessStoryCompact[];
@@ -33,7 +34,7 @@ export default function DpsSuccessStories() {
   }, [setLoaded, setStories, stories]);
 
   return (<>
-    {isSuccessStoryState && <Outlet />}
+    {/* {isSuccessStoryState && <Outlet />} */}
     {!isSuccessStoryState && <div className="row success-stories">
       {!loaded && <DpsLoading />}
       {loaded && stories?.map(story =>

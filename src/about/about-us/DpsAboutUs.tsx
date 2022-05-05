@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './aboutUs.module.scss';
+import styles from './aboutUs.module.scss';
 import Imgix from 'react-imgix';
 
 export default class DpsAboutUs extends React.PureComponent {

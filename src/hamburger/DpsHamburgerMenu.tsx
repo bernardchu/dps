@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import navRoutes from "../routing/routes";
-import './hamburger.module.scss';
+import styles from './hamburger.module.scss';
 import DpsHamburgerChildMenu from './DpsHamburgerChildMenu';
 import { NavLink } from '../routing/NavLink';
 import DpsSocials from '../header/DpsSocials';

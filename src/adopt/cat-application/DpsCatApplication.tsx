@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { routes } from '../../routing/routes';
-import './catApplication.module.scss';
+import styles from './catApplication.module.scss';
 
 export default class DpsCatApplication extends React.Component {
   public render() {

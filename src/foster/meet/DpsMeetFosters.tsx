@@ -3,7 +3,7 @@ import DpsApi from '../../api/DpsApi';
 import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsFoster, IDpsFosterSpotlight } from '../../model/IDpsFoster';
-import './meetFosters.module.scss';
+import styles from './meetFosters.module.scss';
 import Imgix from 'react-imgix';
 
 interface IDpsMeetFostersState extends IDpsAsyncState {

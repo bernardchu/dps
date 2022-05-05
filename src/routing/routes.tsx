@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import DpsAdoptApplication from "../adopt/dog-application/DpsAdoptApplication";
 import DpsAdoptAvailable from "../adopt/available/DpsAdoptAvailable";
 import DpsCatApplication from "../adopt/cat-application/DpsCatApplication";
@@ -22,6 +21,7 @@ import DpsSponsor from "../donate/sponsor/DpsSponsor";
 import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching";
 import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
 import DpsPrint from "../print/DpsPrint";
+import React from "react";
 
 const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
@@ -94,7 +94,7 @@ export const routes: { [key: string]: IDpsRoute } = {
   adopt: {
     name: 'Adopt',
     path: 'adopt',
-    element: <Outlet />,
+    element: <React.Fragment />,
     inNav: true,
     navOrder: 1,
     children: {
@@ -156,7 +156,7 @@ export const routes: { [key: string]: IDpsRoute } = {
   volunteer: {
     name: 'Volunteer',
     path: 'volunteer',
-    element: <Outlet />,
+    element: <React.Fragment />,
     inNav: true,
     navOrder: 2,
     children: {
@@ -179,7 +179,7 @@ export const routes: { [key: string]: IDpsRoute } = {
   foster: {
     name: 'Foster',
     path: 'foster',
-    element: <Outlet />,
+    element: <React.Fragment />,
     inNav: true,
     navOrder: 3,
     children: {
@@ -202,7 +202,7 @@ export const routes: { [key: string]: IDpsRoute } = {
   donate: {
     name: 'Donate',
     path: 'donate',
-    element: <Outlet />,
+    element: <React.Fragment />,
     inNav: true,
     navOrder: 4,
     hideDonate: true,
@@ -266,7 +266,7 @@ export const routes: { [key: string]: IDpsRoute } = {
   about: {
     name: 'About',
     path: 'about',
-    element: <Outlet />,
+    element: <React.Fragment />,
     inNav: true,
     navOrder: 6,
     children: {

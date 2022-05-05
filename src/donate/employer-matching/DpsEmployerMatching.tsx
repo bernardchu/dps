@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './employerMatching.module.scss';
+import styles from './employerMatching.module.scss';
 
 export default class DpsEmployerMatching extends React.PureComponent {
   private static COMPANIES_WITH_MATCHING = [

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import './loading.module.scss';
+import styles from './loading.module.scss';
 
 export default class DpsLoading extends React.PureComponent {
   public render() {
     return (
       // source: https://loading.io/css/ (CC0 license)
-      <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+      <div className={styles['lds-ellipsis']}><div></div><div></div><div></div><div></div></div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './sponsor.module.scss';
+import styles from './sponsor.module.scss';
 import Imgix from 'react-imgix';
 
 export default class DpsSponsor extends React.PureComponent {

@@ -6,7 +6,7 @@ import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
 import DpsIcuModal from './DpsIcuModal';
 import DpsIcuTile from './DpsIcuTile';
-import './icu.module.scss';
+import styles from './icu.module.scss';
 
 interface IDpsIcuState extends IDpsAsyncState {
   icu: IDpsIcuAnimal[];

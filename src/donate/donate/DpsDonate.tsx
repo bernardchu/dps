@@ -3,7 +3,7 @@ import Imgix from 'react-imgix';
 import Link from 'next/link';
 import { IDpsRoute } from '../../model/IDpsRoutes';
 import { routes } from '../../routing/routes';
-import './donate.module.scss';
+import styles from './donate.module.scss';
 
 export default class DpsDonate extends React.PureComponent {
   private static isDonateRoute(route: IDpsRoute): boolean {
