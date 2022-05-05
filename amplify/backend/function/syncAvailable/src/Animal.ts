@@ -203,8 +203,8 @@ export class Animal {
 class AnimalDescriptionParser {
   private static EXPECTED_NUMBER_OF_BOILERPLATE_NODES = 2;
   private static CAT_BOILERPLATE = [
-    'The adoption fee for adult cats is $100 and $150 per kitten.',
-    'All cats are spayed/neutered, microchipped, FIV/FELV tested negative, shots current, dewormed, and on Advantage for fleas.'
+    'The adoption fee for adult cats is $150 and $200 per kitten.',
+    'All cats are spayed/neutered, microchipped, shots current, dewormed, and on Advantage for fleas.'
   ];
   private static upcomingRegex = /^this\s(?:dog|cat|kitten|puppy)\swill\sbe\s/i;
   private static ageRegex = /(\d+(?:[\s]\d\/\d)?-?\d*)[\s-](weeks?|months?|years?) old/;
