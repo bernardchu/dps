@@ -43,3 +43,11 @@ export interface IDpsVolunteerApiResponse {
   secondary: IDpsVolunteer[];
   directors: IDpsVolunteer[];
 }
+
+export type IDpsInHonorOfResponse = IDpsInHonorOfDonation[]
+
+export interface IDpsInHonorOfDonation {
+  imgSrc: string;
+  name: string;
+  message: string;
+}
