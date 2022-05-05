@@ -199,6 +199,24 @@ app.get(path + '/modal', function (req, res) {
 });
 
 /***************
+ * In Honor Of *
+ ***************/
+app.get(path + '/in-honor-of', function (req, res) {
+  getSheet('in-honor-of').then((sheet: ISheet) => {
+    const donations = SheetsMapper.mapData(sheet.data, ['imgSrc', 'name', 'message']);
+    if (donations) { res.json(donations); }
+    else {
+      res.statusCode = 404;
+      res.json('No donations found.');
+    }
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not get in honor of donations: ' + err.message });
+    })
+});
+
+/***************
  * Sticky Dogs *
  ***************/
 // Probably will be deprecated so just a stub for now.

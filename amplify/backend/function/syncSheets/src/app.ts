@@ -74,6 +74,7 @@ app.get(path + '/sync', async function (req, res) {
       'volunteers': 'A:E',
       'fosters': 'A:C',
       'icu': 'A:C',
+      'in-honor-of': 'A:C',
       'news': 'A:G',
       'newsletters': 'A:C'
     };

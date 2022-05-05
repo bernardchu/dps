@@ -70,6 +70,8 @@ TODO: would be better as swagger, maybe.
 | /sheets/icu               | Returns all ICU animals.                                                                                |
 | /sheets/newsletters       | Returns all newsletters                                                                                 |
 | /sheets/volunteers        | Returns all volunteers.                                                                                 |
+| /sheets/in-honor-of       | Returns all donations made pertaining to the "in honor of" page.                                        |
+| /sheets/modal             | Returns all data pertaining to the donate popup.                                                        |
 | /sheets/sticky            | Should return all sticky dogs but will probably be deprecated so just returns [] for now.               |
 | /sheets/success/all       | Returns an abbreviated view of all success stories.                                                     |
 | /sheets/success/object:id | Returns a detailed view of one success story.                                                           |
