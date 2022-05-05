@@ -49,8 +49,8 @@ export default class DpsInHonorOf extends React.PureComponent<{}, IDpsInHonorOfS
         <hr />
         <div className="row in-honor-of">
           {!loaded && <DpsLoading />}
-          {loaded && donations.map(donation => <div className="col-md-4 col-sm-6 col-xs-12">
-            <DpsInHonorOfTile donation={donation} key={donation.imgSrc} />
+          {loaded && donations.map(donation => <div className="in-honor-of-tile col-md-4 col-sm-6 col-xs-12" key={donation.imgSrc}>
+            <DpsInHonorOfTile donation={donation} />
           </div>)}
         </div>
       </>
