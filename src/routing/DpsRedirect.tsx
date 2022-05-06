@@ -6,8 +6,11 @@ export interface IDpsRedirectProps {
 
 export default class DpsRedirect extends React.PureComponent<IDpsRedirectProps> {
 
-  public render() {
+  public componentDidMount() {
     window.location.replace(this.props.to);
+  }
+
+  public render() {
     return (
       <div>
         Redirecting...
