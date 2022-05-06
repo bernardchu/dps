@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MicroModal from 'react-micro-modal';
+import Modal from 'react-modal';
 import DpsApi from '../../api/DpsApi';
 import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
@@ -26,6 +26,11 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
   }
 
   public render() {
+    Modal.setAppElement('#dps-app');
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const openModal = () => setIsOpen(true);
+    const closeModal = () => setIsOpen(false);
+
     const icu = this.state?.icu;
     const loaded = this.state?.loaded;
     return (<>
@@ -34,16 +39,15 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
         <p>In 2021, we spent over $100,000 on medical dogs. We hope to save even more dogs with medical special needs in 2022, but we need your help! Click on each dog to read their story. You can donate via the link on their description or via Zelle, Venmo, or by sending a check.</p>
         <div className="col-xs-12 row icu">
           {!loaded && <DpsLoading />}
-          {loaded && icu.map(animal =>
-            <MicroModal
-              trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}
-              openInitially={false}
-              closeOnOverlayClick={true}
-              closeOnEscapePress={true}
-              disableFirstElementFocus={true}
+          {loaded && icu.map(animal => <>
+            <DpsIcuTile animal={animal} handleOpen={openModal} />
+            <Modal
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
               key={animal.photo}>
-              {(close) => <DpsIcuModal animal={animal} closeModal={close} />}
-            </MicroModal>)}
+              <DpsIcuModal animal={animal} closeModal={close} />
+            </Modal>
+          </>)}
         </div>
       </div>
     </>);

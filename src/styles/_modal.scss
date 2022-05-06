@@ -5,16 +5,28 @@
   img {
     border: none;
   }
+
   & :hover {
     border: none;
   }
 }
 
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
 /**************************\
   Basic Modal Styles (https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699)
 \**************************/
-
-
 .modal__header {
   display: flex;
   justify-content: space-between;
@@ -36,34 +48,13 @@
   border: 0;
 }
 
-.modal__header .modal__close:before { content: "\2715"; }
+.modal__header .modal__close:before {
+  content: "\2715";
+}
 
 .modal__content {
   margin-top: 2rem;
   margin-bottom: 2rem;
   line-height: 1.5;
-  color: rgba(0,0,0,.8);
-}
-
-/**************************\
-  Demo Animation Style
-\**************************/
-@keyframes mmfadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes mmfadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-
-@keyframes mmslideIn {
-  from { transform: translateY(15%); }
-  to { transform: translateY(0); }
-}
-
-@keyframes mmslideOut {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10%); }
+  color: rgba(0, 0, 0, .8);
 }
