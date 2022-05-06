@@ -42,7 +42,7 @@ export default class DpsVolunteerFaq extends React.PureComponent {
   public render() {
     return (
       <div className="row">
-        <div className="volunteer-header-images hidden-xs hidden-sm">
+        <div className={`${styles['volunteer-header-images']} hidden-xs hidden-sm`}>
           <Imgix
             src="/volunteer/volunteer-header-marlina1.jpg"
             imgixParams={{
