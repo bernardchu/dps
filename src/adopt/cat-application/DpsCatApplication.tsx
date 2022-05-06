@@ -8,15 +8,15 @@ export default class DpsCatApplication extends React.Component {
     return (
       <div className="row">
         <div className="col-xs-12">
-          <h2 className="application-heading">Cat Application Process</h2>
-          <div className="application-buttons">
-            <Link href={`../${routes.adopt.children!.catApplication.path}`}><a>Cat Application</a></Link>
+          <h2 className={styles['application-heading']}>Cat Application Process</h2>
+          <div className={styles['application-buttons']}>
+            <Link href={`./${routes.adopt.children!.catApplication.path}`}><a>Cat Application</a></Link>
           </div>
 
           <p>Our responsibility is to both the adopter and our animals who have been entrusted to our care. We strive to
             make the best possible match and we can only do so when we have been provided with all the information about our
             potential adoptive families.</p>
-          <ol className="application-steps">
+          <ol className={styles['application-steps']}>
             <li>Read the cat&lsquo;s bio</li>
             <p>Each cat has a full biography linked from the Available Animals page. Please read his/her description before
               applying to make sure that the home we are looking for is a match to what you have to offer.</p>
