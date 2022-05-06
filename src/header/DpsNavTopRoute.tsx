@@ -14,7 +14,7 @@ class DpsNavTopRoute extends React.Component<DpsNavTopRouteProps> {
     return (
       <div className="nav-link">
         <NavLink
-          href={route.path}
+          href={'/' + route.path}
           className="parent-link"
           dangerouslySetInnerHTML={{ __html: convertToNbsp(route.name) }} />
         {route.children?.length && <DpsChildRouteMenu children={route.children} parent={route} />}
