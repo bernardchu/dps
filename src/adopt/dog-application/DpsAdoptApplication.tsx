@@ -8,8 +8,8 @@ export default class DpsAdoptApplication extends React.Component {
     return (
       <div className="row">
         <div className="col-xs-12">
-          <h2 className="application-heading">Application Process</h2>
-          <div className="application-buttons">
+          <h2 className={styles['application-heading']}>Application Process</h2>
+          <div className={styles['application-buttons']}>
             <Link href={`../${routes.adopt.children!.application.path}`}><a>Dog Application</a></Link>
             <Link href={`../${routes.adopt.children!.catApp.path}`}><a>Cat Application</a></Link>
           </div>
