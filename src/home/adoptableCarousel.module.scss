@@ -1,47 +1,51 @@
 .adoptable {
-  .slick-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    a {
+  :global {
+    .slick-slide {
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
 
-      > img {
-        height: 350px;
-        max-width: 99%; // on mobile, you can see a sliver of the next image unless this is included.
-      }
+      :local {
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
 
-      > div.adoptable-info-overlay {
-        position: absolute;
-        height: 0;
-        width: 100%;
-        bottom: 0;
-        background: white;
-        opacity: 0.6;
-        overflow: hidden;
-        text-align: center;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-      }
-    }
+          >img {
+            height: 350px;
+            max-width: 99%; // on mobile, you can see a sliver of the next image unless this is included.
+          }
 
-    a:hover {
-      > div.adoptable-info-overlay {
-        height: 50%;
+          .adoptable-info-overlay {
+            position: absolute;
+            height: 0;
+            width: 100%;
+            bottom: 0;
+            background: white;
+            opacity: 0.6;
+            overflow: hidden;
+            text-align: center;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+          }
+        }
 
-        .adoptable-info {
-          padding: 1em;
+        a:hover {
+          >.adoptable-info-overlay {
+            height: 50%;
 
+            .adoptable-info {
+              padding: 1em;
+
+            }
+          }
+        }
+
+        img {
+          border: none;
         }
       }
-    }
-
-    img {
-      border: none;
     }
   }
 }

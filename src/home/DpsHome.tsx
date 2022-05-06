@@ -6,6 +6,7 @@ import DpsHomeCarousel from './DpsHomeCarousel';
 import DpsHomeEvents from './DpsHomeEvents';
 import DpsHomeFeatureCard from './DpsHomeFeatureCard';
 import DpsHomeSidebarFeatures from './DpsHomeSidebarFeatures';
+import styles from './adoptableCarousel.module.scss';
 
 export default class DpsHome extends React.PureComponent {
   public render() {
@@ -28,7 +29,7 @@ export default class DpsHome extends React.PureComponent {
     return (
       <>
         <div className="row">
-          <div className="adoptable col-md-12 container">
+          <div className={`${styles.adoptable} col-md-12 container`}>
             <DpsHomeCarousel />
             <Link href={`${routes.adopt.path}/${routes.adopt.children!.available.path}`}>
               <a className="hero-button col-xs-12">See All Available Dogs and Cats</a>
