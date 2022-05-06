@@ -14,10 +14,12 @@ nav.bm-item-list {
     list-style: none;
     overflow: hidden;
     margin: 0px;
+
     &.dropdown-hide {
       transition: max-height 0.3s ease;
       max-height: 0px;
     }
+
     &.dropdown-show {
       transition: max-height 0.3s ease;
       max-height: 400px;
@@ -35,33 +37,41 @@ nav.bm-item-list {
   height: 30px;
   margin-left: 1em;
 }
+
 .bm-burger-bars {
   background: #373a47;
 }
+
 .bm-burger-bars:hover {
   background: $dps-primary-color;
 }
+
 .bm-cross-button {
   height: 24px;
   width: 24px;
 }
+
 .bm-cross {
   background: #bdc3c7;
 }
+
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
   left: 0;
   top: 0;
 }
+
 .bm-menu {
   background: white;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
+
 .bm-morph-shape {
   fill: #373a47;
 }
+
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
