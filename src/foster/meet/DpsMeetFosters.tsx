@@ -6,30 +6,16 @@ import { IDpsFoster, IDpsFosterSpotlight } from '../../model/IDpsFoster';
 import styles from './meetFosters.module.scss';
 import Imgix from 'react-imgix';
 
-interface IDpsMeetFostersState extends IDpsAsyncState {
+interface IDpsMeetFostersProps {
   fosters: IDpsFoster[];
   spotlight: IDpsFosterSpotlight
 }
 
-export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFostersState> {
-  public componentDidMount() {
-    DpsApi.getFosters()
-      .then((fosterData) => {
-        this.setState({
-          loaded: true,
-          ...fosterData
-        });
-      }, (error) => {
-        // TODO
-      });
-  }
-
+export default class DpsMeetFosters extends React.PureComponent<IDpsMeetFostersProps> {
   public render() {
-    const loaded = this.state?.loaded;
-    const fosters = this.state?.fosters;
-    const spotlight = this.state?.spotlight;
+    const { fosters, spotlight } = this.props;
     return (<>
-      <div className="row intro">
+      <div className={`row ${styles.intro}`}>
         <div className="col-sm-8 col-xs-12 prose">
           <h2>Meet Our Fosters</h2>
           <p>Whether new or old, we are so thankful for our foster families who open
@@ -37,28 +23,24 @@ export default class DpsMeetFosters extends React.PureComponent<{}, IDpsMeetFost
             people who help our rescue save lives!</p>
         </div>
         <div className="col-sm-4 hidden-xs">
-          <Imgix className="no-border fosters" src="/foster/fosters/fosters-header.jpg" htmlAttributes={{ alt: 'fosters' }} />
+          <Imgix className={`no-border ${styles.fosters}`} src="/foster/fosters/fosters-header.jpg" htmlAttributes={{ alt: 'fosters' }} />
         </div>
       </div>
-      <div className="row spotlight card feature">
-        {!loaded && <DpsLoading />}
-        {loaded && <>
-          <div className="col-sm-3 hidden-xs photo">
-            <img src={spotlight.photo} alt={spotlight.name} title={spotlight.name} className="no-border fosters" />
-          </div>
-          <div className="col-sm-9 col-xs-12 bio">
-            <h3>Foster Spotlight: {spotlight.name}</h3>
-            <p dangerouslySetInnerHTML={{ __html: spotlight.bio }}></p>
-          </div>
-        </>}
+      <div className={`row ${styles.spotlight} card feature`}>
+        <div className="col-sm-3 hidden-xs photo">
+          <img src={spotlight.photo} alt={spotlight.name} title={spotlight.name} className={`no-border ${styles.fosters}`} />
+        </div>
+        <div className={`col-sm-9 col-xs-12 ${styles.bio}`}>
+          <h3>Foster Spotlight: {spotlight.name}</h3>
+          <p dangerouslySetInnerHTML={{ __html: spotlight.bio }}></p>
+        </div>
       </div>
-      <div className="row fosters">
-        {!loaded && <DpsLoading />}
-        {loaded && fosters.map(foster => <div className="col-md-4 col-sm-6 col-xs-12 foster" key={foster.photo}>
-          <div className="col-xs-4 photo">
-            <img src={foster.photo} alt={foster.name} title={foster.name} className="no-border fosters" />
+      <div className={`row ${styles.fosters}`}>
+        {fosters.map(foster => <div className={`col-md-4 col-sm-6 col-xs-12 ${styles.foster}`} key={foster.photo}>
+          <div className={`col-xs-4 ${styles.photo}`}>
+            <img src={foster.photo} alt={foster.name} title={foster.name} className={`no-border ${styles.fosters}`} />
           </div>
-          <div className="col-xs-8 bio">
+          <div className={`col-xs-8 ${styles.bio}`}>
             <h3>{foster.name}</h3>
           </div>
         </div>
