@@ -5,7 +5,7 @@ import Imgix from 'react-imgix';
 export default class DpsSponsor extends React.PureComponent {
   public render() {
     return (
-      <div className="sponsor donate row">
+      <div className={`${styles.sponsor} donate row`}>
         <div className="col-md-8 col-sm-12">
           <h1>Sponsor a Dog</h1>
           <em>Your sponsorship helps pay for this dog's spay/neuter surgery, flea treatment, food, and more!</em>
