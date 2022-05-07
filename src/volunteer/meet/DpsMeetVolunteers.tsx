@@ -39,7 +39,7 @@ export default class DpsMeetVolunteers extends React.PureComponent<{}, IDpsMeetV
         {loaded && secondary.map(volunteer => <div className="secondary-volunteer col-md-4 col-sm-6 row" key={volunteer.photo}>
           <div className="col-xs-4 secondary-volunteer-image">
             <div className="image-circle-cropper">
-              <img src={volunteer.photo} alt={volunteer.name} />
+              <img src={volunteer.photo} alt={volunteer.name} className="no-border" />
             </div>
           </div>
           <div className="col-xs-8 secondary-volunteer-details">
@@ -55,7 +55,7 @@ export default class DpsMeetVolunteers extends React.PureComponent<{}, IDpsMeetV
         {loaded && directors.map(director => <div className="secondary-volunteer col-md-4 col-sm-6 row" key={director.photo}>
           <div className="col-xs-4 secondary-volunteer-image">
             <div className="image-circle-cropper">
-              <img src={director.photo} alt={director.name} />
+              <img src={director.photo} alt={director.name} className="no-border" />
             </div>
           </div>
           <div className="col-xs-8 secondary-volunteer-details">
