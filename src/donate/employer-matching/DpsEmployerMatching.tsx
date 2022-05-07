@@ -26,7 +26,7 @@ export default class DpsEmployerMatching extends React.PureComponent {
 
   public render() {
     return (
-      <div className="employer-matching">
+      <div className={styles['employer-matching']}>
         <h1>Employer Matching Gifts</h1>
         <p>Many companies offer corporate gift matching programs to their employees, so when you make a donation to DPS, it’s doubled!  Ask your company HR department to see if they offer this option.</p>
 
@@ -38,8 +38,8 @@ export default class DpsEmployerMatching extends React.PureComponent {
           Email: rachel@dpsrescue.com</p>
 
         <h3>Companies with confirmed corporate matching include:</h3>
-        <div className="companies-list">
-          {DpsEmployerMatching.COMPANIES_WITH_MATCHING.map(company => <span className="matching-company" key={company}>{company}</span>)}
+        <div className={styles['companies-list']}>
+          {DpsEmployerMatching.COMPANIES_WITH_MATCHING.map(company => <span className={styles['matching-company']} key={company}>{company}</span>)}
         </div>
       </div>
     );
