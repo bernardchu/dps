@@ -1,35 +1,19 @@
 import * as React from 'react';
 import Imgix from 'react-imgix';
-import DpsApi from '../../api/DpsApi';
-import { IDpsInHonorOfDonation, IDpsInHonorOfResponse } from '../../api/IDpsApiResponses';
-import DpsLoading from '../../common/DpsLoading';
-import { IDpsAsyncState } from '../../model/IDpsAsyncState';
+import { IDpsInHonorOfDonation } from '../../api/IDpsApiResponses';
 import DpsInHonorOfTile from './DpsInHonorOfTile';
 import styles from './inHonorOf.module.scss';
 
-interface IDpsInHonorOfState extends IDpsAsyncState {
+interface IDpsInHonorOfProps {
   donations: IDpsInHonorOfDonation[]
 }
 
-export default class DpsInHonorOf extends React.PureComponent<{}, IDpsInHonorOfState> {
-  public componentDidMount() {
-    DpsApi.getInHonorOf()
-      .then((donations: IDpsInHonorOfResponse) => {
-        this.setState({
-          donations,
-          loaded: true
-        });
-      }, (error) => {
-        // TODO
-      });
-  }
-
+export default class DpsInHonorOf extends React.PureComponent<IDpsInHonorOfProps> {
   public render() {
-    const loaded = this.state?.loaded;
-    const donations = this.state?.donations;
+    const donations = this.props.donations;
     return (
       <>
-        <div className="row in-honor-of">
+        <div className={`row ${styles['in-honor-of']}`}>
           <div className="col-md-8 col-sm-12">
             <h1>In Honor Of</h1>
             <p>Honor a human or furry loved one with a tribute to them.</p>
@@ -47,9 +31,8 @@ export default class DpsInHonorOf extends React.PureComponent<{}, IDpsInHonorOfS
           </div>
         </div>
         <hr />
-        <div className="row in-honor-of">
-          {!loaded && <DpsLoading />}
-          {loaded && donations.map(donation => <div className="in-honor-of-tile col-md-4 col-sm-6 col-xs-12" key={donation.imgSrc}>
+        <div className={`row ${styles['in-honor-of']}`}>
+          {donations.map(donation => <div className={`${styles['in-honor-of-tile']} col-md-4 col-sm-6 col-xs-12`} key={donation.imgSrc}>
             <DpsInHonorOfTile donation={donation} />
           </div>)}
         </div>
