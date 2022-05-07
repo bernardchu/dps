@@ -16,7 +16,10 @@ export default class DpsSponsor extends React.PureComponent {
           <p>Your message will be posted on the dog's bio within 48 hours!</p>
         </div>
         <div className="col-md-4 hidden-sm hidden-xs image">
-          <Imgix src="donate/sponsor/Nebula.png" htmlAttributes={{ alt: 'Nebula\'s care was sponsored by Ima Lifesaver', title: 'Nebula example' }} />
+          <Imgix
+            src="donate/sponsor/Nebula.png"
+            className="no-border"
+            htmlAttributes={{ alt: 'Nebula\'s care was sponsored by Ima Lifesaver', title: 'Nebula example' }} />
         </div>
       </div>
     );
