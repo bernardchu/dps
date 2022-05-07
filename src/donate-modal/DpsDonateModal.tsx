@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import DpsApi from '../api/DpsApi';
 import { routes } from '../routing/routes';
+import { modalStyles } from '../styles/modalStyles';
 import DpsDonateModalContent from './DpsDonateModalContent';
 import { IDpsModalContent } from './IDpsModalContent';
 
@@ -32,19 +33,6 @@ export function DpsDonateModal() {
       })
       .catch(err => console.log(err));
   }, [openModal, setModalContent, modalContent, isHiddenDonateRoute]);
-
-  const modalStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      maxWidth: '80vw',
-      width: '500px'
-    }
-  };
 
   return (
     <>

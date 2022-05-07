@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { paypalEmail } from '../../common/DpsConstants';
 import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
+import styles from './icu.module.scss';
 
 export interface IDpsIcuModalProps {
   animal: IDpsIcuAnimal;
@@ -23,7 +24,7 @@ export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> 
             </header>
             <main className="modal__content" id="modal-1-content">
               <div dangerouslySetInnerHTML={{ __html: animal.bio }} />
-              <div className="paypal-container">
+              <div className={styles['paypal-container']}>
                 <form target="PayPal" action="https://www.paypal.com/cgi-bin/webscr"
                   method="post">
                   <input type="hidden" name="business"
