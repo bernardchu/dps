@@ -1,5 +1,2 @@
-import DpsVolunteerFaq from "../../src/volunteer/DpsVolunteerFaq";
-
-export default function Volunteer() {
-  return <DpsVolunteerFaq />
-}
+import Volunteer from "./faq";
+export default Volunteer;
