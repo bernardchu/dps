@@ -1,5 +1,5 @@
-import DpsPetDetail from "../src/adopt/pet-detail/DpsPetDetail";
-import DpsApi from "../src/api/DpsApi";
+import DpsPetDetail from "../../src/adopt/pet-detail/DpsPetDetail";
+import DpsApi from "../../src/api/DpsApi";
 
 export default function PetDetail({ pet, print }) {
   return <DpsPetDetail pet={pet} print={print} />
