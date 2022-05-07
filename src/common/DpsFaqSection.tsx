@@ -14,7 +14,7 @@ export default class DpsFaqSection extends React.PureComponent<IDpsFaqSectionPro
         <h2>{section.heading}</h2>
         <div className="col-xs-12 row">
           <div className="col-md-4 hidden-sm hidden-xs image">
-            <Imgix src={section.imgUrl} />
+            <Imgix src={section.imgUrl} className="no-border" />
           </div>
           <div className="col-md-8 col-sm-12">
             {section.prose}
