@@ -6,7 +6,7 @@ export default class DpsAboutUs extends React.PureComponent {
   public render() {
     return (
       <div className="row">
-        <div className="col-xs-12 group-photo">
+        <div className={`col-xs-12 ${styles['group-photo']}`}>
           <Imgix src="/about/about-group.jpg" htmlAttributes={{ alt: 'Group of volunteers' }} />
         </div>
         <div className="col-xs-12">
