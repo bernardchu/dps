@@ -5,7 +5,7 @@ import Imgix from 'react-imgix';
 export default class DpsContact extends React.Component {
   public render() {
     return (
-      <div className="row contact">
+      <div className={`row ${styles.contact}`}>
         <div className="col-md-8 col-sm-12">
           <iframe src="https://docs.google.com/forms/d/17wNax1Hm9Ge0vxqqhGGskP_Zt6JkO4H0zqsg9MjMddA/viewform?embedded=true"
             frameBorder="0" height="600" width="640" title="Contact Form"></iframe>
