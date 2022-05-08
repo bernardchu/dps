@@ -1,11 +1,12 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import { pageTitle } from '../src/common/DpsConstants'
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>DPS Rescue</title>
+        <title>{pageTitle}</title>
         <meta name="description" content="Dog Rescue in California and Nevada" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
@@ -14,6 +15,10 @@ export default function Document() {
           content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,900|Volkhov" rel="stylesheet" />
         <link rel="manifest" href="/manifest.json" />
+
+        {/* social media */}
+        <meta property="og:locale" content="en-US" />
+
       </Head>
       <body>
         <Main />
