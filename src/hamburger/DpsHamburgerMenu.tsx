@@ -38,7 +38,7 @@ export default class DpsHamburgerMenu extends React.PureComponent<{}, IDpsHambur
           if (route.children?.length) {
             return <DpsHamburgerChildMenu parent={route} hamburgerCloser={this.closeMenu.bind(this)} key={route.name} />
           }
-          return <NavLink href={route.path} className="bm-item" onClick={() => this.closeMenu()} key={route.name}>{route.name}</NavLink>
+          return <NavLink href={'/' + route.path} className="bm-item" onClick={() => this.closeMenu()} key={route.name}>{route.name}</NavLink>
         })}
         <DpsSocials />
       </Menu>

@@ -72,7 +72,7 @@ function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
 export const routes: { [key: string]: IDpsRoute } = {
   home: {
     name: 'Home',
-    path: '/',
+    path: '',
     element: <DpsHome />,
     inNav: true,
     navOrder: 0
