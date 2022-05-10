@@ -1,14 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import { pageTitle } from '../src/common/DpsConstants'
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>{pageTitle}</title>
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="description" content="Dog Rescue in California and Nevada" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
         <meta name="theme-color" content="#000000" />
         <meta name="keywords"
