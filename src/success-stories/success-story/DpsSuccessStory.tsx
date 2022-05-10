@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Imgix from 'react-imgix';
 import Slider, { Settings } from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
 import DpsSuccessStoryWrapper from '../../model/DpsSuccessStory';
 import { IDpsSuccessStory } from '../../model/IDpsSuccessStory';

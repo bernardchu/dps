@@ -1,6 +1,8 @@
 import * as React from 'react';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
 import Slider, { Settings } from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
 import styles from './pet-detail.module.scss';
 
