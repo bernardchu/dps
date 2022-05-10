@@ -6,7 +6,6 @@ export interface IDpsRoute {
   children?: {
     [key: string]: IDpsRoute
   }
-  element: ReactElement;
   inNav: boolean;
   navOrder?: number;
   hideDonate?: boolean;
@@ -16,5 +15,4 @@ export interface IDpsNavRoute {
   name: string;
   path: string;
   children?: IDpsNavRoute[];
-  element: ReactElement;
 }

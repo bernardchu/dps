@@ -50,7 +50,6 @@ function createNavRoutes(routes: { [key: string]: IDpsRoute }): IDpsNavRoute[] {
     .map((route) => {
       const transformed: IDpsNavRoute = {
         name: route.name,
-        element: route.element,
         path: route.path,
       };
       if (hasSubnavChildren(route)) {
@@ -73,82 +72,70 @@ export const routes: { [key: string]: IDpsRoute } = {
   home: {
     name: 'Home',
     path: '',
-    element: <DpsHome />,
     inNav: true,
     navOrder: 0
   },
   rehome: {
     name: 'Rehome',
     path: 'rehome',
-    element: <DpsRedirect to={rehomeLink} />,
     inNav: false,
     navOrder: 0
   },
   print: {
     name: 'Print',
     path: 'print',
-    element: <DpsPrint />,
     inNav: false,
     hideDonate: true
   },
   adopt: {
     name: 'Adopt',
     path: 'adopt',
-    element: <React.Fragment />,
     inNav: true,
     navOrder: 1,
     children: {
       available: {
         name: 'Available Animals',
         path: 'available',
-        element: <DpsAdoptAvailable />,
         inNav: true,
         navOrder: 0
       },
       dogApp: {
         name: 'Application',
         path: 'dog-application',
-        element: <DpsAdoptApplication />,
         inNav: true,
         navOrder: 1
       },
       catApp: {
         name: 'Cat Application',
         path: 'cat-application',
-        element: <DpsCatApplication />,
         inNav: true,
         navOrder: 2
       },
       sticky: {
         name: 'Sticky Dogs',
         path: 'sticky',
-        element: <DpsStickyDogs />,
         inNav: true,
         navOrder: 3
       },
       rehome: {
         name: 'Rehome',
         path: 'rehome',
-        element: <DpsRedirect to={rehomeLink} />,
         inNav: true,
         navOrder: 4
       },
       petDetail: {
         name: 'Pet Details',
         path: 'pet-detail',
-        element: <DpsPetDetail />,
         inNav: false
       },
       application: {
         name: 'Application redirect',
         path: 'application',
-        element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLSf3PdbO6nBVx03MbUBRp-mr-j0u46eVkVD1_m8mTeI8hR98tg/viewform" />,
         inNav: false
       },
       catApplication: {
         name: 'Cat application redirect',
         path: 'catapp',
-        element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLSfLhSWqJWHMrW8cYu5Mf6yruf6rXPWG9iPNmibouDUFFVlZ-A/viewform" />,
         inNav: false
       }
     }
@@ -156,21 +143,18 @@ export const routes: { [key: string]: IDpsRoute } = {
   volunteer: {
     name: 'Volunteer',
     path: 'volunteer',
-    element: <React.Fragment />,
     inNav: true,
     navOrder: 2,
     children: {
       faq: {
         name: 'FAQ',
         path: 'faq',
-        element: <DpsVolunteerFaq />,
         inNav: true,
         navOrder: 0
       },
       meet: {
         name: 'Meet Our Volunteers',
         path: 'meet-our-volunteers',
-        element: <DpsMeetVolunteers />,
         inNav: true,
         navOrder: 0
       },
@@ -179,21 +163,18 @@ export const routes: { [key: string]: IDpsRoute } = {
   foster: {
     name: 'Foster',
     path: 'foster',
-    element: <React.Fragment />,
     inNav: true,
     navOrder: 3,
     children: {
       faq: {
         name: 'FAQ',
         path: 'faq',
-        element: <DpsFosterFaq />,
         inNav: true,
         navOrder: 0
       },
       meet: {
         name: 'Meet Our Fosters',
         path: 'meet-our-fosters',
-        element: <DpsMeetFosters />,
         inNav: true,
         navOrder: 1
       }
@@ -202,7 +183,6 @@ export const routes: { [key: string]: IDpsRoute } = {
   donate: {
     name: 'Donate',
     path: 'donate',
-    element: <React.Fragment />,
     inNav: true,
     navOrder: 4,
     hideDonate: true,
@@ -210,35 +190,30 @@ export const routes: { [key: string]: IDpsRoute } = {
       donate: {
         name: 'Donate',
         path: 'donate',
-        element: <DpsDonate />,
         inNav: true,
         navOrder: 0
       },
       icu: {
         name: 'Medical Dogs',
         path: 'medical-dogs',
-        element: <DpsIcu />,
         inNav: true,
         navOrder: 1
       },
       sponsor: {
         name: 'Sponsor a Dog',
         path: 'sponsor',
-        element: <DpsSponsor />,
         inNav: true,
         navOrder: 2
       },
       employerMatching: {
         name: 'Employer Matching',
         path: 'employer-matching',
-        element: <DpsEmployerMatching />,
         inNav: true,
         navOrder: 3
       },
       inHonorOf: {
         name: 'In Honor Of',
         path: 'in-honor-of',
-        element: <DpsInHonorOf />,
         inNav: true,
         navOrder: 4
       },
@@ -247,14 +222,12 @@ export const routes: { [key: string]: IDpsRoute } = {
   successStories: {
     name: 'Success Stories',
     path: 'success-stories',
-    element: <DpsSuccessStories />,
     inNav: true,
     navOrder: 5,
     children: {
       successStory: {
         name: 'Success Story',
         path: 'success-story',
-        element: <DpsSuccessStory />,
         inNav: false
       }
     }
@@ -266,28 +239,24 @@ export const routes: { [key: string]: IDpsRoute } = {
   about: {
     name: 'About',
     path: 'about',
-    element: <React.Fragment />,
     inNav: true,
     navOrder: 6,
     children: {
       aboutUs: {
         name: 'About Us',
         path: 'about-us',
-        element: <DpsAboutUs />,
         inNav: true,
         navOrder: 0
       },
       contact: {
         name: 'Contact',
         path: 'contact',
-        element: <DpsContact />,
         inNav: true,
         navOrder: 1
       },
       faq: {
         name: 'FAQ',
         path: 'faq',
-        element: <DpsAboutFaq />,
         inNav: true,
         navOrder: 2
       }
