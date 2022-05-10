@@ -14,12 +14,17 @@ class DpsNavTopRoute extends React.Component<DpsNavTopRouteProps> {
     return (
       <div className="nav-link">
         <NavLink
-          href={'/' + route.path}
+          href={DpsNavTopRoute.getTopRoutePath(route)}
           className="parent-link"
           dangerouslySetInnerHTML={{ __html: convertToNbsp(route.name) }} />
         {route.children?.length && <DpsChildRouteMenu children={route.children} parent={route} />}
       </div>
     );
+  }
+
+  private static getTopRoutePath(route: IDpsNavRoute): string {
+    if (!route.children) { return '/' + route.path; }
+    return `/${route.path}/${route.children![0].path}`
   }
 }
 
