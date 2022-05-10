@@ -49,7 +49,7 @@ export default class DpsPetDetail extends React.PureComponent<IDpsPetDetailProps
               </div>
             }
             {!print && <DpsPetDetailBasics pet={pet} />}
-            {pet.bio?.map(line => <p className="bio" key={line} dangerouslySetInnerHTML={{ __html: line }} />)} {/* To properly parse escaped quotes and such */}
+            {pet.bio?.map(line => <p className={styles.bio} key={line} dangerouslySetInnerHTML={{ __html: line }} />)} {/* To properly parse escaped quotes and such */}
           </div>
 
         </div>
@@ -58,8 +58,8 @@ export default class DpsPetDetail extends React.PureComponent<IDpsPetDetailProps
           <div className="col-sm-4">
             <div className={`card ${styles['meet-this-dog']}`}>
               <h2>Meet this {pet.isDog ? 'dog' : 'cat'}!</h2>
-              {pet.upcoming && <p className="upcoming">{pet.upcoming}</p>}
-              {!pet.upcoming && <p className="upcoming">
+              {pet.upcoming && <p className={styles.upcoming}>{pet.upcoming}</p>}
+              {!pet.upcoming && <p className={styles.upcoming}>
                 {pet.name} will not be at any scheduled events until we find a home that's
                 interested. Please fill out an application if you think that's you!
               </p>}

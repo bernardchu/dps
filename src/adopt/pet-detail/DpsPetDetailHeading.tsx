@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
+import styles from './pet-detail.module.scss';
 
 export interface IDpsPetDetailHeadingProps {
   pet: DpsDetailedPet
@@ -11,8 +12,8 @@ export default class DpsPetDetailHeading extends React.PureComponent<IDpsPetDeta
     return (
       <>
         <h2>{pet.name}</h2>
-        <p className="breed">{pet.breed}</p>
-        <p className="stats">{pet.age} - {pet.coat_length} coat - {pet.gender}</p>
+        <p className={styles.breed}>{pet.breed}</p>
+        <p className={styles.stats}>{pet.age} - {pet.coat_length} coat - {pet.gender}</p>
       </>
     );
   }
