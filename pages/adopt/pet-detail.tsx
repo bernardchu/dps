@@ -1,8 +1,11 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { ReactElement } from "react";
 import DpsPetDetail from "../../src/adopt/pet-detail/DpsPetDetail";
 import DpsApi from "../../src/api/DpsApi";
 import { IDpsAvailableIdResponse } from "../../src/api/IDpsApiResponses";
 import { pageTitle } from "../../src/common/DpsConstants";
+import { defaultLayout } from "../_app";
 
 export default function PetDetail({ pet, print, host }: { pet: IDpsAvailableIdResponse, print: boolean, host: string }) {
   const title = `${pageTitle} - ${pet.name}`;
@@ -43,4 +46,10 @@ export async function getServerSideProps({ query, req }) {
       host
     },
   }
+}
+
+PetDetail.getLayout = function getLayout(page: ReactElement) {
+  const router = useRouter();
+  const layout = router.query.print === 'true' ? ((page) => <body id="dps-app">{page}</body>) : defaultLayout;
+  return layout(page);
 }

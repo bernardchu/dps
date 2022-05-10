@@ -39,8 +39,8 @@ export default class DpsPetDetail extends React.PureComponent<IDpsPetDetailProps
             }
             {print &&
               <div>
-                <img src={pet.pictures[0]} className="col-sm-6" alt={pet.name} />
-                <div className="print-stats col-sm-6">
+                <img src={pet.pictures[0]} className="col-xs-6 no-border" alt={pet.name} />
+                <div className="print-stats col-xs-6">
                   <DpsPetDetailHeading pet={pet} />
                   <DpsPetDetailBasics pet={pet} />
                 </div>
