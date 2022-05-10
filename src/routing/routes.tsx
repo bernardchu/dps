@@ -1,27 +1,4 @@
-import DpsAdoptApplication from "../adopt/dog-application/DpsAdoptApplication";
-import DpsAdoptAvailable from "../adopt/available/DpsAdoptAvailable";
-import DpsCatApplication from "../adopt/cat-application/DpsCatApplication";
-import DpsStickyDogs from "../adopt/sticky/DpsStickyDogs";
-import DpsHome from "../home/DpsHome";
 import { IDpsNavRoute, IDpsRoute } from "../model/IDpsRoutes";
-import DpsVolunteerFaq from "../volunteer/DpsVolunteerFaq";
-import DpsMeetVolunteers from "../volunteer/meet/DpsMeetVolunteers";
-import DpsFosterFaq from "../foster/DpsFosterFaq";
-import DpsMeetFosters from "../foster/meet/DpsMeetFosters";
-import DpsDonate from "../donate/donate/DpsDonate";
-import DpsIcu from "../donate/icu/DpsIcu";
-import DpsSuccessStories from "../success-stories/DpsSuccessStories";
-import DpsAboutUs from "../about/about-us/DpsAboutUs";
-import DpsContact from "../about/contact/DpsContact";
-import DpsAboutFaq from "../about/DpsAboutFaq";
-import DpsPetDetail from "../adopt/pet-detail/DpsPetDetail";
-import DpsRedirect from "./DpsRedirect";
-import DpsSuccessStory from "../success-stories/success-story/DpsSuccessStory";
-import DpsSponsor from "../donate/sponsor/DpsSponsor";
-import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching";
-import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
-import DpsPrint from "../print/DpsPrint";
-import React from "react";
 
 export const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
