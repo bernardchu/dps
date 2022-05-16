@@ -1,7 +1,7 @@
 import React from "react";
 import DpsChildRouteMenu from "./DpsChildRouteMenu";
 import { IDpsNavRoute } from "../model/IDpsRoutes";
-import { NavLink } from '../routing/NavLink';
+import { isHome, NavLink } from '../routing/NavLink';
 import { convertToNbsp } from "../routing/routes";
 
 interface DpsNavTopRouteProps {
@@ -15,6 +15,8 @@ class DpsNavTopRoute extends React.Component<DpsNavTopRouteProps> {
       <div className="nav-link">
         <NavLink
           href={DpsNavTopRoute.getTopRoutePath(route)}
+          exact={isHome(route)}
+          path={route.path}
           className="parent-link"
           dangerouslySetInnerHTML={{ __html: convertToNbsp(route.name) }} />
         {route.children?.length && <DpsChildRouteMenu children={route.children} parent={route} />}

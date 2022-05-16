@@ -3,7 +3,7 @@ import { slide as Menu } from 'react-burger-menu';
 import navRoutes from "../routing/routes";
 import styles from './hamburger.module.scss';
 import DpsHamburgerChildMenu from './DpsHamburgerChildMenu';
-import { NavLink } from '../routing/NavLink';
+import { isHome, NavLink } from '../routing/NavLink';
 import DpsSocials from '../header/DpsSocials';
 
 export interface IDpsHamburgerMenuState {
@@ -38,7 +38,11 @@ export default class DpsHamburgerMenu extends React.PureComponent<{}, IDpsHambur
           if (route.children?.length) {
             return <DpsHamburgerChildMenu parent={route} hamburgerCloser={this.closeMenu.bind(this)} key={route.name} />
           }
-          return <NavLink href={'/' + route.path} className="bm-item" onClick={() => this.closeMenu()} key={route.name}>{route.name}</NavLink>
+          return <NavLink href={'/' + route.path}
+            exact={isHome(route)}
+            path={route.path}
+            className="bm-item"
+            onClick={() => this.closeMenu()} key={route.name}>{route.name}</NavLink>
         })}
         <DpsSocials />
       </Menu>

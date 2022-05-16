@@ -13,7 +13,7 @@ export default class DpsChildRouteMenu extends React.Component<IDpsChildRouteMen
       <ul className="subnav">
         {this.props.children.map((child: IDpsNavRoute) => {
           return <li key={child.path}>
-            <NavLink href={`/${this.props.parent.path}/${child.path}`}>{child.name}</NavLink>
+            <NavLink href={`/${this.props.parent.path}/${child.path}`} exact={true}>{child.name}</NavLink>
           </li>
         })}
       </ul>
