@@ -6,10 +6,10 @@ frontend:
         - npm ci
     build:
       commands:
-        - touch .env && echo "REACT_APP_API_URL=$API_URL" >> .env && npm run build
+        - touch .env.local && echo "NEXT_PUBLIC_API_URL=$API_URL" >> .env.local && npm run build
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /build
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
