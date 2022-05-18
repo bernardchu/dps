@@ -2,6 +2,7 @@ import * as React from 'react';
 import Slider, { Settings } from 'react-slick';
 import DpsApi from '../../api/DpsApi';
 import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
+import DpsImmediateAsyncComponent from '../../common/DpsImmediateAsyncComponent';
 import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsStickyDog } from '../../model/IDpsStickyDog';
@@ -16,11 +17,12 @@ export interface IDpsStickyDogsState extends IDpsAsyncState {
  * There have not been sticky dogs for a long time and there is no data served by the API to test against.
  * This is just a best attempt at working code based on legacy code.
  */
-export default class DpsStickyDogs extends React.Component<{}, IDpsStickyDogsState> {
+export default class DpsStickyDogs extends DpsImmediateAsyncComponent<{}, IDpsStickyDogsState> {
   public componentDidMount() {
+    this._isMounted = true;
     DpsApi.getSticky()
       .then((stickyDogs) => {
-        this.setState({
+        this._isMounted && this.setState({
           stickyDogs: stickyDogs,
           loaded: true
         });

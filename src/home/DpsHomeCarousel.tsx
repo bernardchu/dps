@@ -1,20 +1,21 @@
-import * as React from 'react';
-import DpsApi from '../api/DpsApi';
-import { IDpsAdoptable } from '../model/IDpsAdoptable';
-import { IDpsAvailableApiResponse } from '../api/IDpsApiResponses';
-import Slider, { Settings } from 'react-slick';
 import _ from 'lodash';
-import 'slick-carousel/slick/slick.css';
+import * as React from 'react';
+import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
-import DpsHomeCarouselSlide from './DpsHomeCarouselSlide';
-import { IDpsAsyncState } from '../model/IDpsAsyncState';
+import 'slick-carousel/slick/slick.css';
+import DpsApi from '../api/DpsApi';
+import { IDpsAvailableApiResponse } from '../api/IDpsApiResponses';
+import DpsImmediateAsyncComponent from '../common/DpsImmediateAsyncComponent';
 import DpsLoading from '../common/DpsLoading';
+import { IDpsAdoptable } from '../model/IDpsAdoptable';
+import { IDpsAsyncState } from '../model/IDpsAsyncState';
+import DpsHomeCarouselSlide from './DpsHomeCarouselSlide';
 
 export interface IDpsHomeCarouselState extends IDpsAsyncState {
   dogs: IDpsAdoptable[];
 }
 
-export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCarouselState> {
+export default class DpsHomeCarousel extends DpsImmediateAsyncComponent<{}, IDpsHomeCarouselState> {
   private static readonly settings = {
     dots: false,
     infinite: true,
@@ -41,9 +42,10 @@ export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCar
   };
 
   public componentDidMount() {
+    this._isMounted = true;
     DpsApi.getAvailableCompact()
       .then((animals: IDpsAvailableApiResponse) => {
-        this.setState({
+        this._isMounted && this.setState({
           dogs: _.shuffle(animals.dogs),
           loaded: true
         });

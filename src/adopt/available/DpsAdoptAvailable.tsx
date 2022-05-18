@@ -5,17 +5,19 @@ import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import { IDpsAvailableApiResponse } from '../../api/IDpsApiResponses';
 import DpsAdoptableTile from './DpsAdoptableTile';
 import DpsLoading from '../../common/DpsLoading';
+import DpsImmediateAsyncComponent from '../../common/DpsImmediateAsyncComponent';
 
 export interface IDpsAdoptAvailableState extends IDpsAsyncState {
   dogs: IDpsAdoptable[];
   cats: IDpsAdoptable[];
 }
 
-export default class DpsAdoptAvailable extends React.PureComponent<{}, IDpsAdoptAvailableState> {
+export default class DpsAdoptAvailable extends DpsImmediateAsyncComponent<{}, IDpsAdoptAvailableState> {
   public componentDidMount() {
+    this._isMounted = true;
     DpsApi.getAvailableCompact()
       .then((animals: IDpsAvailableApiResponse) => {
-        this.setState({
+        this._isMounted && this.setState({
           dogs: animals.dogs,
           cats: animals.cats,
           loaded: true

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DpsApi from '../api/DpsApi';
 import { IDpsDatesApiResponse } from '../api/IDpsApiResponses';
+import DpsImmediateAsyncComponent from '../common/DpsImmediateAsyncComponent';
 import DpsLoading from '../common/DpsLoading';
 import { IDpsAsyncState } from '../model/IDpsAsyncState';
 import DpsHomeEventLocation from './DpsHomeEventLocation';
@@ -9,11 +10,12 @@ export interface IDpsHomeEventsState extends IDpsAsyncState {
   locations: IDpsDatesApiResponse;
 }
 
-export default class DpsHomeEvents extends React.PureComponent<{}, IDpsHomeEventsState> {
+export default class DpsHomeEvents extends DpsImmediateAsyncComponent<{}, IDpsHomeEventsState> {
   public componentDidMount() {
+    this._isMounted = true;
     DpsApi.getDates()
       .then((locations) => {
-        this.setState({
+        this._isMounted && this.setState({
           locations: locations,
           loaded: true
         });
