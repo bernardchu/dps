@@ -22,7 +22,7 @@ export default class DpsHome extends React.PureComponent {
         <p>We specialize in rescuing those that may be at risk of euthanasia, including pregnant and nursing mama dogs, medical cases, and the shy and shut down pups who do not thrive in the shelter environment.</p>
         <p>We don’t just rescue dogs! We also have a team that rescues cats and kittens, including bottle babies and nursing mama cats, and cares for them until they are old enough to be adopted.</p>
         <p>We hold biweekly Saturday meet and greet events from 12-3 pm at Pet Food Express in Palo Alto and host individual adoptions throughout the week by appointment. We welcome adopters from Northern CA and beyond; as long as you can come in person to meet and adopt your new family member, you’re more than welcome to adopt from DPS!</p>
-        <p>We are always in need of more foster homes and volunteers! Click <Link href={`${routes.foster.path}/${routes.foster.children!.faq.path}`}><a>here</a></Link> to sign up to become a lifesaving foster home or <Link href={`${routes.volunteer.path}/${routes.volunteer.children!.faq.path}`}><a>here</a></Link> to sign up to volunteer at our events, to join our transport team, or to learn other ways you can support DPS!</p>
+        <p>We are always in need of more foster homes and volunteers! Click <Link href={`/${routes.foster.path}/${routes.foster.children!.faq.path}`}><a>here</a></Link> to sign up to become a lifesaving foster home or <Link href={`/${routes.volunteer.path}/${routes.volunteer.children!.faq.path}`}><a>here</a></Link> to sign up to volunteer at our events, to join our transport team, or to learn other ways you can support DPS!</p>
       </div>
     };
 
@@ -31,7 +31,7 @@ export default class DpsHome extends React.PureComponent {
         <div className="row">
           <div className={`${styles.adoptable} col-md-12 container`}>
             <DpsHomeCarousel />
-            <Link href={`${routes.adopt.path}/${routes.adopt.children!.available.path}`}>
+            <Link href={`/${routes.adopt.path}/${routes.adopt.children!.available.path}`}>
               <a className="hero-button col-xs-12">See All Available Dogs and Cats</a>
             </Link>
           </div>

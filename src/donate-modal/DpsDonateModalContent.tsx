@@ -29,7 +29,7 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
               htmlAttributes={{ alt: 'donate' }} />
           </div>
           <p>{bodyText}</p>
-          <Link href={`${routes.donate.path}/${routes.donate.children!.donate.path}`}><a className="hero-button col-xs-12" onClick={() => this.props.closeModal()} >{buttonText || 'Donate Now'}</a></Link>
+          <Link href={`/${routes.donate.path}/${routes.donate.children!.donate.path}`}><a className="hero-button col-xs-12" onClick={() => this.props.closeModal()} >{buttonText || 'Donate Now'}</a></Link>
         </main>
       </>
 
