@@ -9,8 +9,6 @@ It's not clear why, but the default address that amplify will provide for you ma
 
 DNS for the frontend can be set up by following the instructions for [adding custom domains in the Amplify docs](https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-amazon-route-53.html).
 
-Since we use `react-router`, to make proper use of HTML5 pushState, follow the directions [here](https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html#redirects-for-single-page-web-apps-spa) to ensure that direct links work correctly (this setting is in the Amplify console, left side menu, under "Rewrites and redirects").
-
 You can point the frontend at different backends by setting the Environment Variable on the app, e.g. `API_URL` => `https://api.dpsrescue.com/`.
 
 ## Backend
@@ -74,5 +72,3 @@ Fair warning - Google's documentation is atrocious.
 
 ### Images
 There are two types of images used for DPS: 1) Static images hosted in our own S3 bucket and 2) images returned from Rescue Groups. All images are processed in real-time by using imgix. The imgix account can be accessed by using Google sign in from ops@dpsrescue.org.
-
-

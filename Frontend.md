@@ -3,37 +3,42 @@
 ## Quick Start
 
 ### Production
-`npm run build` Builds the app for production to the `build` folder.
+`npm run build` Builds the app for production to the `.next` folder.
 
 ### Development
-`npm start` Runs the app in the development mode and serves it at [http://localhost:3000](http://localhost:3000).
+Set an env variable `NEXT_PUBLIC_API_URL` to whatever API you want to use e.g. `http://api.dpsrescue.info` in a `.env.local` file.
+`npm run dev` Runs the app in the development mode and serves it at [http://localhost:3000](http://localhost:3000).
 
 ## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) then migrated to use Next.js.
 
 In the absence of formal requirements, most of the functionality is documented in the components themselves.
-Since there is little to no actual business logic, almost everything there is to know about the workings of the application can be discovered by simply following [routes](src/routing/routes.tsx) to their components.
+Since there is little to no actual business logic, almost everything there is to know about the workings of the application can be discovered by simply following [routes](src/routing/routes.tsx) to their components and by examining the available pages in the `pages` folder.
 
 Most pages are simply static content (e.g. the [cat application](src/adopt/cat-application/DpsCatApplication.tsx)) or renders of a single request to the API (e.g. the [available page](src/adopt/available/DpsAdoptAvailable.tsx)).
 
 ### Dependencies
-The most used dependencies are React, React Router, TypeScript, `react-micromodal` (a React skin on top of Micromodal), `react-slick` (a React skin on top of Slick carousel), and `bootstrap-grid-only` for simple layout styles.
+The most used dependencies are React, Next.js, TypeScript, `react-modal`, `react-slick` (a React wrapper around Slick carousel), and `bootstrap-grid-only` for simple layout styles.
 
 ### Quirks
-Almost every route can be easily found by looking at the navbar and submenus that pop up, with the following exceptions:
-- The dog and cat applications have friendlier, user-facing routes that appear in the nav but the buttons that go to the actual Google Forms applications go to separate routes that simply redirect to the Forms. This makes for nicer links that can be shared with the public and, in the event the Form changes, one place where it can be changed.
-- While not technically a separate route, adding `print=true` as a query param to the `pet-detail` route changes the DOM and adds some `@media print` styling that makes printing pet bios for adoption events easier for volunteers.
+Almost every page can be easily found by looking at the navbar and submenus that pop up, with the following exceptions:
+- The dog and cat applications have friendlier, user-facing pages that appear in the nav but the buttons that go to the actual Google Forms applications go to separate pages that simply redirect to the Forms. This makes for nicer links that can be shared with the public and, in the event the Form changes, one place where it can be changed.
+- While not technically a separate page, adding `print=true` as a query param to the `pet-detail` page changes the DOM and adds some `@media print` styling that makes printing pet bios for adoption events easier for volunteers.
+- The `/print` page gives links to the above for each adoptable animal.
+- The `/rehome` page is identical to `/adopt/rehome` and exists because some people have this bookmarked.
 
-Some parent routes have no content and exist purely to namespace child routes.
-Therefore, ideally, they would not be accessible without the context of a child route, except to my knowledge React Router doesn't easily support abstract routes like this.
-Index routes are used to mimic this sort of behavior by acting as a sort of default child route when a parent route is visited directly.
+Most parent routes, e.g. `/adopt`, have no content and exist purely to namespace child routes.
+
+### Environment variables
+Environment variables are set in a `.env.local` file.
+Set `NEXT_PUBLIC_API_URL` to whatever API you want to use e.g. `http://api.dpsrescue.info`.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -50,26 +55,14 @@ Given the relatively simple nature of the application, there are no tests at the
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `.next` folder.\
+This is usually not needed locally; amplify runs this command to build the app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `npm run start`
+Serves up whatever is in the `.next` folder at [http://localhost:3000](http://localhost:3000).
+This is generally not needed(`npm run dev` should suffice for most development), but can be helpful to double-check larger changes before deployment.
 
 ## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+To learn Next.js, check out the [Next.js documentation](https://nextjs.org/docs/getting-started).

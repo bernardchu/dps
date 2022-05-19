@@ -8,6 +8,7 @@ node_modules/*
 build/*
 
 .next
+.env.local
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
