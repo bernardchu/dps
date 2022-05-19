@@ -11,7 +11,7 @@ export default function Document() {
         <meta name="keywords"
           content="Dog Rescue, Rescue Organization, Animal shelter, Dog Pounds, Abandoned Dogs, Abused Dogs, All Breed Dogs, Purebred dogs, Cocker Spaniels, dogs, cats, rescue, Southern California, Northern California, Riverside County, Romoland, Palo Alto, Las Vegas, Nevada" />
         <link rel="manifest" href="/manifest.json" />
-
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         {/* social media */}
         <meta property="og:locale" content="en-US" />
 
