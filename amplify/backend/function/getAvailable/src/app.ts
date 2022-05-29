@@ -104,7 +104,7 @@ app.get(path + '/all', async function (req, res) {
           gender: animal.gender,
           name: animal.name,
           species: animal.species,
-          imgUrl: signImageUrl(animal.pictures[0].image, imgixClient, imgixParams)
+          imgUrl: signImageUrl(animal?.pictures[0]?.image, imgixClient, imgixParams)
         }
         return compact;
       });
@@ -188,7 +188,7 @@ app.get(path + '/object' + hashKeyPath + sortKeyPath, async function (req, res) 
           specialNeeds: animal.specialNeeds,
           video: animal.video,
           contact: animal.contact,
-          pictures: animal.pictures.map(p => signImageUrl(p.image, imgixClient, imgixParams))
+          pictures: animal.pictures.map(p => signImageUrl(p?.image, imgixClient, imgixParams))
         }
         res.json(processed);
       } else {
@@ -209,5 +209,6 @@ app.listen(3000, function () {
 module.exports = app
 
 function signImageUrl(url: string, client: typeof ImgixClient, params?): string {
+  if (!url) { return ''; }
   return params ? client.buildURL(url, params) : client.buildURL(url);
 }
