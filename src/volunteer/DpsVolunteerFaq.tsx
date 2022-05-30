@@ -32,7 +32,7 @@ export default class DpsVolunteerFaq extends React.PureComponent {
       imgUrl: "/volunteer/volunteer-andy.jpg?h=340&fit=crop&w=340",
       prose: <>
         <p>The first step is to fill out this volunteer application and we will get in touch with you to further discuss your role in the rescue.</p>
-        <p>Volunteers must be 14 or older, and volunteers under 18 will be required to have their parent or guardian sign a minor release form. We require that all volunteers commit to coming out to adoption events at least one day a month and stay for the full day (10 am to 5 pm on Saturdays, 11 am to 5 pm on Sundays). You must sign up to attend events before coming out.</p>
+        <p>Volunteers must be 14 or older, and volunteers under 18 will be required to have their parent or guardian sign a minor release form. We require that all volunteers commit to coming out to adoption events at least one day a month and stay for the full day (10 am to 4 pm on Saturdays). You must sign up to attend events before coming out.</p>
         <p>You will receive an email with volunteer opportunities the week of an adoption event. If you are able to come out, please reply and let us know, and read through the volunteer email that will be sent out on Fridays to learn your assignment! Please email <a href="mailto:volunteer@dpsrescue.com">volunteer@dpsrescue.com</a> if you have any more questions!</p>
       </>
     }
