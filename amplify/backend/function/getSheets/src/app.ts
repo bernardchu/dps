@@ -74,7 +74,9 @@ async function getSheet(name: string): Promise<ISheet> {
 app.get(path + '/dates', function (req, res) {
   getSheet('events').then((sheet: ISheet) => {
     const events: string[][] = sheet.data;
-    const eventData: ISheetEvent[] = SheetsMapper.mapData(events, ['date', 'time', 'location', 'lastinterview']);
+    const eventData: ISheetEvent[] = SheetsMapper.mapData(events, [
+      'date', 'time', 'location', 'title', 'locationLink', 'includeInDogApp', 'includeInCatApp', 'notes'
+    ]);
     res.json(DatesHandler.organize(eventData));
   })
     .catch(err => {
