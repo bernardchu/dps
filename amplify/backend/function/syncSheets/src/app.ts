@@ -68,7 +68,7 @@ app.get(path + '/sync', async function (req, res) {
       credentials
     });
     const ranges = {
-      'events': 'A:E',
+      'events': 'A:H',
       'sticky-dogs': 'A:D',
       'modal': 'A:D',
       'volunteers': 'A:E',
@@ -82,7 +82,7 @@ app.get(path + '/sync', async function (req, res) {
     new sheets_v4.Sheets({ auth: client }).spreadsheets.get({
       spreadsheetId: spreadSheetId,
       // Sheets "A1 notation": https://developers.google.com/sheets/api/guides/concepts#expandable-1
-      ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`), // e.g. events!A:E
+      ranges: Object.keys(ranges).map(key => `${key}!${ranges[key]}`), // e.g. events!A:H
       includeGridData: true
     })
       .then((sheetResponse) => {
