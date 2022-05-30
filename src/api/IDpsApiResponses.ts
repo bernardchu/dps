@@ -1,5 +1,5 @@
 import { IDpsAdoptable } from "../model/IDpsAdoptable";
-import { IDpsEventLocation } from "../model/IDpsEventsInterfaces";
+import { IDpsEvent } from "../model/IDpsEvent";
 import { IDpsVolunteer } from "../model/IDpsVolunteer";
 
 export interface IDpsAvailableApiResponse {
@@ -7,9 +7,7 @@ export interface IDpsAvailableApiResponse {
   dogs: IDpsAdoptable[];
 }
 
-export interface IDpsDatesApiResponse {
-  [key: string]: IDpsEventLocation;
-}
+export type IDpsDatesApiResponse = IDpsEvent[];
 
 export interface IDpsAvailableIdResponse {
   age: string;
