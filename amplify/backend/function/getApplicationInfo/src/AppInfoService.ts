@@ -54,12 +54,13 @@ export class ApplicationInfoService {
             notes: e[7]
           };
         });
-        const upcomingSaturdayEvents: IEvent[] = events
+
+        const upcomingEligibleEvents: IEvent[] = events
           .filter(e => ApplicationInfoService.isUpcoming(e))
           .filter(e => ApplicationInfoService.shouldBeIncludedInApplicationInfo(e, species));
         // now sorted ascending
-        upcomingSaturdayEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
-        return upcomingSaturdayEvents;
+        upcomingEligibleEvents.sort((a, b) => a.date.getTime() - b.date.getTime());
+        return upcomingEligibleEvents;
       })
   }
 
