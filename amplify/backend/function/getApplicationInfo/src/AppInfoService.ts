@@ -49,8 +49,8 @@ export class ApplicationInfoService {
             time: e[1],
             location: e[2],
             title: e[3],
-            includeInDogApp: !!e[5],
-            includeInCatApp: !!e[6],
+            includeInDogApp: !!parseInt(e[5]),
+            includeInCatApp: !!parseInt(e[6]),
             notes: e[7]
           };
         });
