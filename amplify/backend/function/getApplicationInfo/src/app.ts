@@ -40,15 +40,15 @@ const noUpcomingEventsMessage = 'Our next adoption date is not known yet, but ar
 app.get(path + '/dog', async function (req, res) {
   const appInfoService = new ApplicationInfoService(dynamodb, availableTableName, sheetsTableName);
   const dogs = await appInfoService.getAnimals('Dog');
-  const upcomingSaturdayEvents: IEvent[] = await appInfoService.getUpcomingSaturdayEvents();
+  const upcomingEligibleEvents: IEvent[] = await appInfoService.getUpcomingEligibleEvents('Dog');
 
-  if (!upcomingSaturdayEvents.length) {
+  if (!upcomingEligibleEvents.length) {
     res.json({
       'next_adoption': noUpcomingEventsMessage,
       dogs
     });
   } else {
-    const imminent: IEvent = upcomingSaturdayEvents[0];
+    const imminent: IEvent = upcomingEligibleEvents[0];
     res.json({
       'next_adoption': ApplicationInfoService.getUpcomingEventMessage(imminent),
       dogs
@@ -63,15 +63,15 @@ app.get(path + '/dog', async function (req, res) {
 app.get(path + '/cat', async function (req, res) {
   const appInfoService = new ApplicationInfoService(dynamodb, availableTableName, sheetsTableName);
   const cats = await appInfoService.getAnimals('Cat');
-  const upcomingSaturdayEvents: IEvent[] = await appInfoService.getUpcomingSaturdayEvents();
+  const upcomingEligibleEvents: IEvent[] = await appInfoService.getUpcomingEligibleEvents('Cat');
 
-  if (!upcomingSaturdayEvents.length) {
+  if (!upcomingEligibleEvents.length) {
     res.json({
       'next_adoption': noUpcomingEventsMessage,
       cats
     });
   } else {
-    const imminent: IEvent = upcomingSaturdayEvents[0];
+    const imminent: IEvent = upcomingEligibleEvents[0];
     res.json({
       'next_adoption': ApplicationInfoService.getUpcomingEventMessage(imminent),
       cats
