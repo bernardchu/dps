@@ -183,11 +183,12 @@ interface IDpsModalContent {
   bodyText: string;
   imgUrl: string;
   buttonText: string;
+  href: string;
 }
 
 app.get(path + '/modal', function (req, res) {
   getSheet('modal').then((sheet: ISheet) => {
-    const modalContent: IDpsModalContent = SheetsMapper.mapData(sheet.data, ['heading', 'bodyText', 'imgUrl', 'buttonText'])[0];
+    const modalContent: IDpsModalContent = SheetsMapper.mapData(sheet.data, ['heading', 'bodyText', 'imgUrl', 'buttonText', 'href'])[0];
     if (modalContent) { res.json(modalContent); }
     else {
       res.statusCode = 404;
