@@ -3,4 +3,5 @@ export interface IDpsModalContent {
   bodyText: string;
   imgUrl: string;
   buttonText: string;
+  href: string;
 }

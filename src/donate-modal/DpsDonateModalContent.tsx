@@ -10,8 +10,11 @@ interface IDpsDonateModalContentProps {
 }
 
 export default class DpsDonateModalContent extends React.PureComponent<IDpsDonateModalContentProps> {
+  private static DEFAULT_HREF = `${routes.donate.path}/${routes.donate.children!.donate.path}`;
+
   public render() {
-    const { heading, bodyText, imgUrl, buttonText } = this.props.content;
+    const { heading, bodyText, imgUrl, buttonText, href } = this.props.content;
+    const to = href || DpsDonateModalContent.DEFAULT_HREF;
 
     return (
       <>
@@ -29,7 +32,7 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
               htmlAttributes={{ alt: 'donate' }} />
           </div>
           <p>{bodyText}</p>
-          <Link onClick={() => this.props.closeModal()} to={`${routes.donate.path}/${routes.donate.children!.donate.path}`} className="hero-button col-xs-12">{buttonText || 'Donate Now'}</Link>
+          <Link onClick={() => this.props.closeModal()} to={{ pathname: to }} className="hero-button col-xs-12">{buttonText || 'Donate Now'}</Link>
         </main>
       </>
 
