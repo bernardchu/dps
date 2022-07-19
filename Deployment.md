@@ -16,7 +16,7 @@ You can point the frontend at different backends by setting the Environment Vari
 ## Backend
 Deploys automatically with `amplify push`.
 When checking out someone else's feature branch that includes significant changes to the backend e.g. new lambdas, `amplify env checkout <your current env>` should make `amplify status` correctly reflect those changes.
-However, this simply bundles your local code and deploys it (there is no cloud build step) so be sure that TypeScript is compiled before pushing (use `npm run install:backend && npm run ts:backend` from [package.json](./package.json) to do all of it at once).
+However, this simply bundles your local code and deploys it (there is no cloud build step) so be sure that TypeScript is compiled before pushing (use `npm run install:all && npm run ts:backend` from [package.json](./package.json) to do all of it at once).
 If a deployment already exists and you want to sync your local environment to that, `amplify pull` should do the trick but I've never had to do it so I'm not sure how it works.
 For a new deployment, run `amplify init`. You can ignore/fill in whatever if it asks for "secrets for functions". These do not matter. See the section on Secrets for how those get set.
 Make sure you do an `amplify push` before continuing with setup instructions.
