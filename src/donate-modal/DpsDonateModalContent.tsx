@@ -14,7 +14,7 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
 
   public render() {
     const { heading, bodyText, imgUrl, buttonText, href } = this.props.content;
-    const to = href || DpsDonateModalContent.DEFAULT_HREF;
+    const renderedButtonText = buttonText || 'Donate Now';
 
     return (
       <>
@@ -32,7 +32,8 @@ export default class DpsDonateModalContent extends React.PureComponent<IDpsDonat
               htmlAttributes={{ alt: 'donate' }} />
           </div>
           <p>{bodyText}</p>
-          <Link onClick={() => this.props.closeModal()} to={{ pathname: to }} className="hero-button col-xs-12">{buttonText || 'Donate Now'}</Link>
+          {href && <a href={href} onClick={() => this.props.closeModal()} className="hero-button col-xs-12">{renderedButtonText}</a>}
+          {!href && <Link onClick={() => this.props.closeModal()} to={DpsDonateModalContent.DEFAULT_HREF} className="hero-button col-xs-12">{renderedButtonText}</Link>}
         </main>
       </>
 
