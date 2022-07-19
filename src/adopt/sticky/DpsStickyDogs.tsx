@@ -53,19 +53,13 @@ export default class DpsStickyDogs extends React.Component<{}, IDpsStickyDogsSta
             someone has pledged a certain amount towards their normal adoption fee to aid in their getting adopted.</p>
           <p>Please check out some of our sticky dogs!</p>
         </div>
-        <div className="carousel-container col-xs-12">
+        <div className="row ">
           {!loaded && <DpsLoading />}
           {loaded && !stickyDogs?.length && <p>No sticky dogs right now, check back later!</p>}
           {loaded && !!stickyDogs?.length &&
-
-            <div className="carousel card">
-              <Slider {...dpsBasicCarouselSettings as unknown as Settings}>
-                {stickyDogs.map(dog => <DpsStickyDogContent dog={dog} key={dog.id} />)}
-              </Slider>
-            </div>
-          }
+            stickyDogs.map(dog => <div className="col-xs-12 card"><DpsStickyDogContent dog={dog} key={dog.id} /></div>)}
         </div>
-      </div>
+      </div >
     );
   }
 }

@@ -14,7 +14,7 @@ export default class DpsStickyDogContent extends React.PureComponent<IDpsStickyD
     return (
       <div className="sticky-dog row">
         <div className="col-md-6 left row">
-          <Link to={`../${routes.adopt.children!.petDetail.path}/?id=${dog.id}}`} className="col-xs-12">
+          <Link to={`../${routes.adopt.children!.petDetail.path}/?id=${dog.id}`} className="col-xs-12">
             <img src={dog.pictures[0]} alt={dog.name} title={dog.name} className="no-border" />
           </Link>
           <hr className="hidden-sm hidden-xs" />

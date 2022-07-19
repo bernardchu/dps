@@ -2,20 +2,13 @@
 
 $carousel-arrow-distance: -50px;
 
-.carousel {
-  @include feature();
-  padding: $padding-large;
-
-  .slick-prev {
-    left: $carousel-arrow-distance;
-  }
-
-  .slick-next {
-    right: $carousel-arrow-distance;
-  }
+.card {
+  margin-bottom: $padding-large;
 }
 
 .sticky-dog {
+  padding: $padding-large;
+
   .left {
     padding-right: $padding-large;
 
