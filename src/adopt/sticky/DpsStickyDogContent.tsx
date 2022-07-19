@@ -25,7 +25,7 @@ export default class DpsStickyDogContent extends React.PureComponent<IDpsStickyD
               </>}
               <p>Help {dog.name} find a fur-ever home faster by sponsoring part of the adoption fee.</p>
             </div>
-            <div className="paypal-button" dangerouslySetInnerHTML={{ __html: dog.paypal }} />
+            {/* <div className="paypal-button" dangerouslySetInnerHTML={{ __html: dog.paypal }} /> */}
           </div>
         </div>
         <div className="right col-md-6 row">

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Slider, { Settings } from 'react-slick';
 import DpsApi from '../../api/DpsApi';
+import { IDpsAvailableIdResponse } from '../../api/IDpsApiResponses';
 import { dpsBasicCarouselSettings } from '../../common/DpsBasicCarouselSettings';
 import DpsLoading from '../../common/DpsLoading';
 import { IDpsAsyncState } from '../../model/IDpsAsyncState';
-import { IDpsStickyDog } from '../../model/IDpsStickyDog';
+import { IDpsStickyDog, IDpsStickyDogCompact } from '../../model/IDpsStickyDog';
 import DpsStickyDogContent from './DpsStickyDogContent';
 import './sticky.scss';
 
@@ -18,14 +19,24 @@ export interface IDpsStickyDogsState extends IDpsAsyncState {
  */
 export default class DpsStickyDogs extends React.Component<{}, IDpsStickyDogsState> {
   public componentDidMount() {
+    let stickiesCompact: IDpsStickyDogCompact[];
     DpsApi.getSticky()
-      .then((stickyDogs) => {
+      .then((stickyDogs: IDpsStickyDogCompact[]) => {
+        stickiesCompact = stickyDogs;
+        return Promise.all(stickyDogs.map(sticky => DpsApi.getAvailableById(sticky.id).then((expanded: IDpsAvailableIdResponse) => {
+          return {
+            pictures: expanded.pictures,
+            bio: expanded.bio,
+            ...sticky
+          }
+        })));
+      })
+      .then((stickies: IDpsStickyDog[]) => {
         this.setState({
-          stickyDogs: stickyDogs,
+          // Hack - no proper 404 on getAvailable so this is a surrogate
+          stickyDogs: stickies.filter(sticky => sticky.bio),
           loaded: true
         });
-      }, (error) => {
-        // TODO
       });
   }
 

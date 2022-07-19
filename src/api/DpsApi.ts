@@ -1,7 +1,7 @@
 import { IDpsModalContent } from "../donate-modal/IDpsModalContent";
 import { IDpsFostersApiResponse } from "../model/IDpsFoster";
 import { IDpsIcuAnimal } from "../model/IDpsIcuAnimal";
-import { IDpsStickyDog } from "../model/IDpsStickyDog";
+import { IDpsStickyDog, IDpsStickyDogCompact } from "../model/IDpsStickyDog";
 import { IDpsSuccessStory, IDpsSuccessStoryCompact } from "../model/IDpsSuccessStory";
 import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse, IDpsInHonorOfResponse, IDpsVolunteerApiResponse } from "./IDpsApiResponses";
 
@@ -33,8 +33,8 @@ export default class DpsApi {
     return DpsApi.fetchAndReturnJson<IDpsDatesApiResponse>('sheets/dates');
   }
 
-  public static getSticky(): Promise<IDpsStickyDog[]> {
-    return DpsApi.fetchAndReturnJson<IDpsStickyDog[]>('sheets/sticky');
+  public static getSticky(): Promise<IDpsStickyDogCompact[]> {
+    return DpsApi.fetchAndReturnJson<IDpsStickyDogCompact[]>('sheets/sticky');
   }
 
   public static getFosters(): Promise<IDpsFostersApiResponse> {
