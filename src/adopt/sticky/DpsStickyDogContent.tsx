@@ -2,6 +2,7 @@ import * as React from 'react';
 import { routes } from '../../routing/routes';
 import { Link } from 'react-router-dom';
 import { IDpsStickyDog } from '../../model/IDpsStickyDog';
+import DpsPaypalButton from '../../common/DpsPaypalButton';
 
 export interface IDpsStickyDogContentProps {
   dog: IDpsStickyDog;
@@ -25,13 +26,14 @@ export default class DpsStickyDogContent extends React.PureComponent<IDpsStickyD
               </>}
               <p>Help {dog.name} find a fur-ever home faster by sponsoring part of the adoption fee.</p>
             </div>
-            {/* <div className="paypal-button" dangerouslySetInnerHTML={{ __html: dog.paypal }} /> */}
+            <DpsPaypalButton name={dog.name} purpose={`${dog.name}'s adoption fee`} />
           </div>
         </div>
         <div className="right col-md-6 row">
           <h3>{dog.name}</h3>
           <div className="bio col-xs-12">
-            {dog.bio?.map(line => <p className="bio" key={line} dangerouslySetInnerHTML={{ __html: line }} />)} {/* To properly parse escaped quotes and such */}
+            {dog.bio?.slice(0, 3).map(line => <p className="bio" key={line} dangerouslySetInnerHTML={{ __html: line }} />)} {/* To properly parse escaped quotes and such */}
+            <Link to={`../${routes.adopt.children!.petDetail.path}/?id=${dog.id}`}>Read more</Link>
           </div>
         </div>
       </div>

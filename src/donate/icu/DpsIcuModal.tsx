@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { paypalEmail } from '../../common/DpsConstants';
+import DpsPaypalButton from '../../common/DpsPaypalButton';
 import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
 
 export interface IDpsIcuModalProps {
@@ -23,36 +24,7 @@ export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> 
             </header>
             <main className="modal__content" id="modal-1-content">
               <div dangerouslySetInnerHTML={{ __html: animal.bio }} />
-              <div className="paypal-container">
-                <form target="PayPal" action="https://www.paypal.com/cgi-bin/webscr"
-                  method="post">
-                  <input type="hidden" name="business"
-                    value={paypalEmail} />
-                  <input type="hidden" name="cmd" value="_donations" />
-                  <input type="hidden"
-                    name="item_name"
-                    value={`Sponsor ${animal.name}`} />
-                  <input type="hidden" name="item_number"
-                    value={`Donate toward ${animal.name}'s care'`} />
-                  <input type="hidden"
-                    name="currency_code"
-                    value="USD" />
-                  <input type="hidden" name="return" value={window.location.origin} />
-                  <input
-                    type="hidden" name="cancel_return"
-                    value={window.location.origin} />
-                  <input type="hidden" name="receiver_email"
-                    value={paypalEmail} />
-                  <input type="hidden"
-                    name="no_shipping"
-                    value="1" />
-                  <input type="hidden" name="no_note" value="1" />
-                  <input type="image"
-                    src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-                    name="submit"
-                    alt="PayPal - The safer, easier way to pay online!" />
-                </form>
-              </div>
+              <DpsPaypalButton name={animal.name} purpose={`${animal.name}'s care`} />
             </main>
           </div>
         </div>
