@@ -222,9 +222,15 @@ app.get(path + '/in-honor-of', function (req, res) {
 /***************
  * Sticky Dogs *
  ***************/
-// Probably will be deprecated so just a stub for now.
 app.get(path + '/sticky', function (req, res) {
-  res.json([]);
+  getSheet('sticky-dogs').then((sheet: ISheet) => {
+    const stickyDogs = SheetsMapper.mapData(sheet.data, ['id', 'name', 'adoption-fee', 'donors']);
+    res.json(stickyDogs);
+  })
+    .catch(err => {
+      res.statusCode = 500;
+      res.json({ error: 'Could not get sticky dogs: ' + err.message });
+    })
 });
 
 /*******************
