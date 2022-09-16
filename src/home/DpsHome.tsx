@@ -10,9 +10,9 @@ import DpsHomeSidebarFeatures from './DpsHomeSidebarFeatures';
 export default class DpsHome extends React.PureComponent {
   public render() {
     const merchFeature: IDpsHomeFeatureCardData = {
-      title: 'Love Chipotle? This Fundraiser Is For You!',
-      externalLink: 'https://socialportal.chipotle.com/fundraiser/social/public/portal/eOv6XTywMP1yTxM4b3P4jTEPSex4UnRI6QLJ3OgIWq0ZQYW5PjkQDSbxs18zErItIEsJP1aNOUe3Rdsy8jmCjCrZTM85fyu0Cflch9aqVYQk1em7ZybLjpiHDFAeQckt/72022091717219?status=scheduled?utm_source=twitter&utm_medium=social&utm_campaign=social-referral&utm_content=shared-link',
-      imgSrc: 'https://dpsrescue.imgix.net/donate/popup-chipotle.png?w=700&auto=format',
+      title: 'Get DPS Merchandise at Our Online Store',
+      externalLink: 'https://www.bonfire.com/store/dpsrescue/',
+      imgSrc: '/home/merch.png?auto=format&pad=20&bg=2E8C69',
     };
 
     const aboutFeature: IDpsHomeFeatureCardData = {
