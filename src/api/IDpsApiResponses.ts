@@ -7,6 +7,18 @@ export interface IDpsAvailableApiResponse {
   dogs: IDpsAdoptable[];
 }
 
+export interface IDpsFeaturedApiResponseItem {
+  title: string;
+  imgurl: string;
+  href: string;
+  href_text: string;
+  description: string;
+  new_tab: boolean;
+  expires: string;
+}
+
+export type IDpsFeaturedApiResponse = IDpsFeaturedApiResponseItem[];
+
 export type IDpsDatesApiResponse = IDpsEvent[];
 
 export interface IDpsAvailableIdResponse {

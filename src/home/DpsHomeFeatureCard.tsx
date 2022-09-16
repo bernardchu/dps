@@ -28,13 +28,13 @@ export default class DpsHomeFeatureCard extends React.PureComponent<IDpsHomeFeat
           {feature.localPath && <Link to={feature.localPath}>
             {feature.imgSrc && <Imgix src={feature.imgSrc} />}
           </Link>}
-          {feature.externalLink && <a href={feature.externalLink}>
+          {feature.externalLink && <a href={feature.externalLink} target={feature.newTab ? '_blank' : '_self'}>
             {feature.imgSrc && <Imgix src={feature.imgSrc} />}
           </a>}
         </span>
         <div>
           {feature.localPath && feature.linkText && <Link to={feature.localPath}>{feature.linkText}</Link>}
-          {feature.externalLink && feature.linkText && <a href={feature.externalLink}>{feature.linkText}</a>}
+          {feature.externalLink && feature.linkText && <a href={feature.externalLink} target={feature.newTab ? '_blank' : '_self'}>{feature.linkText}</a>}
         </div>
       </div>
     );

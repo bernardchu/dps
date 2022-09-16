@@ -3,7 +3,7 @@ import { IDpsFostersApiResponse } from "../model/IDpsFoster";
 import { IDpsIcuAnimal } from "../model/IDpsIcuAnimal";
 import { IDpsStickyDog, IDpsStickyDogCompact } from "../model/IDpsStickyDog";
 import { IDpsSuccessStory, IDpsSuccessStoryCompact } from "../model/IDpsSuccessStory";
-import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse, IDpsInHonorOfResponse, IDpsVolunteerApiResponse } from "./IDpsApiResponses";
+import { IDpsAvailableApiResponse, IDpsAvailableIdResponse, IDpsDatesApiResponse, IDpsFeaturedApiResponse, IDpsInHonorOfResponse, IDpsVolunteerApiResponse } from "./IDpsApiResponses";
 
 export default class DpsApi {
   private static baseUrl = process.env.REACT_APP_API_URL || 'https://api.dpsrescue.info/' // test API;
@@ -39,6 +39,10 @@ export default class DpsApi {
 
   public static getFosters(): Promise<IDpsFostersApiResponse> {
     return DpsApi.fetchAndReturnJson<IDpsFostersApiResponse>('sheets/fosters');
+  }
+
+  public static getFeatured(): Promise<IDpsFeaturedApiResponse> {
+    return DpsApi.fetchAndReturnJson<IDpsFeaturedApiResponse>('sheets/featured');
   }
 
   public static getIcu(): Promise<IDpsIcuAnimal[]> {

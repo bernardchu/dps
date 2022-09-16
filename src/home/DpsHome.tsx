@@ -1,5 +1,9 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import DpsApi from '../api/DpsApi';
+import { IDpsFeaturedApiResponse } from '../api/IDpsApiResponses';
+import DpsLoading from '../common/DpsLoading';
+import { IDpsAsyncState } from '../model/IDpsAsyncState';
 import { IDpsHomeFeatureCardData } from '../model/IDpsBasicFeature';
 import { routes } from '../routing/routes';
 import DpsHomeCarousel from './DpsHomeCarousel';
@@ -7,7 +11,36 @@ import DpsHomeEvents from './DpsHomeEvents';
 import DpsHomeFeatureCard from './DpsHomeFeatureCard';
 import DpsHomeSidebarFeatures from './DpsHomeSidebarFeatures';
 
-export default class DpsHome extends React.PureComponent {
+export interface IDpsHomeState extends IDpsAsyncState {
+  featured: IDpsHomeFeatureCardData[];
+}
+
+export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
+  private static createFeatureCards(featured: IDpsFeaturedApiResponse): IDpsHomeFeatureCardData[] {
+    return featured.map(feature => {
+      return {
+        title: feature.title,
+        bodyText: feature.description,
+        externalLink: feature.href,
+        imgSrc: feature.imgurl,
+        linkText: feature.href_text,
+        newTab: feature.new_tab
+      }
+    });
+  }
+
+  public componentDidMount() {
+    DpsApi.getFeatured()
+      .then((featured: IDpsFeaturedApiResponse) => {
+        this.setState({
+          featured: DpsHome.createFeatureCards(featured),
+          loaded: true
+        });
+      }, (error) => {
+        // TODO
+      });
+  }
+
   public render() {
     const merchFeature: IDpsHomeFeatureCardData = {
       title: 'Get DPS Merchandise at Our Online Store',
@@ -25,6 +58,9 @@ export default class DpsHome extends React.PureComponent {
       </div>
     };
 
+    const loaded = this.state?.loaded;
+    const featured = this.state?.featured;
+
     return (
       <>
         <div className="row">
@@ -37,6 +73,8 @@ export default class DpsHome extends React.PureComponent {
         <div className="col-md-8 col-sm-12 row features">
           <DpsHomeEvents />
           <DpsHomeFeatureCard feature={merchFeature} />
+          {!loaded && <DpsLoading />}
+          {loaded && featured.map(feature => <DpsHomeFeatureCard feature={feature} />)}
           <DpsHomeFeatureCard feature={aboutFeature} />
         </div>
         <div className="col-md-4 col-sm-12 row">

@@ -8,4 +8,5 @@ export interface IDpsHomeFeatureCardData {
   externalLink?: string;
   imgSrc?: string;
   linkText?: string;
+  newTab?: boolean
 }
