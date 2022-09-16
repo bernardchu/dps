@@ -72,9 +72,9 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
         </div>
         <div className="col-md-8 col-sm-12 row features">
           <DpsHomeEvents />
-          <DpsHomeFeatureCard feature={merchFeature} />
           {!loaded && <DpsLoading />}
           {loaded && featured.map(feature => <DpsHomeFeatureCard feature={feature} />)}
+          <DpsHomeFeatureCard feature={merchFeature} />
           <DpsHomeFeatureCard feature={aboutFeature} />
         </div>
         <div className="col-md-4 col-sm-12 row">
