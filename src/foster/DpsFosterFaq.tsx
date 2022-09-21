@@ -11,7 +11,6 @@ export default class DpsFosterFaq extends React.PureComponent {
       prose: <>
         <p>DPS is a network of foster homes. Our dogs are never kenneled, but each one stays with a loving foster family until they can find their furever home! Our fosters enable us to rescue more dogs, they teach our animals what being in a home is like, they provide valuable information about the pups to potential adopters, and they advocate for their fosters by finding potential homes or just telling people about their awesome foster dogs.</p>
         <p className="application-link"><a href="https://docs.google.com/forms/d/1ydt01XnADgo9RsuC_m3gDFTTBS4ubaBqJ_OdXxqFkIY/viewform">Click here to apply to foster dogs/puppies</a></p>
-	<p className="application-link"><a href="https://docs.google.com/forms/d/1V_XHxL5NpasEI2eCC-IEsaXX6hVDv3-w6vXc_jxxAjI/viewform">Click here to apply to foster kittens</a></p>
       </>
     },
     {
