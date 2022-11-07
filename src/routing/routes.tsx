@@ -183,19 +183,26 @@ export const routes: { [key: string]: IDpsRoute } = {
     inNav: true,
     navOrder: 3,
     children: {
+      fosterApplication: {
+        name: 'Foster application redirect',
+        path: 'application',
+        element: <DpsRedirect to="https://docs.google.com/forms/d/1ydt01XnADgo9RsuC_m3gDFTTBS4ubaBqJ_OdXxqFkIY/viewform" />,
+        inNav: true,
+        navOrder: 0
+      },
       faq: {
         name: 'FAQ',
         path: 'faq',
         element: <DpsFosterFaq />,
         inNav: true,
-        navOrder: 0
+        navOrder: 1
       },
       meet: {
         name: 'Meet Our Fosters',
         path: 'meet-our-fosters',
         element: <DpsMeetFosters />,
         inNav: true,
-        navOrder: 1
+        navOrder: 2
       }
     }
   },
