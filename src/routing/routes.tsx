@@ -184,7 +184,7 @@ export const routes: { [key: string]: IDpsRoute } = {
     navOrder: 3,
     children: {
       fosterApplication: {
-        name: 'Foster application redirect',
+        name: 'Foster Application',
         path: 'application',
         element: <DpsRedirect to="https://docs.google.com/forms/d/1ydt01XnADgo9RsuC_m3gDFTTBS4ubaBqJ_OdXxqFkIY/viewform" />,
         inNav: true,
