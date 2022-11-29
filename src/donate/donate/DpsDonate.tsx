@@ -49,7 +49,7 @@ export default class DpsDonate extends React.PureComponent {
             <li>Flea Treatment (Frontline or Advantage)</li>
             <li><a href="https://a.co/e0Fxj6f">Or check out our Amazon Wishlist</a></li>
           </ul>
-          <p><a href="/donate/dps-tax-receipt.pdf">Click here</a> to download our tax receipt.</p>
+          <p><a href="https://dpsrescue.imgix.net/donate/dps-tax-receipt.pdf">Click here</a> to download our tax receipt.</p>
         </div>
       </div>
       <hr />
