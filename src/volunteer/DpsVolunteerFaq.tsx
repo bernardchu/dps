@@ -29,7 +29,7 @@ export default class DpsVolunteerFaq extends React.PureComponent {
           <li>Attorneys who can advise us on legal matters that arise</li>
           <li>Organizing Pop-Up events around the Bay Area: you will contact businesses, set up a day to bring a select group of animals out and host a po-p up adoption event</li>
           <li>Puppy Wellness Events and Birthday parties: Take a litter of our puppies to a local company or school and spread the joy! Events typically last 1-2 hours.</li>
-        </li>
+        </ul>
       </>
     },
     {
