@@ -297,6 +297,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         element: <DpsAboutFaq />,
         inNav: true,
         navOrder: 2
+      },
+      recap: {
+        name: '2022 Recap',
+        path: '2022-recap',
+        element: <DpsRedirect to="https://dpsrescue.imgix.net/about/2022-recap.pdf" />,
+        inNav: true,
+        navOrder: 3
       }
     }
   }
