@@ -19,15 +19,12 @@ export default class DpsAboutFaq extends React.PureComponent {
       {
         heading: "Where is the shelter/kennel?",
         imgUrl: "/about/faq/chen.jpg?h=340&fit=crop&w=340&crop=top",
-        prose: <p>We are not a shelter or a kennel. Our dogs are rescued from high kill shelters and then go into a network of foster homes in Northern CA, Southern CA and Las Vegas. Each dog lives with a family or person until they find their permanent home.</p>
+        prose: <p>We do not have a shelter/kennel. Our dogs are rescued from high kill shelters and then go into a network of foster homes in Northern and Southern CA. Each dog lives with a family or person until they find their permanent home. We do have a warehouse facility called “The Safehouse&#59;” this is a location for intake, foster supply pickups, and adoption appointments. The Safehouse is not open for walk-ins at this time.</p>
       },
       {
-        heading: "Why do the dogs come from Southern CA?",
+        heading: "Do you adopt to homes outside of CA?",
         imgUrl: "/about/faq/george.png?h=340&fit=crop&w=340",
-        prose: <>
-          <p>Most of the dogs are rescued from shelters in Southern CA and initially go into foster homes there. When they have been vetted and behaviorally assessed we transfer them out to other foster homes in our other adoption areas. We do adoptions in Northern CA 3 times a month, Las Vegas 1-2 times a month, Arizona 4 times a year and in Southern CA on a regular basis. This allows us to take many more dogs and continue the life-saving work we have been doing for 10 years.</p>
-          <p>We have found that each region has an affinity for different breeds of dogs. Whereas one breed may not find a home in Northern CA, they may be very sought out in Las Vegas and if we are willing to travel, the dog can find his/her home. Being mobile gives the opportunity for more lives to be saved.</p>
-        </>
+        prose: <p>Yes! We are happy to adopt to homes anywhere in the US (and even Canada!) as long as the adopter is able to travel to the Bay Area to adopt the dog in person. We do not ship our dogs.</p>
       },
       {
         heading: "What happens to the dogs that don't get adopted?",
