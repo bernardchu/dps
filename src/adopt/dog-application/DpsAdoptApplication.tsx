@@ -44,7 +44,7 @@ export default class DpsAdoptApplication extends React.Component {
             </li>
           </ol>
 
-          <p>If you&rsquo;re hoping to meet several of our dogs at once and aren&rsquo;t yet sure which one you would be interested in adopting, please check out the home page for upcoming Meet &amp; Greet events!</p>
+          <p>If you&#39;re hoping to meet several of our dogs at once and aren&#39;t yet sure which one you would be interested in adopting, please check out the home page for upcoming Meet &amp; Greet events!</p>
           <p>Thank you for your interest in our dogs. We look forward to seeing your application. </p>
 
 
