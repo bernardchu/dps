@@ -22,6 +22,7 @@ import DpsSponsor from "../donate/sponsor/DpsSponsor";
 import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching";
 import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
 import DpsPrint from "../print/DpsPrint";
+import DpsLittermateSyndrome from "../adopt/littermate-syndrome/DpsLittermateSyndrome";
 
 const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
@@ -150,6 +151,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         path: 'catapp',
         element: <DpsRedirect to="https://docs.google.com/forms/d/e/1FAIpQLSfLhSWqJWHMrW8cYu5Mf6yruf6rXPWG9iPNmibouDUFFVlZ-A/viewform" />,
         inNav: false
+      },
+      littermateSyndrome: {
+        name: 'Littermate Syndrome',
+        path: 'littermate-syndrome',
+        element: <DpsLittermateSyndrome />,
+        inNav: true,
+        navOrder: 5
       }
     }
   },
