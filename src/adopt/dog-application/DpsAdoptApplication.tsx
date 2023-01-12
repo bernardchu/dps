@@ -15,61 +15,37 @@ export default class DpsAdoptApplication extends React.Component {
           </div>
 
           <p>
-            Our COVID-19 adoption process:
+            Our Adoption Process:
           </p>
 
           <ol>
             <li>
-              If you see a dog that you are interested in, check the bottom of their biography to see
-              the kind of home we are looking for/qualifications to adopt that dog! Each of our dogs
-              requires a different experience level, but consistent thing you will notice is that we do
-              not adopt out to homes with children under the age of 6, and that age may be higher for
-              specific dogs that need a quieter home.
+              If you see a dog that you are interested in, check the bottom of their biography to see the kind of home we are looking for/qualifications to adopt that dog! Our goal is to send each dog to their forever home, and we do our best to match our dogs with the most appropriate homes for them.
             </li>
 
             <li>
-              If you qualify and are still interested, fill out an application! If we think you are a
-              potential match, we will be in touch within 48 hours. If we have set up the dog, or are
-              pursuing other applicants, we will not contact you further. Please note, since March 2020
-              we have received over 25,000 applications for our dogs. This is unprecedented. We also
-              understand that it can be exhausting and frustrating to keep applying. Unfortunately there
-              isn’t another way and this is how things are today. We take your effort and energy very
-              seriously. We do not take it for granted. We receive upwards of 50-100 applications per
-              dog and review every one of them, so please be patient with us.
+              Fill out an application! If we think you are a potential match, we will be in touch within 48 hours. If we have set up the dog to meet with a family, or are pursuing other applicants, we will not contact you further. We understand that it can be exhausting and frustrating to keep applying. We take your effort and energy very seriously. We do not take it for granted. We receive upwards of 50-100 applications per dog and review every one of them, so please be patient with us.
             </li>
 
             <li>
-              If your application is found to be a match for that dog, our interview team will give you
-              call. Keep an eye out for numbers with a 650 or 408 area code, and listen to your
-              voicemails in case we miss you.
+              If your application is found to be a match for that dog, our interview team will give you a call. Keep an eye out for numbers with a 650 or 408 area code and listen to your voicemails in case we miss you.
             </li>
 
-            <li>The interview team selects one perfect home to adopt, and send them an invitation which
-              contains information about their dog, their adoption appointment, and their deposit. We
-              established the deposit policy because we were spinning our wheels doing applications and
-              setting people up who never showed up and didn’t bother to tell us they weren’t coming, or
-              cancedlling with little to no notice. COVID-19 has only reinforced the need to make sure
-              that when we are asking our people to come out, the adopter is truly committed to showing
-              up and being serious about adopting. Our $50 dollar deposit goes towards your adoption
-              fees. After it is paid, we will work with you to find a time/date of your appointment,
-              which will be set up within three days of your approval.</li>
+            <li>
+              The interview team selects one home to adopt, and sends them an invitation containing information about the dog, the adoption appointment, and the deposit. We established the deposit policy to prevent last minute cancellations and no-shows. Our $50 dollar deposit goes towards your adoption fee. After it is paid, we will work with you to find a time/date of your appointment, which will be set up within three days of your approval.
+            </li>
 
             <li>
-              If you pay your deposit, you will be told to arrive at your appointment with a collar,
-              leash, and dog tag. Nothing else is required except for your wonderful self! Feel free to
-              bring other dogs, if you have them, and family members along to your appointment. We
-              follow social distancing guidelines, and would appreciate it if you would wear a mask as a
-              layer of additional protection. </li>
+              If you pay your deposit, you will be told to arrive at your appointment with a collar, leash, and dog tag. It is also recommended that you bring a crate for safe transport of your new pup to your home. Feel free to bring other dogs, if you have them, and family members along to your appointment.
+            </li>
 
             <li>
-              If you decide to adopt, you take the dog home that day, and start a new life with your
-              dog! We will follow up with you a week, six months, and a year after your appointment to
-              make sure your dog is settling in, and we always appreciate other updates if you want to
-              send them our way.</li>
+              If you decide to adopt, you take the dog home that day! We will follow up with you  to make sure your dog is settling in, and we always appreciate updates if you want to send them our way.
+            </li>
           </ol>
 
-          <p>
-            Thank you for your interest in our dogs. We look forward to seeing your application. </p>
+          <p>If you&rsquo;re hoping to meet several of our dogs at once and aren&rsquo;t yet sure which one you would be interested in adopting, please check out the home page for upcoming Meet &amp; Greet events!</p>
+          <p>Thank you for your interest in our dogs. We look forward to seeing your application. </p>
 
 
           {/* Legacy stuff
