@@ -31,24 +31,6 @@ export default class DpsFosterFaq extends React.PureComponent {
         <p>No&mdash; our foster program is set up specifically for fostering, not foster-to-adopt. We do have some dogs in the rescue who are eligible for foster-to-adopt, and that will be listed on their bios. If you&#39;d like to go that route, please fill out an application for one of those dogs!</p>
         <p>If you sign up to foster and happen to fall in love with a dog you are fostering, you can absolutely put in an application for that dog! Just know that we are getting and processing applications at all times and that dog might already be set up with an adopter. We do not give our fosters priority in the adoption process, but your commitment to the rescue will of course be taken into account.</p>
       </>
-    },
-    {
-      heading: "Do you have any additional foster resources?",
-      imgUrl: "/foster/faq/tips-for-getting-your-foster-pup-adopted.pdf?p=1&h=340&w=340&fit=crop&crop=top&pad=20&bg=A83F3B",
-      prose: <>
-        <p>Yes! The following links are available to all DPS foster homes to support you on our foster journey! If you have other questions or need further training resources, please email your requests to <a href="mailto:foster@dpsrescue.org">foster@dpsrescue.org</a>.</p>
-        <ol>
-          <li><strong><a href={`https://${imgixDomain}/foster/faq/tips-for-getting-your-foster-pup-adopted.pdf`}>Tips for Getting your Foster Dog Adopted</a>:</strong> This handout contains advice, tips and tricks for helping DPS to market your foster dog and find them the right forever home.</li>
-          <br />
-          <li><strong><a href={`https://${imgixDomain}/foster/faq/foster-enrichment-101.pdf`}>Enrichment 101</a>:</strong> We know that everyone works full time and can&apos;t spend hours and hours doing training every day. This handout has some fun ideas for keeping your foster dog mentally and physically stimulated. It&apos;s just as important to tire out their minds as their bodies, so supplement daily walks with these activities for a well-rounded and calm foster dog!</li>
-          <br />
-          <li><strong><a href={`https://${imgixDomain}/foster/faq/crate-training.pdf`}>Crate Training</a>:</strong> Crate training is highly recommended for all dogs and puppies! Here is a step-by-step guide to teaching your foster pup to love their crate.</li>
-          <br />
-          <li><strong><a href={`https://${imgixDomain}/foster/faq/dps-puppy-packet.pdf`}>Puppy Manual</a>:</strong> Puppies can be a tremendous amount of fun, but they can also be exhausting! This manual contains many activities you can engage in with your foster puppy. Puppies are in a crucial socialization period of their lives; follow these tips to help DPS adopt out well-rounded and social puppies who will thrive in their adoptive homes!</li>
-          <br />
-          <li><strong><a href={`https://${imgixDomain}/foster/faq/shy-dogs.pdf`}>Tips and Tricks for Shy Dogs</a> and <a href={`https://${imgixDomain}/foster/faq/treat-and-retreat.pdf`}>Treat and Retreat</a></strong></li>
-        </ol>
-      </>
     }
   ];
 

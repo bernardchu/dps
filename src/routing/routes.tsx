@@ -24,6 +24,7 @@ import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
 import DpsPrint from "../print/DpsPrint";
 import DpsLittermateSyndrome from "../adopt/littermate-syndrome/DpsLittermateSyndrome";
 import DpsRehome from "../about/rehome/DpsRehome";
+import DpsFosterResources from "../foster/resources/DpsFosterResources";
 
 export const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
@@ -196,6 +197,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         name: 'Meet Our Fosters',
         path: 'meet-our-fosters',
         element: <DpsMeetFosters />,
+        inNav: true,
+        navOrder: 2
+      },
+      resources: {
+        name: 'Foster Resources',
+        path: 'resources',
+        element: <DpsFosterResources />,
         inNav: true,
         navOrder: 2
       }
