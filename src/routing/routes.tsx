@@ -24,7 +24,6 @@ import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
 import DpsPrint from "../print/DpsPrint";
 import DpsLittermateSyndrome from "../adopt/littermate-syndrome/DpsLittermateSyndrome";
 import DpsRehome from "../about/rehome/DpsRehome";
-import DpsInternalRedirect from "./DpsInternalRedirect";
 
 export const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
@@ -314,7 +313,7 @@ export const routes: { [key: string]: IDpsRoute } = {
 routes['rehome'] = {
   name: 'Rehome',
   path: 'rehome',
-  element: <DpsInternalRedirect to={`/${routes.about.path}/${routes.about.children!.rehome.path}`} />,
+  element: <DpsRedirect to={`/${routes.about.path}/${routes.about.children!.rehome.path}`} internal={true} />,
   inNav: false,
   navOrder: 0
 };
