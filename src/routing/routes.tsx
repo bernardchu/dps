@@ -23,8 +23,9 @@ import DpsEmployerMatching from "../donate/employer-matching/DpsEmployerMatching
 import DpsInHonorOf from "../donate/in-honor-of/DpsInHonorOf";
 import DpsPrint from "../print/DpsPrint";
 import DpsLittermateSyndrome from "../adopt/littermate-syndrome/DpsLittermateSyndrome";
+import DpsRehome from "../about/rehome/DpsRehome";
 
-const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
+export const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
 export function hasSubnavChildren(route: IDpsRoute): boolean {
   if (!route.children) { return false }
@@ -126,13 +127,6 @@ export const routes: { [key: string]: IDpsRoute } = {
         element: <DpsStickyDogs />,
         inNav: true,
         navOrder: 3
-      },
-      rehome: {
-        name: 'Rehome',
-        path: 'rehome',
-        element: <DpsRedirect to={rehomeLink} />,
-        inNav: true,
-        navOrder: 4
       },
       petDetail: {
         name: 'Pet Details',
@@ -312,6 +306,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         element: <DpsRedirect to="https://dpsrescue.imgix.net/about/2022-recap.pdf" />,
         inNav: true,
         navOrder: 3
+      },
+      rehome: {
+        name: 'Rehome',
+        path: 'rehome',
+        element: <DpsRehome />,
+        inNav: true,
+        navOrder: 4
       }
     }
   }
