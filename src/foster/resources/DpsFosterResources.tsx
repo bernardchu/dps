@@ -22,6 +22,8 @@ export default class DpsFosterResources extends React.PureComponent {
             <li><strong><a href={`https://${imgixDomain}/foster/faq/shy-dogs.pdf`}>Tips and Tricks for Shy Dogs</a> and <a href={`https://${imgixDomain}/foster/faq/treat-and-retreat.pdf`}>Treat and Retreat</a></strong></li>
             <br />
             <li><strong><a href={`https://${imgixDomain}/foster/faq/whelping-moms-diet.pdf`}>Feeding Guidelines for Pregnant/Nursing Mama Dogs</a></strong></li>
+            <br />
+            <li><strong><a href={`https://${imgixDomain}/foster/faq/mamas-and-babies.pdf`}>Guide for Fostering Pregnant Dogs and Mamas With Babies</a></strong></li>
           </ol>
         </div>
       </div>
