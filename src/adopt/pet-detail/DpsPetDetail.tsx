@@ -5,6 +5,7 @@ import DpsApi from '../../api/DpsApi';
 import DpsLoading from '../../common/DpsLoading';
 import DpsDetailedPet from '../../model/DpsDetailedPet';
 import { routes } from '../../routing/routes';
+import DpsPetDetailActions from './DpsPetDetailActions';
 import DpsPetDetailBasics from './DpsPetDetailBasics';
 import DpsPetDetailCarousel from './DpsPetDetailCarousel';
 import DpsPetDetailHeading from './DpsPetDetailHeading';
@@ -65,6 +66,8 @@ export function DpsPetDetail() {
             }
             {!print && <DpsPetDetailBasics pet={pet} />}
             {pet.bio?.map(line => <p className="bio" key={line} dangerouslySetInnerHTML={{ __html: line }} />)} {/* To properly parse escaped quotes and such */}
+            {!print && <DpsPetDetailActions pet={pet} />}
+
           </div>
 
         </div>
