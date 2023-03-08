@@ -11,6 +11,30 @@
   .pet-bio {
     @include feature();
   }
+
+  .pet-detail-buttons {
+    display: flex;
+    justify-content: space-around;
+
+    .application-link,
+    .available-link {
+      text-align: center;
+      margin-top: $padding-large;
+      margin-bottom: $padding-large;
+
+      a {
+        display: inline;
+      }
+    }
+
+    .application-link a {
+      @include button-primary();
+    }
+
+    .available-link a {
+      @include button-secondary();
+    }
+  }
 }
 
 .carousel-container {

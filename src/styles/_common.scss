@@ -10,7 +10,7 @@
   }
 }
 
-@mixin button {
+@mixin button-primary {
   background-color: $dps-primary-color;
   padding: $padding-medium $padding-large;
   color: white;
@@ -19,6 +19,20 @@
 
   &:hover {
     border: 3px solid $dps-secondary-color;
+  }
+}
+
+@mixin button-secondary {
+  background-color: $dps-secondary-color;
+  margin-top: $padding-medium;
+  padding: $padding-medium $padding-large;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border: 3px solid $dps-secondary-color;
+
+  &:hover {
+    border: 3px solid $dps-primary-color;
   }
 }
 

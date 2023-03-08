@@ -1,14 +1,9 @@
 @import 'common';
 
 .hero-button {
-  background-color: $dps-secondary-color;
-  margin-top: $padding-medium;
-  padding: $padding-medium;
-  color: white;
-  text-decoration: none;
+  @include button-secondary();
   font-weight: bold;
   font-size: 1.3em;
-  text-align: center;
 }
 
 .hero {

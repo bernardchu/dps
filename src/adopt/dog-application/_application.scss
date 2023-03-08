@@ -10,7 +10,7 @@ h2.application-heading {
   justify-content: space-around;
 
   a {
-    @include button();
+    @include button-primary();
     margin: 0 .5em;
   }
 }
