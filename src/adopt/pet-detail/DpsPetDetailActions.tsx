@@ -11,9 +11,9 @@ export default class DpsPetDetailActions extends React.PureComponent<IDpsPetDeta
   public render() {
     const pet = this.props.pet;
     return (
-      <div className="pet-detail-buttons">
-        <span className="application-link"><Link to={pet.isDog ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}>Apply to adopt</Link></span>
-        <span className="available-link"><Link to={`../${routes.adopt.children!.available.path}`}>See more {pet.species.toLocaleLowerCase()}s</Link></span>
+      <div className="pet-detail-buttons row">
+        <span className="application-link col-xs-12 col-md-6"><Link to={pet.isDog ? `../${routes.adopt.children!.dogApp.path}` : `../${routes.adopt.children!.catApp.path}`}>Apply to adopt</Link></span>
+        <span className="available-link col-xs-12 col-md-6"><Link to={`../${routes.adopt.children!.available.path}`}>See more {pet.species.toLocaleLowerCase()}s</Link></span>
       </div>
     );
   }
