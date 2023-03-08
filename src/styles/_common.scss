@@ -10,11 +10,16 @@
   }
 }
 
-@mixin button-primary {
-  background-color: $dps-primary-color;
+@mixin button {
   padding: $padding-medium $padding-large;
   color: white;
   text-decoration: none;
+  text-align: center;
+}
+
+@mixin button-primary {
+  @include button();
+  background-color: $dps-primary-color;
   border: 3px solid $dps-primary-color;
 
   &:hover {
@@ -23,12 +28,8 @@
 }
 
 @mixin button-secondary {
+  @include button();
   background-color: $dps-secondary-color;
-  margin-top: $padding-medium;
-  padding: $padding-medium $padding-large;
-  color: white;
-  text-decoration: none;
-  text-align: center;
   border: 3px solid $dps-secondary-color;
 
   &:hover {
