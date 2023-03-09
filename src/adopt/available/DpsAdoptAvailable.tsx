@@ -6,6 +6,7 @@ import { IDpsAvailableApiResponse } from '../../api/IDpsApiResponses';
 import DpsAdoptableTile from './DpsAdoptableTile';
 import './available.scss'
 import DpsLoading from '../../common/DpsLoading';
+import DpsSocialBanner from './DpsSocialBanner';
 
 export interface IDpsAdoptAvailableState extends IDpsAsyncState {
   dogs: IDpsAdoptable[];
@@ -40,6 +41,7 @@ export default class DpsAdoptAvailable extends React.PureComponent<{}, IDpsAdopt
           {loaded && dogs.map(dog => <DpsAdoptableTile adoptable={dog} key={dog.id} />)}
         </div>
         <div className="clearfix"></div>
+        <DpsSocialBanner />
         <h2>Available Cats</h2>
         <div className="cats col-md-12">
           {!loaded && <DpsLoading />}

@@ -13,8 +13,33 @@
     font-weight: bold;
   }
 
-  .age, .breed {
+  .age,
+  .breed {
     color: $text-faint;
     font-size: 0.8em;
+  }
+
+}
+
+.social-banner-container {
+  @include flex-centered();
+  justify-content: space-around;
+  text-align: center;
+
+  .social-banner {
+    border: 5px solid $dps-primary-color;
+    outline: 5px solid $dps-secondary-color;
+    padding: $padding-medium;
+    width: 100%;
+
+    @include flex-centered();
+    justify-content: space-between;
+
+    .image-container {
+
+      .social-icon {
+        border-radius: 50px;
+      }
+    }
   }
 }
