@@ -30,16 +30,27 @@
     border: 5px solid $dps-primary-color;
     outline: 5px solid $dps-secondary-color;
     padding: $padding-medium;
+    margin-bottom: $padding-large;
     width: 100%;
 
     @include flex-centered();
     justify-content: space-between;
 
-    .image-container {
+    // paired with the various hidden-foo classes in order to not have to use media queries
+    &.social-banner-xs {
+      flex-direction: column;
 
-      .social-icon {
-        border-radius: 50px;
+      .image-container {
+        @include flex-centered();
+        justify-content: space-around;
+        width: 100%;
       }
+    }
+  }
+
+  .image-container {
+    .social-icon {
+      border-radius: 50px;
     }
   }
 }
