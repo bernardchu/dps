@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Imgix from 'react-imgix';
+import DpsSocials from '../../header/DpsSocials';
 
 export default class DpsSocialBanner extends React.PureComponent {
   public render() {
@@ -67,7 +68,7 @@ class SocialIcons extends React.PureComponent {
           className="social-icon"
           src="/social-icons-instagram.png"
           width={SocialIcons.SOCIAL_ICON_WIDTH}
-          imgixParams={{ pad: 7, bg: 'cd486b' }}
+          imgixParams={{ pad: DpsSocials.INSTAGRAM_PADDING, bg: DpsSocials.INSTAGRAM_BG_COLOR }}
           htmlAttributes={{ alt: 'DPSRescue Instagram' }} />
       </a>
     </>);

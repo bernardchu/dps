@@ -8,7 +8,8 @@ export interface IDpsSocialsProps {
 
 export default class DpsSocials extends React.PureComponent<IDpsSocialsProps> {
   private static SOCIAL_ICON_WIDTH = 41; // px
-  private static INSTAGRAM_BG_COLOR = 'cd486b';
+  public static INSTAGRAM_BG_COLOR = 'cd486b';
+  public static INSTAGRAM_PADDING = 7;
 
   public render() {
     return (
@@ -30,7 +31,7 @@ export default class DpsSocials extends React.PureComponent<IDpsSocialsProps> {
             <Imgix
               src="/social-icons-instagram.png"
               width={DpsSocials.SOCIAL_ICON_WIDTH}
-              imgixParams={{ pad: 7, bg: DpsSocials.INSTAGRAM_BG_COLOR }}
+              imgixParams={{ pad: DpsSocials.INSTAGRAM_PADDING, bg: DpsSocials.INSTAGRAM_BG_COLOR }}
               htmlAttributes={{ alt: 'DPSRescue Instagram' }} />
           </a>
         </div>
