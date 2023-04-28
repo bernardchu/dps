@@ -30,6 +30,7 @@ export default class DpsFosterFaq extends React.PureComponent {
       prose: <>
         <p>No&mdash; our foster program is set up specifically for fostering, not foster-to-adopt. We do have some dogs in the rescue who are eligible for foster-to-adopt, and that will be listed on their bios. If you&#39;d like to go that route, please fill out an application for one of those dogs!</p>
         <p>If you sign up to foster and happen to fall in love with a dog you are fostering, you can absolutely put in an application for that dog! Just know that we are getting and processing applications at all times and that dog might already be set up with an adopter. We do not give our fosters priority in the adoption process, but your commitment to the rescue will of course be taken into account.</p>
+        <p>Our one exception to our foster-to-adopt policy is our Pick of the Litter Program. <a href="https://docs.google.com/document/d/1TKR9BqHWlgKaNAMYFzvotE1xvvr-xJhKGSvOZav8OkE/edit#heading=h.lmpsosxuk96p">Click here to read more.</a></p>
       </>
     }
   ];
