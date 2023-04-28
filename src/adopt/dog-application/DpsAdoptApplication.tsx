@@ -14,9 +14,9 @@ export default class DpsAdoptApplication extends React.Component {
             <Link to={`../${routes.adopt.children!.catApp.path}`}>Cat Application</Link>
           </div>
 
-          <p>
-            Our Adoption Process:
-          </p>
+          <h3>
+            Our Adoption Process
+          </h3>
 
           <ol>
             <li>
@@ -45,7 +45,9 @@ export default class DpsAdoptApplication extends React.Component {
           </ol>
 
           <p>If you&#39;re hoping to meet several of our dogs at once and aren&#39;t yet sure which one you would be interested in adopting, please check out the home page for upcoming Meet &amp; Greet events!</p>
-          <p><a href="https://docs.google.com/document/d/1TKR9BqHWlgKaNAMYFzvotE1xvvr-xJhKGSvOZav8OkE/edit#heading=h.lmpsosxuk96p"><b>Pick of the Litter Program</b></a></p>
+          <h3>Pick of the Litter Program</h3>
+          <p>DPS's <a href="https://docs.google.com/document/d/1TKR9BqHWlgKaNAMYFzvotE1xvvr-xJhKGSvOZav8OkE/edit#heading=h.lmpsosxuk96p" target="_blank" rel="noreferrer">"Pick of the Litter" Program</a> allows our dedicated fosters to foster a full litter of puppies and get to know their forever puppy from Day One.</p>
+          <p>We are very grateful for our puppy litter fosters and know it's no easy task! And with cute puppies it's almost impossible not to fall in love (even if they keep you up at night).</p>
           <p>Thank you for your interest in our dogs. We look forward to seeing your application. </p>
 
 
