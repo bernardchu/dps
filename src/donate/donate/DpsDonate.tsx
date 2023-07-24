@@ -37,7 +37,7 @@ export default class DpsDonate extends React.PureComponent {
           </ul>
         </div>
         <div className="col-md-6 col-sm-12 prose">
-          <p><strong>Items we need (please contact <a href="mailto:rachel@dpsrescue.com">rachel@dpsrescue.com</a> to schedule a drop-off!)</strong></p>
+          <p><strong>Items we need (please contact <a href="mailto:donna@dpsrescue.org">donna@dpsrescue.org</a> to schedule a drop-off!)</strong></p>
           <ul>
             <li>Canned dog &amp; cat food of any variety</li>
             <li>Newspaper</li>
