@@ -35,7 +35,7 @@ export default class DpsEmployerMatching extends React.PureComponent {
           Tax ID: 91-2164578<br />
           Mailing Address: PO Box 1508 • Romoland, CA 92585<br />
           Website: www.dpsrescue.org<br />
-          Email: rachel@dpsrescue.com</p>
+          Email: donna@dpsrescue.org</p>
 
         <h3>Companies with confirmed corporate matching include:</h3>
         <div className="companies-list">
