@@ -43,28 +43,6 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
   }
 
   public render() {
-    const auctionFeature: IDpsHomeFeatureCardData = {
-      title: 'DPS Online Auctions',
-      body:
-        <div>
-          <p>
-            This summer, from July 22nd to July 29th, DPS Rescue will be holding an online auction! All proceeds will go to the dogs and cats we rescue daily, covering the costs of their medical and general care while we strive to find them their furever homes.
-          </p>
-          <p>
-            Here’s how you can help in this event:
-          </p>
-          <ul>
-            <li>Participate in the online auction when it goes live <a target="_blank" rel="noreferrer" href="https://dpsrescue.travelpledgeauctions.com/event/1723">here</a> (you can pre-register and view items before the auction goes live)</li>
-            <li>Donate items to the auction by (by emailing <a href="mailto:koslob@dpsrescue.org">koslob@dpsrescue.org</a>). All donations are tax-deductible</li>
-            <li>Promote the auction via social media</li>
-          </ul>
-          <p>If you have any questions, feel free to contact Kim at <a href="mailto:koslob@dpsrescue.org">koslob@dpsrescue.org</a>. Our staff, volunteers, and rescue all thank you for your generosity!</p>
-          <p>Sample auction item: <a href="https://www.litter-robot.com/litter-robot-4.html" target="_blank" rel="noreferrer">Litter Robot 4</a></p>
-          {/* We're not using the imgSrc prop of DpsHomeFeatureCard because that uses Imgix elements, and the srcset that results screws with the desired image scaling behavior here. Scaling is necessary to accommodate whatever images they want to swap this out for in the future */}
-          <a href="https://www.litter-robot.com/litter-robot-4.html" target="_blank" rel="noreferrer"><img src={`http://${imgixDomain}/home/summer-auction-example.png?h=275&w=686&fit=fill&fill=solid`} /> </a>
-        </div>
-    };
-
     const merchFeature: IDpsHomeFeatureCardData = {
       title: 'Get DPS Merchandise at Our Online Store',
       externalLink: 'https://www.bonfire.com/store/dpsrescue/',
@@ -100,7 +78,6 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
           <DpsHomeEvents />
           {!loaded && <DpsLoading />}
           {loaded && featured.map(feature => <DpsHomeFeatureCard feature={feature} />)}
-          <DpsHomeFeatureCard feature={auctionFeature} />
           <DpsHomeFeatureCard feature={merchFeature} />
           <div className="col-md-12 featured card">
             {/* <!-- Begin Constant Contact Inline Form Code --> */}
