@@ -25,6 +25,7 @@ export function DpsDonateModal() {
   React.useEffect(() => {
     !isHiddenDonateRoute && !modalContent && DpsApi.getModalContent()
       .then(content => {
+        if (shouldDisableModal(content)) { return } // hack to make it easier to disable modal from spreadsheet
         !modalContent && setModalContent(content);
         setTimeout(() => setModalOpen(true), 2000);
       })
@@ -58,4 +59,8 @@ export function DpsDonateModal() {
       </MicroModal>}
     </>
   );
+}
+
+function shouldDisableModal(content: IDpsModalContent) {
+  return content.heading === 'disable';
 }
