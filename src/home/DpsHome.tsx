@@ -99,7 +99,7 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
           </div>
           <DpsHomeFeatureCard feature={aboutFeature} />
         </div>
-        <div className="col-md-4 col-sm-12 row">
+        <div className="col-md-4 col-sm-12 row sidebar">
           <DpsHomeSidebarFeatures />
         </div>
       </>
