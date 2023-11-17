@@ -62,6 +62,18 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
         </div>
     };
 
+    // Remove GoFundMe embed.js from index.html and .gfm-embed styling from _news.scss when this is removed.
+    const givingTuesdayFeature: IDpsHomeFeatureCardData = {
+      title: 'Giving Tuesday',
+      body:
+        <div>
+          <p>
+            Unleash compassion this Giving Tuesday! Support DPS, where every donation helps rescue and care for animals in need. Make tails wag - donate now!
+          </p>
+          <div className="gfm-embed" data-url="https://www.gofundme.com/f/doggie-protective-services-givingtuesday/widget/medium"></div>
+        </div>
+    };
+
     const loaded = this.state?.loaded;
     const featured = this.state?.featured;
 
@@ -79,6 +91,7 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
           {!loaded && <DpsLoading />}
           {loaded && featured.map(feature => <DpsHomeFeatureCard feature={feature} />)}
           <DpsHomeFeatureCard feature={merchFeature} />
+          <DpsHomeFeatureCard feature={givingTuesdayFeature} />
           <div className="col-md-12 featured card">
             {/* <!-- Begin Constant Contact Inline Form Code --> */}
             <div className="ctct-inline-form" data-form-id="507eddd4-ebbf-4431-b7d1-e68dc4c14e4f"></div>
