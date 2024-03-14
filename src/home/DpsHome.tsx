@@ -87,11 +87,11 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
           </div>
         </div>
         <div className="col-md-8 col-sm-12 row features">
-          <DpsHomeFeatureCard feature={givingTuesdayFeature} />
           <DpsHomeEvents />
           {!loaded && <DpsLoading />}
           {loaded && featured.map(feature => <DpsHomeFeatureCard feature={feature} />)}
           <DpsHomeFeatureCard feature={merchFeature} />
+          <DpsHomeFeatureCard feature={givingTuesdayFeature} />
           <div className="col-md-12 featured card">
             {/* <!-- Begin Constant Contact Inline Form Code --> */}
             <div className="ctct-inline-form" data-form-id="507eddd4-ebbf-4431-b7d1-e68dc4c14e4f"></div>
