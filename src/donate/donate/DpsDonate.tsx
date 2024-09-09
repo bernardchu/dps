@@ -4,6 +4,7 @@ import Imgix from 'react-imgix';
 import { routes } from '../../routing/routes';
 import { IDpsRoute } from '../../model/IDpsRoutes';
 import { Link } from 'react-router-dom';
+import { donateEmail } from '../../common/DpsConstants';
 
 export default class DpsDonate extends React.PureComponent {
   private static isDonateRoute(route: IDpsRoute): boolean {
@@ -30,7 +31,7 @@ export default class DpsDonate extends React.PureComponent {
           <p><strong>Monetary Donations</strong></p>
           <p>In addition to PayPal (the Donate button in the header), you can also donate via the following:</p>
           <ul>
-            <li>Zelle (info@dpsrescue.com)</li>
+            <li>Zelle ({donateEmail})</li>
             <li>Checks to 809 San Antonio Road, Suite #8, Palo Alto CA 94303</li>
           </ul>
         </div>

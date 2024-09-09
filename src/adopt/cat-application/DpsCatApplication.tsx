@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '../../routing/routes';
 import './catApplication.scss';
+import { donateEmail } from '../../common/DpsConstants';
 
 export default class DpsCatApplication extends React.Component {
   public render() {
@@ -41,7 +42,7 @@ export default class DpsCatApplication extends React.Component {
           </ol>
           <hr />
           <p>All kittens are $150 while all cats are $100.The donation can be paid with cash, credit, or with venmo.To
-            find out more about our process email <a href="mailto:info@dpsrescue.com">info @dpsrescue.com</a></p>
+            find out more about our process email <a href={`mailto:${donateEmail}`}>{donateEmail}</a></p>
           <p>Please answer every question or your application will not be considered.If any answers are found to be
             incorrect or untruthful it will void an adoption.If you do not receive a response within 24 hours of submitting
             an application please email again.We do not ignore received applications.</p>
