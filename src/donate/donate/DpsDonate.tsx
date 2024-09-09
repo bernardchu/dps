@@ -4,7 +4,8 @@ import Imgix from 'react-imgix';
 import { routes } from '../../routing/routes';
 import { IDpsRoute } from '../../model/IDpsRoutes';
 import { Link } from 'react-router-dom';
-import { donateEmail } from '../../common/DpsConstants';
+import { donateEmail, paypalLink } from '../../common/DpsConstants';
+import DpsPaypalButton from '../../common/DpsPaypalButton';
 
 export default class DpsDonate extends React.PureComponent {
   private static isDonateRoute(route: IDpsRoute): boolean {
@@ -29,9 +30,10 @@ export default class DpsDonate extends React.PureComponent {
         </div>
         <div className="col-md-6 col-sm-12 prose">
           <p><strong>Monetary Donations</strong></p>
-          <p>In addition to PayPal (the Donate button in the header), you can also donate via the following:</p>
+          <p>In addition to Zeffy (the Donate button in the header), you can also donate via the following:</p>
           <ul>
             <li>Zelle ({donateEmail})</li>
+            <li><a href={paypalLink}>Paypal</a></li>
             <li>Checks to 809 San Antonio Road, Suite #8, Palo Alto CA 94303</li>
           </ul>
         </div>
