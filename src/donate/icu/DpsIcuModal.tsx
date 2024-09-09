@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { paypalEmail } from '../../common/DpsConstants';
-import DpsPaypalButton from '../../common/DpsPaypalButton';
+import DpsDonateButton from '../../common/DpsDonateButton';
 import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
 
 export interface IDpsIcuModalProps {
@@ -24,7 +23,7 @@ export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> 
             </header>
             <main className="modal__content" id="modal-1-content">
               <div dangerouslySetInnerHTML={{ __html: animal.bio }} />
-              <DpsPaypalButton name={animal.name} purpose={`${animal.name}'s care`} />
+              <DpsDonateButton />
             </main>
           </div>
         </div>

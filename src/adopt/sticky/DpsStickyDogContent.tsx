@@ -2,7 +2,7 @@ import * as React from 'react';
 import { routes } from '../../routing/routes';
 import { Link } from 'react-router-dom';
 import { IDpsStickyDog } from '../../model/IDpsStickyDog';
-import DpsPaypalButton from '../../common/DpsPaypalButton';
+import DpsDonateButton from '../../common/DpsDonateButton';
 
 export interface IDpsStickyDogContentProps {
   dog: IDpsStickyDog;
@@ -26,7 +26,7 @@ export default class DpsStickyDogContent extends React.PureComponent<IDpsStickyD
               </>}
               <p>Help {dog.name} find a fur-ever home faster by sponsoring part of the adoption fee.</p>
             </div>
-            <DpsPaypalButton name={dog.name} purpose={`${dog.name}'s adoption fee`} />
+            <DpsDonateButton />
           </div>
         </div>
         <div className="right col-md-6 row">
