@@ -5,7 +5,7 @@ class DpsFooter extends React.Component {
     return (
       <div className="footer">
         <hr />
-        <p>Copyright {new Date().getUTCFullYear()} Doggie Protective Services | PO Box 1508 • Romoland, CA 92585</p>
+        <p>Copyright {new Date().getUTCFullYear()} Doggie Protective Services | 809 San Antonio Road Suite #8 • Palo Alto, CA 94303</p>
       </div>
     );
   }

@@ -33,7 +33,7 @@ export default class DpsEmployerMatching extends React.PureComponent {
         <p>Our information:<br />
           Name: Doggie Protective Services DBA DPS Rescue<br />
           Tax ID: 91-2164578<br />
-          Mailing Address: PO Box 1508 • Romoland, CA 92585<br />
+          Mailing Address: 809 San Antonio Road, Suite #8, Palo Alto CA 94303<br />
           Website: www.dpsrescue.org<br />
           Email: donna@dpsrescue.org</p>
 

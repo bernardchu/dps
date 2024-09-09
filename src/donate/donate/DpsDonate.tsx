@@ -32,7 +32,7 @@ export default class DpsDonate extends React.PureComponent {
           <ul>
             <li>Venmo (@DPSRescue)</li>
             <li>Zelle (info@dpsrescue.com)</li>
-            <li>Checks to PO Box 1508, Romoland, CA 92585</li>
+            <li>Checks to 809 San Antonio Road, Suite #8, Palo Alto CA 94303</li>
             <li><a href="https://smile.amazon.com/hz/charitylist/ls/339V2RUI5YY50" target="_blank" rel="noreferrer">Amazon Smile</a> (A portion of your Amazon spending is donated to DPS)</li>
           </ul>
         </div>
