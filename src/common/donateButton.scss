@@ -1,0 +1,9 @@
+@import '../styles/common';
+
+.donate-button {
+  @include button-primary;
+  padding: $padding-small;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
