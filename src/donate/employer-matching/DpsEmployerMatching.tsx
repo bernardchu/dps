@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './employerMatching.scss';
+import { donateEmail } from '../../common/DpsConstants';
 
 export default class DpsEmployerMatching extends React.PureComponent {
   private static COMPANIES_WITH_MATCHING = [
@@ -35,7 +36,7 @@ export default class DpsEmployerMatching extends React.PureComponent {
           Tax ID: 91-2164578<br />
           Mailing Address: 809 San Antonio Road, Suite #8, Palo Alto CA 94303<br />
           Website: www.dpsrescue.org<br />
-          Email: donna@dpsrescue.org</p>
+          Email: {donateEmail}</p>
 
         <h3>Companies with confirmed corporate matching include:</h3>
         <div className="companies-list">
