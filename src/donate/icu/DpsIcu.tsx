@@ -7,6 +7,8 @@ import { IDpsIcuAnimal } from '../../model/IDpsIcuAnimal';
 import DpsIcuModal from './DpsIcuModal';
 import DpsIcuTile from './DpsIcuTile';
 import './icu.scss';
+import { Link } from 'react-router-dom';
+import { routes } from '../../routing/routes';
 
 interface IDpsIcuState extends IDpsAsyncState {
   icu: IDpsIcuAnimal[];
@@ -31,7 +33,7 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
     return (<>
       <div className="row">
         <h2>Medical Dogs</h2>
-        <p>In 2021, we spent over $100,000 on medical dogs. We hope to save even more dogs with medical special needs in 2022, but we need your help! Click on each dog to read their story. You can donate via the link on their description or via Zelle, Venmo, or by sending a check.</p>
+        <p>In 2021, we spent over $100,000 on medical dogs. We hope to save even more dogs with medical special needs in 2022, but we need your help! Click on each dog to read their story. You can donate via the link on their description or any of the methods listed <Link to={`../../${routes.donate.path}/${routes.donate.children!.donate.path}`}>here</Link>.</p>
         <div className="col-xs-12 row icu">
           {!loaded && <DpsLoading />}
           {loaded && icu.map(animal =>

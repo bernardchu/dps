@@ -7,6 +7,8 @@ import { IDpsAsyncState } from '../../model/IDpsAsyncState';
 import DpsInHonorOfTile from './DpsInHonorOfTile';
 import './inHonorOf.scss';
 import { donateEmail } from '../../common/DpsConstants';
+import { Link } from 'react-router-dom';
+import { routes } from '../../routing/routes';
 
 interface IDpsInHonorOfState extends IDpsAsyncState {
   donations: IDpsInHonorOfDonation[]
@@ -35,7 +37,7 @@ export default class DpsInHonorOf extends React.PureComponent<{}, IDpsInHonorOfS
             <h1>In Honor Of</h1>
             <p>Honor a human or furry loved one with a tribute to them.</p>
             <p>
-              Step 1: Submit your donation through Venmo (@DPSRescue) or Zelle ({donateEmail})<br />
+              Step 1: Submit your donation via one of the methods listed <Link to={`../${routes.donate.children!.donate.path}`}>here</Link><br />
               Step 2: Email <a href={`mailto:${donateEmail}`}>{donateEmail}</a> with a photo (if you'd like to submit one) and a message (ex: In memory of my beloved Fluffy, adopted in 2002)
             </p>
             <p>Your photo and message can be posted on our social media, a page of our website or we can send an individual note. You get to choose how you'd like your pet to be remembered. We know the importance of pets and how essential it is to celebrate both our pets and the humans in our lives.</p>
