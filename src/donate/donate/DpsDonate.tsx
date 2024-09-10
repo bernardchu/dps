@@ -29,7 +29,7 @@ export default class DpsDonate extends React.PureComponent {
             htmlAttributes={{ alt: 'Mac' }} />
         </div>
         <div className="col-md-6 col-sm-12 prose">
-          <p><strong>Monetary Donations</strong></p>
+          <p id="monetary"><strong>Monetary Donations</strong></p>
           <ul>
             <li><a href={donateLink}>Zeffy</a></li>
             <li>Zelle ({donateEmail})</li>

@@ -4,12 +4,14 @@ import DpsApp from './DpsApp';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import ScrollToTop from './routing/ScrollToTop';
+import ScrollToAnchor from './routing/ScrollToAnchor';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ScrollToTop />
       <DpsApp />
+      <ScrollToAnchor />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -41,7 +41,7 @@ export default class DpsCatApplication extends React.Component {
               love match. If so, we have a contract and our adoption fee and you have successfully adopted!</p>
           </ol>
           <hr />
-          <p>All kittens are $150 while all cats are $100. The donation can be paid with any of the methods listed <Link to={`../../${routes.donate.path}/${routes.donate.children!.donate.path}`}>here</Link>. To
+          <p>All kittens are $150 while all cats are $100. The donation can be paid with any of the methods listed <Link to={`../../${routes.donate.path}/${routes.donate.children!.donate.path}#monetary`}>here</Link>. To
             find out more about our process email <a href={`mailto:${donateEmail}`}>{donateEmail}</a></p>
           <p>Please answer every question or your application will not be considered.If any answers are found to be
             incorrect or untruthful it will void an adoption.If you do not receive a response within 24 hours of submitting
