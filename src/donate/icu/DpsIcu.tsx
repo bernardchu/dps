@@ -24,6 +24,7 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
         });
       }, (error) => {
         // TODO
+
       });
   }
 
