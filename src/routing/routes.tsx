@@ -25,6 +25,7 @@ import DpsPrint from "../print/DpsPrint";
 import DpsLittermateSyndrome from "../adopt/littermate-syndrome/DpsLittermateSyndrome";
 import DpsRehome from "../about/rehome/DpsRehome";
 import DpsFosterResources from "../foster/resources/DpsFosterResources";
+import DpsLegacy from "../donate/legacy/DpsLegacy";
 
 export const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
@@ -251,6 +252,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         element: <DpsInHonorOf />,
         inNav: true,
         navOrder: 4
+      },
+      legacy: {
+        name: 'Wills and Living Trusts',
+        path: 'legacy',
+        element: <DpsLegacy />,
+        inNav: false,
+        navOrder: 5
       },
     }
   },
