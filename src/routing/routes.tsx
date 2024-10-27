@@ -257,7 +257,7 @@ export const routes: { [key: string]: IDpsRoute } = {
         name: 'Wills and Living Trusts',
         path: 'legacy',
         element: <DpsLegacy />,
-        inNav: false,
+        inNav: true,
         navOrder: 5
       },
     }
