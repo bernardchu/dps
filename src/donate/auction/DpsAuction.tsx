@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Imgix from 'react-imgix';
 import DpsAuctionDonor from './DpsAuctionDonor';
+import { DONORS } from './donors';
 
 export interface IDpsAuctionDonor {
   name: string;
@@ -10,13 +10,6 @@ export interface IDpsAuctionDonor {
 
 export default class DpsAuction extends React.PureComponent {
   private static AUCTION_INFO_EMAIL = 'koslob@dpsrescue.org';
-  private static donors: IDpsAuctionDonor[] = [
-    {
-      name: 'US Ghost Adventures',
-      link: 'https://usghostadventures.com/',
-      imgSrc: 'donate/auction/usga.jpeg'
-    }
-  ]
 
   public render() {
     return (
@@ -51,7 +44,7 @@ export default class DpsAuction extends React.PureComponent {
             Here are some of our 2025 auction supporters:
           </p>
           <div className="row">
-            {DpsAuction.donors.map(donor =>
+            {DONORS.map(donor =>
               <DpsAuctionDonor
                 key={donor.name}
                 name={donor.name}
