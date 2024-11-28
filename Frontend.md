@@ -17,6 +17,9 @@ Since there is little to no actual business logic, almost everything there is to
 
 Most pages are simply static content (e.g. the [cat application](src/adopt/cat-application/DpsCatApplication.tsx)) or renders of a single request to the API (e.g. the [available page](src/adopt/available/DpsAdoptAvailable.tsx)).
 
+### Environment
+Functional with node v16.13.0 and npm 10.8.2.
+
 ### Dependencies
 The most used dependencies are React, React Router, TypeScript, `react-micromodal` (a React skin on top of Micromodal), `react-slick` (a React skin on top of Slick carousel), and `bootstrap-grid-only` for simple layout styles.
 
