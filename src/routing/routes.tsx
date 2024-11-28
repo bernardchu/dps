@@ -26,6 +26,7 @@ import DpsLittermateSyndrome from "../adopt/littermate-syndrome/DpsLittermateSyn
 import DpsRehome from "../about/rehome/DpsRehome";
 import DpsFosterResources from "../foster/resources/DpsFosterResources";
 import DpsLegacy from "../donate/legacy/DpsLegacy";
+import DpsAuction from "../donate/auction/DpsAuction";
 
 export const rehomeLink = "https://docs.google.com/forms/d/e/1FAIpQLScUhpAEbOvRSPjF5cMC_owfYjx8-nyADQMViFX4omFZHHYlgg/viewform";
 
@@ -259,6 +260,13 @@ export const routes: { [key: string]: IDpsRoute } = {
         element: <DpsLegacy />,
         inNav: true,
         navOrder: 5
+      },
+      auction: {
+        name: 'Auction',
+        path: 'auction',
+        element: <DpsAuction />,
+        inNav: false,
+        navOrder: 6
       },
     }
   },
