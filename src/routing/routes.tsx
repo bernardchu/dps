@@ -265,7 +265,7 @@ export const routes: { [key: string]: IDpsRoute } = {
         name: 'Auction',
         path: 'auction',
         element: <DpsAuction />,
-        inNav: false,
+        inNav: true,
         navOrder: 6
       },
     }
