@@ -10,10 +10,16 @@ export default class DpsAuctionDonor extends React.PureComponent<IDpsAuctionDono
   public render() {
     const { name, link, imgSrc } = this.props;
     return (
-      <div className="donor col-md-4 col-sm-6 col-xs-12">
+      <div className="donor col-md-2 col-sm-4 col-xs-6">
         <a href={link}>
           {imgSrc && <Imgix
-            src={imgSrc}
+            src={`donate/auction/${imgSrc}`}
+            height={200}
+            width={200}
+            imgixParams={{
+              'fit': 'fill',
+              'fill': 'solid'
+            }}
             htmlAttributes={{ alt: name, title: name }} />}
           <h4 className="name">{name}</h4>
         </a>
