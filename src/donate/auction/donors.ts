@@ -60,6 +60,11 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Gourmet Gift Baskets',
     link: 'https://www.gourmetgiftbaskets.com/',
     imgSrc: 'donate/auction/gourmet-gift-baskets.webp'
+  },
+  {
+    name: '100% Pure',
+    link: 'https://www.100percentpure.com/index.html',
+    imgSrc: 'donate/auction/100percent-pure.jpg'
   }/*,
   {
     name: '',
