@@ -11,13 +11,18 @@ export default class DpsVolunteerFaq extends React.PureComponent {
       imgUrl: "/volunteer/volunteer-tanner.jpg?h=340&fit=crop&w=340",
       prose: <>
         <p>Thanks for asking! Our organization is powered by volunteers like you! We ask that folks have a love for dogs and a willingness to work with a diverse group of people. Our volunteer opportunities include assisting at adoptions events, transporting dogs, fundraising, and fostering homeless dogs so we can save more. No matter what your skill sets are, we guarantee there is a way you can help us save more lives! Fill out the application here to get started!</p>
-        <p className="application-link"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdzuj9xzneUvENq6TgFLZxAxVBM1BzZrdU2Jrut6iXRMcTwFg/viewform">Please Fill Out This Application to Get Started!</a></p>
+        <p className="application-link">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzuj9xzneUvENq6TgFLZxAxVBM1BzZrdU2Jrut6iXRMcTwFg/viewform" target="_blank">Click here for the under 18 volunteer application</a>
+        </p>
+        <p className="application-link">
+          <a href="http://bit.ly/volunteerwithdps" target="_blank">Click here for the adult (18+) volunteer application</a>
+        </p>
       </>
     },
     {
       heading: "What do you need help with?",
       imgUrl: "/volunteer/volunteer-abby.jpg?h=340&fit=crop&w=340",
-      prose: <> 
+      prose: <>
         <p>We need help with all sorts of things, including:</p>
         <ul>
           <li>Transporting dogs to and from events, to vet and grooming appointments,and from shelters to the rescue</li>
