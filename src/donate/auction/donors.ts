@@ -65,6 +65,16 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: '100% Pure',
     link: 'https://www.100percentpure.com/index.html',
     imgSrc: '100percent-pure.jpg'
+  },
+  {
+    name: 'Dolphin Bay',
+    link: 'https://www.thedolphinbay.com/',
+    imgSrc: 'dolphin-bay.pdf'
+  },
+  {
+    name: 'Wushu Central',
+    link: 'https://wushucentral.com/',
+    imgSrc: 'wushu-central.png'
   }/*,
   {
     name: '',
