@@ -75,10 +75,66 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Wushu Central',
     link: 'https://wushucentral.com/',
     imgSrc: 'wushu-central.png'
-  }/*,
+  },
   {
+    name: 'Wilderdog',
+    link: 'https://www.wilderdog.com/',
+    imgSrc: 'wilderdog.webp'
+  },
+  {
+    name: 'Children\'s Musem of Sonoma County',
+    link: 'https://www.cmosc.org/',
+    imgSrc: 'cmosc.png?bg=black'
+  },
+  {
+    name: 'Concannon Vineyard',
+    link: 'https://www.concannonvineyard.com/',
+    imgSrc: 'concannon.svg'
+  },
+  {
+    name: 'Erik\'s Delicafé',
+    link: 'https://eriksdelicafe.com/',
+    imgSrc: 'eriks.png'
+  },
+  {
+    name: 'Fieldwork Brewing',
+    link: 'https://fieldworkbrewing.com/',
+    imgSrc: 'fieldwork.svg'
+  },
+  {
+    name: 'Grand Bay Hotel SF',
+    link: 'https://grandbayhotelsf.com/',
+    imgSrc: 'grandbay.png'
+  },
+  {
+    name: 'House Family Vineyards',
+    link: 'https://www.housefamilyvineyards.com/',
+    imgSrc: 'housefamily.png?bg=black'
+  },{
+    name: 'Nylabone',
+    link: 'https://www.nylabone.com/about-us/nylabone-cares',
+    imgSrc: 'nylabone.png'
+  },{
+    name: 'Barry\'s Bootcamp Palo Alto',
+    link: 'https://www.barrys.com/studio/palo-alto/',
+    imgSrc: 'barrys.svg'
+  },{
+    name: 'Charlee Bear',
+    link: 'https://charleebear.com/',
+    imgSrc: 'charleebear.jpg'
+  },{
+    name: 'Michael R. Burke',
+    link: 'https://michaelrburke.com/',
+    imgSrc: 'michael-burke.png'
+  },{
+    name: 'Turtle Bay Exploration Park',
+    link: 'https://www.turtlebay.org/',
+    imgSrc: 'turtle-bay.png'
+  }/*
+  ,{
     name: '',
     link: '',
     imgSrc: ''
-  }*/
+  }
+  */
 ];
