@@ -18,7 +18,8 @@ export default class DpsAuctionDonor extends React.PureComponent<IDpsAuctionDono
             width={200}
             imgixParams={{
               'fit': 'fill',
-              'fill': 'solid'
+              'fill': 'solid',
+              'pad': 10
             }}
             htmlAttributes={{ alt: name, title: name }} />}
           <h4 className="name">{name}</h4>
