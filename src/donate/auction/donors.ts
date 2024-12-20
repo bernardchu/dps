@@ -117,7 +117,7 @@ export const DONORS: IDpsAuctionDonor[] = [
   },{
     name: 'Barry\'s Bootcamp Palo Alto',
     link: 'https://www.barrys.com/studio/palo-alto/',
-    imgSrc: 'barrys.svg?bg=black&pad=10'
+    imgSrc: 'barrys.svg?bg=black'
   },{
     name: 'Charlee Bear',
     link: 'https://charleebear.com/',
