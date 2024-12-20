@@ -104,7 +104,7 @@ export const DONORS: IDpsAuctionDonor[] = [
   {
     name: 'Grand Bay Hotel SF',
     link: 'https://grandbayhotelsf.com/',
-    imgSrc: 'grandbay.png'
+    imgSrc: 'grandbay.webp'
   },
   {
     name: 'House Family Vineyards',
@@ -117,11 +117,11 @@ export const DONORS: IDpsAuctionDonor[] = [
   },{
     name: 'Barry\'s Bootcamp Palo Alto',
     link: 'https://www.barrys.com/studio/palo-alto/',
-    imgSrc: 'barrys.svg'
+    imgSrc: 'barrys.svg?bg=black'
   },{
     name: 'Charlee Bear',
     link: 'https://charleebear.com/',
-    imgSrc: 'charleebear.jpg'
+    imgSrc: 'charlee-bear.jpg'
   },{
     name: 'Michael R. Burke',
     link: 'https://michaelrburke.com/',
