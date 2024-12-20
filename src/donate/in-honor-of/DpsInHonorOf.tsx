@@ -15,6 +15,15 @@ interface IDpsInHonorOfState extends IDpsAsyncState {
 }
 
 export default class DpsInHonorOf extends React.PureComponent<{}, IDpsInHonorOfState> {
+  // Hard-coded for now until there's evidence that it warrants modified API behavior
+  private static HUMAN_DONATIONS: IDpsInHonorOfDonation[] = [
+    {
+      imgSrc: 'https://dpsrescue.imgix.net/donate/in-honor-of/dennis.jpeg?w=380&h=350&fit=crop&crop=middle&border=15,2E8C69&border-bottom=80&mark-y=267&mark64=aHR0cHM6Ly9kcHNyZXNjdWUuaW1naXgubmV0L350ZXh0P3R4dC1jb2xvcj13aGl0ZSZ0eHQtZm9udDY0PVFYWmxibWx5SUU1bGVIUXNTWFJoYkdsaiZ0eHQtc2l6ZT0xNyZ3PTM2MCZ0eHQ2ND1TVzRnYldWdGIzSjVJRzltSUVSbGJtNXBjeUJLTGlCU2RXUnZiSEJvT2lCNWIzVWdkMmxzYkNCaVpTQnlaVzFsYldKbGNtVmtJR1p2Y2lCNWIzVnlJR3h2ZG1VZ2IyWWdZVzVwYldGc2N5NGdWMlVnVFdsemN5QlpiM1V1SUMwdFZHRmlMQ0JUWVcwc0lFTmhjbTlz',
+      name: 'Dennis J. Rudolph',
+      message: 'In memory of Dennis J. Rudolph: you will be remembered for your love of animals. We Miss You. -Tab, Sam, Carol'
+    }
+  ]
+
   public componentDidMount() {
     DpsApi.getInHonorOf()
       .then((donations: IDpsInHonorOfResponse) => {
@@ -26,6 +35,7 @@ export default class DpsInHonorOf extends React.PureComponent<{}, IDpsInHonorOfS
         // TODO
       });
   }
+
 
   public render() {
     const loaded = this.state?.loaded;
@@ -48,6 +58,12 @@ export default class DpsInHonorOf extends React.PureComponent<{}, IDpsInHonorOfS
               className="no-border"
               htmlAttributes={{ alt: 'Yoda 2001-2020', title: 'Yoda 2001-2020' }} />
           </div>
+        </div>
+        <hr />
+        <div className="row in-honor-of">
+          {DpsInHonorOf.HUMAN_DONATIONS.map(donation => <div className="in-honor-of-tile col-md-4 col-sm-6 col-xs-12" key={donation.imgSrc}>
+            <DpsInHonorOfTile donation={donation} />
+          </div>)}
         </div>
         <hr />
         <div className="row in-honor-of">
