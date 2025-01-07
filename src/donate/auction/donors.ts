@@ -124,7 +124,7 @@ export const DONORS: IDpsAuctionDonor[] = [
   },{
     name: 'Allele Tax Advisory',
     link: 'https://www.alleletax.com/',
-    imgSrc: 'allele-tax.jpg'
+    imgSrc: 'allele-tax.png'
   },{
     name: 'Aloft San Francisco Airport',
     link: 'https://www.marriott.com/en-us/hotels/sfoal-aloft-san-francisco-airport/overview/',
