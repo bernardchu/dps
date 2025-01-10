@@ -161,6 +161,46 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'West Wind Drive-In',
     link: 'https://www.westwinddi.com/',
     imgSrc: 'west-wind.png'
+  },{
+    name: 'GasKnight',
+    link: 'https://gasknight.com/',
+    imgSrc: 'gas-knight.avif?bg=black'
+  },{
+    name: 'Topgolf San Jose',
+    link: 'https://topgolf.com/us/san-jose/',
+    imgSrc: 'topgolf.png'
+  },{
+    name: 'Laura Zarrin',
+    link: 'https://www.etsy.com/se-en/shop/LauraZarrin',
+    imgSrc: 'laura-zarrin.webp'
+  },{
+    name: 'AC Hotel Santa Clara',
+    link: 'https://www.marriott.com/en-us/hotels/sjccl-ac-hotel-san-jose-santa-clara/overview/',
+    imgSrc: 'ac-hotels.webp'
+  },{
+    name: 'AC Hotel Sunnyvale',
+    link: 'https://www.marriott.com/en-us/hotels/sjcan-ac-hotel-sunnyvale-cupertino/overview/',
+    imgSrc: 'ac-hotels.webp'
+  },{
+    name: 'Jaime Breeze',
+    link: 'https://jaimebreeze.com/',
+    imgSrc: 'jaime-breeze.png'
+  },{
+    name: 'Theatre Works',
+    link: 'https://theatreworks.org/',
+    imgSrc: 'theatre-works.png?bg=black'
+  },{
+    name: 'Thousand Skies',
+    link: 'https://thousandskies.com/',
+    imgSrc: 'thousand-skies.avif'
+  },{
+    name: 'Westin San Francisco Airport',
+    link: 'https://www.marriott.com/en-us/hotels/sfowi-the-westin-san-francisco-airport/overview/',
+    imgSrc: 'westin.avif'
+  },{
+    name: 'Alcatraz East',
+    link: 'https://www.alcatrazeast.com/',
+    imgSrc: 'alcatraz-east.png'
   }/*
   ,{
     name: '',
