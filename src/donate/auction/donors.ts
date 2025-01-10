@@ -141,6 +141,26 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Crowne Plaza Foster City',
     link: 'https://www.crowneplaza.com/hotels/us/en/foster-city/sfofc/hoteldetail',
     imgSrc: 'crowne-plaza.avif'
+  },{
+    name: 'Total Wine & More',
+    link: 'https://www.totalwine.com/',
+    imgSrc: 'total-wine.png'
+  },{
+    name: 'The Haunt',
+    link: 'https://thehauntghosttours.com/',
+    imgSrc: 'the-haunt.webp'
+  },{
+    name: 'Joy Steuerwald',
+    link: 'joystewy.com',
+    imgSrc: 'joy-stewy.png'
+  },{
+    name: 'Rocko\'s Ice Cream Tacos',
+    link: 'https://www.rockosicecreamtacos.com/',
+    imgSrc: 'rockos.webp'
+  },{
+    name: 'West Wind Drive-In',
+    link: 'https://www.westwinddi.com/',
+    imgSrc: 'west-wind.png'
   }/*
   ,{
     name: '',
