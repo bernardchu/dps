@@ -148,7 +148,7 @@ export const DONORS: IDpsAuctionDonor[] = [
   },{
     name: 'The Haunt',
     link: 'https://thehauntghosttours.com/',
-    imgSrc: 'the-haunt.webp'
+    imgSrc: 'the-haunt.webp?bg=black'
   },{
     name: 'Joy Steuerwald',
     link: 'joystewy.com',
