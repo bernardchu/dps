@@ -17,6 +17,10 @@ export default class DpsAuction extends React.PureComponent {
         <div className="col-sm-12 col-xs-12">
           <h1>Support the DPS Rescue Auction and Save Lives!</h1>
           <p>
+            Join us in person at 809 San Antonio Rd ste 8 on March 2 to get a sneak peek at all the amazing items that will be available on our online auction. We will have light snacks and puppies to play with. Register to join <a href="https://bit.ly/3PCAT5G">here</a>.
+          </p>
+          <hr/>
+          <p>
             Join Doggie Protective Services (DPS Rescue) in making a difference this spring! Our annual fundraiser and online auction will take place from <strong>March 8th to March 16th, 2025</strong>.
             All proceeds will go directly towards the medical care and general well-being of the dogs and cats we rescue—helping save lives, one furry friend at a time.
           </p>
