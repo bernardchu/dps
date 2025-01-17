@@ -201,6 +201,50 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Alcatraz East',
     link: 'https://www.alcatrazeast.com/',
     imgSrc: 'alcatraz-east.png'
+  },{
+    name: 'CuriOdyssey',
+    link: 'https://curiodyssey.org/',
+    imgSrc: 'curiodyssey.jpg'
+  },{
+    name: 'San Jose Giants',
+    link: 'https://www.milb.com/san-jose',
+    imgSrc: 'sj-giants.svg'
+  },{
+    name: 'Blackhawk Museum',
+    link: 'https://blackhawkmuseum.org/',
+    imgSrc: 'blackhawk.png'
+  },{
+    name: 'Peaceful Pathways',
+    link: 'https://peacefulpathways.com/',
+    imgSrc: 'peaceful-pathways.png'
+  },{
+    name: 'Skunk Train',
+    link: 'https://www.skunktrain.com/',
+    imgSrc: 'skunk-train.png'
+  },{
+    name: 'My Pet Peed',
+    link: 'https://www.mypetpeed.com/',
+    imgSrc: 'my-pet-peed.webp?bg=20b1d6'
+  },{
+    name: 'USS Hornet Museum',
+    link: 'https://uss-hornet.org/',
+    imgSrc: 'hornet.png'
+  },{
+    name: 'Steelers',
+    link: 'https://www.steelers.com/',
+    imgSrc: 'steelers.webp'
+  },{
+    name: 'Pet Food Express',
+    link: 'https://www.petfood.express/',
+    imgSrc: 'pfe.webp'
+  },{
+    name: 'Farm To Pet',
+    link: 'https://farmtopettreats.com/',
+    imgSrc: 'farm-to-pet.avif'
+  },{
+    name: 'Sibby\'s Cupcakery',
+    link: 'https://sibbyscupcakery.com/',
+    imgSrc: 'sibbys.svg'
   }/*
   ,{
     name: '',
