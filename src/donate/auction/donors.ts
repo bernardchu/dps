@@ -212,7 +212,7 @@ export const DONORS: IDpsAuctionDonor[] = [
   },{
     name: 'Blackhawk Museum',
     link: 'https://blackhawkmuseum.org/',
-    imgSrc: 'blackhawk.png'
+    imgSrc: 'blackhawk.png?bg=black'
   },{
     name: 'Peaceful Pathways',
     link: 'https://peacefulpathways.com/',
@@ -232,7 +232,7 @@ export const DONORS: IDpsAuctionDonor[] = [
   },{
     name: 'Steelers',
     link: 'https://www.steelers.com/',
-    imgSrc: 'steelers.webp'
+    imgSrc: 'p-steelers.png'
   },{
     name: 'Pet Food Express',
     link: 'https://www.petfood.express/',
