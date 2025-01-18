@@ -81,7 +81,7 @@ export default class DpsHome extends React.PureComponent<{}, IDpsHomeState> {
           <DpsHomeFeatureCard feature={merchFeature} />
           <div className="col-md-12 featured card">
             {/* <!-- Begin Constant Contact Inline Form Code --> */}
-            <div className="ctct-inline-form" data-form-id="507eddd4-ebbf-4431-b7d1-e68dc4c14e4f"></div>
+            <div className="ctct-inline-form" data-form-id="507eddd4-ebbf-4431-b7d1-e68dc4c14e4f" id="signup"></div>
             {/* <!-- End Constant Contact Inline Form Code --> */}
           </div>
           <DpsHomeFeatureCard feature={aboutFeature} />
