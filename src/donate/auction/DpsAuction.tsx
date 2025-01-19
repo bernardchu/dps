@@ -45,7 +45,22 @@ export default class DpsAuction extends React.PureComponent {
           <h2>Recognizing Our Generous Donors</h2>
           <p>
             We are deeply grateful to the businesses, individuals, and organizations who make this event possible.
-            Here are some of our 2025 auction supporters:
+          </p>
+          <p>
+            <h3>Gold Donors:</h3>
+          </p>
+          <div className="row">
+            {GOLD-DONORS.map(donor =>
+              <DpsAuctionDonor
+                key={donor.name}
+                name={donor.name}
+                link={donor.link}
+                imgSrc={donor.imgSrc}
+              />
+            )}
+          </div>
+          <p>
+            <h3>All Donors:</h3>
           </p>
           <div className="row">
             {DONORS.map(donor =>
