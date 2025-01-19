@@ -58,7 +58,10 @@ export default class DpsHomeCarousel extends React.PureComponent<{}, IDpsHomeCar
     const dogs = this.state?.dogs;
 
     return (<>
-      {!loaded && <DpsLoading />}
+      {!loaded &&
+        <div className="loading-container">
+          <DpsLoading />
+        </div>}
       {/* 
         Annoying type shenanigans below because the react-slick docs incorrectly say that
         lazyLoad should be 'progressive' or 'ondemand' when in fact it only works with a boolean.

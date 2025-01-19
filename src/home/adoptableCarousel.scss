@@ -1,4 +1,10 @@
 .adoptable {
+  .loading-container {
+    height: 350px;
+    display: flex;
+    align-items: center;
+  }
+
   .slick-slide {
     display: flex;
     align-items: center;
@@ -10,12 +16,12 @@
       justify-content: center;
       position: relative;
 
-      > img {
+      >img {
         height: 350px;
         max-width: 99%; // on mobile, you can see a sliver of the next image unless this is included.
       }
 
-      > div.adoptable-info-overlay {
+      >div.adoptable-info-overlay {
         position: absolute;
         height: 0;
         width: 100%;
@@ -30,7 +36,7 @@
     }
 
     a:hover {
-      > div.adoptable-info-overlay {
+      >div.adoptable-info-overlay {
         height: 50%;
 
         .adoptable-info {
