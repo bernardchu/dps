@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DpsAuctionDonor from './DpsAuctionDonor';
-import { DONORS } from './donors';
+import { DONORS, GOLD_DONORS } from './donors';
 
 export interface IDpsAuctionDonor {
   name: string;
@@ -19,7 +19,7 @@ export default class DpsAuction extends React.PureComponent {
           <p>
             Join us in person at the Grand Bay Hotel (223 Twin Dolphin Dr, Redwood City) on March 2 to get a sneak peek at all the amazing items that will be available on our online auction. We will have light snacks and puppies to play with. Register to join <a href="https://bit.ly/3PCAT5G">here</a>.
           </p>
-          <hr/>
+          <hr />
           <p>
             Join Doggie Protective Services (DPS Rescue) in making a difference this spring! Our annual fundraiser and online auction will take place from <strong>March 8th to March 16th, 2025</strong>.
             All proceeds will go directly towards the medical care and general well-being of the dogs and cats we rescue—helping save lives, one furry friend at a time.
