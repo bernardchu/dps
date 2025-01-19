@@ -50,7 +50,7 @@ export default class DpsAuction extends React.PureComponent {
             <h3>Gold Donors:</h3>
           </p>
           <div className="row">
-            {GOLD-DONORS.map(donor =>
+            {GOLD_DONORS.map(donor =>
               <DpsAuctionDonor
                 key={donor.name}
                 name={donor.name}
