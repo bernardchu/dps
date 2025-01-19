@@ -4,6 +4,7 @@ import { IDpsDatesApiResponse } from '../api/IDpsApiResponses';
 import DpsLoading from '../common/DpsLoading';
 import { IDpsAsyncState } from '../model/IDpsAsyncState';
 import DpsHomeEvent from './DpsHomeEvent';
+import ScrollToAnchor from '../routing/ScrollToAnchor';
 
 export interface IDpsHomeEventsState extends IDpsAsyncState {
   events: IDpsDatesApiResponse;
@@ -32,6 +33,7 @@ export default class DpsHomeEvents extends React.PureComponent<{}, IDpsHomeEvent
         {!loaded && <DpsLoading />}
         {loaded && events.length === 0 && <h4 className="event">No upcoming events - stay tuned for updates!</h4>}
         {loaded && events.length > 0 && events.map(event => <DpsHomeEvent event={event} key={event.title} />)}
+        {loaded && <ScrollToAnchor />}
       </div>
     );
   }
