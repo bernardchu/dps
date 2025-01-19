@@ -17,7 +17,7 @@ export default class DpsAuction extends React.PureComponent {
         <div className="col-sm-12 col-xs-12">
           <h1>Support the DPS Rescue Auction and Save Lives!</h1>
           <p>
-            Join us in person at 809 San Antonio Rd ste 8 on March 2 to get a sneak peek at all the amazing items that will be available on our online auction. We will have light snacks and puppies to play with. Register to join <a href="https://bit.ly/3PCAT5G">here</a>.
+            Join us in person at the Grand Bay Hotel (223 Twin Dolphin Dr, Redwood City) on March 2 to get a sneak peek at all the amazing items that will be available on our online auction. We will have light snacks and puppies to play with. Register to join <a href="https://bit.ly/3PCAT5G">here</a>.
           </p>
           <hr/>
           <p>
