@@ -1,5 +1,14 @@
 import { IDpsAuctionDonor } from "./DpsAuction";
 
+export const GOLD_DONORS: IDpsAuctionGoldDonor[] = [
+  {
+    name: 'Grand Bay Hotel SF',
+    link: 'https://grandbayhotelsf.com/',
+    imgSrc: 'grandbay.webp'
+  }
+];
+  
+
 export const DONORS: IDpsAuctionDonor[] = [
   {
     name: 'US Ghost Adventures',
@@ -81,10 +90,6 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Fieldwork Brewing',
     link: 'https://fieldworkbrewing.com/',
     imgSrc: 'fieldwork.svg'
-  },{
-    name: 'Grand Bay Hotel SF',
-    link: 'https://grandbayhotelsf.com/',
-    imgSrc: 'grandbay.webp'
   },{
     name: 'House Family Vineyards',
     link: 'https://www.housefamilyvineyards.com/',
@@ -245,6 +250,18 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Sibby\'s Cupcakery',
     link: 'https://sibbyscupcakery.com/',
     imgSrc: 'sibbys.svg'
+  },{
+    name: 'Good Vibes Only',
+    link: 'https://www.poolsidevacationrentals.com/vacation-rental-home.asp?PageDataID=193054',
+    imgSrc: 'good-vibes.webp'
+  },{
+    name: 'Sports Basement',
+    link: 'https://shop.sportsbasement.com/',
+    imgSrc: 'sports-basement.svg'
+  },{
+    name: 'The Plex',
+    link: 'https://www.gotoplex.com/',
+    imgSrc: 'the-plex.png'
   }/*
   ,{
     name: '',
