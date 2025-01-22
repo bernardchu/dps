@@ -5,6 +5,14 @@ export const GOLD_DONORS: IDpsAuctionDonor[] = [
     name: 'Grand Bay Hotel SF',
     link: 'https://grandbayhotelsf.com/',
     imgSrc: 'grandbay.webp'
+  }, {
+    name: 'Kristina Hagan',
+    link: 'https://www.kristinahaganclosetvalet.com/',
+    imgSrc: 'kristina-hagan.png'
+  }, {
+    name: 'Diamond',
+    link: 'https://diamondpetcompany.com/',
+    imgSrc: 'diamond.webp'
   }
 ];
 
@@ -262,8 +270,24 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'The Plex',
     link: 'https://www.gotoplex.com/',
     imgSrc: 'the-plex.png'
+  }, {
+    name: 'Nuance Jewelers',
+    link: 'http://nuancejewelers.com/',
+    imgSrc: 'nuance.png'
+  }, {
+    name: 'Original Grain',
+    link: 'https://www.originalgrain.com/',
+    imgSrc: 'original-grain.webp'
+  }, {
+    name: 'The Pawington',
+    link: 'https://thepawington.com/',
+    imgSrc: 'pawington.png'
+  }, {
+    name: 'Wondercide',
+    link: 'https://www.wondercide.com/',
+    imgSrc: 'wondercide.avif'
   }/*
-  ,{
+  , {
     name: '',
     link: '',
     imgSrc: ''
