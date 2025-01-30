@@ -298,6 +298,14 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'San Jose Brew Bike',
     link: 'https://www.sanjosebrewbike.com/',
     imgSrc: 'sj-brew-bike.png'
+  }, {
+    name: 'The Clue Collective',
+    link: 'https://www.thecluecollective.com/',
+    imgSrc: 'clue-collective.gif'
+  }, {
+    name: 'Inspired Edge Coaching',
+    link: 'https://inspirededgecoaching.com/',
+    imgSrc: 'inspired-edge.png'
   }/*
   , {
     name: '',
