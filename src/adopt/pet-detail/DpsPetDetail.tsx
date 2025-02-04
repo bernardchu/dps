@@ -77,10 +77,6 @@ export function DpsPetDetail() {
           <div className="card meet-this-dog">
             <h2>Meet this {pet.isDog ? 'dog' : 'cat'}!</h2>
             {pet.upcoming && <p className="upcoming">{pet.upcoming}</p>}
-            {!pet.upcoming && <p className="upcoming">
-              {pet.name} will not be at any scheduled events until we find a home that's
-              interested. Please fill out an application if you think that's you!
-            </p>}
             {pet.boilerplate.map(line => <p className="boilerplate" key={line} dangerouslySetInnerHTML={{ __html: line }} />)}
           </div>
           <div className="card apply">
