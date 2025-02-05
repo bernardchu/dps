@@ -306,6 +306,22 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Inspired Edge Coaching',
     link: 'https://inspirededgecoaching.com/',
     imgSrc: 'inspired-edge.png'
+  }, {
+    name: 'Discovery Whale Watch',
+    link: 'https://discoverywhalewatch.com/',
+    imgSrc: 'discovery-ww.png'
+  }, {
+    name: 'MOPOP',
+    link: 'https://www.mopop.org/',
+    imgSrc: 'mopop.png'
+  }, {
+    name: 'SF Giants',
+    link: 'https://www.mlb.com/giants',
+    imgSrc: 'sf-giants.svg'
+  }, {
+    name: 'P.L.A.Y.',
+    link: 'https://www.petplay.com/',
+    imgSrc: 'pet-play.webp'
   }/*
   , {
     name: '',
