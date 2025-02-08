@@ -322,6 +322,22 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'P.L.A.Y.',
     link: 'https://www.petplay.com/',
     imgSrc: 'pet-play.webp'
+  }, {
+    name: 'The Foggy Dog',
+    link: 'https://www.thefoggydog.com/',
+    imgSrc: 'foggy-dog.avif'
+  }, {
+    name: 'Dandylion',
+    link: 'https://www.dandylionworld.com/',
+    imgSrc: 'dandylion.webp'
+  }, {
+    name: 'K1 Speed',
+    link: 'https://www.k1speed.com/',
+    imgSrc: 'k1.webp'
+  }, {
+    name: 'Presidio Bowl',
+    link: 'https://www.presidiobowl.com/',
+    imgSrc: 'presidio-bowl.png'
   }/*
   , {
     name: '',
