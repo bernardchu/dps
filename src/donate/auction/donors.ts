@@ -338,6 +338,18 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Presidio Bowl',
     link: 'https://www.presidiobowl.com/',
     imgSrc: 'presidio-bowl.png'
+  }, {
+    name: 'Soda Springs',
+    link: 'https://www.skisodasprings.com/',
+    imgSrc: 'soda-springs.jpeg'
+  }, {
+    name: 'Small Pet Select',
+    link: 'https://shop.smallpetselect.com/',
+    imgSrc: 'small-pet-select.webp'
+  }, {
+    name: 'C&M Art Studio',
+    link: 'https://www.candmphotography.com/',
+    imgSrc: 'cm-art-studio.png'
   }/*
   , {
     name: '',
