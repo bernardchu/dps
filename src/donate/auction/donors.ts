@@ -291,10 +291,6 @@ export const DONORS: IDpsAuctionDonor[] = [
     link: 'https://www.wondercide.com/',
     imgSrc: 'wondercide.avif'
   }, {
-    name: 'The Lawrence Hall of Science',
-    link: 'https://lawrencehallofscience.org/',
-    imgSrc: 'lawrence.png?bg=black'
-  }, {
     name: 'San Jose Brew Bike',
     link: 'https://www.sanjosebrewbike.com/',
     imgSrc: 'sj-brew-bike.png'
