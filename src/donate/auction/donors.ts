@@ -346,6 +346,14 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'C&M Art Studio',
     link: 'https://www.candmphotography.com/',
     imgSrc: 'cm-art-studio.png'
+  }, {
+    name: 'Livermore Wine Trolley',
+    link: 'https://www.livermorewinetrolley.com/',
+    imgSrc: 'livermore-wine-trolley.png'
+  }, {
+    name: 'MUTTS',
+    link: 'https://mutts.com/',
+    imgSrc: 'mutts.avif'
   }/*
   , {
     name: '',
