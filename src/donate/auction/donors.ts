@@ -17,6 +17,10 @@ export const GOLD_DONORS: IDpsAuctionDonor[] = [
     name: 'Wishes and Wows',
     link: 'https://www.wishesandwows.com/',
     imgSrc: 'wishes-wows.avif'
+  }, {
+    name: 'Doggie Lawn',
+    link: 'https://doggielawn.com/',
+    imgSrc: 'doggie-lawn.webp'
   }
 ];
 
@@ -354,6 +358,10 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'MUTTS',
     link: 'https://mutts.com/',
     imgSrc: 'mutts.avif'
+  }, {
+    name: 'Weasy',
+    link: 'https://weasypet.com/',
+    imgSrc: 'weasy.avif'
   }/*
   , {
     name: '',
