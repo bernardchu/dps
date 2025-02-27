@@ -362,7 +362,24 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Weasy',
     link: 'https://weasypet.com/',
     imgSrc: 'weasy.avif'
-  }/*
+  }, {
+    name: 'Cal Expo State Fair',
+    link: 'https://calexpostatefair.com/',
+    imgSrc: 'cal-expo.svg'
+  }, {
+    name: 'Cal Bears',
+    link: 'https://calbears.com/sports/2022/7/11/cal-golden-bears-football-tickets.aspx',
+    imgSrc: 'cal-bears.png?bg=#041e42'
+  }, {
+    name: 'Hillbarn Theatre',
+    link: 'https://www.hillbarntheatre.org/',
+    imgSrc: 'hillbarn.png?bg=black'
+  }/*, {
+    name: 'The Escape Game San Jose',
+    link: 'https://theescapegame.com/san-jose/',
+    imgSrc: 'escape-sj.svg'
+  }*/
+  /*
   , {
     name: '',
     link: '',
