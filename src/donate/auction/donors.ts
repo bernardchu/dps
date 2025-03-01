@@ -374,6 +374,10 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Hillbarn Theatre',
     link: 'https://www.hillbarntheatre.org/',
     imgSrc: 'hillbarn.png?bg=black'
+  }, {
+    name: 'Blissful Pets',
+    link: 'https://theblissfulpets.com/',
+    imgSrc: 'blissfull.avif?bg=black'
   }/*, {
     name: 'The Escape Game San Jose',
     link: 'https://theescapegame.com/san-jose/',
