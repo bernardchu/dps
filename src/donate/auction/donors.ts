@@ -378,6 +378,14 @@ export const DONORS: IDpsAuctionDonor[] = [
     name: 'Blissful Pets',
     link: 'https://theblissfulpets.com/',
     imgSrc: 'blissfull.avif?bg=black'
+  }, {
+    name: 'Gamelandia',
+    link: 'https://gamelandia.fun/',
+    imgSrc: 'gamelandia.avif'
+  }, {
+    name: 'Spina Farms Pumpkin Patch',
+    link: 'https://spinafarmspumpkinpatch.com/',
+    imgSrc: 'spina-farms.png'
   }/*, {
     name: 'The Escape Game San Jose',
     link: 'https://theescapegame.com/san-jose/',
