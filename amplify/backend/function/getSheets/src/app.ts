@@ -128,11 +128,13 @@ interface IICUAnimal {
   name: string;
   photo: string;
   bio: string;
+  donateLink: string;
+  hospice: boolean;
 }
 
 app.get(path + '/icu', function (req, res) {
   getSheet('icu').then((sheet: ISheet) => {
-    const icu: IICUAnimal[] = SheetsMapper.mapData(sheet.data, ['name', 'photo', 'bio']);
+    const icu: IICUAnimal[] = SheetsMapper.mapData(sheet.data, ['name', 'photo', 'bio', 'donateLink', 'hospice']);
     res.json(icu);
   })
     .catch(err => {
