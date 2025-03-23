@@ -23,7 +23,7 @@ export default class DpsIcuModal extends React.PureComponent<IDpsIcuModalProps> 
             </header>
             <main className="modal__content" id="modal-1-content">
               <div dangerouslySetInnerHTML={{ __html: animal.bio }} />
-              <DpsDonateButton />
+              <DpsDonateButton link={animal.donateLink} />
             </main>
           </div>
         </div>
