@@ -227,7 +227,7 @@ export const routes: { [key: string]: IDpsRoute } = {
         navOrder: 0
       },
       icu: {
-        name: 'Medical Dogs',
+        name: 'Medical and Hospice Dogs',
         path: 'medical-dogs',
         element: <DpsIcu />,
         inNav: true,

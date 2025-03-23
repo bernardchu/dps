@@ -11,16 +11,22 @@ import { Link } from 'react-router-dom';
 import { routes } from '../../routing/routes';
 
 interface IDpsIcuState extends IDpsAsyncState {
-  icu: IDpsIcuAnimal[];
+  hospice: IDpsIcuAnimal[];
+  medical: IDpsIcuAnimal[];
 }
 
 export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
   public componentDidMount() {
     DpsApi.getIcu()
       .then((icu) => {
+        const [hospice, medical]: IDpsIcuAnimal[][] = icu.reduce<[IDpsIcuAnimal[], IDpsIcuAnimal[]]>(
+          ([h, m], animal) => (animal.hospice ? [[...h, animal], m] : [h, [...m, animal]]),
+          [[], []]
+        );
         this.setState({
           loaded: true,
-          icu: icu
+          hospice,
+          medical
         });
       }, (error) => {
         // TODO
@@ -29,15 +35,33 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
   }
 
   public render() {
-    const icu = this.state?.icu;
+    const medical = this.state?.medical;
+    const hospice = this.state?.hospice;
     const loaded = this.state?.loaded;
     return (<>
       <div className="row">
-        <h2>Medical Dogs</h2>
+        <h2>Medical and Hospice Dogs</h2>
         <p>In 2021, we spent over $100,000 on medical dogs. We hope to save even more dogs with medical special needs in 2022, but we need your help! Click on each dog to read their story. You can donate via the link on their description or any of the methods listed <Link to={`../../${routes.donate.path}/${routes.donate.children!.donate.path}#monetary`}>here</Link>.</p>
+
+        <h3>Medical Dogs</h3>
         <div className="col-xs-12 row icu">
           {!loaded && <DpsLoading />}
-          {loaded && icu.map(animal =>
+          {loaded && medical.length && medical.map(animal =>
+            <MicroModal
+              trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}
+              openInitially={false}
+              closeOnOverlayClick={true}
+              closeOnEscapePress={true}
+              disableFirstElementFocus={true}
+              key={animal.photo}>
+              {(close) => <DpsIcuModal animal={animal} closeModal={close} />}
+            </MicroModal>)}
+        </div>
+        <hr />
+        <h3>Hospice Dogs</h3>
+        <div className="col-xs-12 row icu">
+          {!loaded && <DpsLoading />}
+          {loaded && hospice.map(animal =>
             <MicroModal
               trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}
               openInitially={false}
