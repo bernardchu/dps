@@ -6,6 +6,7 @@ import { FostersHandler, ISheetFoster } from './FostersHandler';
 import { SheetsMapper } from './SheetsMapper';
 import { IVolunteer, VolunteersHandler } from './VolunteersHandler';
 import { ISuccessStory, IDBSuccessStory, ISuccessStoryResponse } from '../../common/ISuccessStory';
+import { ICUHandler, IICUSheetAnimal } from './ICUHandler';
 
 /*
 Each endpoint fetches the JSON blob from the corresponding row in the sheets table, organizes it, and returns it.
@@ -124,18 +125,10 @@ app.get(path + '/fosters', function (req, res) {
 /*******
  * ICU *
  *******/
-interface IICUAnimal {
-  name: string;
-  photo: string;
-  bio: string;
-  donateLink: string;
-  hospice: boolean;
-}
-
 app.get(path + '/icu', function (req, res) {
   getSheet('icu').then((sheet: ISheet) => {
-    const icu: IICUAnimal[] = SheetsMapper.mapData(sheet.data, ['name', 'photo', 'bio', 'donateLink', 'hospice']);
-    res.json(icu);
+    const icu: IICUSheetAnimal[] = SheetsMapper.mapData(sheet.data, ['name', 'photo', 'bio', 'donateLink', 'hospice']);
+    res.json(ICUHandler.organize(icu));
   })
     .catch(err => {
       res.statusCode = 500;
