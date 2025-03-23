@@ -59,6 +59,7 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
               </MicroModal>)}
           </div>
         </>}
+
         {loaded && hospice.length > 0 && <>
           <hr />
           <h3>Hospice Dogs</h3>
