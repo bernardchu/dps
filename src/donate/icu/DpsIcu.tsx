@@ -42,36 +42,39 @@ export default class DpsIcu extends React.PureComponent<{}, IDpsIcuState> {
       <div className="row">
         <h2>Medical and Hospice Dogs</h2>
         <p>In 2021, we spent over $100,000 on medical dogs. We hope to save even more dogs with medical special needs in 2022, but we need your help! Click on each dog to read their story. You can donate via the link on their description or any of the methods listed <Link to={`../../${routes.donate.path}/${routes.donate.children!.donate.path}#monetary`}>here</Link>.</p>
+        {!loaded && <DpsLoading />}
 
-        <h3>Medical Dogs</h3>
-        <div className="col-xs-12 row icu">
-          {!loaded && <DpsLoading />}
-          {loaded && medical.length && medical.map(animal =>
-            <MicroModal
-              trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}
-              openInitially={false}
-              closeOnOverlayClick={true}
-              closeOnEscapePress={true}
-              disableFirstElementFocus={true}
-              key={animal.photo}>
-              {(close) => <DpsIcuModal animal={animal} closeModal={close} />}
-            </MicroModal>)}
-        </div>
-        <hr />
-        <h3>Hospice Dogs</h3>
-        <div className="col-xs-12 row icu">
-          {!loaded && <DpsLoading />}
-          {loaded && hospice.map(animal =>
-            <MicroModal
-              trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}
-              openInitially={false}
-              closeOnOverlayClick={true}
-              closeOnEscapePress={true}
-              disableFirstElementFocus={true}
-              key={animal.photo}>
-              {(close) => <DpsIcuModal animal={animal} closeModal={close} />}
-            </MicroModal>)}
-        </div>
+        {loaded && medical.length > 0 && <>
+          <h3>Medical Dogs</h3>
+          <div className="col-xs-12 row icu">
+            {medical.map(animal =>
+              <MicroModal
+                trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}
+                openInitially={false}
+                closeOnOverlayClick={true}
+                closeOnEscapePress={true}
+                disableFirstElementFocus={true}
+                key={animal.photo}>
+                {(close) => <DpsIcuModal animal={animal} closeModal={close} />}
+              </MicroModal>)}
+          </div>
+        </>}
+        {loaded && hospice.length > 0 && <>
+          <hr />
+          <h3>Hospice Dogs</h3>
+          <div className="col-xs-12 row icu">
+            {hospice.map(animal =>
+              <MicroModal
+                trigger={(handleOpen) => <DpsIcuTile animal={animal} handleOpen={handleOpen} />}
+                openInitially={false}
+                closeOnOverlayClick={true}
+                closeOnEscapePress={true}
+                disableFirstElementFocus={true}
+                key={animal.photo}>
+                {(close) => <DpsIcuModal animal={animal} closeModal={close} />}
+              </MicroModal>)}
+          </div>
+        </>}
       </div>
     </>);
   }
